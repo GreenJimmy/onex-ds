@@ -9,22 +9,22 @@ If you're new to custom elements, often referred to as "web components," this se
 Many components have properties that can be set using attributes. For example, buttons accept a `size` attribute that maps to the `size` property which dictates the button's size.
 
 ```html
-<sl-button size="small">Click me</sl-button>
+<onex-button size="small">Click me</onex-button>
 ```
 
 Some properties are boolean, so they only have true/false values. To activate a boolean property, add the corresponding attribute without a value.
 
 ```html
-<sl-button disabled>Click me</sl-button>
+<onex-button disabled>Click me</onex-button>
 ```
 
 In rare cases, a property may require an array, an object, or a function. For example, to customize the color picker's list of preset swatches, you set the `swatches` property to an array of colors. This must be done with JavaScript.
 
 ```html
-<sl-color-picker></sl-color-picker>
+<onex-color-picker></onex-color-picker>
 
 <script>
-  const colorPicker = document.querySelector('sl-color-picker');
+  const colorPicker = document.querySelector('onex-color-picker');
   colorPicker.swatches = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 </script>
 ```
@@ -33,14 +33,14 @@ Refer to a component's documentation for a complete list of its properties.
 
 ## Events
 
-You can listen for standard events such as `click`, `mouseover`, etc. as you normally would. In addition, some components emit custom events. These work the same way as standard events, but are prefixed with `sl-` to prevent collisions with standard events and other libraries.
+You can listen for standard events such as `click`, `mouseover`, etc. as you normally would. In addition, some components emit custom events. These work the same way as standard events, but are prefixed with `onex-` to prevent collisions with standard events and other libraries.
 
 ```html
-<sl-checkbox>Check me</sl-checkbox>
+<onex-checkbox>Check me</onex-checkbox>
 
 <script>
-  const checkbox = document.querySelector('sl-checkbox');
-  checkbox.addEventListener('sl-change', event => {
+  const checkbox = document.querySelector('onex-checkbox');
+  checkbox.addEventListener('onex-change', event => {
     console.log(event.target.checked ? 'checked' : 'not checked');
   });
 </script>
@@ -53,10 +53,10 @@ Refer to a component's documentation for a complete list of its custom events.
 Some components have methods you can call to trigger various behaviors. For example, you can set focus on a Shoelace input using the `focus()` method.
 
 ```html
-<sl-input></sl-input>
+<onex-input></onex-input>
 
 <script>
-  const input = document.querySelector('sl-input');
+  const input = document.querySelector('onex-input');
   input.focus();
 </script>
 ```
@@ -70,16 +70,16 @@ Many components use slots to accept content inside of them. The most common slot
 For example, a button's default slot is used to populate its label.
 
 ```html
-<sl-button>Click me</sl-button>
+<onex-button>Click me</onex-button>
 ```
 
 Some components also have _named_ slots. A named slot can be populated by adding a child element with the appropriate `slot` attribute. Notice how the icon below has the `slot="prefix"` attribute? This tells the component to place the icon into its `prefix` slot.
 
 ```html
-<sl-button>
-  <sl-icon slot="prefix" name="gear"></sl-icon>
+<onex-button>
+  <onex-icon slot="prefix" name="gear"></onex-icon>
   Settings
-</sl-button>
+</onex-button>
 ```
 
 The location of a named slot doesn't matter. You can put it anywhere inside the component and the browser will move it to the right place automatically!
@@ -92,17 +92,17 @@ Custom elements cannot have self-closing tags. Similar to `<script>` and `<texta
 
 ```html
 <!-- Don't do this -->
-<sl-input />
+<onex-input />
 
 <!-- Always do this -->
-<sl-input></sl-input>
+<onex-input></onex-input>
 ```
 
 ## Differences from Native Elements
 
 You might expect similarly named elements to share the same API as native HTML elements. This is not always the case. Shoelace components **are not** designed to be one-to-one replacements for their HTML counterparts.
 
-For example, `<button>` and `<sl-button>` both have a `type` attribute, but it does different things. The former controls whether the button submits a form and the latter controls the button's appearance.
+For example, `<button>` and `<onex-button>` both have a `type` attribute, but it does different things. The former controls whether the button submits a form and the latter controls the button's appearance.
 
 ?> **Don't make assumptions about a component's API!** To prevent unexpected behaviors, please take the time to review the documentation and make sure you understand what each attribute, property, method, and event is intended to do.
 
@@ -138,9 +138,9 @@ A clever way to use this method is to hide the `<body>` with `opacity: 0` and ad
 
 <script type="module">
   await Promise.allSettled([
-    customElements.whenDefined('sl-button'),
-    customElements.whenDefined('sl-card'),
-    customElements.whenDefined('sl-rating')
+    customElements.whenDefined('onex-button'),
+    customElements.whenDefined('onex-card'),
+    customElements.whenDefined('onex-rating')
   ]);
 
   // Button, card, and rating are registered now! Add

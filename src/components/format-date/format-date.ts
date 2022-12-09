@@ -9,8 +9,8 @@ import { LocalizeController } from '../../utilities/localize';
  * @since 2.0
  * @status stable
  */
-@customElement('sl-format-date')
-export default class SlFormatDate extends ShoelaceElement {
+@customElement('onex-format-date')
+export default class OneXFormatDate extends ShoelaceElement {
   private readonly localize = new LocalizeController(this);
 
   /**
@@ -84,6 +84,6 @@ export default class SlFormatDate extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-format-date': SlFormatDate;
+    'onex-format-date': OneXFormatDate;
   }
 }

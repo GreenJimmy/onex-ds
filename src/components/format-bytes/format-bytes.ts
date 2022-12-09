@@ -8,8 +8,8 @@ import { LocalizeController } from '../../utilities/localize';
  * @since 2.0
  * @status stable
  */
-@customElement('sl-format-bytes')
-export default class SlFormatBytes extends ShoelaceElement {
+@customElement('onex-format-bytes')
+export default class OneXFormatBytes extends ShoelaceElement {
   private readonly localize = new LocalizeController(this);
 
   /** The number to format in bytes. */
@@ -43,6 +43,6 @@ export default class SlFormatBytes extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-format-bytes': SlFormatBytes;
+    'onex-format-bytes': OneXFormatBytes;
   }
 }

@@ -1,6 +1,6 @@
 import defaultLibrary from './library.default';
 import systemLibrary from './library.system';
-import type SlIcon from '../icon/icon';
+import type OneXIcon from '../icon/icon';
 
 export type IconLibraryResolver = (name: string) => string;
 export type IconLibraryMutator = (svg: SVGElement) => void;
@@ -11,15 +11,15 @@ export interface IconLibrary {
 }
 
 let registry: IconLibrary[] = [defaultLibrary, systemLibrary];
-let watchedIcons: SlIcon[] = [];
+let watchedIcons: OneXIcon[] = [];
 
 /** Adds an icon to the list of watched icons. */
-export function watchIcon(icon: SlIcon) {
+export function watchIcon(icon: OneXIcon) {
   watchedIcons.push(icon);
 }
 
 /** Removes an icon from the list of watched icons. */
-export function unwatchIcon(icon: SlIcon) {
+export function unwatchIcon(icon: OneXIcon) {
   watchedIcons = watchedIcons.filter(el => el !== icon);
 }
 

@@ -1,26 +1,26 @@
 # Radio
 
-[component-header:sl-radio]
+[component-header:onex-radio]
 
 Radios are designed to be used with [radio groups](/components/radio-group).
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2">Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2">Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2">Option 2</SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2">Option 2</OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
@@ -33,22 +33,22 @@ const App = () => (
 To set the initial value and checked state, use the `value` attribute on the containing radio group.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="3">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2">Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="3">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2">Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="3">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2">Option 2</SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="3">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2">Option 2</OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
@@ -57,25 +57,25 @@ const App = () => (
 Use the `disabled` attribute to disable a radio.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2" disabled>Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2" disabled>Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2" disabled>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2" disabled>
       Option 2
-    </SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+    </OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
-[component-metadata:sl-radio]
+[component-metadata:onex-radio]

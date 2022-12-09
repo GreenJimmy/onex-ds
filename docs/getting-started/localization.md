@@ -64,8 +64,8 @@ You can use a different locale for an individual component by setting its `lang`
   ...
 
   <body>
-    <sl-button><!-- Spanish --></sl-button>
-    <sl-button lang="ru"><!-- Russian --></sl-button>
+    <onex-button><!-- Spanish --></onex-button>
+    <onex-button lang="ru"><!-- Russian --></onex-button>
   </body>
 </html>
 ```
@@ -78,7 +78,7 @@ For performance reasons, the `lang` and `dir` attributes must be on the componen
 
   <body>
     <div lang="ru">
-      <sl-button><!-- still in Spanish --></sl-button>
+      <onex-button><!-- still in Spanish --></onex-button>
     </div>
   </body>
 </html>

@@ -1,28 +1,28 @@
 /*
  * This file contains utility classes that can't be contained in a component and must be applied to the light DOM. None
- * of the rules in this stylesheet should target component tags or HTML tags, and all classes *must* start with ".sl-"
+ * of the rules in this stylesheet should target component tags or HTML tags, and all classes *must* start with ".onex-"
  * to reduce the possibility of collisions.
  */
 
-.sl-scroll-lock {
+.onex-scroll-lock {
   overflow: hidden !important;
 }
 
-.sl-toast-stack {
+.onex-toast-stack {
   position: fixed;
   top: 0;
   inset-inline-end: 0;
-  z-index: var(--sl-z-index-toast);
+  z-index: var(--onex-z-index-toast);
   width: 28rem;
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
 }
 
-.sl-toast-stack sl-alert {
-  margin: var(--sl-spacing-medium);
+.onex-toast-stack onex-alert {
+  margin: var(--onex-spacing-medium);
 }
 
-.sl-toast-stack sl-alert::part(base) {
-  box-shadow: var(--sl-shadow-large);
+.onex-toast-stack onex-alert::part(base) {
+  box-shadow: var(--onex-shadow-large);
 }

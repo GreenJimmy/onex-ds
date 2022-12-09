@@ -12,15 +12,15 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @event sl-cancel - Emitted when the animation is canceled.
- * @event sl-finish - Emitted when the animation finishes.
- * @event sl-start - Emitted when the animation starts or restarts.
+ * @event onex-cancel - Emitted when the animation is canceled.
+ * @event onex-finish - Emitted when the animation finishes.
+ * @event onex-start - Emitted when the animation starts or restarts.
  *
  * @slot - The element to animate. Avoid slotting in more than one element, as subsequent ones will be ignored. To
- *  animate multiple elements, either wrap them in a single container or use multiple `<sl-animation>` elements.
+ *  animate multiple elements, either wrap them in a single container or use multiple `<onex-animation>` elements.
  */
-@customElement('sl-animation')
-export default class SlAnimation extends ShoelaceElement {
+@customElement('onex-animation')
+export default class OneXAnimation extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private animation?: Animation;
@@ -121,13 +121,13 @@ export default class SlAnimation extends ShoelaceElement {
   handleAnimationFinish() {
     this.play = false;
     this.hasStarted = false;
-    this.emit('sl-finish');
+    this.emit('onex-finish');
   }
 
   handleAnimationCancel() {
     this.play = false;
     this.hasStarted = false;
-    this.emit('sl-cancel');
+    this.emit('onex-cancel');
   }
 
   @watch('play')
@@ -135,7 +135,7 @@ export default class SlAnimation extends ShoelaceElement {
     if (this.animation) {
       if (this.play && !this.hasStarted) {
         this.hasStarted = true;
-        this.emit('sl-start');
+        this.emit('onex-start');
       }
 
       if (this.play) {
@@ -188,7 +188,7 @@ export default class SlAnimation extends ShoelaceElement {
 
     if (this.play) {
       this.hasStarted = true;
-      this.emit('sl-start');
+      this.emit('onex-start');
     } else {
       this.animation.pause();
     }
@@ -222,6 +222,6 @@ export default class SlAnimation extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-animation': SlAnimation;
+    'onex-animation': OneXAnimation;
   }
 }

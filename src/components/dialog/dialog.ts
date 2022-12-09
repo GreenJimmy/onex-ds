@@ -21,19 +21,19 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon-button
+ * @dependency onex-icon-button
  *
  * @slot - The dialog's main content.
  * @slot label - The dialog's label. Alternatively, you can use the `label` attribute.
  * @slot footer - The dialog's footer, usually one or more buttons representing various options.
  *
- * @event sl-show - Emitted when the dialog opens.
- * @event sl-after-show - Emitted after the dialog opens and all animations are complete.
- * @event sl-hide - Emitted when the dialog closes.
- * @event sl-after-hide - Emitted after the dialog closes and all animations are complete.
- * @event sl-initial-focus - Emitted when the dialog opens and is ready to receive focus. Calling
+ * @event onex-show - Emitted when the dialog opens.
+ * @event onex-after-show - Emitted after the dialog opens and all animations are complete.
+ * @event onex-hide - Emitted when the dialog closes.
+ * @event onex-after-hide - Emitted after the dialog closes and all animations are complete.
+ * @event onex-initial-focus - Emitted when the dialog opens and is ready to receive focus. Calling
  *   `event.preventDefault()` will prevent focusing and allow you to set it on a different element, such as an input.
- * @event {{ source: 'close-button' | 'keyboard' | 'overlay' }} sl-request-close - Emitted when the user attempts to
+ * @event {{ source: 'close-button' | 'keyboard' | 'overlay' }} onex-request-close - Emitted when the user attempts to
  *   close the dialog by clicking the close button, clicking the overlay, or pressing escape. Calling
  *   `event.preventDefault()` will keep the dialog open. Avoid using this unless closing the dialog will result in
  *   destructive behavior such as data loss.
@@ -42,9 +42,9 @@ import type { CSSResultGroup } from 'lit';
  * @csspart overlay - The overlay that covers the screen behind the dialog.
  * @csspart panel - The dialog's panel (where the dialog and its content are rendered).
  * @csspart header - The dialog's header. This element wraps the title and header actions.
- * @csspart header-actions - Optional actions to add to the header. Works best with `<sl-icon-button>`.
+ * @csspart header-actions - Optional actions to add to the header. Works best with `<onex-icon-button>`.
  * @csspart title - The dialog's title.
- * @csspart close-button - The close button, an `<sl-icon-button>`.
+ * @csspart close-button - The close button, an `<onex-icon-button>`.
  * @csspart close-button__base - The close button's exported `base` part.
  * @csspart body - The dialog's body.
  * @csspart footer - The dialog's footer.
@@ -60,8 +60,8 @@ import type { CSSResultGroup } from 'lit';
  * @animation dialog.overlay.show - The animation to use when showing the dialog's overlay.
  * @animation dialog.overlay.hide - The animation to use when hiding the dialog's overlay.
  */
-@customElement('sl-dialog')
-export default class SlDialog extends ShoelaceElement {
+@customElement('onex-dialog')
+export default class OneXDialog extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('.dialog') dialog: HTMLElement;
@@ -119,7 +119,7 @@ export default class SlDialog extends ShoelaceElement {
     }
 
     this.open = true;
-    return waitForEvent(this, 'sl-after-show');
+    return waitForEvent(this, 'onex-after-show');
   }
 
   /** Hides the dialog */
@@ -129,11 +129,11 @@ export default class SlDialog extends ShoelaceElement {
     }
 
     this.open = false;
-    return waitForEvent(this, 'sl-after-hide');
+    return waitForEvent(this, 'onex-after-hide');
   }
 
   private requestClose(source: 'close-button' | 'keyboard' | 'overlay') {
-    const slRequestClose = this.emit('sl-request-close', {
+    const slRequestClose = this.emit('onex-request-close', {
       cancelable: true,
       detail: { source }
     });
@@ -166,7 +166,7 @@ export default class SlDialog extends ShoelaceElement {
   async handleOpenChange() {
     if (this.open) {
       // Show
-      this.emit('sl-show');
+      this.emit('onex-show');
       this.addOpenListeners();
       this.originalTrigger = document.activeElement as HTMLElement;
       this.modal.activate();
@@ -189,7 +189,7 @@ export default class SlDialog extends ShoelaceElement {
 
       // Set initial focus
       requestAnimationFrame(() => {
-        const slInitialFocus = this.emit('sl-initial-focus', { cancelable: true });
+        const slInitialFocus = this.emit('onex-initial-focus', { cancelable: true });
 
         if (!slInitialFocus.defaultPrevented) {
           // Set focus to the autofocus target and restore the attribute
@@ -213,10 +213,10 @@ export default class SlDialog extends ShoelaceElement {
         animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)
       ]);
 
-      this.emit('sl-after-show');
+      this.emit('onex-after-show');
     } else {
       // Hide
-      this.emit('sl-hide');
+      this.emit('onex-hide');
       this.removeOpenListeners();
       this.modal.deactivate();
 
@@ -250,7 +250,7 @@ export default class SlDialog extends ShoelaceElement {
         setTimeout(() => trigger.focus());
       }
 
-      this.emit('sl-after-hide');
+      this.emit('onex-after-hide');
     }
   }
 
@@ -284,7 +284,7 @@ export default class SlDialog extends ShoelaceElement {
                   </h2>
                   <div part="header-actions" class="dialog__header-actions">
                     <slot name="header-actions"></slot>
-                    <sl-icon-button
+                    <onex-icon-button
                       part="close-button"
                       exportparts="base:close-button__base"
                       class="dialog__close"
@@ -292,7 +292,7 @@ export default class SlDialog extends ShoelaceElement {
                       label=${this.localize.term('close')}
                       library="system"
                       @click="${() => this.requestClose('close-button')}"
-                    ></sl-icon-button>
+                    ></onex-icon-button>
                   </div>
                 </header>
               `
@@ -342,6 +342,6 @@ setDefaultAnimation('dialog.overlay.hide', {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-dialog': SlDialog;
+    'onex-dialog': OneXDialog;
   }
 }

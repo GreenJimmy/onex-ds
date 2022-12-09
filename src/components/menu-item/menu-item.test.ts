@@ -1,19 +1,19 @@
 import { expect, fixture, html, waitUntil, aTimeout } from '@open-wc/testing';
 import sinon from 'sinon';
-import type SlMenuItem from './menu-item';
+import type OneXMenuItem from './menu-item';
 
-describe('<sl-menu-item>', () => {
+describe('<onex-menu-item>', () => {
   it('passes accessibility test', async () => {
-    const el = await fixture<SlMenuItem>(html`
-      <sl-select>
-        <sl-menu-item>Test</sl-menu-item>
-      </sl-select>
+    const el = await fixture<OneXMenuItem>(html`
+      <onex-select>
+        <onex-menu-item>Test</onex-menu-item>
+      </onex-select>
     `);
     await expect(el).to.be.accessible();
   });
 
   it('default properties', async () => {
-    const el = await fixture<SlMenuItem>(html` <sl-menu-item>Test</sl-menu-item> `);
+    const el = await fixture<OneXMenuItem>(html` <onex-menu-item>Test</onex-menu-item> `);
 
     expect(el.checked).to.be.false;
     expect(el.getAttribute('aria-checked')).to.equal('false');
@@ -23,7 +23,7 @@ describe('<sl-menu-item>', () => {
   });
 
   it('changes aria attributes', async () => {
-    const el = await fixture<SlMenuItem>(html` <sl-menu-item>Test</sl-menu-item> `);
+    const el = await fixture<OneXMenuItem>(html` <onex-menu-item>Test</onex-menu-item> `);
 
     el.checked = true;
     await aTimeout(100);
@@ -34,16 +34,16 @@ describe('<sl-menu-item>', () => {
   });
 
   it('get text label', async () => {
-    const el = await fixture<SlMenuItem>(html` <sl-menu-item>Test</sl-menu-item> `);
+    const el = await fixture<OneXMenuItem>(html` <onex-menu-item>Test</onex-menu-item> `);
     expect(el.getTextLabel()).to.equal('Test');
   });
 
-  it('emit sl-label-change event on label change', async () => {
-    const el = await fixture<SlMenuItem>(html` <sl-menu-item>Test</sl-menu-item> `);
+  it('emit onex-label-change event on label change', async () => {
+    const el = await fixture<OneXMenuItem>(html` <onex-menu-item>Test</onex-menu-item> `);
 
     const labelChangeHandler = sinon.spy();
     el.textContent = 'New Text';
-    el.addEventListener('sl-label-change', labelChangeHandler);
+    el.addEventListener('onex-label-change', labelChangeHandler);
     await waitUntil(() => labelChangeHandler.calledOnce);
     expect(labelChangeHandler).to.have.been.calledOnce;
   });

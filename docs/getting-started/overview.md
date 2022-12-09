@@ -2,7 +2,7 @@
 <div class="splash-start">
 <img class="splash-logo" src="/assets/images/wordmark.svg" alt="Shoelace">
 
-# <sl-visually-hidden>Shoelace:</sl-visually-hidden> A forward-thinking library of web components.
+# <onex-visually-hidden>Shoelace:</onex-visually-hidden> A forward-thinking library of web components.
 
 - Works with all frameworks 🧩
 - Works with CDNs 🚛
@@ -40,7 +40,7 @@ Add the following code to your page.
 Now you have access to all of Shoelace's components! Try adding a button:
 
 ```html preview expanded
-<sl-button>Click me</sl-button>
+<onex-button>Click me</onex-button>
 ```
 
 ?> This will load all of Shoelace's components, but you should probably only load the ones you're actually using. To learn how, or for other ways to install Shoelace, refer to the [installation instructions](getting-started/installation).
@@ -101,17 +101,17 @@ Designing, developing, and supporting this library requires a lot of time, effor
 
 👇 Your support is very much appreciated! 👇
 
-<sl-button class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
-  <sl-icon slot="prefix" name="heart"></sl-icon> Become a sponsor
-</sl-button>
+<onex-button class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
+  <onex-icon slot="prefix" name="heart"></onex-icon> Become a sponsor
+</onex-button>
 
-<sl-button class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
-  <sl-icon slot="prefix" name="github"></sl-icon> Star
-</sl-button>
+<onex-button class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
+  <onex-icon slot="prefix" name="github"></onex-icon> Star
+</onex-button>
 
-<sl-button class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
-  <sl-icon slot="prefix" name="twitter"></sl-icon> Follow
-</sl-button>
+<onex-button class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
+  <onex-icon slot="prefix" name="twitter"></onex-icon> Follow
+</onex-button>
 
 ## Attribution
 

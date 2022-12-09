@@ -8,8 +8,8 @@ import { watch } from '../../internal/watch';
 import '../button-group/button-group';
 import styles from './radio-group.styles';
 import type { ShoelaceFormControl } from '../../internal/shoelace-element';
-import type SlRadioButton from '../radio-button/radio-button';
-import type SlRadio from '../radio/radio';
+import type OneXRadioButton from '../radio-button/radio-button';
+import type OneXRadio from '../radio/radio';
 import type { CSSResultGroup } from 'lit';
 
 /**
@@ -18,14 +18,14 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-button-group
+ * @dependency onex-button-group
  *
- * @slot - The default slot where `<sl-radio>` or `<sl-radio-button>` elements are placed.
+ * @slot - The default slot where `<onex-radio>` or `<onex-radio-button>` elements are placed.
  * @slot label - The radio group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
  *
- * @event sl-change - Emitted when the radio group's selected value changes.
- * @event sl-input - Emitted when the radio group receives user input.
+ * @event onex-change - Emitted when the radio group's selected value changes.
+ * @event onex-input - Emitted when the radio group receives user input.
  *
  * @csspart form-control - The form control that wraps the label, input, and help text.
  * @csspart form-control-label - The label's wrapper.
@@ -34,8 +34,8 @@ import type { CSSResultGroup } from 'lit';
  * @csspart button-group - The button group that wraps radio buttons.
  * @csspart button-group__base - The button group's `base` part.
  */
-@customElement('sl-radio-group')
-export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-radio-group')
+export default class OneXRadioGroup extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   protected readonly formSubmitController = new FormSubmitController(this, {
@@ -138,11 +138,11 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
   }
 
   getAllRadios() {
-    return [...this.querySelectorAll<SlRadio | SlRadioButton>('sl-radio, sl-radio-button')];
+    return [...this.querySelectorAll<OneXRadio | OneXRadioButton>('onex-radio, onex-radio-button')];
   }
 
   handleRadioClick(event: MouseEvent) {
-    const target = event.target as SlRadio | SlRadioButton;
+    const target = event.target as OneXRadio | OneXRadioButton;
     const radios = this.getAllRadios();
     const oldValue = this.value;
 
@@ -154,8 +154,8 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
     radios.forEach(radio => (radio.checked = radio === target));
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -197,8 +197,8 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
 
     event.preventDefault();
@@ -220,7 +220,7 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
 
     radios.forEach(radio => (radio.checked = radio.value === this.value));
 
-    this.hasButtonGroup = radios.some(radio => radio.tagName.toLowerCase() === 'sl-radio-button');
+    this.hasButtonGroup = radios.some(radio => radio.tagName.toLowerCase() === 'onex-radio-button');
 
     if (!radios.some(radio => radio.checked)) {
       if (this.hasButtonGroup) {
@@ -232,7 +232,7 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
     }
 
     if (this.hasButtonGroup) {
-      const buttonGroup = this.shadowRoot?.querySelector('sl-button-group');
+      const buttonGroup = this.shadowRoot?.querySelector('onex-button-group');
 
       if (buttonGroup) {
         buttonGroup.disableRole = true;
@@ -308,9 +308,9 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
 
           ${this.hasButtonGroup
             ? html`
-                <sl-button-group part="button-group" exportparts="base:button-group__base">
+                <onex-button-group part="button-group" exportparts="base:button-group__base">
                   ${defaultSlot}
-                </sl-button-group>
+                </onex-button-group>
               `
             : defaultSlot}
         </div>
@@ -332,6 +332,6 @@ export default class SlRadioGroup extends ShoelaceElement implements ShoelaceFor
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-radio-group': SlRadioGroup;
+    'onex-radio-group': OneXRadioGroup;
   }
 }

@@ -1,60 +1,60 @@
 # Dropdown
 
-[component-header:sl-dropdown]
+[component-header:onex-dropdown]
 
 Dropdowns consist of a trigger and a panel. By default, activating the trigger will expose the panel and interacting outside of the panel will close it.
 
 Dropdowns are designed to work well with [menus](/components/menu) to provide a list of options the user can select from. However, dropdowns can also be used in lower-level applications (e.g. [color picker](/components/color-picker) and [select](/components/select)). The API gives you complete control over showing, hiding, and positioning the panel.
 
 ```html preview
-<sl-dropdown>
-  <sl-button slot="trigger" caret>Dropdown</sl-button>
-  <sl-menu>
-    <sl-menu-item>Dropdown Item 1</sl-menu-item>
-    <sl-menu-item>Dropdown Item 2</sl-menu-item>
-    <sl-menu-item>Dropdown Item 3</sl-menu-item>
-    <sl-divider></sl-divider>
-    <sl-menu-item checked>Checked</sl-menu-item>
-    <sl-menu-item disabled>Disabled</sl-menu-item>
-    <sl-divider></sl-divider>
-    <sl-menu-item>
+<onex-dropdown>
+  <onex-button slot="trigger" caret>Dropdown</onex-button>
+  <onex-menu>
+    <onex-menu-item>Dropdown Item 1</onex-menu-item>
+    <onex-menu-item>Dropdown Item 2</onex-menu-item>
+    <onex-menu-item>Dropdown Item 3</onex-menu-item>
+    <onex-divider></onex-divider>
+    <onex-menu-item checked>Checked</onex-menu-item>
+    <onex-menu-item disabled>Disabled</onex-menu-item>
+    <onex-divider></onex-divider>
+    <onex-menu-item>
       Prefix
-      <sl-icon slot="prefix" name="gift"></sl-icon>
-    </sl-menu-item>
-    <sl-menu-item>
+      <onex-icon slot="prefix" name="gift"></onex-icon>
+    </onex-menu-item>
+    <onex-menu-item>
       Suffix Icon
-      <sl-icon slot="suffix" name="heart"></sl-icon>
-    </sl-menu-item>
-  </sl-menu>
-</sl-dropdown>
+      <onex-icon slot="suffix" name="heart"></onex-icon>
+    </onex-menu-item>
+  </onex-menu>
+</onex-dropdown>
 ```
 
 ```jsx react
-import { SlButton, SlDivider, SlDropdown, SlIcon, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDivider, OneXDropdown, OneXIcon, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlDropdown>
-    <SlButton slot="trigger" caret>
+  <OnexDropdown>
+    <OnexButton slot="trigger" caret>
       Dropdown
-    </SlButton>
-    <SlMenu>
-      <SlMenuItem>Dropdown Item 1</SlMenuItem>
-      <SlMenuItem>Dropdown Item 2</SlMenuItem>
-      <SlMenuItem>Dropdown Item 3</SlMenuItem>
-      <SlDivider />
-      <SlMenuItem checked>Checked</SlMenuItem>
-      <SlMenuItem disabled>Disabled</SlMenuItem>
-      <SlDivider />
-      <SlMenuItem>
+    </OneXButton>
+    <OnexMenu>
+      <OneXMenuItem>Dropdown Item 1</OneXMenuItem>
+      <OneXMenuItem>Dropdown Item 2</OneXMenuItem>
+      <OneXMenuItem>Dropdown Item 3</OneXMenuItem>
+      <OnexDivider />
+      <OneXMenuItem checked>Checked</OneXMenuItem>
+      <OneXMenuItem disabled>Disabled</OneXMenuItem>
+      <OnexDivider />
+      <OneXMenuItem>
         Prefix
-        <SlIcon slot="prefix" name="gift" />
-      </SlMenuItem>
-      <SlMenuItem>
+        <OnexIcon slot="prefix" name="gift" />
+      </OneXMenuItem>
+      <OneXMenuItem>
         Suffix Icon
-        <SlIcon slot="suffix" name="heart" />
-      </SlMenuItem>
-    </SlMenu>
-  </SlDropdown>
+        <OnexIcon slot="suffix" name="heart" />
+      </OneXMenuItem>
+    </OneXMenu>
+  </OneXDropdown>
 );
 ```
 
@@ -62,25 +62,25 @@ const App = () => (
 
 ### Getting the Selected Item
 
-When dropdowns are used with [menus](/components/menu), you can listen for the `sl-select` event to determine which menu item was selected. The menu item element will be exposed in `event.detail.item`. You can set `value` props to make it easier to identify commands.
+When dropdowns are used with [menus](/components/menu), you can listen for the `onex-select` event to determine which menu item was selected. The menu item element will be exposed in `event.detail.item`. You can set `value` props to make it easier to identify commands.
 
 ```html preview
 <div class="dropdown-selection">
-  <sl-dropdown>
-    <sl-button slot="trigger" caret>Edit</sl-button>
-    <sl-menu>
-      <sl-menu-item value="cut">Cut</sl-menu-item>
-      <sl-menu-item value="copy">Copy</sl-menu-item>
-      <sl-menu-item value="paste">Paste</sl-menu-item>
-    </sl-menu>
-  </sl-dropdown>
+  <onex-dropdown>
+    <onex-button slot="trigger" caret>Edit</onex-button>
+    <onex-menu>
+      <onex-menu-item value="cut">Cut</onex-menu-item>
+      <onex-menu-item value="copy">Copy</onex-menu-item>
+      <onex-menu-item value="paste">Paste</onex-menu-item>
+    </onex-menu>
+  </onex-dropdown>
 </div>
 
 <script>
   const container = document.querySelector('.dropdown-selection');
-  const dropdown = container.querySelector('sl-dropdown');
+  const dropdown = container.querySelector('onex-dropdown');
 
-  dropdown.addEventListener('sl-select', event => {
+  dropdown.addEventListener('onex-select', event => {
     const selectedItem = event.detail.item;
     console.log(selectedItem.value);
   });
@@ -88,7 +88,7 @@ When dropdowns are used with [menus](/components/menu), you can listen for the `
 ```
 
 ```jsx react
-import { SlButton, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDropdown, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleSelect(event) {
@@ -97,16 +97,16 @@ const App = () => {
   }
 
   return (
-    <SlDropdown>
-      <SlButton slot="trigger" caret>
+    <OnexDropdown>
+      <OnexButton slot="trigger" caret>
         Edit
-      </SlButton>
-      <SlMenu onSlSelect={handleSelect}>
-        <SlMenuItem value="cut">Cut</SlMenuItem>
-        <SlMenuItem value="copy">Copy</SlMenuItem>
-        <SlMenuItem value="paste">Paste</SlMenuItem>
-      </SlMenu>
-    </SlDropdown>
+      </OneXButton>
+      <OnexMenu onOneXSelect={handleSelect}>
+        <OneXMenuItem value="cut">Cut</OneXMenuItem>
+        <OneXMenuItem value="copy">Copy</OneXMenuItem>
+        <OneXMenuItem value="paste">Paste</OneXMenuItem>
+      </OneXMenu>
+    </OneXDropdown>
   );
 };
 ```
@@ -115,21 +115,21 @@ Alternatively, you can listen for the `click` event on individual menu items. No
 
 ```html preview
 <div class="dropdown-selection-alt">
-  <sl-dropdown>
-    <sl-button slot="trigger" caret>Edit</sl-button>
-    <sl-menu>
-      <sl-menu-item value="cut">Cut</sl-menu-item>
-      <sl-menu-item value="copy">Copy</sl-menu-item>
-      <sl-menu-item value="paste">Paste</sl-menu-item>
-    </sl-menu>
-  </sl-dropdown>
+  <onex-dropdown>
+    <onex-button slot="trigger" caret>Edit</onex-button>
+    <onex-menu>
+      <onex-menu-item value="cut">Cut</onex-menu-item>
+      <onex-menu-item value="copy">Copy</onex-menu-item>
+      <onex-menu-item value="paste">Paste</onex-menu-item>
+    </onex-menu>
+  </onex-dropdown>
 </div>
 
 <script>
   const container = document.querySelector('.dropdown-selection-alt');
-  const cut = container.querySelector('sl-menu-item[value="cut"]');
-  const copy = container.querySelector('sl-menu-item[value="copy"]');
-  const paste = container.querySelector('sl-menu-item[value="paste"]');
+  const cut = container.querySelector('onex-menu-item[value="cut"]');
+  const copy = container.querySelector('onex-menu-item[value="copy"]');
+  const paste = container.querySelector('onex-menu-item[value="paste"]');
 
   cut.addEventListener('click', () => console.log('cut'));
   copy.addEventListener('click', () => console.log('copy'));
@@ -138,7 +138,7 @@ Alternatively, you can listen for the `click` event on individual menu items. No
 ```
 
 ```jsx react
-import { SlButton, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDropdown, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleCut() {
@@ -154,16 +154,16 @@ const App = () => {
   }
 
   return (
-    <SlDropdown>
-      <SlButton slot="trigger" caret>
+    <OnexDropdown>
+      <OnexButton slot="trigger" caret>
         Edit
-      </SlButton>
-      <SlMenu>
-        <SlMenuItem onClick={handleCut}>Cut</SlMenuItem>
-        <SlMenuItem onClick={handleCopy}>Copy</SlMenuItem>
-        <SlMenuItem onClick={handlePaste}>Paste</SlMenuItem>
-      </SlMenu>
-    </SlDropdown>
+      </OneXButton>
+      <OnexMenu>
+        <OneXMenuItem onClick={handleCut}>Cut</OneXMenuItem>
+        <OneXMenuItem onClick={handleCopy}>Copy</OneXMenuItem>
+        <OneXMenuItem onClick={handlePaste}>Paste</OneXMenuItem>
+      </OneXMenu>
+    </OneXDropdown>
   );
 };
 ```
@@ -173,36 +173,36 @@ const App = () => {
 The preferred placement of the dropdown can be set with the `placement` attribute. Note that the actual position may vary to ensure the panel remains in the viewport.
 
 ```html preview
-<sl-dropdown placement="top-start">
-  <sl-button slot="trigger" caret>Edit</sl-button>
-  <sl-menu>
-    <sl-menu-item>Cut</sl-menu-item>
-    <sl-menu-item>Copy</sl-menu-item>
-    <sl-menu-item>Paste</sl-menu-item>
-    <sl-divider></sl-divider>
-    <sl-menu-item>Find</sl-menu-item>
-    <sl-menu-item>Replace</sl-menu-item>
-  </sl-menu>
-</sl-dropdown>
+<onex-dropdown placement="top-start">
+  <onex-button slot="trigger" caret>Edit</onex-button>
+  <onex-menu>
+    <onex-menu-item>Cut</onex-menu-item>
+    <onex-menu-item>Copy</onex-menu-item>
+    <onex-menu-item>Paste</onex-menu-item>
+    <onex-divider></onex-divider>
+    <onex-menu-item>Find</onex-menu-item>
+    <onex-menu-item>Replace</onex-menu-item>
+  </onex-menu>
+</onex-dropdown>
 ```
 
 ```jsx react
-import { SlButton, SlDivider, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDivider, OneXDropdown, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlDropdown placement="top-start">
-    <SlButton slot="trigger" caret>
+  <OnexDropdown placement="top-start">
+    <OnexButton slot="trigger" caret>
       Edit
-    </SlButton>
-    <SlMenu>
-      <SlMenuItem>Cut</SlMenuItem>
-      <SlMenuItem>Copy</SlMenuItem>
-      <SlMenuItem>Paste</SlMenuItem>
-      <SlDivider />
-      <SlMenuItem>Find</SlMenuItem>
-      <SlMenuItem>Replace</SlMenuItem>
-    </SlMenu>
-  </SlDropdown>
+    </OneXButton>
+    <OnexMenu>
+      <OneXMenuItem>Cut</OneXMenuItem>
+      <OneXMenuItem>Copy</OneXMenuItem>
+      <OneXMenuItem>Paste</OneXMenuItem>
+      <OnexDivider />
+      <OneXMenuItem>Find</OneXMenuItem>
+      <OneXMenuItem>Replace</OneXMenuItem>
+    </OneXMenu>
+  </OneXDropdown>
 );
 ```
 
@@ -211,36 +211,36 @@ const App = () => (
 The distance from the panel to the trigger can be customized using the `distance` attribute. This value is specified in pixels.
 
 ```html preview
-<sl-dropdown distance="30">
-  <sl-button slot="trigger" caret>Edit</sl-button>
-  <sl-menu>
-    <sl-menu-item>Cut</sl-menu-item>
-    <sl-menu-item>Copy</sl-menu-item>
-    <sl-menu-item>Paste</sl-menu-item>
-    <sl-divider></sl-divider>
-    <sl-menu-item>Find</sl-menu-item>
-    <sl-menu-item>Replace</sl-menu-item>
-  </sl-menu>
-</sl-dropdown>
+<onex-dropdown distance="30">
+  <onex-button slot="trigger" caret>Edit</onex-button>
+  <onex-menu>
+    <onex-menu-item>Cut</onex-menu-item>
+    <onex-menu-item>Copy</onex-menu-item>
+    <onex-menu-item>Paste</onex-menu-item>
+    <onex-divider></onex-divider>
+    <onex-menu-item>Find</onex-menu-item>
+    <onex-menu-item>Replace</onex-menu-item>
+  </onex-menu>
+</onex-dropdown>
 ```
 
 ```jsx react
-import { SlButton, SlDivider, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDivider, OneXDropdown, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlDropdown distance={30}>
-    <SlButton slot="trigger" caret>
+  <OnexDropdown distance={30}>
+    <OnexButton slot="trigger" caret>
       Edit
-    </SlButton>
-    <SlMenu>
-      <SlMenuItem>Cut</SlMenuItem>
-      <SlMenuItem>Copy</SlMenuItem>
-      <SlMenuItem>Paste</SlMenuItem>
-      <SlDivider />
-      <SlMenuItem>Find</SlMenuItem>
-      <SlMenuItem>Replace</SlMenuItem>
-    </SlMenu>
-  </SlDropdown>
+    </OneXButton>
+    <OnexMenu>
+      <OneXMenuItem>Cut</OneXMenuItem>
+      <OneXMenuItem>Copy</OneXMenuItem>
+      <OneXMenuItem>Paste</OneXMenuItem>
+      <OnexDivider />
+      <OneXMenuItem>Find</OneXMenuItem>
+      <OneXMenuItem>Replace</OneXMenuItem>
+    </OneXMenu>
+  </OneXDropdown>
 );
 ```
 
@@ -249,36 +249,36 @@ const App = () => (
 The offset of the panel along the trigger can be customized using the `skidding` attribute. This value is specified in pixels.
 
 ```html preview
-<sl-dropdown skidding="30">
-  <sl-button slot="trigger" caret>Edit</sl-button>
-  <sl-menu>
-    <sl-menu-item>Cut</sl-menu-item>
-    <sl-menu-item>Copy</sl-menu-item>
-    <sl-menu-item>Paste</sl-menu-item>
-    <sl-divider></sl-divider>
-    <sl-menu-item>Find</sl-menu-item>
-    <sl-menu-item>Replace</sl-menu-item>
-  </sl-menu>
-</sl-dropdown>
+<onex-dropdown skidding="30">
+  <onex-button slot="trigger" caret>Edit</onex-button>
+  <onex-menu>
+    <onex-menu-item>Cut</onex-menu-item>
+    <onex-menu-item>Copy</onex-menu-item>
+    <onex-menu-item>Paste</onex-menu-item>
+    <onex-divider></onex-divider>
+    <onex-menu-item>Find</onex-menu-item>
+    <onex-menu-item>Replace</onex-menu-item>
+  </onex-menu>
+</onex-dropdown>
 ```
 
 ```jsx react
-import { SlButton, SlDivider, SlDropdown, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDivider, OneXDropdown, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlDropdown skidding={30}>
-    <SlButton slot="trigger" caret>
+  <OnexDropdown skidding={30}>
+    <OnexButton slot="trigger" caret>
       Edit
-    </SlButton>
-    <SlMenu>
-      <SlMenuItem>Cut</SlMenuItem>
-      <SlMenuItem>Copy</SlMenuItem>
-      <SlMenuItem>Paste</SlMenuItem>
-      <SlDivider />
-      <SlMenuItem>Find</SlMenuItem>
-      <SlMenuItem>Replace</SlMenuItem>
-    </SlMenu>
-  </SlDropdown>
+    </OneXButton>
+    <OnexMenu>
+      <OneXMenuItem>Cut</OneXMenuItem>
+      <OneXMenuItem>Copy</OneXMenuItem>
+      <OneXMenuItem>Paste</OneXMenuItem>
+      <OnexDivider />
+      <OneXMenuItem>Find</OneXMenuItem>
+      <OneXMenuItem>Replace</OneXMenuItem>
+    </OneXMenu>
+  </OneXDropdown>
 );
 ```
 
@@ -288,42 +288,42 @@ Dropdown panels will be clipped if they're inside a container that has `overflow
 
 ```html preview
 <div class="dropdown-hoist">
-  <sl-dropdown>
-    <sl-button slot="trigger" caret>No Hoist</sl-button>
-    <sl-menu>
-      <sl-menu-item>Item 1</sl-menu-item>
-      <sl-menu-item>Item 2</sl-menu-item>
-      <sl-menu-item>Item 3</sl-menu-item>
-    </sl-menu>
-  </sl-dropdown>
+  <onex-dropdown>
+    <onex-button slot="trigger" caret>No Hoist</onex-button>
+    <onex-menu>
+      <onex-menu-item>Item 1</onex-menu-item>
+      <onex-menu-item>Item 2</onex-menu-item>
+      <onex-menu-item>Item 3</onex-menu-item>
+    </onex-menu>
+  </onex-dropdown>
 
-  <sl-dropdown hoist>
-    <sl-button slot="trigger" caret>Hoist</sl-button>
-    <sl-menu>
-      <sl-menu-item>Item 1</sl-menu-item>
-      <sl-menu-item>Item 2</sl-menu-item>
-      <sl-menu-item>Item 3</sl-menu-item>
-    </sl-menu>
-  </sl-dropdown>
+  <onex-dropdown hoist>
+    <onex-button slot="trigger" caret>Hoist</onex-button>
+    <onex-menu>
+      <onex-menu-item>Item 1</onex-menu-item>
+      <onex-menu-item>Item 2</onex-menu-item>
+      <onex-menu-item>Item 3</onex-menu-item>
+    </onex-menu>
+  </onex-dropdown>
 </div>
 
 <style>
   .dropdown-hoist {
     position: relative;
-    border: solid 2px var(--sl-panel-border-color);
-    padding: var(--sl-spacing-medium);
+    border: solid 2px var(--onex-panel-border-color);
+    padding: var(--onex-spacing-medium);
     overflow: hidden;
   }
 </style>
 ```
 
 ```jsx react
-import { SlButton, SlDivider, SlDropdown, SlIcon, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDivider, OneXDropdown, OneXIcon, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .dropdown-hoist {
-    border: solid 2px var(--sl-panel-border-color);
-    padding: var(--sl-spacing-medium);
+    border: solid 2px var(--onex-panel-border-color);
+    padding: var(--onex-spacing-medium);
     overflow: hidden;
   }
 `;
@@ -331,27 +331,27 @@ const css = `
 const App = () => (
   <>
     <div className="dropdown-hoist">
-      <SlDropdown>
-        <SlButton slot="trigger" caret>
+      <OnexDropdown>
+        <OnexButton slot="trigger" caret>
           No Hoist
-        </SlButton>
-        <SlMenu>
-          <SlMenuItem>Item 1</SlMenuItem>
-          <SlMenuItem>Item 2</SlMenuItem>
-          <SlMenuItem>Item 3</SlMenuItem>
-        </SlMenu>
-      </SlDropdown>
+        </OneXButton>
+        <OnexMenu>
+          <OneXMenuItem>Item 1</OneXMenuItem>
+          <OneXMenuItem>Item 2</OneXMenuItem>
+          <OneXMenuItem>Item 3</OneXMenuItem>
+        </OneXMenu>
+      </OneXDropdown>
 
-      <SlDropdown hoist>
-        <SlButton slot="trigger" caret>
+      <OnexDropdown hoist>
+        <OnexButton slot="trigger" caret>
           Hoist
-        </SlButton>
-        <SlMenu>
-          <SlMenuItem>Item 1</SlMenuItem>
-          <SlMenuItem>Item 2</SlMenuItem>
-          <SlMenuItem>Item 3</SlMenuItem>
-        </SlMenu>
-      </SlDropdown>
+        </OneXButton>
+        <OnexMenu>
+          <OneXMenuItem>Item 1</OneXMenuItem>
+          <OneXMenuItem>Item 2</OneXMenuItem>
+          <OneXMenuItem>Item 3</OneXMenuItem>
+        </OneXMenu>
+      </OneXDropdown>
     </div>
 
     <style>{css}</style>
@@ -359,4 +359,4 @@ const App = () => (
 );
 ```
 
-[component-metadata:sl-dropdown]
+[component-metadata:onex-dropdown]

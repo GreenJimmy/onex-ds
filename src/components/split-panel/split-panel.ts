@@ -15,7 +15,7 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @event sl-reposition - Emitted when the divider's position changes.
+ * @event onex-reposition - Emitted when the divider's position changes.
  *
  * @slot start - Content to place in the start panel.
  * @slot end - Content to place in the end panel.
@@ -32,8 +32,8 @@ import type { CSSResultGroup } from 'lit';
  * @cssproperty [--min=0] - The minimum allowed size of the primary panel.
  * @cssproperty [--max=100%] - The maximum allowed size of the primary panel.
  */
-@customElement('sl-split-panel')
-export default class SlSplitPanel extends ShoelaceElement {
+@customElement('onex-split-panel')
+export default class OneXSplitPanel extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private cachedPositionInPixels: number;
@@ -189,7 +189,7 @@ export default class SlSplitPanel extends ShoelaceElement {
   handlePositionChange() {
     this.cachedPositionInPixels = this.percentageToPixels(this.position);
     this.positionInPixels = this.percentageToPixels(this.position);
-    this.emit('sl-reposition');
+    this.emit('onex-reposition');
   }
 
   @watch('positionInPixels')
@@ -268,6 +268,6 @@ export default class SlSplitPanel extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-split-panel': SlSplitPanel;
+    'onex-split-panel': OneXSplitPanel;
   }
 }

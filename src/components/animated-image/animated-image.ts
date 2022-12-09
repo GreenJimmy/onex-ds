@@ -12,21 +12,21 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
- * @event sl-load - Emitted when the image loads successfully.
- * @event sl-error - Emitted when the image fails to load.
+ * @event onex-load - Emitted when the image loads successfully.
+ * @event onex-error - Emitted when the image fails to load.
  *
- * @slot play-icon - Optional play icon to use instead of the default. Works best with `<sl-icon>`.
- * @slot pause-icon - Optional pause icon to use instead of the default. Works best with `<sl-icon>`.
+ * @slot play-icon - Optional play icon to use instead of the default. Works best with `<onex-icon>`.
+ * @slot pause-icon - Optional pause icon to use instead of the default. Works best with `<onex-icon>`.
  *
  * @part - control-box - The container that surrounds the pause/play icons and provides their background.
  *
  * @cssproperty --control-box-size - The size of the icon box.
  * @cssproperty --icon-size - The size of the play/pause icons.
  */
-@customElement('sl-animated-image')
-export default class SlAnimatedImage extends ShoelaceElement {
+@customElement('onex-animated-image')
+export default class OneXAnimatedImage extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @state() frozenFrame: string;
@@ -56,13 +56,13 @@ export default class SlAnimatedImage extends ShoelaceElement {
     this.frozenFrame = canvas.toDataURL('image/gif');
 
     if (!this.isLoaded) {
-      this.emit('sl-load');
+      this.emit('onex-load');
       this.isLoaded = true;
     }
   }
 
   handleError() {
-    this.emit('sl-error');
+    this.emit('onex-error');
   }
 
   @watch('play', { waitUntilFirstUpdate: true })
@@ -105,8 +105,8 @@ export default class SlAnimatedImage extends ShoelaceElement {
               />
 
               <div part="control-box" class="animated-image__control-box">
-                <slot name="play-icon"><sl-icon name="play-fill" library="system"></sl-icon></slot>
-                <slot name="pause-icon"><sl-icon name="pause-fill" library="system"></sl-icon></slot>
+                <slot name="play-icon"><onex-icon name="play-fill" library="system"></onex-icon></slot>
+                <slot name="pause-icon"><onex-icon name="pause-fill" library="system"></onex-icon></slot>
               </div>
             `
           : ''}
@@ -117,6 +117,6 @@ export default class SlAnimatedImage extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-animated-image': SlAnimatedImage;
+    'onex-animated-image': OneXAnimatedImage;
   }
 }

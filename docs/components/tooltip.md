@@ -1,24 +1,24 @@
 # Tooltip
 
-[component-header:sl-tooltip]
+[component-header:onex-tooltip]
 
 A tooltip's target is its _first child element_, so you should only wrap one element inside of the tooltip. If you need the tooltip to show up for multiple elements, nest them inside a container first.
 
 Tooltips use `display: contents` so they won't interfere with how elements are positioned in a flex or grid layout.
 
 ```html preview
-<sl-tooltip content="This is a tooltip">
-  <sl-button>Hover Me</sl-button>
-</sl-tooltip>
+<onex-tooltip content="This is a tooltip">
+  <onex-button>Hover Me</onex-button>
+</onex-tooltip>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlTooltip content="This is a tooltip">
-    <SlButton>Hover Me</SlButton>
-  </SlTooltip>
+  <OnexTooltip content="This is a tooltip">
+    <OnexButton>Hover Me</OneXButton>
+  </OneXTooltip>
 );
 ```
 
@@ -31,61 +31,61 @@ Use the `placement` attribute to set the preferred placement of the tooltip.
 ```html preview
 <div class="tooltip-placement-example">
   <div class="tooltip-placement-example-row">
-    <sl-tooltip content="top-start" placement="top-start">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="top-start" placement="top-start">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="top" placement="top">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="top" placement="top">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="top-end" placement="top-end">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="top-end" placement="top-end">
+      <onex-button></onex-button>
+    </onex-tooltip>
   </div>
 
   <div class="tooltip-placement-example-row">
-    <sl-tooltip content="left-start" placement="left-start">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="left-start" placement="left-start">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="right-start" placement="right-start">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="right-start" placement="right-start">
+      <onex-button></onex-button>
+    </onex-tooltip>
   </div>
 
   <div class="tooltip-placement-example-row">
-    <sl-tooltip content="left" placement="left">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="left" placement="left">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="right" placement="right">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="right" placement="right">
+      <onex-button></onex-button>
+    </onex-tooltip>
   </div>
 
   <div class="tooltip-placement-example-row">
-    <sl-tooltip content="left-end" placement="left-end">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="left-end" placement="left-end">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="right-end" placement="right-end">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="right-end" placement="right-end">
+      <onex-button></onex-button>
+    </onex-tooltip>
   </div>
 
   <div class="tooltip-placement-example-row">
-    <sl-tooltip content="bottom-start" placement="bottom-start">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="bottom-start" placement="bottom-start">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="bottom" placement="bottom">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="bottom" placement="bottom">
+      <onex-button></onex-button>
+    </onex-tooltip>
 
-    <sl-tooltip content="bottom-end" placement="bottom-end">
-      <sl-button></sl-button>
-    </sl-tooltip>
+    <onex-tooltip content="bottom-end" placement="bottom-end">
+      <onex-button></onex-button>
+    </onex-tooltip>
   </div>
 </div>
 
@@ -101,28 +101,28 @@ Use the `placement` attribute to set the preferred placement of the tooltip.
     clear: both;
   }
 
-  .tooltip-placement-example sl-button {
+  .tooltip-placement-example onex-button {
     float: left;
     width: 2.5rem;
     margin-right: 0.25rem;
     margin-bottom: 0.25rem;
   }
 
-  .tooltip-placement-example-row:nth-child(1) sl-tooltip:first-child sl-button,
-  .tooltip-placement-example-row:nth-child(5) sl-tooltip:first-child sl-button {
+  .tooltip-placement-example-row:nth-child(1) onex-tooltip:first-child onex-button,
+  .tooltip-placement-example-row:nth-child(5) onex-tooltip:first-child onex-button {
     margin-left: calc(40px + 0.25rem);
   }
 
-  .tooltip-placement-example-row:nth-child(2) sl-tooltip:nth-child(2) sl-button,
-  .tooltip-placement-example-row:nth-child(3) sl-tooltip:nth-child(2) sl-button,
-  .tooltip-placement-example-row:nth-child(4) sl-tooltip:nth-child(2) sl-button {
+  .tooltip-placement-example-row:nth-child(2) onex-tooltip:nth-child(2) onex-button,
+  .tooltip-placement-example-row:nth-child(3) onex-tooltip:nth-child(2) onex-button,
+  .tooltip-placement-example-row:nth-child(4) onex-tooltip:nth-child(2) onex-button {
     margin-left: calc((40px * 3) + (0.25rem * 3));
   }
 </style>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .tooltip-placement-example {
@@ -135,21 +135,21 @@ const css = `
     clear: both;
   }
 
-  .tooltip-placement-example sl-button {
+  .tooltip-placement-example onex-button {
     float: left;
     width: 2.5rem;
     margin-right: 0.25rem;
     margin-bottom: 0.25rem;
   }
 
-  .tooltip-placement-example-row:nth-child(1) sl-tooltip:first-child sl-button,
-  .tooltip-placement-example-row:nth-child(5) sl-tooltip:first-child sl-button {
+  .tooltip-placement-example-row:nth-child(1) onex-tooltip:first-child onex-button,
+  .tooltip-placement-example-row:nth-child(5) onex-tooltip:first-child onex-button {
     margin-left: calc(40px + 0.25rem);
   }
 
-  .tooltip-placement-example-row:nth-child(2) sl-tooltip:nth-child(2) sl-button,
-  .tooltip-placement-example-row:nth-child(3) sl-tooltip:nth-child(2) sl-button,
-  .tooltip-placement-example-row:nth-child(4) sl-tooltip:nth-child(2) sl-button {
+  .tooltip-placement-example-row:nth-child(2) onex-tooltip:nth-child(2) onex-button,
+  .tooltip-placement-example-row:nth-child(3) onex-tooltip:nth-child(2) onex-button,
+  .tooltip-placement-example-row:nth-child(4) onex-tooltip:nth-child(2) onex-button {
     margin-left: calc((40px * 3) + (0.25rem * 3));
   }
 `;
@@ -158,61 +158,61 @@ const App = () => (
   <>
     <div className="tooltip-placement-example">
       <div className="tooltip-placement-example-row">
-        <SlTooltip content="top-start" placement="top-start">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="top-start" placement="top-start">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="top" placement="top">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="top" placement="top">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="top-end" placement="top-end">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="top-end" placement="top-end">
+          <OnexButton />
+        </OneXTooltip>
       </div>
 
       <div className="tooltip-placement-example-row">
-        <SlTooltip content="left-start" placement="left-start">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="left-start" placement="left-start">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="right-start" placement="right-start">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="right-start" placement="right-start">
+          <OnexButton />
+        </OneXTooltip>
       </div>
 
       <div className="tooltip-placement-example-row">
-        <SlTooltip content="left" placement="left">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="left" placement="left">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="right" placement="right">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="right" placement="right">
+          <OnexButton />
+        </OneXTooltip>
       </div>
 
       <div className="tooltip-placement-example-row">
-        <SlTooltip content="left-end" placement="left-end">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="left-end" placement="left-end">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="right-end" placement="right-end">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="right-end" placement="right-end">
+          <OnexButton />
+        </OneXTooltip>
       </div>
 
       <div className="tooltip-placement-example-row">
-        <SlTooltip content="bottom-start" placement="bottom-start">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="bottom-start" placement="bottom-start">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="bottom" placement="bottom">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="bottom" placement="bottom">
+          <OnexButton />
+        </OneXTooltip>
 
-        <SlTooltip content="bottom-end" placement="bottom-end">
-          <SlButton />
-        </SlTooltip>
+        <OnexTooltip content="bottom-end" placement="bottom-end">
+          <OnexButton />
+        </OneXTooltip>
       </div>
     </div>
 
@@ -226,18 +226,18 @@ const App = () => (
 Set the `trigger` attribute to `click` to toggle the tooltip on click instead of hover.
 
 ```html preview
-<sl-tooltip content="Click again to dismiss" trigger="click">
-  <sl-button>Click to Toggle</sl-button>
-</sl-tooltip>
+<onex-tooltip content="Click again to dismiss" trigger="click">
+  <onex-button>Click to Toggle</onex-button>
+</onex-tooltip>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlTooltip content="Click again to dismiss" trigger="click">
-    <SlButton>Click to Toggle</SlButton>
-  </SlTooltip>
+  <OnexTooltip content="Click again to dismiss" trigger="click">
+    <OnexButton>Click to Toggle</OneXButton>
+  </OneXTooltip>
 );
 ```
 
@@ -246,11 +246,11 @@ const App = () => (
 Tooltips can be controller programmatically by setting the `trigger` attribute to `manual`. Use the `open` attribute to control when the tooltip is shown.
 
 ```html preview
-<sl-button style="margin-right: 4rem;">Toggle Manually</sl-button>
+<onex-button style="margin-right: 4rem;">Toggle Manually</onex-button>
 
-<sl-tooltip content="This is an avatar" trigger="manual" class="manual-tooltip">
-  <sl-avatar label="User"></sl-avatar>
-</sl-tooltip>
+<onex-tooltip content="This is an avatar" trigger="manual" class="manual-tooltip">
+  <onex-avatar label="User"></onex-avatar>
+</onex-tooltip>
 
 <script>
   const tooltip = document.querySelector('.manual-tooltip');
@@ -262,20 +262,20 @@ Tooltips can be controller programmatically by setting the `trigger` attribute t
 
 ```jsx react
 import { useState } from 'react';
-import { SlAvatar, SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXAvatar, OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlButton style={{ marginRight: '4rem' }} onClick={() => setOpen(!open)}>
+      <OnexButton style={{ marginRight: '4rem' }} onClick={() => setOpen(!open)}>
         Toggle Manually
-      </SlButton>
+      </OneXButton>
 
-      <SlTooltip open={open} content="This is an avatar" trigger="manual">
-        <SlAvatar />
-      </SlTooltip>
+      <OnexTooltip open={open} content="This is an avatar" trigger="manual">
+        <OnexAvatar />
+      </OneXTooltip>
     </>
   );
 };
@@ -283,26 +283,26 @@ const App = () => {
 
 ### Removing Arrows
 
-You can control the size of tooltip arrows by overriding the `--sl-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.
+You can control the size of tooltip arrows by overriding the `--onex-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.
 
 ```html preview
-<sl-tooltip content="This is a tooltip" style="--sl-tooltip-arrow-size: 0;">
-  <sl-button>No Arrow</sl-button>
-</sl-tooltip>
+<onex-tooltip content="This is a tooltip" style="--onex-tooltip-arrow-size: 0;">
+  <onex-button>No Arrow</onex-button>
+</onex-tooltip>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <div style={{ '--sl-tooltip-arrow-size': '0' }}>
-    <SlTooltip content="This is a tooltip">
-      <SlButton>Above</SlButton>
-    </SlTooltip>
+  <div style={{ '--onex-tooltip-arrow-size': '0' }}>
+    <OnexTooltip content="This is a tooltip">
+      <OnexButton>Above</OneXButton>
+    </OneXTooltip>
 
-    <SlTooltip content="This is a tooltip" placement="bottom">
-      <SlButton>Below</SlButton>
-    </SlTooltip>
+    <OnexTooltip content="This is a tooltip" placement="bottom">
+      <OnexButton>Below</OneXButton>
+    </OneXTooltip>
   </div>
 );
 ```
@@ -311,7 +311,7 @@ To override it globally, set it in a root block in your stylesheet after the Sho
 
 ```css
 :root {
-  --sl-tooltip-arrow-size: 0;
+  --onex-tooltip-arrow-size: 0;
 }
 ```
 
@@ -320,24 +320,24 @@ To override it globally, set it in a root block in your stylesheet after the Sho
 Use the `content` slot to create tooltips with HTML content. Tooltips are designed only for text and presentational elements. Avoid placing interactive content, such as buttons, links, and form controls, in a tooltip.
 
 ```html preview
-<sl-tooltip>
+<onex-tooltip>
   <div slot="content">I'm not <strong>just</strong> a tooltip, I'm a <em>tooltip</em> with HTML!</div>
 
-  <sl-button>Hover me</sl-button>
-</sl-tooltip>
+  <onex-button>Hover me</onex-button>
+</onex-tooltip>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlTooltip>
+  <OnexTooltip>
     <div slot="content">
       I'm not <strong>just</strong> a tooltip, I'm a <em>tooltip</em> with HTML!
     </div>
 
-    <SlButton>Hover Me</SlButton>
-  </SlTooltip>
+    <OnexButton>Hover Me</OneXButton>
+  </OneXTooltip>
 );
 ```
 
@@ -346,18 +346,18 @@ const App = () => (
 Use the `--max-width` custom property to change the width the tooltip can grow to before wrapping occurs.
 
 ```html preview
-<sl-tooltip style="--max-width: 80px;" content="This tooltip will wrap after only 80 pixels.">
-  <sl-button>Hover me</sl-button>
-</sl-tooltip>
+<onex-tooltip style="--max-width: 80px;" content="This tooltip will wrap after only 80 pixels.">
+  <onex-button>Hover me</onex-button>
+</onex-tooltip>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlTooltip style={{ '--max-width': '80px' }} content="This tooltip will wrap after only 80 pixels.">
-    <SlButton>Hover Me</SlButton>
-  </SlTooltip>
+  <OnexTooltip style={{ '--max-width': '80px' }} content="This tooltip will wrap after only 80 pixels.">
+    <OnexButton>Hover Me</OneXButton>
+  </OneXTooltip>
 );
 ```
 
@@ -367,33 +367,33 @@ Tooltips will be clipped if they're inside a container that has `overflow: auto|
 
 ```html preview
 <div class="tooltip-hoist">
-  <sl-tooltip content="This is a tooltip">
-    <sl-button>No Hoist</sl-button>
-  </sl-tooltip>
+  <onex-tooltip content="This is a tooltip">
+    <onex-button>No Hoist</onex-button>
+  </onex-tooltip>
 
-  <sl-tooltip content="This is a tooltip" hoist>
-    <sl-button>Hoist</sl-button>
-  </sl-tooltip>
+  <onex-tooltip content="This is a tooltip" hoist>
+    <onex-button>Hoist</onex-button>
+  </onex-tooltip>
 </div>
 
 <style>
   .tooltip-hoist {
     position: relative;
-    border: solid 2px var(--sl-panel-border-color);
+    border: solid 2px var(--onex-panel-border-color);
     overflow: hidden;
-    padding: var(--sl-spacing-medium);
+    padding: var(--onex-spacing-medium);
   }
 </style>
 ```
 
 ```jsx react
-import { SlButton, SlTooltip } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXTooltip } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .tooltip-hoist {
-    border: solid 2px var(--sl-panel-border-color);
+    border: solid 2px var(--onex-panel-border-color);
     overflow: hidden;
-    padding: var(--sl-spacing-medium);
+    padding: var(--onex-spacing-medium);
     position: relative;
   }
 `;
@@ -401,13 +401,13 @@ const css = `
 const App = () => (
   <>
     <div class="tooltip-hoist">
-      <SlTooltip content="This is a tooltip">
-        <SlButton>No Hoist</SlButton>
-      </SlTooltip>
+      <OnexTooltip content="This is a tooltip">
+        <OnexButton>No Hoist</OneXButton>
+      </OneXTooltip>
 
-      <SlTooltip content="This is a tooltip" hoist>
-        <SlButton>Hoist</SlButton>
-      </SlTooltip>
+      <OnexTooltip content="This is a tooltip" hoist>
+        <OnexButton>Hoist</OneXButton>
+      </OneXTooltip>
     </div>
 
     <style>{css}</style>
@@ -415,4 +415,4 @@ const App = () => (
 );
 ```
 
-[component-metadata:sl-tooltip]
+[component-metadata:onex-tooltip]

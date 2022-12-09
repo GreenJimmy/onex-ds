@@ -1,9 +1,9 @@
 import { expect, fixture, html } from '@open-wc/testing';
-import type SlSkeleton from './skeleton';
+import type OneXSkeleton from './skeleton';
 
-describe('<sl-skeleton>', () => {
+describe('<onex-skeleton>', () => {
   it('should render default skeleton', async () => {
-    const el = await fixture<SlSkeleton>(html` <sl-skeleton></sl-skeleton> `);
+    const el = await fixture<OnexSkeleton>(html` <onex-skeleton></onex-skeleton> `);
 
     await expect(el).to.be.accessible();
 
@@ -15,7 +15,7 @@ describe('<sl-skeleton>', () => {
   });
 
   it('should set pulse effect by attribute', async () => {
-    const el = await fixture<SlSkeleton>(html` <sl-skeleton effect="pulse"></sl-skeleton> `);
+    const el = await fixture<OnexSkeleton>(html` <onex-skeleton effect="pulse"></onex-skeleton> `);
 
     const base = el.shadowRoot!.querySelector<HTMLElement>('[part~="base"]')!;
 
@@ -23,7 +23,7 @@ describe('<sl-skeleton>', () => {
   });
 
   it('should set sheen effect by attribute', async () => {
-    const el = await fixture<SlSkeleton>(html` <sl-skeleton effect="sheen"></sl-skeleton> `);
+    const el = await fixture<OnexSkeleton>(html` <onex-skeleton effect="sheen"></onex-skeleton> `);
 
     const base = el.shadowRoot!.querySelector<HTMLElement>('[part~="base"]')!;
 

@@ -8,8 +8,8 @@ import { LocalizeController } from '../../utilities/localize';
  * @since 2.0
  * @status stable
  */
-@customElement('sl-format-number')
-export default class SlFormatNumber extends ShoelaceElement {
+@customElement('onex-format-number')
+export default class OneXFormatNumber extends ShoelaceElement {
   private readonly localize = new LocalizeController(this);
 
   /** The number to format. */
@@ -63,6 +63,6 @@ export default class SlFormatNumber extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-format-number': SlFormatNumber;
+    'onex-format-number': OneXFormatNumber;
   }
 }

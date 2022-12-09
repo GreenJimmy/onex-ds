@@ -1,15 +1,15 @@
 # Divider
 
-[component-header:sl-divider]
+[component-header:onex-divider]
 
 ```html preview
-<sl-divider></sl-divider>
+<onex-divider></onex-divider>
 ```
 
 ```jsx react
-import { SlDivider } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlDivider />;
+const App = () => <OnexDivider />;
 ```
 
 ## Examples
@@ -19,13 +19,13 @@ const App = () => <SlDivider />;
 Use the `--width` custom property to change the width of the divider.
 
 ```html preview
-<sl-divider style="--width: 4px;"></sl-divider>
+<onex-divider style="--width: 4px;"></onex-divider>
 ```
 
 ```jsx react
-import { SlDivider } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlDivider style={{ '--width': '4px' }} />;
+const App = () => <OnexDivider style={{ '--width': '4px' }} />;
 ```
 
 ### Color
@@ -33,13 +33,13 @@ const App = () => <SlDivider style={{ '--width': '4px' }} />;
 Use the `--color` custom property to change the color of the divider.
 
 ```html preview
-<sl-divider style="--color: tomato;"></sl-divider>
+<onex-divider style="--color: tomato;"></onex-divider>
 ```
 
 ```jsx react
-import { SlDivider } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlDivider style={{ '--color': 'tomato' }} />;
+const App = () => <OnexDivider style={{ '--color': 'tomato' }} />;
 ```
 
 ### Spacing
@@ -49,18 +49,18 @@ Use the `--spacing` custom property to change the amount of space between the di
 ```html preview
 <div style="text-align: center;">
   Above
-  <sl-divider style="--spacing: 2rem;"></sl-divider>
+  <onex-divider style="--spacing: 2rem;"></onex-divider>
   Below
 </div>
 ```
 
 ```jsx react
-import { SlDivider } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
     Above
-    <SlDivider style={{ '--spacing': '2rem' }} />
+    <OnexDivider style={{ '--spacing': '2rem' }} />
     Below
   </>
 );
@@ -73,15 +73,15 @@ Add the `vertical` attribute to draw the divider in a vertical orientation. The 
 ```html preview
 <div style="display: flex; align-items: center; height: 2rem;">
   First
-  <sl-divider vertical></sl-divider>
+  <onex-divider vertical></onex-divider>
   Middle
-  <sl-divider vertical></sl-divider>
+  <onex-divider vertical></onex-divider>
   Last
 </div>
 ```
 
 ```jsx react
-import { SlDivider } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <div
@@ -92,9 +92,9 @@ const App = () => (
     }}
   >
     First
-    <SlDivider vertical />
+    <OnexDivider vertical />
     Middle
-    <SlDivider vertical />
+    <OnexDivider vertical />
     Last
   </div>
 );
@@ -105,31 +105,31 @@ const App = () => (
 Use dividers in [menus](/components/menu) to visually group menu items.
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-item value="1">Option 1</sl-menu-item>
-  <sl-menu-item value="2">Option 2</sl-menu-item>
-  <sl-menu-item value="3">Option 3</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-item value="4">Option 4</sl-menu-item>
-  <sl-menu-item value="5">Option 5</sl-menu-item>
-  <sl-menu-item value="6">Option 6</sl-menu-item>
-</sl-menu>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-item value="1">Option 1</onex-menu-item>
+  <onex-menu-item value="2">Option 2</onex-menu-item>
+  <onex-menu-item value="3">Option 3</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-item value="4">Option 4</onex-menu-item>
+  <onex-menu-item value="5">Option 5</onex-menu-item>
+  <onex-menu-item value="6">Option 6</onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlDivider, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuItem value="1">Option 1</SlMenuItem>
-    <SlMenuItem value="2">Option 2</SlMenuItem>
-    <SlMenuItem value="3">Option 3</SlMenuItem>
-    <sl-divider />
-    <SlMenuItem value="4">Option 4</SlMenuItem>
-    <SlMenuItem value="5">Option 5</SlMenuItem>
-    <SlMenuItem value="6">Option 6</SlMenuItem>
-  </SlMenu>
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OneXMenuItem value="1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="3">Option 3</OneXMenuItem>
+    <onex-divider />
+    <OneXMenuItem value="4">Option 4</OneXMenuItem>
+    <OneXMenuItem value="5">Option 5</OneXMenuItem>
+    <OneXMenuItem value="6">Option 6</OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
-[component-metadata:sl-divider]
+[component-metadata:onex-divider]

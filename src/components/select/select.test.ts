@@ -2,45 +2,45 @@ import { aTimeout, expect, fixture, html, oneEvent, waitUntil } from '@open-wc/t
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
 import { clickOnElement } from '../../internal/test';
-import type SlMenuItem from '../menu-item/menu-item';
-import type SlSelect from './select';
+import type OneXMenuItem from '../menu-item/menu-item';
+import type OneXSelect from './select';
 
-describe('<sl-select>', () => {
+describe('<onex-select>', () => {
   it('should pass accessibility tests', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select>
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+    const el = await fixture<OnexSelect>(html`
+      <onex-select>
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     await expect(el).to.be.accessible();
   });
 
   it('should be disabled with the disabled attribute', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select disabled>
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+    const el = await fixture<OnexSelect>(html`
+      <onex-select disabled>
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     expect(el.dropdown.disabled).to.be.true;
     expect(el.control.tabIndex).to.equal(-1);
   });
 
   it('should focus the select when clicking on the label', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select label="Select One">
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+    const el = await fixture<OnexSelect>(html`
+      <onex-select label="Select One">
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     const label = el.shadowRoot!.querySelector('[part~="form-control-label"]')!;
     const submitHandler = sinon.spy();
 
-    el.addEventListener('sl-focus', submitHandler);
+    el.addEventListener('onex-focus', submitHandler);
     (label as HTMLLabelElement).click();
     await waitUntil(() => submitHandler.calledOnce);
 
@@ -48,21 +48,21 @@ describe('<sl-select>', () => {
   });
 
   describe('when the value changes', () => {
-    it('should emit sl-change when the value is changed with the mouse', async () => {
-      const el = await fixture<SlSelect>(html`
-        <sl-select value="option-1">
-          <sl-menu-item value="option-1">Option 1</sl-menu-item>
-          <sl-menu-item value="option-2">Option 2</sl-menu-item>
-          <sl-menu-item value="option-3">Option 3</sl-menu-item>
-        </sl-select>
+    it('should emit onex-change when the value is changed with the mouse', async () => {
+      const el = await fixture<OnexSelect>(html`
+        <onex-select value="option-1">
+          <onex-menu-item value="option-1">Option 1</onex-menu-item>
+          <onex-menu-item value="option-2">Option 2</onex-menu-item>
+          <onex-menu-item value="option-3">Option 3</onex-menu-item>
+        </onex-select>
       `);
       const trigger = el.shadowRoot!.querySelector<HTMLElement>('[part~="control"]')!;
-      const secondOption = el.querySelectorAll<SlMenuItem>('sl-menu-item')[1];
+      const secondOption = el.querySelectorAll<OneXMenuItem>('onex-menu-item')[1];
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger);
       await el.updateComplete;
@@ -74,19 +74,19 @@ describe('<sl-select>', () => {
       expect(el.value).to.equal('option-2');
     });
 
-    it('should emit sl-change and sl-input when the value is changed with the keyboard', async () => {
-      const el = await fixture<SlSelect>(html`
-        <sl-select value="option-1">
-          <sl-menu-item value="option-1">Option 1</sl-menu-item>
-          <sl-menu-item value="option-2">Option 2</sl-menu-item>
-          <sl-menu-item value="option-3">Option 3</sl-menu-item>
-        </sl-select>
+    it('should emit onex-change and onex-input when the value is changed with the keyboard', async () => {
+      const el = await fixture<OnexSelect>(html`
+        <onex-select value="option-1">
+          <onex-menu-item value="option-1">Option 1</onex-menu-item>
+          <onex-menu-item value="option-2">Option 2</onex-menu-item>
+          <onex-menu-item value="option-3">Option 3</onex-menu-item>
+        </onex-select>
       `);
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       el.focus();
       await el.updateComplete;
@@ -104,30 +104,30 @@ describe('<sl-select>', () => {
       expect(el.value).to.equal('option-2');
     });
 
-    it('should not emit sl-change or sl-input when the value is changed programmatically', async () => {
-      const el = await fixture<SlSelect>(html`
-        <sl-select value="option-1">
-          <sl-menu-item value="option-1">Option 1</sl-menu-item>
-          <sl-menu-item value="option-2">Option 2</sl-menu-item>
-          <sl-menu-item value="option-3">Option 3</sl-menu-item>
-        </sl-select>
+    it('should not emit onex-change or onex-input when the value is changed programmatically', async () => {
+      const el = await fixture<OnexSelect>(html`
+        <onex-select value="option-1">
+          <onex-menu-item value="option-1">Option 1</onex-menu-item>
+          <onex-menu-item value="option-2">Option 2</onex-menu-item>
+          <onex-menu-item value="option-3">Option 3</onex-menu-item>
+        </onex-select>
       `);
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
       el.value = 'option-2';
 
       await el.updateComplete;
     });
   });
 
-  it('should open the menu when any letter key is pressed with sl-select is on focus', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select>
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+  it('should open the menu when any letter key is pressed with onex-select is on focus', async () => {
+    const el = await fixture<OnexSelect>(html`
+      <onex-select>
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     const control = el.shadowRoot!.querySelector<HTMLSelectElement>('.select__control')!;
     control.focus();
@@ -137,13 +137,13 @@ describe('<sl-select>', () => {
     expect(control.getAttribute('aria-expanded')).to.equal('true');
   });
 
-  it('should not open the menu when ctrl + R is pressed with sl-select is on focus', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select>
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+  it('should not open the menu when ctrl + R is pressed with onex-select is on focus', async () => {
+    const el = await fixture<OnexSelect>(html`
+      <onex-select>
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     const control = el.shadowRoot!.querySelector<HTMLSelectElement>('.select__control')!;
     control.focus();
@@ -157,34 +157,34 @@ describe('<sl-select>', () => {
   it('should focus on the custom control when constraint validation occurs', async () => {
     const el = await fixture<HTMLFormElement>(html`
       <form>
-        <sl-select required>
-          <sl-menu-item value="option-1">Option 1</sl-menu-item>
-          <sl-menu-item value="option-2">Option 2</sl-menu-item>
-          <sl-menu-item value="option-3">Option 3</sl-menu-item>
-        </sl-select>
+        <onex-select required>
+          <onex-menu-item value="option-1">Option 1</onex-menu-item>
+          <onex-menu-item value="option-2">Option 2</onex-menu-item>
+          <onex-menu-item value="option-3">Option 3</onex-menu-item>
+        </onex-select>
       </form>
     `);
-    const select = el.querySelector('sl-select')!;
+    const select = el.querySelector('onex-select')!;
     el.requestSubmit();
 
     expect(select.shadowRoot!.activeElement).to.equal(select.control);
   });
 
   it('should update the display label when a menu item changes', async () => {
-    const el = await fixture<SlSelect>(html`
-      <sl-select value="option-1">
-        <sl-menu-item value="option-1">Option 1</sl-menu-item>
-        <sl-menu-item value="option-2">Option 2</sl-menu-item>
-        <sl-menu-item value="option-3">Option 3</sl-menu-item>
-      </sl-select>
+    const el = await fixture<OnexSelect>(html`
+      <onex-select value="option-1">
+        <onex-menu-item value="option-1">Option 1</onex-menu-item>
+        <onex-menu-item value="option-2">Option 2</onex-menu-item>
+        <onex-menu-item value="option-3">Option 3</onex-menu-item>
+      </onex-select>
     `);
     const displayLabel = el.shadowRoot!.querySelector('[part~="display-label"]')!;
-    const menuItem = el.querySelector('sl-menu-item')!;
+    const menuItem = el.querySelector('onex-menu-item')!;
 
     expect(displayLabel.textContent?.trim()).to.equal('Option 1');
     menuItem.textContent = 'updated';
 
-    await oneEvent(el, 'sl-label-change');
+    await oneEvent(el, 'onex-label-change');
     await el.updateComplete;
 
     expect(displayLabel.textContent?.trim()).to.equal('updated');
@@ -194,17 +194,17 @@ describe('<sl-select>', () => {
     it('should reset the element to its initial value', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-select value="option-1">
-            <sl-menu-item value="option-1">Option 1</sl-menu-item>
-            <sl-menu-item value="option-2">Option 2</sl-menu-item>
-            <sl-menu-item value="option-3">Option 3</sl-menu-item>
-          </sl-select>
-          <sl-button type="reset">Reset</sl-button>
+          <onex-select value="option-1">
+            <onex-menu-item value="option-1">Option 1</onex-menu-item>
+            <onex-menu-item value="option-2">Option 2</onex-menu-item>
+            <onex-menu-item value="option-3">Option 3</onex-menu-item>
+          </onex-select>
+          <onex-button type="reset">Reset</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
-      const select = form.querySelector('sl-select')!;
-      const option2 = form.querySelectorAll('sl-menu-item')![1];
+      const button = form.querySelector('onex-button')!;
+      const select = form.querySelector('onex-select')!;
+      const option2 = form.querySelectorAll('onex-menu-item')![1];
 
       option2.click();
       await option2.updateComplete;

@@ -18,34 +18,34 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
  * @slot - The checkbox's label.
  *
- * @event sl-blur - Emitted when the checkbox loses focus.
- * @event sl-change - Emitted when the checked state changes.
- * @event sl-focus - Emitted when the checkbox gains focus.
- * @event sl-input - Emitted when the checkbox receives input.
+ * @event onex-blur - Emitted when the checkbox loses focus.
+ * @event onex-change - Emitted when the checked state changes.
+ * @event onex-focus - Emitted when the checkbox gains focus.
+ * @event onex-input - Emitted when the checkbox receives input.
  *
  * @csspart base - The component's base wrapper.
  * @csspart control - The square container that wraps the checkbox's checked state.
  * @csspart control--checked - Matches the control part when the checkbox is checked.
  * @csspart control--indeterminate - Matches the control part when the checkbox is indeterminate.
- * @csspart checked-icon - The checked icon, an `<sl-icon>` element.
- * @csspart indeterminate-icon - The indeterminate icon, an `<sl-icon>` element.
+ * @csspart checked-icon - The checked icon, an `<onex-icon>` element.
+ * @csspart indeterminate-icon - The indeterminate icon, an `<onex-icon>` element.
  * @csspart label - The container that wraps the checkbox's label.
  */
-@customElement('sl-checkbox')
-export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-checkbox')
+export default class OneXCheckbox extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('input[type="checkbox"]') input: HTMLInputElement;
 
   // @ts-expect-error -- Controller is currently unused
   private readonly formSubmitController = new FormSubmitController(this, {
-    value: (control: SlCheckbox) => (control.checked ? control.value || 'on' : undefined),
-    defaultValue: (control: SlCheckbox) => control.defaultChecked,
-    setValue: (control: SlCheckbox, checked: boolean) => (control.checked = checked)
+    value: (control: OneXCheckbox) => (control.checked ? control.value || 'on' : undefined),
+    defaultValue: (control: OneXCheckbox) => control.defaultChecked,
+    setValue: (control: OneXCheckbox, checked: boolean) => (control.checked = checked)
   });
 
   @state() private hasFocus = false;
@@ -117,16 +117,16 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
   handleClick() {
     this.checked = !this.checked;
     this.indeterminate = false;
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleInput() {
-    this.emit('sl-input');
+    this.emit('onex-input');
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })
@@ -138,7 +138,7 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   @watch('checked', { waitUntilFirstUpdate: true })
@@ -179,9 +179,9 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
         />
 
         <span part="control" class="checkbox__control">
-          ${this.checked ? html` <sl-icon part="checked-icon" library="system" name="check"></sl-icon> ` : ''}
+          ${this.checked ? html` <onex-icon part="checked-icon" library="system" name="check"></onex-icon> ` : ''}
           ${!this.checked && this.indeterminate
-            ? html` <sl-icon part="indeterminate-icon" library="system" name="indeterminate"></sl-icon> `
+            ? html` <onex-icon part="indeterminate-icon" library="system" name="indeterminate"></onex-icon> `
             : ''}
         </span>
 
@@ -193,6 +193,6 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-checkbox': SlCheckbox;
+    'onex-checkbox': OneXCheckbox;
   }
 }

@@ -1,24 +1,24 @@
 # Radio Group
 
-[component-header:sl-radio-group]
+[component-header:onex-radio-group]
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2">Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2">Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2">Option 2</SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2">Option 2</OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
@@ -29,22 +29,22 @@ const App = () => (
 Add descriptive help text to a radio group with the `help-text` attribute. For help texts that contain HTML, use the `help-text` slot instead.
 
 ```html preview
-<sl-radio-group label="Select an option" help-text="Choose the most appropriate option." name="a" value="1">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2">Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" help-text="Choose the most appropriate option." name="a" value="1">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2">Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" help-text="Choose the most appropriate option." name="a" value="1">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2">Option 2</SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" help-text="Choose the most appropriate option." name="a" value="1">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2">Option 2</OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
@@ -53,22 +53,22 @@ const App = () => (
 [Radio buttons](/components/radio-button) offer an alternate way to display radio controls. In this case, an internal [button group](/components/button-group) is used to group the buttons into a single, cohesive control.
 
 ```html preview
-<sl-radio-group label="Select an option" help-text="Select an option that makes you proud." name="a" value="1">
-  <sl-radio-button value="1">Option 1</sl-radio-button>
-  <sl-radio-button value="2">Option 2</sl-radio-button>
-  <sl-radio-button value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" help-text="Select an option that makes you proud." name="a" value="1">
+  <onex-radio-button value="1">Option 1</onex-radio-button>
+  <onex-radio-button value="2">Option 2</onex-radio-button>
+  <onex-radio-button value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton value="1">Option 1</SlRadioButton>
-    <SlRadioButton value="2">Option 2</SlRadioButton>
-    <SlRadioButton value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -77,24 +77,24 @@ const App = () => (
 Radios and radio buttons can be disabled by adding the `disabled` attribute to the respective options inside the radio group.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio value="1">Option 1</sl-radio>
-  <sl-radio value="2" disabled>Option 2</sl-radio>
-  <sl-radio value="3">Option 3</sl-radio>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio value="1">Option 1</onex-radio>
+  <onex-radio value="2" disabled>Option 2</onex-radio>
+  <onex-radio value="3">Option 3</onex-radio>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadio value="1">Option 1</SlRadio>
-    <SlRadio value="2" disabled>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadio value="1">Option 1</OneXRadio>
+    <OneXRadio value="2" disabled>
       Option 2
-    </SlRadio>
-    <SlRadio value="3">Option 3</SlRadio>
-  </SlRadioGroup>
+    </OneXRadio>
+    <OneXRadio value="3">Option 3</OneXRadio>
+  </OneXRadioGroup>
 );
 ```
 
@@ -104,13 +104,13 @@ Setting the `required` attribute to make selecting an option mandatory. If a val
 
 ```html preview
 <form class="validation">
-  <sl-radio-group label="Select an option" name="a" required>
-    <sl-radio value="1">Option 1</sl-radio>
-    <sl-radio value="2">Option 2</sl-radio>
-    <sl-radio value="3">Option 3</sl-radio>
-  </sl-radio-group>
+  <onex-radio-group label="Select an option" name="a" required>
+    <onex-radio value="1">Option 1</onex-radio>
+    <onex-radio value="2">Option 2</onex-radio>
+    <onex-radio value="3">Option 3</onex-radio>
+  </onex-radio-group>
   <br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
 </form>
 
 <script>
@@ -125,7 +125,7 @@ Setting the `required` attribute to make selecting an option mandatory. If a val
 ```
 
 ```jsx react
-import { SlButton, SlIcon, SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXIcon, OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 const App = () => {
   function handleSubmit(event) {
     event.preventDefault();
@@ -134,21 +134,21 @@ const App = () => {
 
   return (
     <form class="custom-validity" onSubmit={handleSubmit}>
-      <SlRadioGroup label="Select an option" name="a" required onSlChange={handleChange}>
-        <SlRadio value="1">
+      <OneXRadioGroup label="Select an option" name="a" required onSlChange={handleChange}>
+        <OneXRadio value="1">
           Option 1
-        </SlRadio>
-        <SlRadiovalue="2">
+        </OneXRadio>
+        <OneXRadiovalue="2">
           Option 2
-        </SlRadio>
-        <SlRadio value="3">
+        </OneXRadio>
+        <OneXRadio value="3">
           Option 3
-        </SlRadio>
-      </SlRadioGroup>
+        </OneXRadio>
+      </OneXRadioGroup>
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
@@ -160,27 +160,27 @@ Use the `setCustomValidity()` method to set a custom validation message. This wi
 
 ```html preview
 <form class="custom-validity">
-  <sl-radio-group label="Select an option" name="a" value="1">
-    <sl-radio value="1">Not me</sl-radio>
-    <sl-radio value="2">Me neither</sl-radio>
-    <sl-radio value="3">Choose me</sl-radio>
-  </sl-radio-group>
+  <onex-radio-group label="Select an option" name="a" value="1">
+    <onex-radio value="1">Not me</onex-radio>
+    <onex-radio value="2">Me neither</onex-radio>
+    <onex-radio value="3">Choose me</onex-radio>
+  </onex-radio-group>
   <br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
 </form>
 
 <script>
   const form = document.querySelector('.custom-validity');
-  const radioGroup = form.querySelector('sl-radio-group');
+  const radioGroup = form.querySelector('onex-radio-group');
   const errorMessage = 'You must choose the last option';
 
   // Set initial validity as soon as the element is defined
-  customElements.whenDefined('sl-radio-group').then(() => {
+  customElements.whenDefined('onex-radio-group').then(() => {
     radioGroup.setCustomValidity(errorMessage);
   });
 
   // Update validity when a selection is made
-  form.addEventListener('sl-change', () => {
+  form.addEventListener('onex-change', () => {
     const isValid = radioGroup.value === '3';
     radioGroup.setCustomValidity(isValid ? '' : errorMessage);
   });
@@ -195,7 +195,7 @@ Use the `setCustomValidity()` method to set a custom validation message. This wi
 
 ```jsx react
 import { useEffect, useRef } from 'react';
-import { SlButton, SlIcon, SlRadio, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXIcon, OneXRadio, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 const App = () => {
   const radioGroup = useRef(null);
   const errorMessage = 'You must choose this option';
@@ -215,18 +215,18 @@ const App = () => {
 
   return (
     <form class="custom-validity" onSubmit={handleSubmit}>
-      <SlRadioGroup ref={radioGroup} label="Select an option" name="a" value="1" onSlChange={handleChange}>
-        <SlRadio value="1">Not me</SlRadio>
-        <SlRadio value="2">Me neither</SlRadio>
-        <SlRadio value="3">Choose me</SlRadio>
-      </SlRadioGroup>
+      <OneXRadioGroup ref={radioGroup} label="Select an option" name="a" value="1" onSlChange={handleChange}>
+        <OneXRadio value="1">Not me</OneXRadio>
+        <OneXRadio value="2">Me neither</OneXRadio>
+        <OneXRadio value="3">Choose me</OneXRadio>
+      </OneXRadioGroup>
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
 ```
 
-[component-metadata:sl-radio-group]
+[component-metadata:onex-radio-group]

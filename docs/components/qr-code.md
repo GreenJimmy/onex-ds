@@ -1,6 +1,6 @@
 # QR Code
 
-[component-header:sl-qr-code]
+[component-header:onex-qr-code]
 
 Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
 
@@ -8,19 +8,19 @@ QR codes are useful for providing small pieces of information to users who can q
 
 ```html preview
 <div class="qr-overview">
-  <sl-qr-code value="https://shoelace.style/" label="Scan this code to visit Shoelace on the web!"></sl-qr-code>
+  <onex-qr-code value="https://shoelace.style/" label="Scan this code to visit Shoelace on the web!"></onex-qr-code>
   <br />
 
-  <sl-input maxlength="255" clearable label="Value"></sl-input>
+  <onex-input maxlength="255" clearable label="Value"></onex-input>
 </div>
 
 <script>
   const container = document.querySelector('.qr-overview');
-  const qrCode = container.querySelector('sl-qr-code');
-  const input = container.querySelector('sl-input');
+  const qrCode = container.querySelector('onex-qr-code');
+  const input = container.querySelector('onex-input');
 
   input.value = qrCode.value;
-  input.addEventListener('sl-input', () => (qrCode.value = input.value));
+  input.addEventListener('onex-input', () => (qrCode.value = input.value));
 </script>
 
 <style>
@@ -28,7 +28,7 @@ QR codes are useful for providing small pieces of information to users who can q
     max-width: 256px;
   }
 
-  .qr-overview sl-input {
+  .qr-overview onex-input {
     margin-top: 1rem;
   }
 </style>
@@ -36,14 +36,14 @@ QR codes are useful for providing small pieces of information to users who can q
 
 ```jsx react
 import { useState } from 'react';
-import { SlQrCode, SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXQrCode, OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .qr-overview {
     max-width: 256px;
   }
 
-  .qr-overview sl-input {
+  .qr-overview onex-input {
     margin-top: 1rem;
   }
 `;
@@ -54,10 +54,10 @@ const App = () => {
   return (
     <>
       <div className="qr-overview">
-        <SlQrCode value={value} label="Scan this code to visit Shoelace on the web!" />
+        <OnexQrCode value={value} label="Scan this code to visit Shoelace on the web!" />
         <br />
 
-        <SlInput maxlength="255" clearable onInput={event => setValue(event.target.value)} />
+        <OnexInput maxlength="255" clearable onInput={event => setValue(event.target.value)} />
       </div>
 
       <style>{css}</style>
@@ -73,13 +73,13 @@ const App = () => {
 Use the `fill` and `background` attributes to modify the QR code's colors. You should always ensure good contrast for optimal compatibility with QR code scanners.
 
 ```html preview
-<sl-qr-code value="https://shoelace.style/" fill="deeppink" background="white"></sl-qr-code>
+<onex-qr-code value="https://shoelace.style/" fill="deeppink" background="white"></onex-qr-code>
 ```
 
 ```jsx react
-import { SlQrCode } from '@shoelace-style/shoelace/dist/react';
+import { OneXQrCode } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlQrCode value="https://shoelace.style/" fill="deeppink" background="white" />;
+const App = () => <OnexQrCode value="https://shoelace.style/" fill="deeppink" background="white" />;
 ```
 
 ### Size
@@ -87,13 +87,13 @@ const App = () => <SlQrCode value="https://shoelace.style/" fill="deeppink" back
 Use the `size` attribute to change the size of the QR code.
 
 ```html preview
-<sl-qr-code value="https://shoelace.style/" size="64"></sl-qr-code>
+<onex-qr-code value="https://shoelace.style/" size="64"></onex-qr-code>
 ```
 
 ```jsx react
-import { SlQrCode } from '@shoelace-style/shoelace/dist/react';
+import { OneXQrCode } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlQrCode value="https://shoelace.style/" size="64" />;
+const App = () => <OnexQrCode value="https://shoelace.style/" size="64" />;
 ```
 
 ### Radius
@@ -101,13 +101,13 @@ const App = () => <SlQrCode value="https://shoelace.style/" size="64" />;
 Create a rounded effect with the `radius` attribute.
 
 ```html preview
-<sl-qr-code value="https://shoelace.style/" radius="0.5"></sl-qr-code>
+<onex-qr-code value="https://shoelace.style/" radius="0.5"></onex-qr-code>
 ```
 
 ```jsx react
-import { SlQrCode } from '@shoelace-style/shoelace/dist/react';
+import { OneXQrCode } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlQrCode value="https://shoelace.style/" radius="0.5" />;
+const App = () => <OnexQrCode value="https://shoelace.style/" radius="0.5" />;
 ```
 
 ### Error Correction
@@ -116,10 +116,10 @@ QR codes can be rendered with various levels of [error correction](https://www.q
 
 ```html preview
 <div class="qr-error-correction">
-  <sl-qr-code value="https://shoelace.style/" error-correction="L"></sl-qr-code>
-  <sl-qr-code value="https://shoelace.style/" error-correction="M"></sl-qr-code>
-  <sl-qr-code value="https://shoelace.style/" error-correction="Q"></sl-qr-code>
-  <sl-qr-code value="https://shoelace.style/" error-correction="H"></sl-qr-code>
+  <onex-qr-code value="https://shoelace.style/" error-correction="L"></onex-qr-code>
+  <onex-qr-code value="https://shoelace.style/" error-correction="M"></onex-qr-code>
+  <onex-qr-code value="https://shoelace.style/" error-correction="Q"></onex-qr-code>
+  <onex-qr-code value="https://shoelace.style/" error-correction="H"></onex-qr-code>
 </div>
 
 <style>
@@ -132,7 +132,7 @@ QR codes can be rendered with various levels of [error correction](https://www.q
 ```
 
 ```jsx react
-import { SlQrCode } from '@shoelace-style/shoelace/dist/react';
+import { OneXQrCode } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .qr-error-correction {
@@ -146,10 +146,10 @@ const App = () => {
   return (
     <>
       <div className="qr-error-correction">
-        <SlQrCode value="https://shoelace.style/" error-correction="L" />
-        <SlQrCode value="https://shoelace.style/" error-correction="M" />
-        <SlQrCode value="https://shoelace.style/" error-correction="Q" />
-        <SlQrCode value="https://shoelace.style/" error-correction="H" />
+        <OnexQrCode value="https://shoelace.style/" error-correction="L" />
+        <OnexQrCode value="https://shoelace.style/" error-correction="M" />
+        <OnexQrCode value="https://shoelace.style/" error-correction="Q" />
+        <OnexQrCode value="https://shoelace.style/" error-correction="H" />
       </div>
 
       <style>{css}</style>
@@ -158,4 +158,4 @@ const App = () => {
 };
 ```
 
-[component-metadata:sl-qr-code]
+[component-metadata:onex-qr-code]

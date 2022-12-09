@@ -1,22 +1,22 @@
 # Alert
 
-[component-header:sl-alert]
+[component-header:onex-alert]
 
 ```html preview
-<sl-alert open>
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+<onex-alert open>
+  <onex-icon slot="icon" name="info-circle"></onex-icon>
   This is a standard alert. You can customize its content and even the icon.
-</sl-alert>
+</onex-alert>
 ```
 
 ```jsx react
-import { SlAlert, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlAlert open>
-    <SlIcon slot="icon" name="info-circle" />
+  <OneXAlert open>
+    <OnexIcon slot="icon" name="info-circle" />
     This is a standard alert. You can customize its content and even the icon.
-  </SlAlert>
+  </OneXAlert>
 );
 ```
 
@@ -29,92 +29,92 @@ const App = () => (
 Set the `variant` attribute to change the alert's variant.
 
 ```html preview
-<sl-alert variant="primary" open>
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+<onex-alert variant="primary" open>
+  <onex-icon slot="icon" name="info-circle"></onex-icon>
   <strong>This is super informative</strong><br />
   You can tell by how pretty the alert is.
-</sl-alert>
+</onex-alert>
 
 <br />
 
-<sl-alert variant="success" open>
-  <sl-icon slot="icon" name="check2-circle"></sl-icon>
+<onex-alert variant="success" open>
+  <onex-icon slot="icon" name="check2-circle"></onex-icon>
   <strong>Your changes have been saved</strong><br />
   You can safely exit the app now.
-</sl-alert>
+</onex-alert>
 
 <br />
 
-<sl-alert variant="neutral" open>
-  <sl-icon slot="icon" name="gear"></sl-icon>
+<onex-alert variant="neutral" open>
+  <onex-icon slot="icon" name="gear"></onex-icon>
   <strong>Your settings have been updated</strong><br />
   Settings will take affect on next login.
-</sl-alert>
+</onex-alert>
 
 <br />
 
-<sl-alert variant="warning" open>
-  <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+<onex-alert variant="warning" open>
+  <onex-icon slot="icon" name="exclamation-triangle"></onex-icon>
   <strong>Your session has ended</strong><br />
   Please login again to continue.
-</sl-alert>
+</onex-alert>
 
 <br />
 
-<sl-alert variant="danger" open>
-  <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+<onex-alert variant="danger" open>
+  <onex-icon slot="icon" name="exclamation-octagon"></onex-icon>
   <strong>Your account has been deleted</strong><br />
   We're very sorry to see you go!
-</sl-alert>
+</onex-alert>
 ```
 
 ```jsx react
-import { SlAlert, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlAlert variant="primary" open>
-      <SlIcon slot="icon" name="info-circle" />
+    <OneXAlert variant="primary" open>
+      <OnexIcon slot="icon" name="info-circle" />
       <strong>This is super informative</strong>
       <br />
       You can tell by how pretty the alert is.
-    </SlAlert>
+    </OneXAlert>
 
     <br />
 
-    <SlAlert variant="success" open>
-      <SlIcon slot="icon" name="check2-circle" />
+    <OneXAlert variant="success" open>
+      <OnexIcon slot="icon" name="check2-circle" />
       <strong>Your changes have been saved</strong>
       <br />
       You can safely exit the app now.
-    </SlAlert>
+    </OneXAlert>
 
     <br />
 
-    <SlAlert variant="neutral" open>
-      <SlIcon slot="icon" name="gear" />
+    <OneXAlert variant="neutral" open>
+      <OnexIcon slot="icon" name="gear" />
       <strong>Your settings have been updated</strong>
       <br />
       Settings will take affect on next login.
-    </SlAlert>
+    </OneXAlert>
 
     <br />
 
-    <SlAlert variant="warning" open>
-      <SlIcon slot="icon" name="exclamation-triangle" />
+    <OneXAlert variant="warning" open>
+      <OnexIcon slot="icon" name="exclamation-triangle" />
       <strong>Your session has ended</strong>
       <br />
       Please login again to continue.
-    </SlAlert>
+    </OneXAlert>
 
     <br />
 
-    <SlAlert variant="danger" open>
-      <SlIcon slot="icon" name="exclamation-octagon" />
+    <OneXAlert variant="danger" open>
+      <OnexIcon slot="icon" name="exclamation-octagon" />
       <strong>Your account has been deleted</strong>
       <br />
       We're very sorry to see you go!
-    </SlAlert>
+    </OneXAlert>
   </>
 );
 ```
@@ -124,14 +124,14 @@ const App = () => (
 Add the `closable` attribute to show a close button that will hide the alert.
 
 ```html preview
-<sl-alert variant="primary" open closable class="alert-closable">
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+<onex-alert variant="primary" open closable class="alert-closable">
+  <onex-icon slot="icon" name="info-circle"></onex-icon>
   You can close this alert any time!
-</sl-alert>
+</onex-alert>
 
 <script>
   const alert = document.querySelector('.alert-closable');
-  alert.addEventListener('sl-after-hide', () => {
+  alert.addEventListener('onex-after-hide', () => {
     setTimeout(() => (alert.open = true), 2000);
   });
 </script>
@@ -139,7 +139,7 @@ Add the `closable` attribute to show a close button that will hide the alert.
 
 ```jsx react
 import { useState } from 'react';
-import { SlAlert, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -150,10 +150,10 @@ const App = () => {
   }
 
   return (
-    <SlAlert open={open} closable onSlAfterHide={handleHide}>
-      <SlIcon slot="icon" name="info-circle" />
+    <OneXAlert open={open} closable onSlAfterHide={handleHide}>
+      <OnexIcon slot="icon" name="info-circle" />
       You can close this alert any time!
-    </SlAlert>
+    </OneXAlert>
   );
 };
 ```
@@ -163,16 +163,16 @@ const App = () => {
 Icons are optional. Simply omit the `icon` slot if you don't want them.
 
 ```html preview
-<sl-alert variant="primary" open> Nothing fancy here, just a simple alert. </sl-alert>
+<onex-alert variant="primary" open> Nothing fancy here, just a simple alert. </onex-alert>
 ```
 
 ```jsx react
-import { SlAlert } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlAlert variant="primary" open>
+  <OneXAlert variant="primary" open>
     Nothing fancy here, just a simple alert.
-  </SlAlert>
+  </OneXAlert>
 );
 ```
 
@@ -182,36 +182,36 @@ Set the `duration` attribute to automatically hide an alert after a period of ti
 
 ```html preview
 <div class="alert-duration">
-  <sl-button variant="primary">Show Alert</sl-button>
+  <onex-button variant="primary">Show Alert</onex-button>
 
-  <sl-alert variant="primary" duration="3000" closable>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <onex-alert variant="primary" duration="3000" closable>
+    <onex-icon slot="icon" name="info-circle"></onex-icon>
     This alert will automatically hide itself after three seconds, unless you interact with it.
-  </sl-alert>
+  </onex-alert>
 </div>
 
 <script>
   const container = document.querySelector('.alert-duration');
-  const button = container.querySelector('sl-button');
-  const alert = container.querySelector('sl-alert');
+  const button = container.querySelector('onex-button');
+  const alert = container.querySelector('onex-alert');
 
   button.addEventListener('click', () => alert.show());
 </script>
 
 <style>
-  .alert-duration sl-alert {
-    margin-top: var(--sl-spacing-medium);
+  .alert-duration onex-alert {
+    margin-top: var(--onex-spacing-medium);
   }
 </style>
 ```
 
 ```jsx react
 import { useState } from 'react';
-import { SlAlert, SlButton, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert, OneXButton, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .alert-duration sl-alert {
-    margin-top: var(--sl-spacing-medium);
+  .alert-duration onex-alert {
+    margin-top: var(--onex-spacing-medium);
   }
 `;
 
@@ -221,14 +221,14 @@ const App = () => {
   return (
     <>
       <div className="alert-duration">
-        <SlButton variant="primary" onClick={() => setOpen(true)}>
+        <OnexButton variant="primary" onClick={() => setOpen(true)}>
           Show Alert
-        </SlButton>
+        </OneXButton>
 
-        <SlAlert variant="primary" duration="3000" open={open} closable onSlAfterHide={() => setOpen(false)}>
-          <SlIcon slot="icon" name="info-circle" />
+        <OneXAlert variant="primary" duration="3000" open={open} closable onSlAfterHide={() => setOpen(false)}>
+          <OnexIcon slot="icon" name="info-circle" />
           This alert will automatically hide itself after three seconds, unless you interact with it.
-        </SlAlert>
+        </OneXAlert>
       </div>
 
       <style>{css}</style>
@@ -245,49 +245,49 @@ You should always use the `closable` attribute so users can dismiss the notifica
 
 ```html preview
 <div class="alert-toast">
-  <sl-button variant="primary">Primary</sl-button>
-  <sl-button variant="success">Success</sl-button>
-  <sl-button variant="neutral">Neutral</sl-button>
-  <sl-button variant="warning">Warning</sl-button>
-  <sl-button variant="danger">Danger</sl-button>
+  <onex-button variant="primary">Primary</onex-button>
+  <onex-button variant="success">Success</onex-button>
+  <onex-button variant="neutral">Neutral</onex-button>
+  <onex-button variant="warning">Warning</onex-button>
+  <onex-button variant="danger">Danger</onex-button>
 
-  <sl-alert variant="primary" duration="3000" closable>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <onex-alert variant="primary" duration="3000" closable>
+    <onex-icon slot="icon" name="info-circle"></onex-icon>
     <strong>This is super informative</strong><br />
     You can tell by how pretty the alert is.
-  </sl-alert>
+  </onex-alert>
 
-  <sl-alert variant="success" duration="3000" closable>
-    <sl-icon slot="icon" name="check2-circle"></sl-icon>
+  <onex-alert variant="success" duration="3000" closable>
+    <onex-icon slot="icon" name="check2-circle"></onex-icon>
     <strong>Your changes have been saved</strong><br />
     You can safely exit the app now.
-  </sl-alert>
+  </onex-alert>
 
-  <sl-alert variant="neutral" duration="3000" closable>
-    <sl-icon slot="icon" name="gear"></sl-icon>
+  <onex-alert variant="neutral" duration="3000" closable>
+    <onex-icon slot="icon" name="gear"></onex-icon>
     <strong>Your settings have been updated</strong><br />
     Settings will take affect on next login.
-  </sl-alert>
+  </onex-alert>
 
-  <sl-alert variant="warning" duration="3000" closable>
-    <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+  <onex-alert variant="warning" duration="3000" closable>
+    <onex-icon slot="icon" name="exclamation-triangle"></onex-icon>
     <strong>Your session has ended</strong><br />
     Please login again to continue.
-  </sl-alert>
+  </onex-alert>
 
-  <sl-alert variant="danger" duration="3000" closable>
-    <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+  <onex-alert variant="danger" duration="3000" closable>
+    <onex-icon slot="icon" name="exclamation-octagon"></onex-icon>
     <strong>Your account has been deleted</strong><br />
     We're very sorry to see you go!
-  </sl-alert>
+  </onex-alert>
 </div>
 
 <script>
   const container = document.querySelector('.alert-toast');
 
   ['primary', 'success', 'neutral', 'warning', 'danger'].map(variant => {
-    const button = container.querySelector(`sl-button[variant="${variant}"]`);
-    const alert = container.querySelector(`sl-alert[variant="${variant}"]`);
+    const button = container.querySelector(`onex-button[variant="${variant}"]`);
+    const alert = container.querySelector(`onex-alert[variant="${variant}"]`);
 
     button.addEventListener('click', () => alert.toast());
   });
@@ -296,7 +296,7 @@ You should always use the `closable` attribute so users can dismiss the notifica
 
 ```jsx react
 import { useRef } from 'react';
-import { SlAlert, SlButton, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXAlert, OneXButton, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 function showToast(alert) {
   alert.toast();
@@ -311,60 +311,60 @@ const App = () => {
 
   return (
     <>
-      <SlButton variant="primary" onClick={() => primary.current.toast()}>
+      <OnexButton variant="primary" onClick={() => primary.current.toast()}>
         Primary
-      </SlButton>
+      </OneXButton>
 
-      <SlButton variant="success" onClick={() => success.current.toast()}>
+      <OnexButton variant="success" onClick={() => success.current.toast()}>
         Success
-      </SlButton>
+      </OneXButton>
 
-      <SlButton variant="neutral" onClick={() => neutral.current.toast()}>
+      <OnexButton variant="neutral" onClick={() => neutral.current.toast()}>
         Neutral
-      </SlButton>
+      </OneXButton>
 
-      <SlButton variant="warning" onClick={() => warning.current.toast()}>
+      <OnexButton variant="warning" onClick={() => warning.current.toast()}>
         Warning
-      </SlButton>
+      </OneXButton>
 
-      <SlButton variant="danger" onClick={() => danger.current.toast()}>
+      <OnexButton variant="danger" onClick={() => danger.current.toast()}>
         Danger
-      </SlButton>
+      </OneXButton>
 
-      <SlAlert ref={primary} variant="primary" duration="3000" closable>
-        <SlIcon slot="icon" name="info-circle" />
+      <OneXAlert ref={primary} variant="primary" duration="3000" closable>
+        <OnexIcon slot="icon" name="info-circle" />
         <strong>This is super informative</strong>
         <br />
         You can tell by how pretty the alert is.
-      </SlAlert>
+      </OneXAlert>
 
-      <SlAlert ref={success} variant="success" duration="3000" closable>
-        <SlIcon slot="icon" name="check2-circle" />
+      <OneXAlert ref={success} variant="success" duration="3000" closable>
+        <OnexIcon slot="icon" name="check2-circle" />
         <strong>Your changes have been saved</strong>
         <br />
         You can safely exit the app now.
-      </SlAlert>
+      </OneXAlert>
 
-      <SlAlert ref={neutral} variant="neutral" duration="3000" closable>
-        <SlIcon slot="icon" name="gear" />
+      <OneXAlert ref={neutral} variant="neutral" duration="3000" closable>
+        <OnexIcon slot="icon" name="gear" />
         <strong>Your settings have been updated</strong>
         <br />
         Settings will take affect on next login.
-      </SlAlert>
+      </OneXAlert>
 
-      <SlAlert ref={warning} variant="warning" duration="3000" closable>
-        <SlIcon slot="icon" name="exclamation-triangle" />
+      <OneXAlert ref={warning} variant="warning" duration="3000" closable>
+        <OnexIcon slot="icon" name="exclamation-triangle" />
         <strong>Your session has ended</strong>
         <br />
         Please login again to continue.
-      </SlAlert>
+      </OneXAlert>
 
-      <SlAlert ref={danger} variant="danger" duration="3000" closable>
-        <SlIcon slot="icon" name="exclamation-octagon" />
+      <OneXAlert ref={danger} variant="danger" duration="3000" closable>
+        <OnexIcon slot="icon" name="exclamation-octagon" />
         <strong>Your account has been deleted</strong>
         <br />
         We're very sorry to see you go!
-      </SlAlert>
+      </OneXAlert>
     </>
   );
 };
@@ -376,12 +376,12 @@ For convenience, you can create a utility that emits toast notifications with a 
 
 ```html preview
 <div class="alert-toast-wrapper">
-  <sl-button variant="primary">Create Toast</sl-button>
+  <onex-button variant="primary">Create Toast</onex-button>
 </div>
 
 <script>
   const container = document.querySelector('.alert-toast-wrapper');
-  const button = container.querySelector('sl-button');
+  const button = container.querySelector('onex-button');
   let count = 0;
 
   // Always escape HTML for text arguments!
@@ -393,12 +393,12 @@ For convenience, you can create a utility that emits toast notifications with a 
 
   // Custom function to emit toast notifications
   function notify(message, variant = 'primary', icon = 'info-circle', duration = 3000) {
-    const alert = Object.assign(document.createElement('sl-alert'), {
+    const alert = Object.assign(document.createElement('onex-alert'), {
       variant,
       closable: true,
       duration: duration,
       innerHTML: `
-        <sl-icon name="${icon}" slot="icon"></sl-icon>
+        <onex-icon name="${icon}" slot="icon"></onex-icon>
         ${escapeHtml(message)}
       `
     });
@@ -417,10 +417,10 @@ For convenience, you can create a utility that emits toast notifications with a 
 
 The toast stack is a fixed position singleton element created and managed internally by the alert component. It will be added and removed from the DOM as needed when toasts are shown. When more than one toast is visible, they will stack vertically in the toast stack.
 
-By default, the toast stack is positioned at the top-right of the viewport. You can change its position by targeting `.sl-toast-stack` in your stylesheet. To make toasts appear at the top-left of the viewport, for example, use the following styles.
+By default, the toast stack is positioned at the top-right of the viewport. You can change its position by targeting `.onex-toast-stack` in your stylesheet. To make toasts appear at the top-left of the viewport, for example, use the following styles.
 
 ```css
-.sl-toast-stack {
+.onex-toast-stack {
   left: 0;
   right: auto;
 }
@@ -428,4 +428,4 @@ By default, the toast stack is positioned at the top-right of the viewport. You 
 
 ?> By design, it is not possible to show toasts in more than one stack simultaneously. Such behavior is confusing and makes for a poor user experience.
 
-[component-metadata:sl-alert]
+[component-metadata:onex-alert]

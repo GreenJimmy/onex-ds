@@ -1,33 +1,33 @@
 # Breadcrumb Item
 
-[component-header:sl-breadcrumb-item]
+[component-header:onex-breadcrumb-item]
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item>
-    <sl-icon slot="prefix" name="house"></sl-icon>
+<onex-breadcrumb>
+  <onex-breadcrumb-item>
+    <onex-icon slot="prefix" name="house"></onex-icon>
     Home
-  </sl-breadcrumb-item>
-  <sl-breadcrumb-item>Clothing</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Shirts</sl-breadcrumb-item>
-</sl-breadcrumb>
+  </onex-breadcrumb-item>
+  <onex-breadcrumb-item>Clothing</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Shirts</onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
-import { SlBreadcrumb, SlBreadcrumbItem, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem>
-      <SlIcon slot="prefix" name="house"></SlIcon>
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem>
+      <OnexIcon slot="prefix" name="house"></OneXIcon>
       Home
-    </SlBreadcrumbItem>
-    <SlBreadcrumbItem>Clothing</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Shirts</SlBreadcrumbItem>
-  </SlBreadcrumb>
+    </OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Clothing</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Shirts</OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
 ?> Additional demonstrations can be found in the [breadcrumb examples](/components/breadcrumb).
 
-[component-metadata:sl-breadcrumb-item]
+[component-metadata:onex-breadcrumb-item]

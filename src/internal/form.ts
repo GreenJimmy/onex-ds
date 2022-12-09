@@ -1,5 +1,5 @@
 import './formdata-event-polyfill';
-import type SlButton from '../components/button/button';
+import type OneXButton from '../components/button/button';
 import type { ShoelaceFormControl } from '../internal/shoelace-element';
 import type { ReactiveController, ReactiveControllerHost } from 'lit';
 
@@ -88,7 +88,7 @@ export class FormSubmitController implements ReactiveController {
       }
     }
 
-    this.host.addEventListener('sl-input', this.handleUserInput);
+    this.host.addEventListener('onex-input', this.handleUserInput);
   }
 
   hostDisconnected() {
@@ -109,7 +109,7 @@ export class FormSubmitController implements ReactiveController {
       this.form = undefined;
     }
 
-    this.host.removeEventListener('sl-input', this.handleUserInput);
+    this.host.removeEventListener('onex-input', this.handleUserInput);
   }
 
   hostUpdated() {
@@ -150,7 +150,7 @@ export class FormSubmitController implements ReactiveController {
 
     // For buttons, we only submit the value if they were the submitter. This is currently done in doAction() by
     // injecting the name/value on a temporary button, so we can just skip them here.
-    const isButton = this.host.tagName.toLowerCase() === 'sl-button';
+    const isButton = this.host.tagName.toLowerCase() === 'onex-button';
 
     if (!disabled && !isButton && typeof name === 'string' && typeof value !== 'undefined') {
       if (Array.isArray(value)) {
@@ -225,7 +225,7 @@ export class FormSubmitController implements ReactiveController {
     el.requestUpdate();
   }
 
-  doAction(type: 'submit' | 'reset', invoker?: HTMLInputElement | SlButton) {
+  doAction(type: 'submit' | 'reset', invoker?: HTMLInputElement | OneXButton) {
     if (this.form) {
       const button = document.createElement('button');
       button.type = type;
@@ -255,12 +255,12 @@ export class FormSubmitController implements ReactiveController {
   }
 
   /** Resets the form, restoring all the control to their default value */
-  reset(invoker?: HTMLInputElement | SlButton) {
+  reset(invoker?: HTMLInputElement | OneXButton) {
     this.doAction('reset', invoker);
   }
 
   /** Submits the form, triggering validation and form data injection. */
-  submit(invoker?: HTMLInputElement | SlButton) {
+  submit(invoker?: HTMLInputElement | OneXButton) {
     // Calling form.submit() bypasses the submit event and constraint validation. To prevent this, we can inject a
     // native submit button into the form, "click" it, then remove it to simulate a standard form submission.
     this.doAction('submit', invoker);

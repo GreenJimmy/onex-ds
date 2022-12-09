@@ -7,15 +7,15 @@ export default css`
   :host {
     display: block;
     position: relative;
-    background: var(--sl-panel-background-color);
-    border: solid var(--sl-panel-border-width) var(--sl-panel-border-color);
-    border-radius: var(--sl-border-radius-medium);
-    padding: var(--sl-spacing-x-small) 0;
+    background: var(--onex-panel-background-color);
+    border: solid var(--onex-panel-border-width) var(--onex-panel-border-color);
+    border-radius: var(--onex-border-radius-medium);
+    padding: var(--onex-spacing-x-small) 0;
     overflow: auto;
     overscroll-behavior: none;
   }
 
-  ::slotted(sl-divider) {
-    --spacing: var(--sl-spacing-x-small);
+  ::slotted(onex-divider) {
+    --spacing: var(--onex-spacing-x-small);
   }
 `;

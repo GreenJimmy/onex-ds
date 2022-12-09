@@ -14,8 +14,8 @@ import type { CSSResultGroup } from 'lit';
  *
  * @csspart base - The component's base wrapper.
  */
-@customElement('sl-menu-label')
-export default class SlMenuLabel extends ShoelaceElement {
+@customElement('onex-menu-label')
+export default class OneXMenuLabel extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   render() {
@@ -25,6 +25,6 @@ export default class SlMenuLabel extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-menu-label': SlMenuLabel;
+    'onex-menu-label': OneXMenuLabel;
   }
 }

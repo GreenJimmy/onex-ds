@@ -13,19 +13,19 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon-button
+ * @dependency onex-icon-button
  *
  * @slot - The tag's content.
  *
- * @event sl-remove - Emitted when the remove button is activated.
+ * @event onex-remove - Emitted when the remove button is activated.
  *
  * @csspart base - The component's base wrapper.
  * @csspart content - The tag's content.
- * @csspart remove-button - The tag's remove button, an `<sl-icon-button>`.
+ * @csspart remove-button - The tag's remove button, an `<onex-icon-button>`.
  * @csspart remove-button__base - The remove button's exported `base` part.
  */
-@customElement('sl-tag')
-export default class SlTag extends ShoelaceElement {
+@customElement('onex-tag')
+export default class OneXTag extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
   private readonly localize = new LocalizeController(this);
 
@@ -42,7 +42,7 @@ export default class SlTag extends ShoelaceElement {
   @property({ type: Boolean }) removable = false;
 
   handleRemoveClick() {
-    this.emit('sl-remove');
+    this.emit('onex-remove');
   }
 
   render() {
@@ -74,7 +74,7 @@ export default class SlTag extends ShoelaceElement {
 
         ${this.removable
           ? html`
-              <sl-icon-button
+              <onex-icon-button
                 part="remove-button"
                 exportparts="base:remove-button__base"
                 name="x-lg"
@@ -82,7 +82,7 @@ export default class SlTag extends ShoelaceElement {
                 label=${this.localize.term('remove')}
                 class="tag__remove"
                 @click=${this.handleRemoveClick}
-              ></sl-icon-button>
+              ></onex-icon-button>
             `
           : ''}
       </span>
@@ -92,6 +92,6 @@ export default class SlTag extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tag': SlTag;
+    'onex-tag': OneXTag;
   }
 }

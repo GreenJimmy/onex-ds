@@ -31,7 +31,7 @@ const isFirefox = isChromium ? false : navigator.userAgent.includes('Firefox');
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
  * @slot label - The input's label. Alternatively, you can use the `label` attribute.
  * @slot prefix - Used to prepend a presentational icon or similar element to the input.
@@ -41,11 +41,11 @@ const isFirefox = isChromium ? false : navigator.userAgent.includes('Firefox');
  * @slot hide-password-icon - An icon to use in lieu of the default hide password icon.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sl-clear - Emitted when the clear button is activated.
- * @event sl-focus - Emitted when the control gains focus.
- * @event sl-input - Emitted when the control receives input.
+ * @event onex-blur - Emitted when the control loses focus.
+ * @event onex-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event onex-clear - Emitted when the clear button is activated.
+ * @event onex-focus - Emitted when the control gains focus.
+ * @event onex-input - Emitted when the control receives input.
  *
  * @csspart form-control - The form control that wraps the label, input, and help text.
  * @csspart form-control-label - The label's wrapper.
@@ -58,8 +58,8 @@ const isFirefox = isChromium ? false : navigator.userAgent.includes('Firefox');
  * @csspart password-toggle-button - The password toggle button.
  * @csspart suffix - The container that wraps the suffix.
  */
-@customElement('sl-input')
-export default class SlInput extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-input')
+export default class OneXInput extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('.input__control') input: HTMLInputElement;
@@ -302,19 +302,19 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleChange() {
     this.value = this.input.value;
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   handleClearClick(event: MouseEvent) {
     this.value = '';
-    this.emit('sl-clear');
-    this.emit('sl-input');
-    this.emit('sl-change');
+    this.emit('onex-clear');
+    this.emit('onex-input');
+    this.emit('onex-change');
     this.input.focus();
 
     event.stopPropagation();
@@ -337,12 +337,12 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleInput() {
     this.value = this.input.value;
-    this.emit('sl-input');
+    this.emit('onex-input');
   }
 
   handleInvalid() {
@@ -479,7 +479,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                       tabindex="-1"
                     >
                       <slot name="clear-icon">
-                        <sl-icon name="x-circle-fill" library="system"></sl-icon>
+                        <onex-icon name="x-circle-fill" library="system"></onex-icon>
                       </slot>
                     </button>
                   `
@@ -499,12 +499,12 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                       ${this.passwordVisible
                         ? html`
                             <slot name="show-password-icon">
-                              <sl-icon name="eye-slash" library="system"></sl-icon>
+                              <onex-icon name="eye-slash" library="system"></onex-icon>
                             </slot>
                           `
                         : html`
                             <slot name="hide-password-icon">
-                              <sl-icon name="eye" library="system"></sl-icon>
+                              <onex-icon name="eye" library="system"></onex-icon>
                             </slot>
                           `}
                     </button>
@@ -533,6 +533,6 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-input': SlInput;
+    'onex-input': OneXInput;
   }
 }

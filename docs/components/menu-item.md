@@ -1,48 +1,48 @@
 # Menu Item
 
-[component-header:sl-menu-item]
+[component-header:onex-menu-item]
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-item>Option 1</sl-menu-item>
-  <sl-menu-item>Option 2</sl-menu-item>
-  <sl-menu-item>Option 3</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-item checked>Checked</sl-menu-item>
-  <sl-menu-item disabled>Disabled</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-item>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-item>Option 1</onex-menu-item>
+  <onex-menu-item>Option 2</onex-menu-item>
+  <onex-menu-item>Option 3</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-item checked>Checked</onex-menu-item>
+  <onex-menu-item disabled>Disabled</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-item>
     Prefix Icon
-    <sl-icon slot="prefix" name="gift"></sl-icon>
-  </sl-menu-item>
-  <sl-menu-item>
+    <onex-icon slot="prefix" name="gift"></onex-icon>
+  </onex-menu-item>
+  <onex-menu-item>
     Suffix Icon
-    <sl-icon slot="suffix" name="heart"></sl-icon>
-  </sl-menu-item>
-</sl-menu>
+    <onex-icon slot="suffix" name="heart"></onex-icon>
+  </onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlDivider, SlIcon, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXIcon, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuItem>Option 1</SlMenuItem>
-    <SlMenuItem>Option 2</SlMenuItem>
-    <SlMenuItem>Option 3</SlMenuItem>
-    <SlDivider />
-    <SlMenuItem checked>Checked</SlMenuItem>
-    <SlMenuItem disabled>Disabled</SlMenuItem>
-    <SlDivider />
-    <SlMenuItem>
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OneXMenuItem>Option 1</OneXMenuItem>
+    <OneXMenuItem>Option 2</OneXMenuItem>
+    <OneXMenuItem>Option 3</OneXMenuItem>
+    <OnexDivider />
+    <OneXMenuItem checked>Checked</OneXMenuItem>
+    <OneXMenuItem disabled>Disabled</OneXMenuItem>
+    <OnexDivider />
+    <OneXMenuItem>
       Prefix Icon
-      <SlIcon slot="prefix" name="gift" />
-    </SlMenuItem>
-    <SlMenuItem>
+      <OnexIcon slot="prefix" name="gift" />
+    </OneXMenuItem>
+    <OneXMenuItem>
       Suffix Icon
-      <SlIcon slot="suffix" name="heart" />
-    </SlMenuItem>
-  </SlMenu>
+      <OnexIcon slot="suffix" name="heart" />
+    </OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
@@ -53,22 +53,22 @@ const App = () => (
 Use the `checked` attribute to draw menu items in a checked state.
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-item>Option 1</sl-menu-item>
-  <sl-menu-item checked>Option 2</sl-menu-item>
-  <sl-menu-item>Option 3</sl-menu-item>
-</sl-menu>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-item>Option 1</onex-menu-item>
+  <onex-menu-item checked>Option 2</onex-menu-item>
+  <onex-menu-item>Option 3</onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuItem>Option 1</SlMenuItem>
-    <SlMenuItem checked>Option 2</SlMenuItem>
-    <SlMenuItem>Option 3</SlMenuItem>
-  </SlMenu>
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OneXMenuItem>Option 1</OneXMenuItem>
+    <OneXMenuItem checked>Option 2</OneXMenuItem>
+    <OneXMenuItem>Option 3</OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
@@ -77,22 +77,22 @@ const App = () => (
 Add the `disabled` attribute to disable the menu item so it cannot be selected.
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-item>Option 1</sl-menu-item>
-  <sl-menu-item disabled>Option 2</sl-menu-item>
-  <sl-menu-item>Option 3</sl-menu-item>
-</sl-menu>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-item>Option 1</onex-menu-item>
+  <onex-menu-item disabled>Option 2</onex-menu-item>
+  <onex-menu-item>Option 3</onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuItem>Option 1</SlMenuItem>
-    <SlMenuItem disabled>Option 2</SlMenuItem>
-    <SlMenuItem>Option 3</SlMenuItem>
-  </SlMenu>
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OneXMenuItem>Option 1</OneXMenuItem>
+    <OneXMenuItem disabled>Option 2</OneXMenuItem>
+    <OneXMenuItem>Option 3</OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
@@ -101,70 +101,70 @@ const App = () => (
 Add content to the start and end of menu items using the `prefix` and `suffix` slots.
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-item>
-    <sl-icon slot="prefix" name="house"></sl-icon>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-item>
+    <onex-icon slot="prefix" name="house"></onex-icon>
     Home
-  </sl-menu-item>
+  </onex-menu-item>
 
-  <sl-menu-item>
-    <sl-icon slot="prefix" name="envelope"></sl-icon>
+  <onex-menu-item>
+    <onex-icon slot="prefix" name="envelope"></onex-icon>
     Messages
-    <sl-badge slot="suffix" variant="primary" pill>12</sl-badge>
-  </sl-menu-item>
+    <onex-badge slot="suffix" variant="primary" pill>12</onex-badge>
+  </onex-menu-item>
 
-  <sl-divider></sl-divider>
+  <onex-divider></onex-divider>
 
-  <sl-menu-item>
-    <sl-icon slot="prefix" name="gear"></sl-icon>
+  <onex-menu-item>
+    <onex-icon slot="prefix" name="gear"></onex-icon>
     Settings
-  </sl-menu-item>
-</sl-menu>
+  </onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlBadge, SlDivider, SlIcon, SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge, OneXDivider, OneXIcon, OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuItem>
-      <SlIcon slot="prefix" name="house" />
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OneXMenuItem>
+      <OnexIcon slot="prefix" name="house" />
       Home
-    </SlMenuItem>
+    </OneXMenuItem>
 
-    <SlMenuItem>
-      <SlIcon slot="prefix" name="envelope" />
+    <OneXMenuItem>
+      <OnexIcon slot="prefix" name="envelope" />
       Messages
-      <SlBadge slot="suffix" variant="primary" pill>
+      <OnexBadge slot="suffix" variant="primary" pill>
         12
-      </SlBadge>
-    </SlMenuItem>
+      </OneXBadge>
+    </OneXMenuItem>
 
-    <SlDivider />
+    <OnexDivider />
 
-    <SlMenuItem>
-      <SlIcon slot="prefix" name="gear" />
+    <OneXMenuItem>
+      <OnexIcon slot="prefix" name="gear" />
       Settings
-    </SlMenuItem>
-  </SlMenu>
+    </OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
 ### Value & Selection
 
-The `value` attribute can be used to assign a hidden value, such as a unique identifier, to a menu item. When an item is selected, the `sl-select` event will be emitted and a reference to the item will be available at `event.detail.item`. You can use this reference to access the selected item's value, its checked state, and more.
+The `value` attribute can be used to assign a hidden value, such as a unique identifier, to a menu item. When an item is selected, the `onex-select` event will be emitted and a reference to the item will be available at `event.detail.item`. You can use this reference to access the selected item's value, its checked state, and more.
 
 ```html preview
-<sl-menu class="menu-value" style="max-width: 200px;">
-  <sl-menu-item value="opt-1">Option 1</sl-menu-item>
-  <sl-menu-item value="opt-2">Option 2</sl-menu-item>
-  <sl-menu-item value="opt-3">Option 3</sl-menu-item>
-</sl-menu>
+<onex-menu class="menu-value" style="max-width: 200px;">
+  <onex-menu-item value="opt-1">Option 1</onex-menu-item>
+  <onex-menu-item value="opt-2">Option 2</onex-menu-item>
+  <onex-menu-item value="opt-3">Option 3</onex-menu-item>
+</onex-menu>
 
 <script>
   const menu = document.querySelector('.menu-value');
 
-  menu.addEventListener('sl-select', event => {
+  menu.addEventListener('onex-select', event => {
     const item = event.detail.item;
 
     // Toggle checked state
@@ -177,7 +177,7 @@ The `value` attribute can be used to assign a hidden value, such as a unique ide
 ```
 
 ```jsx react
-import { SlMenu, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenu, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleSelect(event) {
@@ -191,13 +191,13 @@ const App = () => {
   }
 
   return (
-    <SlMenu style={{ maxWidth: '200px' }} onSlSelect={handleSelect}>
-      <SlMenuItem value="opt-1">Option 1</SlMenuItem>
-      <SlMenuItem value="opt-2">Option 2</SlMenuItem>
-      <SlMenuItem value="opt-3">Option 3</SlMenuItem>
-    </SlMenu>
+    <OnexMenu style={{ maxWidth: '200px' }} onOneXSelect={handleSelect}>
+      <OneXMenuItem value="opt-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="opt-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="opt-3">Option 3</OneXMenuItem>
+    </OneXMenu>
   );
 };
 ```
 
-[component-metadata:sl-menu-item]
+[component-metadata:onex-menu-item]

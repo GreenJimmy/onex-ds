@@ -3,10 +3,10 @@ import { customElement, query } from 'lit/decorators.js';
 import ShoelaceElement from '../../internal/shoelace-element';
 import { getTextContent } from '../../internal/slot';
 import styles from './menu.styles';
-import type SlMenuItem from '../menu-item/menu-item';
+import type OneXMenuItem from '../menu-item/menu-item';
 import type { CSSResultGroup } from 'lit';
 export interface MenuSelectEventDetail {
-  item: SlMenuItem;
+  item: OneXMenuItem;
 }
 
 /**
@@ -17,10 +17,10 @@ export interface MenuSelectEventDetail {
  *
  * @slot - The menu's content, including menu items, menu labels, and dividers.
  *
- * @event {{ item: SlMenuItem }} sl-select - Emitted when a menu item is selected.
+ * @event {{ item: OneXMenuItem }} onex-select - Emitted when a menu item is selected.
  */
-@customElement('sl-menu')
-export default class SlMenu extends ShoelaceElement {
+@customElement('onex-menu')
+export default class OneXMenu extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('slot') defaultSlot: HTMLSlotElement;
@@ -39,12 +39,12 @@ export default class SlMenu extends ShoelaceElement {
         return false;
       }
 
-      if (!options.includeDisabled && (el as SlMenuItem).disabled) {
+      if (!options.includeDisabled && (el as OneXMenuItem).disabled) {
         return false;
       }
 
       return true;
-    }) as SlMenuItem[];
+    }) as OneXMenuItem[];
   }
 
   /**
@@ -59,7 +59,7 @@ export default class SlMenu extends ShoelaceElement {
    * @internal Sets the current menu item to the specified element. This sets `tabindex="0"` on the target element and
    * `tabindex="-1"` to all other items. This method must be called prior to setting focus on a menu item.
    */
-  setCurrentItem(item: SlMenuItem) {
+  setCurrentItem(item: OneXMenuItem) {
     const items = this.getAllItems({ includeDisabled: false });
     const activeItem = item.disabled ? items[0] : item;
 
@@ -105,10 +105,10 @@ export default class SlMenu extends ShoelaceElement {
 
   handleClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    const item = target.closest('sl-menu-item');
+    const item = target.closest('onex-menu-item');
 
     if (item?.disabled === false) {
-      this.emit('sl-select', { detail: { item } });
+      this.emit('onex-select', { detail: { item } });
     }
   }
 
@@ -167,7 +167,7 @@ export default class SlMenu extends ShoelaceElement {
     const target = event.target as HTMLElement;
 
     if (target.getAttribute('role') === 'menuitem') {
-      this.setCurrentItem(target as SlMenuItem);
+      this.setCurrentItem(target as OneXMenuItem);
     }
   }
 
@@ -194,6 +194,6 @@ export default class SlMenu extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-menu': SlMenu;
+    'onex-menu': OneXMenu;
   }
 }

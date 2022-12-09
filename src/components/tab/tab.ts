@@ -16,25 +16,25 @@ let id = 0;
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon-button
+ * @dependency onex-icon-button
  *
  * @slot - The tab's label.
  *
- * @event sl-close - Emitted when the tab is closable and the close button is activated.
+ * @event onex-close - Emitted when the tab is closable and the close button is activated.
  *
  * @csspart base - The component's base wrapper.
- * @csspart close-button - The close button, an `<sl-icon-button>`.
+ * @csspart close-button - The close button, an `<onex-icon-button>`.
  * @csspart close-button__base - The close button's exported `base` part.
  */
-@customElement('sl-tab')
-export default class SlTab extends ShoelaceElement {
+@customElement('onex-tab')
+export default class OneXTab extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
   private readonly localize = new LocalizeController(this);
 
   @query('.tab') tab: HTMLElement;
 
   private readonly attrId = ++id;
-  private readonly componentId = `sl-tab-${this.attrId}`;
+  private readonly componentId = `onex-tab-${this.attrId}`;
 
   /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
   @property({ reflect: true }) panel = '';
@@ -64,7 +64,7 @@ export default class SlTab extends ShoelaceElement {
   }
 
   handleCloseClick() {
-    this.emit('sl-close');
+    this.emit('onex-close');
   }
 
   @watch('active')
@@ -95,7 +95,7 @@ export default class SlTab extends ShoelaceElement {
         <slot></slot>
         ${this.closable
           ? html`
-              <sl-icon-button
+              <onex-icon-button
                 part="close-button"
                 exportparts="base:close-button__base"
                 name="x-lg"
@@ -104,7 +104,7 @@ export default class SlTab extends ShoelaceElement {
                 class="tab__close-button"
                 @click=${this.handleCloseClick}
                 tabindex="-1"
-              ></sl-icon-button>
+              ></onex-icon-button>
             `
           : ''}
       </div>
@@ -114,6 +114,6 @@ export default class SlTab extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tab': SlTab;
+    'onex-tab': OneXTab;
   }
 }

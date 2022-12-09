@@ -19,10 +19,10 @@ import type { CSSResultGroup } from 'lit';
  *
  * @slot - The switch's label.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-change - Emitted when the control's checked state changes.
- * @event sl-input - Emitted when the control receives input.
- * @event sl-focus - Emitted when the control gains focus.
+ * @event onex-blur - Emitted when the control loses focus.
+ * @event onex-change - Emitted when the control's checked state changes.
+ * @event onex-input - Emitted when the control receives input.
+ * @event onex-focus - Emitted when the control gains focus.
  *
  * @csspart base - The component's base wrapper.
  * @csspart control - The control that houses the switch's thumb.
@@ -33,17 +33,17 @@ import type { CSSResultGroup } from 'lit';
  * @cssproperty --height - The height of the switch.
  * @cssproperty --thumb-size - The size of the thumb.
  */
-@customElement('sl-switch')
-export default class SlSwitch extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-switch')
+export default class OneXSwitch extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('input[type="checkbox"]') input: HTMLInputElement;
 
   // @ts-expect-error -- Controller is currently unused
   private readonly formSubmitController = new FormSubmitController(this, {
-    value: (control: SlSwitch) => (control.checked ? control.value : undefined),
-    defaultValue: (control: SlSwitch) => control.defaultChecked,
-    setValue: (control: SlSwitch, checked: boolean) => (control.checked = checked)
+    value: (control: OneXSwitch) => (control.checked ? control.value : undefined),
+    defaultValue: (control: OneXSwitch) => control.defaultChecked,
+    setValue: (control: OneXSwitch, checked: boolean) => (control.checked = checked)
   });
 
   @state() private hasFocus = false;
@@ -105,11 +105,11 @@ export default class SlSwitch extends ShoelaceElement implements ShoelaceFormCon
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleInput() {
-    this.emit('sl-input');
+    this.emit('onex-input');
   }
 
   @watch('checked', { waitUntilFirstUpdate: true })
@@ -120,7 +120,7 @@ export default class SlSwitch extends ShoelaceElement implements ShoelaceFormCon
 
   handleClick() {
     this.checked = !this.checked;
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })
@@ -132,22 +132,22 @@ export default class SlSwitch extends ShoelaceElement implements ShoelaceFormCon
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
       this.checked = false;
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
 
     if (event.key === 'ArrowRight') {
       event.preventDefault();
       this.checked = true;
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -192,6 +192,6 @@ export default class SlSwitch extends ShoelaceElement implements ShoelaceFormCon
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-switch': SlSwitch;
+    'onex-switch': OneXSwitch;
   }
 }

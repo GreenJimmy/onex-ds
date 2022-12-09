@@ -1,8 +1,8 @@
 import { expect, fixture, html } from '@open-wc/testing';
 
-describe('<sl-popup>', () => {
+describe('<onex-popup>', () => {
   it('should render a component', async () => {
-    const el = await fixture(html` <sl-popup></sl-popup> `);
+    const el = await fixture(html` <onex-popup></onex-popup> `);
 
     expect(el).to.exist;
   });

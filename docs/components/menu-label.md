@@ -1,37 +1,37 @@
 # Menu Label
 
-[component-header:sl-menu-label]
+[component-header:onex-menu-label]
 
 ```html preview
-<sl-menu style="max-width: 200px;">
-  <sl-menu-label>Fruits</sl-menu-label>
-  <sl-menu-item value="apple">Apple</sl-menu-item>
-  <sl-menu-item value="banana">Banana</sl-menu-item>
-  <sl-menu-item value="orange">Orange</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-label>Vegetables</sl-menu-label>
-  <sl-menu-item value="broccoli">Broccoli</sl-menu-item>
-  <sl-menu-item value="carrot">Carrot</sl-menu-item>
-  <sl-menu-item value="zucchini">Zucchini</sl-menu-item>
-</sl-menu>
+<onex-menu style="max-width: 200px;">
+  <onex-menu-label>Fruits</onex-menu-label>
+  <onex-menu-item value="apple">Apple</onex-menu-item>
+  <onex-menu-item value="banana">Banana</onex-menu-item>
+  <onex-menu-item value="orange">Orange</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-label>Vegetables</onex-menu-label>
+  <onex-menu-item value="broccoli">Broccoli</onex-menu-item>
+  <onex-menu-item value="carrot">Carrot</onex-menu-item>
+  <onex-menu-item value="zucchini">Zucchini</onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlDivider, SlMenu, SlMenuLabel, SlMenuItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenu, OneXMenuLabel, OneXMenuItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu style={{ maxWidth: '200px' }}>
-    <SlMenuLabel>Fruits</SlMenuLabel>
-    <SlMenuItem value="apple">Apple</SlMenuItem>
-    <SlMenuItem value="banana">Banana</SlMenuItem>
-    <SlMenuItem value="orange">Orange</SlMenuItem>
-    <SlDivider />
-    <SlMenuLabel>Vegetables</SlMenuLabel>
-    <SlMenuItem value="broccoli">Broccoli</SlMenuItem>
-    <SlMenuItem value="carrot">Carrot</SlMenuItem>
-    <SlMenuItem value="zucchini">Zucchini</SlMenuItem>
-  </SlMenu>
+  <OnexMenu style={{ maxWidth: '200px' }}>
+    <OnexMenuLabel>Fruits</OneXMenuLabel>
+    <OneXMenuItem value="apple">Apple</OneXMenuItem>
+    <OneXMenuItem value="banana">Banana</OneXMenuItem>
+    <OneXMenuItem value="orange">Orange</OneXMenuItem>
+    <OnexDivider />
+    <OnexMenuLabel>Vegetables</OneXMenuLabel>
+    <OneXMenuItem value="broccoli">Broccoli</OneXMenuItem>
+    <OneXMenuItem value="carrot">Carrot</OneXMenuItem>
+    <OneXMenuItem value="zucchini">Zucchini</OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
-[component-metadata:sl-menu-label]
+[component-metadata:onex-menu-label]

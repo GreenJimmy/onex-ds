@@ -21,10 +21,10 @@ import type { CSSResultGroup } from 'lit';
  * @slot label - The textarea's label. Alternatively, you can use the `label` attribute.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sl-focus - Emitted when the control gains focus.
- * @event sl-input - Emitted when the control receives input.
+ * @event onex-blur - Emitted when the control loses focus.
+ * @event onex-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event onex-focus - Emitted when the control gains focus.
+ * @event onex-input - Emitted when the control receives input.
  *
  * @csspart form-control - The form control that wraps the label, input, and help text.
  * @csspart form-control-label - The label's wrapper.
@@ -33,8 +33,8 @@ import type { CSSResultGroup } from 'lit';
  * @csspart base - The component's base wrapper.
  * @csspart textarea - The internal `<textarea>` control.
  */
-@customElement('sl-textarea')
-export default class SlTextarea extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-textarea')
+export default class OneXTextarea extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('.textarea__control') input: HTMLTextAreaElement;
@@ -223,13 +223,13 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleChange() {
     this.value = this.input.value;
     this.setTextareaHeight();
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })
@@ -241,12 +241,12 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleInput() {
     this.value = this.input.value;
-    this.emit('sl-input');
+    this.emit('onex-input');
   }
 
   @watch('rows', { waitUntilFirstUpdate: true })
@@ -361,6 +361,6 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-textarea': SlTextarea;
+    'onex-textarea': OneXTextarea;
   }
 }

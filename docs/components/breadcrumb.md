@@ -1,28 +1,28 @@
 # Breadcrumb
 
-[component-header:sl-breadcrumb]
+[component-header:onex-breadcrumb]
 
 Breadcrumbs are usually placed before a page's main content with the current page shown last to indicate the user's position in the navigation.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item>Catalog</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Clothing</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Women's</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Shirts &amp; Tops</sl-breadcrumb-item>
-</sl-breadcrumb>
+<onex-breadcrumb>
+  <onex-breadcrumb-item>Catalog</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Clothing</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Women's</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Shirts &amp; Tops</onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
-import { SlBreadcrumb, SlBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem>Catalog</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Clothing</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Women's</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Shirts &amp; Tops</SlBreadcrumbItem>
-  </SlBreadcrumb>
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem>Catalog</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Clothing</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Women's</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Shirts &amp; Tops</OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
@@ -35,30 +35,30 @@ By default, breadcrumb items are rendered as buttons so you can use them to navi
 For websites, you'll probably want to use links instead. You can make any breadcrumb item a link by applying an `href` attribute to it. Now, when the user activates it, they'll be taken to the corresponding page — no event listeners required.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item href="https://example.com/home">Homepage</sl-breadcrumb-item>
+<onex-breadcrumb>
+  <onex-breadcrumb-item href="https://example.com/home">Homepage</onex-breadcrumb-item>
 
-  <sl-breadcrumb-item href="https://example.com/home/services">Our Services</sl-breadcrumb-item>
+  <onex-breadcrumb-item href="https://example.com/home/services">Our Services</onex-breadcrumb-item>
 
-  <sl-breadcrumb-item href="https://example.com/home/services/digital">Digital Media</sl-breadcrumb-item>
+  <onex-breadcrumb-item href="https://example.com/home/services/digital">Digital Media</onex-breadcrumb-item>
 
-  <sl-breadcrumb-item href="https://example.com/home/services/digital/web-design">Web Design</sl-breadcrumb-item>
-</sl-breadcrumb>
+  <onex-breadcrumb-item href="https://example.com/home/services/digital/web-design">Web Design</onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
-import { SlBreadcrumb, SlBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem href="https://example.com/home">Homepage</SlBreadcrumbItem>
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem href="https://example.com/home">Homepage</OneXBreadcrumbItem>
 
-    <SlBreadcrumbItem href="https://example.com/home/services">Our Services</SlBreadcrumbItem>
+    <OnexBreadcrumbItem href="https://example.com/home/services">Our Services</OneXBreadcrumbItem>
 
-    <SlBreadcrumbItem href="https://example.com/home/services/digital">Digital Media</SlBreadcrumbItem>
+    <OnexBreadcrumbItem href="https://example.com/home/services/digital">Digital Media</OneXBreadcrumbItem>
 
-    <SlBreadcrumbItem href="https://example.com/home/services/digital/web-design">Web Design</SlBreadcrumbItem>
-  </SlBreadcrumb>
+    <OnexBreadcrumbItem href="https://example.com/home/services/digital/web-design">Web Design</OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
@@ -67,62 +67,62 @@ const App = () => (
 Use the `separator` slot to change the separator that goes between breadcrumb items. Icons work well, but you can also use text or an image.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-icon name="dot" slot="separator"></sl-icon>
-  <sl-breadcrumb-item>First</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Second</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Third</sl-breadcrumb-item>
-</sl-breadcrumb>
+<onex-breadcrumb>
+  <onex-icon name="dot" slot="separator"></onex-icon>
+  <onex-breadcrumb-item>First</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Second</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Third</onex-breadcrumb-item>
+</onex-breadcrumb>
 
 <br />
 
-<sl-breadcrumb>
-  <sl-icon name="arrow-right" slot="separator"></sl-icon>
-  <sl-breadcrumb-item>First</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Second</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Third</sl-breadcrumb-item>
-</sl-breadcrumb>
+<onex-breadcrumb>
+  <onex-icon name="arrow-right" slot="separator"></onex-icon>
+  <onex-breadcrumb-item>First</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Second</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Third</onex-breadcrumb-item>
+</onex-breadcrumb>
 
 <br />
 
-<sl-breadcrumb>
+<onex-breadcrumb>
   <span slot="separator">/</span>
-  <sl-breadcrumb-item>First</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Second</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Third</sl-breadcrumb-item>
-</sl-breadcrumb>
+  <onex-breadcrumb-item>First</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Second</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Third</onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import { SlBreadcrumb, SlBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlBreadcrumb>
-      <sl-icon name="dot" slot="separator" />
-      <SlBreadcrumbItem>First</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Second</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Third</SlBreadcrumbItem>
-    </SlBreadcrumb>
+    <OnexBreadcrumb>
+      <onex-icon name="dot" slot="separator" />
+      <OnexBreadcrumbItem>First</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Second</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Third</OneXBreadcrumbItem>
+    </OneXBreadcrumb>
 
     <br />
 
-    <SlBreadcrumb>
-      <sl-icon name="arrow-right" slot="separator" />
-      <SlBreadcrumbItem>First</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Second</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Third</SlBreadcrumbItem>
-    </SlBreadcrumb>
+    <OnexBreadcrumb>
+      <onex-icon name="arrow-right" slot="separator" />
+      <OnexBreadcrumbItem>First</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Second</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Third</OneXBreadcrumbItem>
+    </OneXBreadcrumb>
 
     <br />
 
-    <SlBreadcrumb>
+    <OnexBreadcrumb>
       <span slot="separator">/</span>
-      <SlBreadcrumbItem>First</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Second</SlBreadcrumbItem>
-      <SlBreadcrumbItem>Third</SlBreadcrumbItem>
-    </SlBreadcrumb>
+      <OnexBreadcrumbItem>First</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Second</OneXBreadcrumbItem>
+      <OnexBreadcrumbItem>Third</OneXBreadcrumbItem>
+    </OneXBreadcrumb>
   </>
 );
 ```
@@ -132,28 +132,28 @@ const App = () => (
 Use the `prefix` slot to add content before any breadcrumb item.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item>
-    <sl-icon slot="prefix" name="house"></sl-icon>
+<onex-breadcrumb>
+  <onex-breadcrumb-item>
+    <onex-icon slot="prefix" name="house"></onex-icon>
     Home
-  </sl-breadcrumb-item>
-  <sl-breadcrumb-item>Articles</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Traveling</sl-breadcrumb-item>
-</sl-breadcrumb>
+  </onex-breadcrumb-item>
+  <onex-breadcrumb-item>Articles</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Traveling</onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
-import { SlBreadcrumb, SlBreadcrumbItem, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem>
-      <SlIcon slot="prefix" name="house" />
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem>
+      <OnexIcon slot="prefix" name="house" />
       Home
-    </SlBreadcrumbItem>
-    <SlBreadcrumbItem>Articles</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Traveling</SlBreadcrumbItem>
-  </SlBreadcrumb>
+    </OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Articles</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Traveling</OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
@@ -162,28 +162,28 @@ const App = () => (
 Use the `suffix` slot to add content after any breadcrumb item.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item>Documents</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Policies</sl-breadcrumb-item>
-  <sl-breadcrumb-item>
+<onex-breadcrumb>
+  <onex-breadcrumb-item>Documents</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Policies</onex-breadcrumb-item>
+  <onex-breadcrumb-item>
     Security
-    <sl-icon slot="suffix" name="shield-lock"></sl-icon>
-  </sl-breadcrumb-item>
-</sl-breadcrumb>
+    <onex-icon slot="suffix" name="shield-lock"></onex-icon>
+  </onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
-import { SlBreadcrumb, SlBreadcrumbItem, SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXBreadcrumb, OneXBreadcrumbItem, OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem>Documents</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Policies</SlBreadcrumbItem>
-    <SlBreadcrumbItem>
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem>Documents</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Policies</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>
       Security
-      <SlIcon slot="suffix" name="shield-lock"></SlIcon>
-    </SlBreadcrumbItem>
-  </SlBreadcrumb>
+      <OnexIcon slot="suffix" name="shield-lock"></OneXIcon>
+    </OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
@@ -192,57 +192,57 @@ const App = () => (
 Dropdown menus can be placed in a prefix or suffix slot to provide additional options.
 
 ```html preview
-<sl-breadcrumb>
-  <sl-breadcrumb-item>Homepage</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Our Services</sl-breadcrumb-item>
-  <sl-breadcrumb-item>Digital Media</sl-breadcrumb-item>
-  <sl-breadcrumb-item>
+<onex-breadcrumb>
+  <onex-breadcrumb-item>Homepage</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Our Services</onex-breadcrumb-item>
+  <onex-breadcrumb-item>Digital Media</onex-breadcrumb-item>
+  <onex-breadcrumb-item>
     Web Design
-    <sl-dropdown slot="suffix">
-      <sl-button slot="trigger" size="small" circle>
-        <sl-icon label="More options" name="three-dots"></sl-icon>
-      </sl-button>
-      <sl-menu>
-        <sl-menu-item checked>Web Design</sl-menu-item>
-        <sl-menu-item>Web Development</sl-menu-item>
-        <sl-menu-item>Marketing</sl-menu-item>
-      </sl-menu>
-    </sl-dropdown>
-  </sl-breadcrumb-item>
-</sl-breadcrumb>
+    <onex-dropdown slot="suffix">
+      <onex-button slot="trigger" size="small" circle>
+        <onex-icon label="More options" name="three-dots"></onex-icon>
+      </onex-button>
+      <onex-menu>
+        <onex-menu-item checked>Web Design</onex-menu-item>
+        <onex-menu-item>Web Development</onex-menu-item>
+        <onex-menu-item>Marketing</onex-menu-item>
+      </onex-menu>
+    </onex-dropdown>
+  </onex-breadcrumb-item>
+</onex-breadcrumb>
 ```
 
 ```jsx react
 import {
-  SlBreadcrumb,
-  SlBreadcrumbItem,
-  SlButton,
-  SlDropdown,
-  SlIcon,
-  SlMenu,
-  SlMenuItem
+  OneXBreadcrumb,
+  OneXBreadcrumbItem,
+  OneXButton,
+  OneXDropdown,
+  OneXIcon,
+  OneXMenu,
+  OneXMenuItem
 } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlBreadcrumb>
-    <SlBreadcrumbItem>Homepage</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Our Services</SlBreadcrumbItem>
-    <SlBreadcrumbItem>Digital Media</SlBreadcrumbItem>
-    <SlBreadcrumbItem>
+  <OnexBreadcrumb>
+    <OnexBreadcrumbItem>Homepage</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Our Services</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>Digital Media</OneXBreadcrumbItem>
+    <OnexBreadcrumbItem>
       Web Design
-      <SlDropdown slot="suffix">
-        <SlButton slot="trigger" size="small" circle>
-          <SlIcon label="More options" name="three-dots"></SlIcon>
-        </SlButton>
-        <SlMenu>
-          <SlMenuItem checked>Web Design</SlMenuItem>
-          <SlMenuItem>Web Development</SlMenuItem>
-          <SlMenuItem>Marketing</SlMenuItem>
-        </SlMenu>
-      </SlDropdown>
-    </SlBreadcrumbItem>
-  </SlBreadcrumb>
+      <OnexDropdown slot="suffix">
+        <OnexButton slot="trigger" size="small" circle>
+          <OnexIcon label="More options" name="three-dots"></OneXIcon>
+        </OneXButton>
+        <OnexMenu>
+          <OneXMenuItem checked>Web Design</OneXMenuItem>
+          <OneXMenuItem>Web Development</OneXMenuItem>
+          <OneXMenuItem>Marketing</OneXMenuItem>
+        </OneXMenu>
+      </OneXDropdown>
+    </OneXBreadcrumbItem>
+  </OneXBreadcrumb>
 );
 ```
 
-[component-metadata:sl-breadcrumb]
+[component-metadata:onex-breadcrumb]

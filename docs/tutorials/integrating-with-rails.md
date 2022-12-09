@@ -37,7 +37,7 @@ After importing the theme, you'll need to import the JavaScript files for Shoela
 
 ```js
 import '../stylesheets/application.scss'
-import { setBasePath, SlAlert, SlAnimation, SlButton, ... } from '@shoelace-style/shoelace'
+import { setBasePath, OneXAlert, OneXAnimation, OneXButton, ... } from '@shoelace-style/shoelace'
 
 // ...
 

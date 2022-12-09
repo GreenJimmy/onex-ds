@@ -11,12 +11,12 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @event {{ mutationList: MutationRecord[] }} sl-mutation - Emitted when a mutation occurs.
+ * @event {{ mutationList: MutationRecord[] }} onex-mutation - Emitted when a mutation occurs.
  *
  * @slot - The content to watch for mutations.
  */
-@customElement('sl-mutation-observer')
-export default class SlMutationObserver extends ShoelaceElement {
+@customElement('onex-mutation-observer')
+export default class OneXMutationObserver extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private mutationObserver: MutationObserver;
@@ -77,7 +77,7 @@ export default class SlMutationObserver extends ShoelaceElement {
   }
 
   handleMutation(mutationList: MutationRecord[]) {
-    this.emit('sl-mutation', {
+    this.emit('onex-mutation', {
       detail: { mutationList }
     });
   }
@@ -116,6 +116,6 @@ export default class SlMutationObserver extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-mutation-observer': SlMutationObserver;
+    'onex-mutation-observer': OneXMutationObserver;
   }
 }

@@ -30,13 +30,13 @@
             } else if (isAttributeDifferent) {
               attributeInfo = `
                 <br>
-                <sl-tooltip content="This attribute is different from its property">
+                <onex-tooltip content="This attribute is different from its property">
                   <small>
                     <code class="nowrap">
                       ${escapeHtml(prop.attribute)}
                     </code>
                   </small>
-                </sl-tooltip>`;
+                </onex-tooltip>`;
             }
 
             return `
@@ -49,7 +49,7 @@
                   ${escapeHtml(prop.description)}
                 </td>
                 <td style="text-align: center;">${
-                  prop.reflects ? '<sl-icon label="yes" name="check-lg"></sl-icon>' : ''
+                  prop.reflects ? '<onex-icon label="yes" name="check-lg"></onex-icon>' : ''
                 }</td>
                 <td>${prop.type?.text ? `<code>${escapeHtml(prop.type?.text || '')}</code>` : '-'}</td>
                 <td>${prop.default ? `<code>${escapeHtml(prop.default)}</code>` : '-'}</td>
@@ -323,21 +323,21 @@
       target.appendChild(version);
 
       // Store version for reuse
-      sessionStorage.setItem('sl-version', metadata.package.version);
+      sessionStorage.setItem('onex-version', metadata.package.version);
 
       // Add repo buttons
       const buttons = document.createElement('div');
       buttons.classList.add('sidebar-buttons');
       buttons.innerHTML = `
-        <sl-button size="small" class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
-          <sl-icon slot="prefix" name="heart"></sl-icon> Sponsor
-        </sl-button>
-        <sl-button size="small" class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
-          <sl-icon slot="prefix" name="github"></sl-icon> Star
-        </sl-button>
-        <sl-button size="small" class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
-          <sl-icon slot="prefix" name="twitter"></sl-icon> Follow
-        </sl-button>
+        <onex-button size="small" class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
+          <onex-icon slot="prefix" name="heart"></onex-icon> Sponsor
+        </onex-button>
+        <onex-button size="small" class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
+          <onex-icon slot="prefix" name="github"></onex-icon> Star
+        </onex-button>
+        <onex-button size="small" class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
+          <onex-icon slot="prefix" name="twitter"></onex-icon> Follow
+        </onex-button>
       `;
       target.appendChild(buttons);
     });
@@ -379,13 +379,13 @@
             </div>
 
             <div class="component-header__info">
-              <sl-badge variant="neutral" pill>
+              <onex-badge variant="neutral" pill>
                 Since ${component.since || '?'}
-              </sl-badge>
+              </onex-badge>
 
-              <sl-badge variant="${badgeType}" pill style="text-transform: capitalize;">
+              <onex-badge variant="${badgeType}" pill style="text-transform: capitalize;">
                 ${component.status}
-              </sl-badge>
+              </onex-badge>
             </div>
 
             <div class="component-header__summary">
@@ -425,42 +425,42 @@
           result += `
             ## Importing
 
-            <sl-tab-group>
-            <sl-tab slot="nav" panel="script">Script</sl-tab>
-            <sl-tab slot="nav" panel="import">Import</sl-tab>
-            <sl-tab slot="nav" panel="bundler">Bundler</sl-tab>
-            <sl-tab slot="nav" panel="react">React</sl-tab>
+            <onex-tab-group>
+            <onex-tab slot="nav" panel="script">Script</onex-tab>
+            <onex-tab slot="nav" panel="import">Import</onex-tab>
+            <onex-tab slot="nav" panel="bundler">Bundler</onex-tab>
+            <onex-tab slot="nav" panel="react">React</onex-tab>
 
-            <sl-tab-panel name="script">\n
+            <onex-tab-panel name="script">\n
             To import this component from [the CDN](https://www.jsdelivr.com/package/npm/@shoelace-style/shoelace) using a script tag:
 
             \`\`\`html
             <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@${metadata.package.version}/dist/${component.path}"></script>
             \`\`\`
-            </sl-tab-panel>
+            </onex-tab-panel>
 
-            <sl-tab-panel name="import">\n
+            <onex-tab-panel name="import">\n
             To import this component from [the CDN](https://www.jsdelivr.com/package/npm/@shoelace-style/shoelace) using a JavaScript import:
 
             \`\`\`js
             import 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@${metadata.package.version}/dist/${component.path}';
             \`\`\`
-            </sl-tab-panel>
+            </onex-tab-panel>
 
-            <sl-tab-panel name="bundler">\n
+            <onex-tab-panel name="bundler">\n
             To import this component using [a bundler](/getting-started/installation#bundling):
             \`\`\`js
             import '@shoelace-style/shoelace/dist/${component.path}';
             \`\`\`
-            </sl-tab-panel>
+            </onex-tab-panel>
 
-            <sl-tab-panel name="react">\n
+            <onex-tab-panel name="react">\n
             To import this component as a [React component](/frameworks/react):
             \`\`\`js
             import { ${component.name} } from '@shoelace-style/shoelace/dist/react';
             \`\`\`
-            </sl-tab-panel>
-            </sl-tab-group>
+            </onex-tab-panel>
+            </onex-tab-group>
 
             <div class="sponsor-callout">
               <p>
@@ -469,17 +469,17 @@
               </p>
 
               <p>
-                <sl-button class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
-                  <sl-icon slot="prefix" name="heart"></sl-icon> Sponsor <span class="sponsor-callout__secondary-label">Development</span>
-                </sl-button>
+                <onex-button class="repo-button repo-button--sponsor" href="https://github.com/sponsors/claviska" target="_blank">
+                  <onex-icon slot="prefix" name="heart"></onex-icon> Sponsor <span class="sponsor-callout__secondary-label">Development</span>
+                </onex-button>
 
-                <sl-button class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
-                  <sl-icon slot="prefix" name="github"></sl-icon> Star <span class="sponsor-callout__secondary-label">on GitHub</span>
-                </sl-button>
+                <onex-button class="repo-button repo-button--github" href="https://github.com/shoelace-style/shoelace/stargazers" target="_blank">
+                  <onex-icon slot="prefix" name="github"></onex-icon> Star <span class="sponsor-callout__secondary-label">on GitHub</span>
+                </onex-button>
 
-                <sl-button class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
-                  <sl-icon slot="prefix" name="twitter"></sl-icon> Follow <span class="sponsor-callout__secondary-label">on Twitter</span>
-                </sl-button>
+                <onex-button class="repo-button repo-button--twitter" href="https://twitter.com/shoelace_style" target="_blank">
+                  <onex-icon slot="prefix" name="twitter"></onex-icon> Follow <span class="sponsor-callout__secondary-label">on Twitter</span>
+                </onex-button>
               </p>
             </div>
           `;

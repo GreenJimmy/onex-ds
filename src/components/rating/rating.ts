@@ -16,9 +16,9 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
- * @event sl-change - Emitted when the rating's value changes.
+ * @event onex-change - Emitted when the rating's value changes.
  *
  * @csspart base - The component's base wrapper.
  *
@@ -27,8 +27,8 @@ import type { CSSResultGroup } from 'lit';
  * @cssproperty --symbol-size - The size of symbols.
  * @cssproperty --symbol-spacing - The spacing to use around symbols.
  */
-@customElement('sl-rating')
-export default class SlRating extends ShoelaceElement {
+@customElement('onex-rating')
+export default class OneXRating extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('.rating') rating: HTMLElement;
@@ -62,9 +62,9 @@ export default class SlRating extends ShoelaceElement {
   /**
    * A function that customizes the symbol to be rendered. The first and only argument is the rating's current value.
    * The function should return a string containing trusted HTML of the symbol to render at the specified value. Works
-   * well with `<sl-icon>` elements.
+   * well with `<onex-icon>` elements.
    */
-  @property() getSymbol: (value: number) => string = () => '<sl-icon name="star-fill" library="system"></sl-icon>';
+  @property() getSymbol: (value: number) => string = () => '<onex-icon name="star-fill" library="system"></onex-icon>';
 
   /** Sets focus on the rating. */
   focus(options?: FocusOptions) {
@@ -96,7 +96,7 @@ export default class SlRating extends ShoelaceElement {
 
   handleClick(event: MouseEvent) {
     this.setValue(this.getValueFromMousePosition(event));
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   setValue(newValue: number) {
@@ -140,7 +140,7 @@ export default class SlRating extends ShoelaceElement {
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
+      this.emit('onex-change');
     }
   }
 
@@ -171,7 +171,7 @@ export default class SlRating extends ShoelaceElement {
   handleTouchEnd(event: TouchEvent) {
     this.isHovering = false;
     this.setValue(this.hoverValue);
-    this.emit('sl-change');
+    this.emit('onex-change');
 
     // Prevent click on mobile devices
     event.preventDefault();
@@ -269,6 +269,6 @@ export default class SlRating extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-rating': SlRating;
+    'onex-rating': OneXRating;
   }
 }

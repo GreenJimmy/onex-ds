@@ -16,11 +16,11 @@ let parser: DOMParser;
  * @since 2.0
  * @status stable
  *
- * @event sl-load - Emitted when the icon has loaded.
- * @event sl-error - Emitted when the icon fails to load due to an error.
+ * @event onex-load - Emitted when the icon has loaded.
+ * @event onex-error - Emitted when the icon fails to load due to an error.
  */
-@customElement('sl-icon')
-export default class SlIcon extends ShoelaceElement {
+@customElement('onex-icon')
+export default class OneXIcon extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @state() private svg = '';
@@ -111,17 +111,17 @@ export default class SlIcon extends ShoelaceElement {
           if (svgEl !== null) {
             library?.mutator?.(svgEl);
             this.svg = svgEl.outerHTML;
-            this.emit('sl-load');
+            this.emit('onex-load');
           } else {
             this.svg = '';
-            this.emit('sl-error');
+            this.emit('onex-error');
           }
         } else {
           this.svg = '';
-          this.emit('sl-error');
+          this.emit('onex-error');
         }
       } catch {
-        this.emit('sl-error');
+        this.emit('onex-error');
       }
     } else if (this.svg.length > 0) {
       // If we can't resolve a URL and an icon was previously set, remove it
@@ -140,6 +140,6 @@ export default class SlIcon extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-icon': SlIcon;
+    'onex-icon': OneXIcon;
   }
 }

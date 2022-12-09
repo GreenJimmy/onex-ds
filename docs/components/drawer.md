@@ -2,20 +2,20 @@
 
 # Drawer
 
-[component-header:sl-drawer]
+[component-header:onex-drawer]
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-overview">
+<onex-drawer label="Drawer" class="drawer-overview">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-overview');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -24,21 +24,21 @@
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -51,17 +51,17 @@ const App = () => {
 By default, drawers slide in from the end. To make the drawer slide in from the start, set the `placement` attribute to `start`.
 
 ```html preview
-<sl-drawer label="Drawer" placement="start" class="drawer-placement-start">
+<onex-drawer label="Drawer" placement="start" class="drawer-placement-start">
   This drawer slides in from the start.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-placement-start');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -70,21 +70,21 @@ By default, drawers slide in from the end. To make the drawer slide in from the 
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" placement="start" open={open} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" placement="start" open={open} onSlAfterHide={() => setOpen(false)}>
         This drawer slides in from the start.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -95,17 +95,17 @@ const App = () => {
 To make the drawer slide in from the top, set the `placement` attribute to `top`.
 
 ```html preview
-<sl-drawer label="Drawer" placement="top" class="drawer-placement-top">
+<onex-drawer label="Drawer" placement="top" class="drawer-placement-top">
   This drawer slides in from the top.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-placement-top');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -114,21 +114,21 @@ To make the drawer slide in from the top, set the `placement` attribute to `top`
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" placement="top" open={open} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" placement="top" open={open} onSlAfterHide={() => setOpen(false)}>
         This drawer slides in from the top.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -139,17 +139,17 @@ const App = () => {
 To make the drawer slide in from the bottom, set the `placement` attribute to `bottom`.
 
 ```html preview
-<sl-drawer label="Drawer" placement="bottom" class="drawer-placement-bottom">
+<onex-drawer label="Drawer" placement="bottom" class="drawer-placement-bottom">
   This drawer slides in from the bottom.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-placement-bottom');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -158,21 +158,21 @@ To make the drawer slide in from the bottom, set the `placement` attribute to `b
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" placement="bottom" open={open} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" placement="bottom" open={open} onSlAfterHide={() => setOpen(false)}>
         This drawer slides in from the bottom.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -186,22 +186,22 @@ Unlike normal drawers, contained drawers are not modal. This means they do not s
 
 ```html preview
 <div
-  style="position: relative; border: solid 2px var(--sl-panel-border-color); height: 300px; padding: 1rem; margin-bottom: 1rem;"
+  style="position: relative; border: solid 2px var(--onex-panel-border-color); height: 300px; padding: 1rem; margin-bottom: 1rem;"
 >
   The drawer will be contained to this box. This content won't shift or be affected in any way when the drawer opens.
 
-  <sl-drawer label="Drawer" contained class="drawer-contained" style="--size: 50%;">
+  <onex-drawer label="Drawer" contained class="drawer-contained" style="--size: 50%;">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    <sl-button slot="footer" variant="primary">Close</sl-button>
-  </sl-drawer>
+    <onex-button slot="footer" variant="primary">Close</onex-button>
+  </onex-drawer>
 </div>
 
-<sl-button>Toggle Drawer</sl-button>
+<onex-button>Toggle Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-contained');
   const openButton = drawer.parentElement.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => (drawer.open = !drawer.open));
   closeButton.addEventListener('click', () => drawer.hide());
@@ -210,7 +210,7 @@ Unlike normal drawers, contained drawers are not modal. This means they do not s
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -220,7 +220,7 @@ const App = () => {
       <div
         style={{
           position: 'relative',
-          border: 'solid 2px var(--sl-panel-border-color)',
+          border: 'solid 2px var(--onex-panel-border-color)',
           height: '300px',
           padding: '1rem',
           marginBottom: '1rem'
@@ -228,7 +228,7 @@ const App = () => {
       >
         The drawer will be contained to this box. This content won't shift or be affected in any way when the drawer
         opens.
-        <SlDrawer
+        <OnexDrawer
           label="Drawer"
           contained
           no-modal
@@ -237,13 +237,13 @@ const App = () => {
           style={{ '--size': '50%' }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+          <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
             Close
-          </SlButton>
-        </SlDrawer>
+          </OneXButton>
+        </OneXDrawer>
       </div>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -254,17 +254,17 @@ const App = () => {
 Use the `--size` custom property to set the drawer's size. This will be applied to the drawer's width or height depending on its `placement`.
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-custom-size" style="--size: 50vw;">
+<onex-drawer label="Drawer" class="drawer-custom-size" style="--size: 50vw;">
   This drawer is always 50% of the viewport.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-custom-size');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -273,21 +273,21 @@ Use the `--size` custom property to set the drawer's size. This will be applied 
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)} style={{ '--size': '50vw' }}>
+      <OnexDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)} style={{ '--size': '50vw' }}>
         This drawer is always 50% of the viewport.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -298,19 +298,19 @@ const App = () => {
 By design, a drawer's height will never exceed 100% of its container. As such, drawers will not scroll with the page to ensure the header and footer are always accessible to the user.
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-scrolling">
-  <div style="height: 150vh; border: dashed 2px var(--sl-color-neutral-200); padding: 0 1rem;">
+<onex-drawer label="Drawer" class="drawer-scrolling">
+  <div style="height: 150vh; border: dashed 2px var(--onex-color-neutral-200); padding: 0 1rem;">
     <p>Scroll down and give it a try! 👇</p>
   </div>
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-scrolling');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -319,29 +319,29 @@ By design, a drawer's height will never exceed 100% of its container. As such, d
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
         <div
           style={{
             height: '150vh',
-            border: 'dashed 2px var(--sl-color-neutral-200)',
+            border: 'dashed 2px var(--onex-color-neutral-200)',
             padding: '0 1rem'
           }}
         >
           <p>Scroll down and give it a try! 👇</p>
         </div>
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -352,18 +352,18 @@ const App = () => {
 The header shows a functional close button by default. You can use the `header-actions` slot to add additional [icon buttons](/components/icon-button) if needed.
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-header-actions">
-  <sl-icon-button class="new-window" slot="header-actions" name="box-arrow-up-right"></sl-icon-button>
+<onex-drawer label="Drawer" class="drawer-header-actions">
+  <onex-icon-button class="new-window" slot="header-actions" name="box-arrow-up-right"></onex-icon-button>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-header-actions');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
   const newWindowButton = drawer.querySelector('.new-window');
 
   openButton.addEventListener('click', () => drawer.show());
@@ -374,22 +374,22 @@ The header shows a functional close button by default. You can use the `header-a
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer, SlIconButton } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer, OneXIconButton } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
-        <SlIconButton slot="header-actions" name="box-arrow-up-right" onClick={() => window.open(location.href)} />
+      <OnexDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
+        <OnexIconButton slot="header-actions" name="box-arrow-up-right" onClick={() => window.open(location.href)} />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -399,28 +399,28 @@ const App = () => {
 
 By default, drawers will close when the user clicks the close button, clicks the overlay, or presses the <kbd>Escape</kbd> key. In most cases, the default behavior is the best behavior in terms of UX. However, there are situations where this may be undesirable, such as when data loss will occur.
 
-To keep the drawer open in such cases, you can cancel the `sl-request-close` event. When canceled, the drawer will remain open and pulse briefly to draw the user's attention to it.
+To keep the drawer open in such cases, you can cancel the `onex-request-close` event. When canceled, the drawer will remain open and pulse briefly to draw the user's attention to it.
 
 You can use `event.detail.source` to determine what triggered the request to close. This example prevents the drawer from closing when the overlay is clicked, but allows the close button or <kbd>Escape</kbd> to dismiss it.
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-deny-close">
+<onex-drawer label="Drawer" class="drawer-deny-close">
   This drawer will not close when you click on the overlay.
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-deny-close');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
 
   // Prevent the drawer from closing when the user clicks on the overlay
-  drawer.addEventListener('sl-request-close', event => {
+  drawer.addEventListener('onex-request-close', event => {
     if (event.detail.source === 'overlay') {
       event.preventDefault();
     }
@@ -430,7 +430,7 @@ You can use `event.detail.source` to determine what triggered the request to clo
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -444,14 +444,14 @@ const App = () => {
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlRequestClose={handleRequestClose} onSlAfterHide={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" open={open} onSlRequestClose={handleRequestClose} onSlAfterHide={() => setOpen(false)}>
         This drawer will not close when you click on the overlay.
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Save &amp; Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
@@ -462,18 +462,18 @@ const App = () => {
 By default, the drawer's panel will gain focus when opened. This allows a subsequent tab press to focus on the first tabbable element in the drawer. If you want a different element to have focus, add the `autofocus` attribute to it as shown below.
 
 ```html preview
-<sl-drawer label="Drawer" class="drawer-focus">
-  <sl-input autofocus placeholder="I will have focus when the drawer is opened"></sl-input>
-  <sl-button slot="footer" variant="primary">Close</sl-button>
-</sl-drawer>
+<onex-drawer label="Drawer" class="drawer-focus">
+  <onex-input autofocus placeholder="I will have focus when the drawer is opened"></onex-input>
+  <onex-button slot="footer" variant="primary">Close</onex-button>
+</onex-drawer>
 
-<sl-button>Open Drawer</sl-button>
+<onex-button>Open Drawer</onex-button>
 
 <script>
   const drawer = document.querySelector('.drawer-focus');
-  const input = drawer.querySelector('sl-input');
+  const input = drawer.querySelector('onex-input');
   const openButton = drawer.nextElementSibling;
-  const closeButton = drawer.querySelector('sl-button[variant="primary"]');
+  const closeButton = drawer.querySelector('onex-button[variant="primary"]');
 
   openButton.addEventListener('click', () => drawer.show());
   closeButton.addEventListener('click', () => drawer.hide());
@@ -482,25 +482,25 @@ By default, the drawer's panel will gain focus when opened. This allows a subseq
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlDrawer, SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXDrawer, OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <SlDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
-        <SlInput autofocus placeholder="I will have focus when the drawer is opened" />
-        <SlButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
+      <OnexDrawer label="Drawer" open={open} onSlAfterHide={() => setOpen(false)}>
+        <OnexInput autofocus placeholder="I will have focus when the drawer is opened" />
+        <OnexButton slot="footer" variant="primary" onClick={() => setOpen(false)}>
           Close
-        </SlButton>
-      </SlDrawer>
+        </OneXButton>
+      </OneXDrawer>
 
-      <SlButton onClick={() => setOpen(true)}>Open Drawer</SlButton>
+      <OnexButton onClick={() => setOpen(true)}>Open Drawer</OneXButton>
     </>
   );
 };
 ```
 
-?> You can further customize initial focus behavior by canceling the `sl-initial-focus` event and setting focus yourself inside the event handler.
-[component-metadata:sl-drawer]
+?> You can further customize initial focus behavior by canceling the `onex-initial-focus` event and setting focus yourself inside the event handler.
+[component-metadata:onex-drawer]

@@ -1,16 +1,16 @@
 import { aTimeout, expect, fixture, html, oneEvent, waitUntil } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
-import type SlCheckbox from './checkbox';
+import type OneXCheckbox from './checkbox';
 
-describe('<sl-checkbox>', () => {
+describe('<onex-checkbox>', () => {
   it('should pass accessibility tests', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox>Checkbox</sl-checkbox> `);
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox>Checkbox</onex-checkbox> `);
     await expect(el).to.be.accessible();
   });
 
   it('default properties', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox></sl-checkbox> `);
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox></onex-checkbox> `);
 
     expect(el.name).to.equal('');
     expect(el.value).to.be.undefined;
@@ -23,21 +23,21 @@ describe('<sl-checkbox>', () => {
   });
 
   it('should have title if title attribute is set', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox title="Test"></sl-checkbox> `);
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox title="Test"></onex-checkbox> `);
     const input = el.shadowRoot!.querySelector('input')!;
 
     expect(input.title).to.equal('Test');
   });
 
   it('should be disabled with the disabled attribute', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox disabled></sl-checkbox> `);
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox disabled></onex-checkbox> `);
     const checkbox = el.shadowRoot!.querySelector('input')!;
 
     expect(checkbox.disabled).to.be.true;
   });
 
   it('should be disabled when disabled property is set', async () => {
-    const el = await fixture<SlCheckbox>(html`<sl-checkbox></sl-checkbox>`);
+    const el = await fixture<OnexCheckbox>(html`<onex-checkbox></onex-checkbox>`);
     const checkbox = el.shadowRoot!.querySelector('input')!;
 
     el.disabled = true;
@@ -47,18 +47,18 @@ describe('<sl-checkbox>', () => {
   });
 
   it('should be valid by default', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox></sl-checkbox> `);
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox></onex-checkbox> `);
 
     expect(el.invalid).to.be.false;
   });
 
-  it('should emit sl-change and sl-input when clicked', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox></sl-checkbox> `);
+  it('should emit onex-change and onex-input when clicked', async () => {
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox></onex-checkbox> `);
     const changeHandler = sinon.spy();
     const inputHandler = sinon.spy();
 
-    el.addEventListener('sl-change', changeHandler);
-    el.addEventListener('sl-input', inputHandler);
+    el.addEventListener('onex-change', changeHandler);
+    el.addEventListener('onex-input', inputHandler);
     el.click();
     await el.updateComplete;
 
@@ -67,13 +67,13 @@ describe('<sl-checkbox>', () => {
     expect(el.checked).to.be.true;
   });
 
-  it('should emit sl-change and sl-input when toggled with spacebar', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox></sl-checkbox> `);
+  it('should emit onex-change and onex-input when toggled with spacebar', async () => {
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox></onex-checkbox> `);
     const changeHandler = sinon.spy();
     const inputHandler = sinon.spy();
 
-    el.addEventListener('sl-change', changeHandler);
-    el.addEventListener('sl-input', inputHandler);
+    el.addEventListener('onex-change', changeHandler);
+    el.addEventListener('onex-input', inputHandler);
     el.focus();
     await el.updateComplete;
     await sendKeys({ press: ' ' });
@@ -83,11 +83,11 @@ describe('<sl-checkbox>', () => {
     expect(el.checked).to.be.true;
   });
 
-  it('should not emit sl-change or sl-input when checked programmatically', async () => {
-    const el = await fixture<SlCheckbox>(html` <sl-checkbox></sl-checkbox> `);
+  it('should not emit onex-change or onex-input when checked programmatically', async () => {
+    const el = await fixture<OnexCheckbox>(html` <onex-checkbox></onex-checkbox> `);
 
-    el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-    el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+    el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+    el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
     el.checked = true;
     await el.updateComplete;
     el.checked = false;
@@ -98,11 +98,11 @@ describe('<sl-checkbox>', () => {
     it('should submit the correct value when a value is provided', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-checkbox name="a" value="1" checked></sl-checkbox>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-checkbox name="a" value="1" checked></onex-checkbox>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
+      const button = form.querySelector('onex-button')!;
       const submitHandler = sinon.spy((event: SubmitEvent) => {
         formData = new FormData(form);
         event.preventDefault();
@@ -120,11 +120,11 @@ describe('<sl-checkbox>', () => {
     it('should submit "on" when no value is provided', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-checkbox name="a" checked></sl-checkbox>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-checkbox name="a" checked></onex-checkbox>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
+      const button = form.querySelector('onex-button')!;
       const submitHandler = sinon.spy((event: SubmitEvent) => {
         formData = new FormData(form);
         event.preventDefault();
@@ -142,12 +142,12 @@ describe('<sl-checkbox>', () => {
     it('should show a constraint validation error when setCustomValidity() is called', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-checkbox name="a" value="1" checked></sl-checkbox>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-checkbox name="a" value="1" checked></onex-checkbox>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
-      const checkbox = form.querySelector('sl-checkbox')!;
+      const button = form.querySelector('onex-button')!;
+      const checkbox = form.querySelector('onex-checkbox')!;
       const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
       // Submitting the form after setting custom validity should not trigger the handler
@@ -165,12 +165,12 @@ describe('<sl-checkbox>', () => {
     it('should reset the element to its initial value', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-checkbox name="a" value="1" checked></sl-checkbox>
-          <sl-button type="reset">Reset</sl-button>
+          <onex-checkbox name="a" value="1" checked></onex-checkbox>
+          <onex-button type="reset">Reset</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
-      const checkbox = form.querySelector('sl-checkbox')!;
+      const button = form.querySelector('onex-button')!;
+      const checkbox = form.querySelector('onex-checkbox')!;
       checkbox.checked = false;
 
       await checkbox.updateComplete;
@@ -193,7 +193,7 @@ describe('<sl-checkbox>', () => {
 
   describe('click', () => {
     it('should click the inner input', async () => {
-      const el = await fixture<SlCheckbox>(html`<sl-checkbox></sl-checkbox>`);
+      const el = await fixture<OnexCheckbox>(html`<onex-checkbox></onex-checkbox>`);
       const checkbox = el.shadowRoot!.querySelector('input')!;
       const clickSpy = sinon.spy();
 
@@ -209,7 +209,7 @@ describe('<sl-checkbox>', () => {
 
   describe('focus', () => {
     it('should focus the inner input', async () => {
-      const el = await fixture<SlCheckbox>(html`<sl-checkbox></sl-checkbox>`);
+      const el = await fixture<OnexCheckbox>(html`<onex-checkbox></onex-checkbox>`);
       const checkbox = el.shadowRoot!.querySelector('input')!;
       const focusSpy = sinon.spy();
 
@@ -225,7 +225,7 @@ describe('<sl-checkbox>', () => {
 
   describe('blur', () => {
     it('should blur the inner input', async () => {
-      const el = await fixture<SlCheckbox>(html`<sl-checkbox></sl-checkbox>`);
+      const el = await fixture<OnexCheckbox>(html`<onex-checkbox></onex-checkbox>`);
       const checkbox = el.shadowRoot!.querySelector('input')!;
       const blurSpy = sinon.spy();
 
@@ -244,7 +244,7 @@ describe('<sl-checkbox>', () => {
 
   describe('indeterminate', () => {
     it('should render indeterminate icon until checked', async () => {
-      const el = await fixture<SlCheckbox>(html`<sl-checkbox indeterminate></sl-checkbox>`);
+      const el = await fixture<OnexCheckbox>(html`<onex-checkbox indeterminate></onex-checkbox>`);
       let indeterminateIcon = el.shadowRoot!.querySelector('[part~="indeterminate-icon"]')!;
 
       expect(indeterminateIcon).not.to.be.null;

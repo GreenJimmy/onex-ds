@@ -13,9 +13,9 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
- * @slot icon - The default icon to use when no image or initials are present. Works best with `<sl-icon>`.
+ * @slot icon - The default icon to use when no image or initials are present. Works best with `<onex-icon>`.
  *
  * @csspart base - The component's base wrapper.
  * @csspart icon - The container that wraps the avatar's icon.
@@ -24,8 +24,8 @@ import type { CSSResultGroup } from 'lit';
  *
  * @cssproperty --size - The size of the avatar.
  */
-@customElement('sl-avatar')
-export default class SlAvatar extends ShoelaceElement {
+@customElement('onex-avatar')
+export default class OneXAvatar extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @state() private hasError = false;
@@ -68,7 +68,7 @@ export default class SlAvatar extends ShoelaceElement {
           ? html` <div part="initials" class="avatar__initials">${this.initials}</div> `
           : html`
               <slot name="icon" part="icon" class="avatar__icon" aria-hidden="true">
-                <sl-icon name="person-fill" library="system"></sl-icon>
+                <onex-icon name="person-fill" library="system"></onex-icon>
               </slot>
             `}
         ${this.image && !this.hasError
@@ -90,6 +90,6 @@ export default class SlAvatar extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-avatar': SlAvatar;
+    'onex-avatar': OneXAvatar;
   }
 }

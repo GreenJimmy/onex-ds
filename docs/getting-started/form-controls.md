@@ -46,26 +46,26 @@ If you don't want to use client-side validation, you can suppress this behavior 
 
 ### Required Fields
 
-To make a field required, use the `required` attribute. Required fields will automatically receive a `*` after their labels. This is configurable through the `--sl-input-required-content` custom property.
+To make a field required, use the `required` attribute. Required fields will automatically receive a `*` after their labels. This is configurable through the `--onex-input-required-content` custom property.
 
 The form will not be submitted if a required field is incomplete.
 
 ```html preview
 <form class="input-validation-required">
-  <sl-input name="name" label="Name" required></sl-input>
+  <onex-input name="name" label="Name" required></onex-input>
   <br />
-  <sl-select label="Favorite Animal" clearable required>
-    <sl-menu-item value="birds">Birds</sl-menu-item>
-    <sl-menu-item value="cats">Cats</sl-menu-item>
-    <sl-menu-item value="dogs">Dogs</sl-menu-item>
-    <sl-menu-item value="other">Other</sl-menu-item>
-  </sl-select>
+  <onex-select label="Favorite Animal" clearable required>
+    <onex-menu-item value="birds">Birds</onex-menu-item>
+    <onex-menu-item value="cats">Cats</onex-menu-item>
+    <onex-menu-item value="dogs">Dogs</onex-menu-item>
+    <onex-menu-item value="other">Other</onex-menu-item>
+  </onex-select>
   <br />
-  <sl-textarea name="comment" label="Comment" required></sl-textarea>
+  <onex-textarea name="comment" label="Comment" required></onex-textarea>
   <br />
-  <sl-checkbox required>Check me before submitting</sl-checkbox>
+  <onex-checkbox required>Check me before submitting</onex-checkbox>
   <br /><br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
 </form>
 
 <script type="module">
@@ -78,7 +78,7 @@ The form will not be submitted if a required field is incomplete.
 ```
 
 ```jsx react
-import { SlButton, SlCheckbox, SlInput, SlMenuItem, SlSelect, SlTextarea } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXCheckbox, OneXInput, OneXMenuItem, OneXSelect, OneXTextarea } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleSubmit(event) {
@@ -88,23 +88,23 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <SlInput name="name" label="Name" required />
+      <OnexInput name="name" label="Name" required />
       <br />
-      <SlSelect label="Favorite Animal" clearable required>
-        <SlMenuItem value="birds">Birds</SlMenuItem>
-        <SlMenuItem value="cats">Cats</SlMenuItem>
-        <SlMenuItem value="dogs">Dogs</SlMenuItem>
-        <SlMenuItem value="other">Other</SlMenuItem>
-      </SlSelect>
+      <OnexSelect label="Favorite Animal" clearable required>
+        <OneXMenuItem value="birds">Birds</OneXMenuItem>
+        <OneXMenuItem value="cats">Cats</OneXMenuItem>
+        <OneXMenuItem value="dogs">Dogs</OneXMenuItem>
+        <OneXMenuItem value="other">Other</OneXMenuItem>
+      </OneXSelect>
       <br />
-      <SlTextarea name="comment" label="Comment" required></SlTextarea>
+      <OnexTextarea name="comment" label="Comment" required></OneXTextarea>
       <br />
-      <SlCheckbox required>Check me before submitting</SlCheckbox>
+      <OnexCheckbox required>Check me before submitting</OneXCheckbox>
       <br />
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
@@ -112,14 +112,14 @@ const App = () => {
 
 ### Input Patterns
 
-To restrict a value to a specific [pattern](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern), use the `pattern` attribute. This example only allows the letters A-Z, so the form will not submit if a number or symbol is entered. This only works with `<sl-input>` elements.
+To restrict a value to a specific [pattern](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern), use the `pattern` attribute. This example only allows the letters A-Z, so the form will not submit if a number or symbol is entered. This only works with `<onex-input>` elements.
 
 ```html preview
 <form class="input-validation-pattern">
-  <sl-input name="letters" required label="Letters" pattern="[A-Za-z]+"></sl-input>
+  <onex-input name="letters" required label="Letters" pattern="[A-Za-z]+"></onex-input>
   <br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
-  <sl-button type="reset" variant="default">Reset</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
+  <onex-button type="reset" variant="default">Reset</onex-button>
 </form>
 
 <script type="module">
@@ -132,7 +132,7 @@ To restrict a value to a specific [pattern](https://developer.mozilla.org/en-US/
 ```
 
 ```jsx react
-import { SlButton, SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleSubmit(event) {
@@ -142,11 +142,11 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <SlInput name="letters" required label="Letters" pattern="[A-Za-z]+" />
+      <OnexInput name="letters" required label="Letters" pattern="[A-Za-z]+" />
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
@@ -158,12 +158,12 @@ Some input types will automatically trigger constraints, such as `email` and `ur
 
 ```html preview
 <form class="input-validation-type">
-  <sl-input type="email" label="Email" placeholder="you@example.com" required></sl-input>
+  <onex-input type="email" label="Email" placeholder="you@example.com" required></onex-input>
   <br />
-  <sl-input type="url" label="URL" placeholder="https://example.com/" required></sl-input>
+  <onex-input type="url" label="URL" placeholder="https://example.com/" required></onex-input>
   <br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
-  <sl-button type="reset" variant="default">Reset</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
+  <onex-button type="reset" variant="default">Reset</onex-button>
 </form>
 
 <script type="module">
@@ -176,7 +176,7 @@ Some input types will automatically trigger constraints, such as `email` and `ur
 ```
 
 ```jsx react
-import { SlButton, SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   function handleSubmit(event) {
@@ -186,13 +186,13 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <SlInput type="email" label="Email" placeholder="you@example.com" required />
+      <OnexInput type="email" label="Email" placeholder="you@example.com" required />
       <br />
-      <SlInput type="url" label="URL" placeholder="https://example.com/" required />
+      <OnexInput type="url" label="URL" placeholder="https://example.com/" required />
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
@@ -204,22 +204,22 @@ To create a custom validation error, pass a non-empty string to the `setCustomVa
 
 ```html preview
 <form class="input-validation-custom">
-  <sl-input label="Type “shoelace”" required></sl-input>
+  <onex-input label="Type “shoelace”" required></onex-input>
   <br />
-  <sl-button type="submit" variant="primary">Submit</sl-button>
-  <sl-button type="reset" variant="default">Reset</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
+  <onex-button type="reset" variant="default">Reset</onex-button>
 </form>
 
 <script type="module">
   const form = document.querySelector('.input-validation-custom');
-  const input = form.querySelector('sl-input');
+  const input = form.querySelector('onex-input');
 
   form.addEventListener('submit', event => {
     event.preventDefault();
     alert('All fields are valid!');
   });
 
-  input.addEventListener('sl-input', () => {
+  input.addEventListener('onex-input', () => {
     if (input.value === 'shoelace') {
       input.setCustomValidity('');
     } else {
@@ -231,7 +231,7 @@ To create a custom validation error, pass a non-empty string to the `setCustomVa
 
 ```jsx react
 import { useRef, useState } from 'react';
-import { SlButton, SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const input = useRef(null);
@@ -254,11 +254,11 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <SlInput ref={input} label="Type 'shoelace'" required value={value} onSlInput={handleInput} />
+      <OnexInput ref={input} label="Type 'shoelace'" required value={value} onOneXInput={handleInput} />
       <br />
-      <SlButton type="submit" variant="primary">
+      <OnexButton type="submit" variant="primary">
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
@@ -289,23 +289,23 @@ This example demonstrates custom validation styles using `data-user-invalid` and
 
 ```html preview
 <form class="validity-styles">
-  <sl-input
+  <onex-input
     name="name"
     label="Name"
     help-text="What would you like people to call you?"
     autocomplete="off"
     required
-  ></sl-input>
+  ></onex-input>
 
-  <sl-select label="Favorite Animal" help-text="Select the best option." clearable required>
-    <sl-menu-item value="birds">Birds</sl-menu-item>
-    <sl-menu-item value="cats">Cats</sl-menu-item>
-    <sl-menu-item value="dogs">Dogs</sl-menu-item>
-    <sl-menu-item value="other">Other</sl-menu-item>
-  </sl-select>
+  <onex-select label="Favorite Animal" help-text="Select the best option." clearable required>
+    <onex-menu-item value="birds">Birds</onex-menu-item>
+    <onex-menu-item value="cats">Cats</onex-menu-item>
+    <onex-menu-item value="dogs">Dogs</onex-menu-item>
+    <onex-menu-item value="other">Other</onex-menu-item>
+  </onex-select>
 
-  <sl-button type="submit" variant="primary">Submit</sl-button>
-  <sl-button type="reset" variant="default">Reset</sl-button>
+  <onex-button type="submit" variant="primary">Submit</onex-button>
+  <onex-button type="reset" variant="default">Reset</onex-button>
 </form>
 
 <script type="module">
@@ -317,43 +317,43 @@ This example demonstrates custom validation styles using `data-user-invalid` and
 </script>
 
 <style>
-  .validity-styles sl-input,
-  .validity-styles sl-select {
-    margin-bottom: var(--sl-spacing-medium);
+  .validity-styles onex-input,
+  .validity-styles onex-select {
+    margin-bottom: var(--onex-spacing-medium);
   }
 
   /* user invalid styles */
-  .validity-styles sl-input[data-user-invalid]::part(base),
-  .validity-styles sl-select[data-user-invalid]::part(control) {
-    border-color: var(--sl-color-danger-600);
+  .validity-styles onex-input[data-user-invalid]::part(base),
+  .validity-styles onex-select[data-user-invalid]::part(control) {
+    border-color: var(--onex-color-danger-600);
   }
 
   .validity-styles [data-user-invalid]::part(form-control-label),
   .validity-styles [data-user-invalid]::part(form-control-help-text) {
-    color: var(--sl-color-danger-700);
+    color: var(--onex-color-danger-700);
   }
 
-  .validity-styles sl-input:focus-within[data-user-invalid]::part(base),
-  .validity-styles sl-select:focus-within[data-user-invalid]::part(control) {
-    border-color: var(--sl-color-danger-600);
-    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-300);
+  .validity-styles onex-input:focus-within[data-user-invalid]::part(base),
+  .validity-styles onex-select:focus-within[data-user-invalid]::part(control) {
+    border-color: var(--onex-color-danger-600);
+    box-shadow: 0 0 0 var(--onex-focus-ring-width) var(--onex-color-danger-300);
   }
 
   /* User valid styles */
-  .validity-styles sl-input[data-user-valid]::part(base),
-  .validity-styles sl-select[data-user-valid]::part(control) {
-    border-color: var(--sl-color-success-600);
+  .validity-styles onex-input[data-user-valid]::part(base),
+  .validity-styles onex-select[data-user-valid]::part(control) {
+    border-color: var(--onex-color-success-600);
   }
 
   .validity-styles [data-user-valid]::part(form-control-label),
   .validity-styles [data-user-valid]::part(form-control-help-text) {
-    color: var(--sl-color-success-700);
+    color: var(--onex-color-success-700);
   }
 
-  .validity-styles sl-input:focus-within[data-user-valid]::part(base),
-  .validity-styles sl-select:focus-within[data-user-valid]::part(control) {
-    border-color: var(--sl-color-success-600);
-    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-success-300);
+  .validity-styles onex-input:focus-within[data-user-valid]::part(base),
+  .validity-styles onex-select:focus-within[data-user-valid]::part(control) {
+    border-color: var(--onex-color-success-600);
+    box-shadow: 0 0 0 var(--onex-focus-ring-width) var(--onex-color-success-300);
   }
 </style>
 ```

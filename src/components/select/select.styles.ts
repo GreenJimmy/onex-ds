@@ -24,44 +24,45 @@ export default css`
     justify-content: start;
     position: relative;
     width: 100%;
-    font-family: var(--sl-input-font-family);
-    font-weight: var(--sl-input-font-weight);
-    letter-spacing: var(--sl-input-letter-spacing);
+    font-family: var(--onex-input-font-family);
+    font-weight: var(--onex-input-font-weight);
+    letter-spacing: var(--onex-input-letter-spacing);
     vertical-align: middle;
     overflow: hidden;
-    transition: var(--sl-transition-fast) color, var(--sl-transition-fast) border, var(--sl-transition-fast) box-shadow;
+    transition: var(--onex-transition-fast) color, var(--onex-transition-fast) border,
+      var(--onex-transition-fast) box-shadow;
     cursor: pointer;
   }
 
   .select::part(panel) {
-    border-radius: var(--sl-border-radius-medium);
+    border-radius: var(--onex-border-radius-medium);
   }
 
   /* Standard selects */
   .select--standard .select__control {
-    background-color: var(--sl-input-background-color);
-    border: solid var(--sl-input-border-width) var(--sl-input-border-color);
-    color: var(--sl-input-color);
+    background-color: var(--onex-input-background-color);
+    border: solid var(--onex-input-border-width) var(--onex-input-border-color);
+    color: var(--onex-input-color);
   }
 
   .select--standard:not(.select--disabled) .select__control:hover {
-    background-color: var(--sl-input-background-color-hover);
-    border-color: var(--sl-input-border-color-hover);
-    color: var(--sl-input-color-hover);
+    background-color: var(--onex-input-background-color-hover);
+    border-color: var(--onex-input-border-color-hover);
+    color: var(--onex-input-color-hover);
   }
 
   .select--standard.select--focused:not(.select--disabled) .select__control {
-    background-color: var(--sl-input-background-color-focus);
-    border-color: var(--sl-input-border-color-focus);
-    color: var(--sl-input-color-focus);
-    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-input-focus-ring-color);
+    background-color: var(--onex-input-background-color-focus);
+    border-color: var(--onex-input-border-color-focus);
+    color: var(--onex-input-color-focus);
+    box-shadow: 0 0 0 var(--onex-focus-ring-width) var(--onex-input-focus-ring-color);
     outline: none;
   }
 
   .select--standard.select--disabled .select__control {
-    background-color: var(--sl-input-background-color-disabled);
-    border-color: var(--sl-input-border-color-disabled);
-    color: var(--sl-input-color-disabled);
+    background-color: var(--onex-input-background-color-disabled);
+    border-color: var(--onex-input-border-color-disabled);
+    color: var(--onex-input-color-disabled);
     opacity: 0.5;
     cursor: not-allowed;
     outline: none;
@@ -70,22 +71,22 @@ export default css`
   /* Filled selects */
   .select--filled .select__control {
     border: none;
-    background-color: var(--sl-input-filled-background-color);
-    color: var(--sl-input-color);
+    background-color: var(--onex-input-filled-background-color);
+    color: var(--onex-input-color);
   }
 
   .select--filled:hover:not(.select--disabled) .select__control {
-    background-color: var(--sl-input-filled-background-color-hover);
+    background-color: var(--onex-input-filled-background-color-hover);
   }
 
   .select--filled.select--focused:not(.select--disabled) .select__control {
-    background-color: var(--sl-input-filled-background-color-focus);
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    background-color: var(--onex-input-filled-background-color-focus);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   .select--filled.select--disabled .select__control {
-    background-color: var(--sl-input-filled-background-color-disabled);
+    background-color: var(--onex-input-filled-background-color-disabled);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -98,7 +99,7 @@ export default css`
   .select__prefix {
     display: inline-flex;
     align-items: center;
-    color: var(--sl-input-placeholder-color);
+    color: var(--onex-input-placeholder-color);
   }
 
   .select__label {
@@ -126,28 +127,28 @@ export default css`
     align-items: center;
     width: 1.25em;
     font-size: inherit;
-    color: var(--sl-input-icon-color);
+    color: var(--onex-input-icon-color);
     border: none;
     background: none;
     padding: 0;
-    transition: var(--sl-transition-fast) color;
+    transition: var(--onex-transition-fast) color;
     cursor: pointer;
   }
 
   .select__clear:hover {
-    color: var(--sl-input-icon-color-hover);
+    color: var(--onex-input-icon-color-hover);
   }
 
   .select__suffix {
     display: inline-flex;
     align-items: center;
-    color: var(--sl-input-placeholder-color);
+    color: var(--onex-input-placeholder-color);
   }
 
   .select__icon {
     flex: 0 0 auto;
     display: inline-flex;
-    transition: var(--sl-transition-medium) rotate ease;
+    transition: var(--onex-transition-medium) rotate ease;
   }
 
   .select--open .select__icon {
@@ -156,11 +157,11 @@ export default css`
 
   /* Placeholder */
   .select--placeholder-visible .select__label {
-    color: var(--sl-input-placeholder-color);
+    color: var(--onex-input-placeholder-color);
   }
 
   .select--disabled.select--placeholder-visible .select__label {
-    color: var(--sl-input-placeholder-color-disabled);
+    color: var(--onex-input-placeholder-color-disabled);
   }
 
   /* Tags */
@@ -169,7 +170,7 @@ export default css`
     align-items: center;
     flex-wrap: wrap;
     justify-content: left;
-    margin-inline-start: var(--sl-spacing-2x-small);
+    margin-inline-start: var(--onex-spacing-2x-small);
   }
 
   /* Hidden input (for form control validation to show) */
@@ -191,41 +192,41 @@ export default css`
 
   /* Small */
   .select--small .select__control {
-    border-radius: var(--sl-input-border-radius-small);
-    font-size: var(--sl-input-font-size-small);
-    min-height: var(--sl-input-height-small);
+    border-radius: var(--onex-input-border-radius-small);
+    font-size: var(--onex-input-font-size-small);
+    min-height: var(--onex-input-height-small);
   }
 
   .select--small .select__prefix::slotted(*) {
-    margin-inline-start: var(--sl-input-spacing-small);
+    margin-inline-start: var(--onex-input-spacing-small);
   }
 
   .select--small .select__label {
-    margin: 0 var(--sl-input-spacing-small);
+    margin: 0 var(--onex-input-spacing-small);
   }
 
   .select--small .select__clear {
-    margin-inline-end: var(--sl-input-spacing-small);
+    margin-inline-end: var(--onex-input-spacing-small);
   }
 
   .select--small .select__suffix::slotted(*) {
-    margin-inline-end: var(--sl-input-spacing-small);
+    margin-inline-end: var(--onex-input-spacing-small);
   }
 
   .select--small .select__icon {
-    margin-inline-end: var(--sl-input-spacing-small);
+    margin-inline-end: var(--onex-input-spacing-small);
   }
 
   .select--small .select__tags {
     padding-bottom: 2px;
   }
 
-  .select--small .select__tags sl-tag {
+  .select--small .select__tags onex-tag {
     padding-top: 2px;
   }
 
-  .select--small .select__tags sl-tag:not(:last-of-type) {
-    margin-inline-end: var(--sl-spacing-2x-small);
+  .select--small .select__tags onex-tag:not(:last-of-type) {
+    margin-inline-end: var(--onex-spacing-2x-small);
   }
 
   .select--small.select--has-tags .select__label {
@@ -234,41 +235,41 @@ export default css`
 
   /* Medium */
   .select--medium .select__control {
-    border-radius: var(--sl-input-border-radius-medium);
-    font-size: var(--sl-input-font-size-medium);
-    min-height: var(--sl-input-height-medium);
+    border-radius: var(--onex-input-border-radius-medium);
+    font-size: var(--onex-input-font-size-medium);
+    min-height: var(--onex-input-height-medium);
   }
 
   .select--medium .select__prefix::slotted(*) {
-    margin-inline-start: var(--sl-input-spacing-medium);
+    margin-inline-start: var(--onex-input-spacing-medium);
   }
 
   .select--medium .select__label {
-    margin: 0 var(--sl-input-spacing-medium);
+    margin: 0 var(--onex-input-spacing-medium);
   }
 
   .select--medium .select__clear {
-    margin-inline-end: var(--sl-input-spacing-medium);
+    margin-inline-end: var(--onex-input-spacing-medium);
   }
 
   .select--medium .select__suffix::slotted(*) {
-    margin-inline-end: var(--sl-input-spacing-medium);
+    margin-inline-end: var(--onex-input-spacing-medium);
   }
 
   .select--medium .select__icon {
-    margin-inline-end: var(--sl-input-spacing-medium);
+    margin-inline-end: var(--onex-input-spacing-medium);
   }
 
   .select--medium .select__tags {
     padding-bottom: 3px;
   }
 
-  .select--medium .select__tags sl-tag {
+  .select--medium .select__tags onex-tag {
     padding-top: 3px;
   }
 
-  .select--medium .select__tags sl-tag:not(:last-of-type) {
-    margin-inline-end: var(--sl-spacing-2x-small);
+  .select--medium .select__tags onex-tag:not(:last-of-type) {
+    margin-inline-end: var(--onex-spacing-2x-small);
   }
 
   .select--medium.select--has-tags .select__label {
@@ -277,40 +278,40 @@ export default css`
 
   /* Large */
   .select--large .select__control {
-    border-radius: var(--sl-input-border-radius-large);
-    font-size: var(--sl-input-font-size-large);
-    min-height: var(--sl-input-height-large);
+    border-radius: var(--onex-input-border-radius-large);
+    font-size: var(--onex-input-font-size-large);
+    min-height: var(--onex-input-height-large);
   }
 
   .select--large .select__prefix::slotted(*) {
-    margin-inline-start: var(--sl-input-spacing-large);
+    margin-inline-start: var(--onex-input-spacing-large);
   }
 
   .select--large .select__label {
-    margin: 0 var(--sl-input-spacing-large);
+    margin: 0 var(--onex-input-spacing-large);
   }
 
   .select--large .select__clear {
-    margin-inline-end: var(--sl-input-spacing-large);
+    margin-inline-end: var(--onex-input-spacing-large);
   }
 
   .select--large .select__suffix::slotted(*) {
-    margin-inline-end: var(--sl-input-spacing-large);
+    margin-inline-end: var(--onex-input-spacing-large);
   }
 
   .select--large .select__icon {
-    margin-inline-end: var(--sl-input-spacing-large);
+    margin-inline-end: var(--onex-input-spacing-large);
   }
 
   .select--large .select__tags {
     padding-bottom: 4px;
   }
-  .select--large .select__tags sl-tag {
+  .select--large .select__tags onex-tag {
     padding-top: 4px;
   }
 
-  .select--large .select__tags sl-tag:not(:last-of-type) {
-    margin-inline-end: var(--sl-spacing-2x-small);
+  .select--large .select__tags onex-tag:not(:last-of-type) {
+    margin-inline-end: var(--onex-spacing-2x-small);
   }
 
   .select--large.select--has-tags .select__label {
@@ -321,14 +322,14 @@ export default css`
    * Pill modifier
    */
   .select--pill.select--small .select__control {
-    border-radius: var(--sl-input-height-small);
+    border-radius: var(--onex-input-height-small);
   }
 
   .select--pill.select--medium .select__control {
-    border-radius: var(--sl-input-height-medium);
+    border-radius: var(--onex-input-height-medium);
   }
 
   .select--pill.select--large .select__control {
-    border-radius: var(--sl-input-height-large);
+    border-radius: var(--onex-input-height-large);
   }
 `;

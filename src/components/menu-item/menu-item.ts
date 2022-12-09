@@ -14,9 +14,9 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
- * @event sl-label-change - Emitted when the menu item's text label changes. For performance reasons, this event is only
+ * @event onex-label-change - Emitted when the menu item's text label changes. For performance reasons, this event is only
  *   emitted if the default slot's `slotchange` event is triggered. It will not fire when the label is first set.
  *
  * @slot - The menu item's label.
@@ -29,8 +29,8 @@ import type { CSSResultGroup } from 'lit';
  * @csspart label - The menu item label.
  * @csspart suffix - The suffix container.
  */
-@customElement('sl-menu-item')
-export default class SlMenuItem extends ShoelaceElement {
+@customElement('onex-menu-item')
+export default class OneXMenuItem extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private cachedTextLabel: string;
@@ -77,7 +77,7 @@ export default class SlMenuItem extends ShoelaceElement {
 
     if (textLabel !== this.cachedTextLabel) {
       this.cachedTextLabel = textLabel;
-      this.emit('sl-label-change');
+      this.emit('onex-label-change');
     }
   }
 
@@ -93,7 +93,7 @@ export default class SlMenuItem extends ShoelaceElement {
         })}
       >
         <span part="checked-icon" class="menu-item__check">
-          <sl-icon name="check" library="system" aria-hidden="true"></sl-icon>
+          <onex-icon name="check" library="system" aria-hidden="true"></onex-icon>
         </span>
 
         <slot name="prefix" part="prefix" class="menu-item__prefix"></slot>
@@ -103,7 +103,7 @@ export default class SlMenuItem extends ShoelaceElement {
         <slot name="suffix" part="suffix" class="menu-item__suffix"></slot>
 
         <span class="menu-item__chevron">
-          <sl-icon name="chevron-right" library="system" aria-hidden="true"></sl-icon>
+          <onex-icon name="chevron-right" library="system" aria-hidden="true"></onex-icon>
         </span>
       </div>
     `;
@@ -112,6 +112,6 @@ export default class SlMenuItem extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-menu-item': SlMenuItem;
+    'onex-menu-item': OneXMenuItem;
   }
 }

@@ -28,12 +28,12 @@ Now you can start using components!
 
 ### Importing Components
 
-Every Shoelace component is available to import as a React component. Note that we're importing the `<SlButton>` _React component_ instead of the `<sl-button>` _custom element_ in the example below.
+Every Shoelace component is available to import as a React component. Note that we're importing the `<OnexButton>` _React component_ instead of the `<onex-button>` _custom element_ in the example below.
 
 ```jsx
-import { SlButton } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton } from '@shoelace-style/shoelace/dist/react';
 
-const MyComponent = () => <SlButton variant="primary">Click me</SlButton>;
+const MyComponent = () => <OnexButton variant="primary">Click me</OneXButton>;
 
 export default MyComponent;
 ```
@@ -42,18 +42,18 @@ You can find a copy + paste import for each component in the "importing" section
 
 ### Event Handling
 
-Many Shoelace components emit [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). For example, the [input component](/components/input) emits the `sl-input` event when it receives input. In React, you can listen for the event using `onSlInput`.
+Many Shoelace components emit [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). For example, the [input component](/components/input) emits the `onex-input` event when it receives input. In React, you can listen for the event using `onOneXInput`.
 
 Here's how you can bind the input's value to a state variable.
 
 ```jsx
 import { useState } from 'react';
-import { SlInput } from '@shoelace-style/shoelace/dist/react';
+import { OneXInput } from '@shoelace-style/shoelace/dist/react';
 
 function MyComponent() {
   const [value, setValue] = useState('');
 
-  return <SlInput value={value} onSlInput={event => setValue(event.target.value)} />;
+  return <OnexInput value={value} onOneXInput={event => setValue(event.target.value)} />;
 }
 
 export default MyComponent;
@@ -63,13 +63,13 @@ If you're using TypeScript, it's important to note that `event.target` will be a
 
 ```tsx
 import { useState } from 'react';
-import { SlInput } from '@shoelace-style/shoelace/dist/react';
-import type SlInputElement from '@shoelace-style/shoelace/dist/components/input/input';
+import { OneXInput } from '@shoelace-style/shoelace/dist/react';
+import type OneXInputElement from '@shoelace-style/shoelace/dist/components/input/input';
 
 function MyComponent() {
   const [value, setValue] = useState('');
 
-  return <SlInput value={value} onSlInput={event => setValue((event.target as SlInputElement).value)} />;
+  return <OnexInput value={value} onOneXInput={event => setValue((event.target as OneXInputElement).value)} />;
 }
 
 export default MyComponent;

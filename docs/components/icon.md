@@ -1,6 +1,6 @@
 # Icon
 
-[component-header:sl-icon]
+[component-header:onex-icon]
 
 Shoelace comes bundled with over 1,500 icons courtesy of the [Bootstrap Icons](https://icons.getbootstrap.com/) project. These icons are part of the `default` icon library. If you prefer, you can register [custom icon libraries](#icon-libraries) as well.
 
@@ -11,19 +11,19 @@ Shoelace comes bundled with over 1,500 icons courtesy of the [Bootstrap Icons](h
 All available icons in the `default` icon library are shown below. Click or tap on any icon to copy its name, then you can use it in your HTML like this.
 
 ```html
-<sl-icon name="icon-name-here"></sl-icon>
+<onex-icon name="icon-name-here"></onex-icon>
 ```
 
 <div class="icon-search">
   <div class="icon-search-controls">
-    <sl-input placeholder="Search Icons" clearable>
-      <sl-icon slot="prefix" name="search"></sl-icon>
-    </sl-input>
-    <sl-select value="outline">
-      <sl-menu-item value="outline">Outlined</sl-menu-item>
-      <sl-menu-item value="fill">Filled</sl-menu-item>
-      <sl-menu-item value="all">All icons</sl-menu-item>
-    </sl-select>
+    <onex-input placeholder="Search Icons" clearable>
+      <onex-icon slot="prefix" name="search"></onex-icon>
+    </onex-input>
+    <onex-select value="outline">
+      <onex-menu-item value="outline">Outlined</onex-menu-item>
+      <onex-menu-item value="fill">Filled</onex-menu-item>
+      <onex-menu-item value="all">All icons</onex-menu-item>
+    </onex-select>
   </div>
   <div class="icon-list"></div>
   <input type="text" class="icon-copy-input" aria-hidden="true" tabindex="-1">
@@ -33,63 +33,63 @@ All available icons in the `default` icon library are shown below. Click or tap 
 
 ### Colors
 
-Icons inherit their color from the current text color. Thus, you can set the `color` property on the `<sl-icon>` element or an ancestor to change the color.
+Icons inherit their color from the current text color. Thus, you can set the `color` property on the `<onex-icon>` element or an ancestor to change the color.
 
 ```html preview
 <div style="color: #4a90e2;">
-  <sl-icon name="exclamation-triangle"></sl-icon>
-  <sl-icon name="archive"></sl-icon>
-  <sl-icon name="battery-charging"></sl-icon>
-  <sl-icon name="bell"></sl-icon>
+  <onex-icon name="exclamation-triangle"></onex-icon>
+  <onex-icon name="archive"></onex-icon>
+  <onex-icon name="battery-charging"></onex-icon>
+  <onex-icon name="bell"></onex-icon>
 </div>
 <div style="color: #9013fe;">
-  <sl-icon name="clock"></sl-icon>
-  <sl-icon name="cloud"></sl-icon>
-  <sl-icon name="download"></sl-icon>
-  <sl-icon name="file-earmark"></sl-icon>
+  <onex-icon name="clock"></onex-icon>
+  <onex-icon name="cloud"></onex-icon>
+  <onex-icon name="download"></onex-icon>
+  <onex-icon name="file-earmark"></onex-icon>
 </div>
 <div style="color: #417505;">
-  <sl-icon name="flag"></sl-icon>
-  <sl-icon name="heart"></sl-icon>
-  <sl-icon name="image"></sl-icon>
-  <sl-icon name="lightning"></sl-icon>
+  <onex-icon name="flag"></onex-icon>
+  <onex-icon name="heart"></onex-icon>
+  <onex-icon name="image"></onex-icon>
+  <onex-icon name="lightning"></onex-icon>
 </div>
 <div style="color: #f5a623;">
-  <sl-icon name="mic"></sl-icon>
-  <sl-icon name="search"></sl-icon>
-  <sl-icon name="star"></sl-icon>
-  <sl-icon name="trash"></sl-icon>
+  <onex-icon name="mic"></onex-icon>
+  <onex-icon name="search"></onex-icon>
+  <onex-icon name="star"></onex-icon>
+  <onex-icon name="trash"></onex-icon>
 </div>
 ```
 
 ```jsx react
-import { SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
     <div style={{ color: '#4a90e2' }}>
-      <SlIcon name="exclamation-triangle"></SlIcon>
-      <SlIcon name="archive"></SlIcon>
-      <SlIcon name="battery-charging"></SlIcon>
-      <SlIcon name="bell"></SlIcon>
+      <OnexIcon name="exclamation-triangle"></OneXIcon>
+      <OnexIcon name="archive"></OneXIcon>
+      <OnexIcon name="battery-charging"></OneXIcon>
+      <OnexIcon name="bell"></OneXIcon>
     </div>
     <div style={{ color: '#9013fe' }}>
-      <SlIcon name="clock"></SlIcon>
-      <SlIcon name="cloud"></SlIcon>
-      <SlIcon name="download"></SlIcon>
-      <SlIcon name="file-earmark"></SlIcon>
+      <OnexIcon name="clock"></OneXIcon>
+      <OnexIcon name="cloud"></OneXIcon>
+      <OnexIcon name="download"></OneXIcon>
+      <OnexIcon name="file-earmark"></OneXIcon>
     </div>
     <div style={{ color: '#417505' }}>
-      <SlIcon name="flag"></SlIcon>
-      <SlIcon name="heart"></SlIcon>
-      <SlIcon name="image"></SlIcon>
-      <SlIcon name="lightning"></SlIcon>
+      <OnexIcon name="flag"></OneXIcon>
+      <OnexIcon name="heart"></OneXIcon>
+      <OnexIcon name="image"></OneXIcon>
+      <OnexIcon name="lightning"></OneXIcon>
     </div>
     <div style={{ color: '#f5a623' }}>
-      <SlIcon name="mic"></SlIcon>
-      <SlIcon name="search"></SlIcon>
-      <SlIcon name="star"></SlIcon>
-      <SlIcon name="trash"></SlIcon>
+      <OnexIcon name="mic"></OneXIcon>
+      <OnexIcon name="search"></OneXIcon>
+      <OnexIcon name="star"></OneXIcon>
+      <OnexIcon name="trash"></OneXIcon>
     </div>
   </>
 );
@@ -101,46 +101,46 @@ Icons are sized relative to the current font size. To change their size, set the
 
 ```html preview
 <div style="font-size: 32px;">
-  <sl-icon name="exclamation-triangle"></sl-icon>
-  <sl-icon name="archive"></sl-icon>
-  <sl-icon name="battery-charging"></sl-icon>
-  <sl-icon name="bell"></sl-icon>
-  <sl-icon name="clock"></sl-icon>
-  <sl-icon name="cloud"></sl-icon>
-  <sl-icon name="download"></sl-icon>
-  <sl-icon name="file-earmark"></sl-icon>
-  <sl-icon name="flag"></sl-icon>
-  <sl-icon name="heart"></sl-icon>
-  <sl-icon name="image"></sl-icon>
-  <sl-icon name="lightning"></sl-icon>
-  <sl-icon name="mic"></sl-icon>
-  <sl-icon name="search"></sl-icon>
-  <sl-icon name="star"></sl-icon>
-  <sl-icon name="trash"></sl-icon>
+  <onex-icon name="exclamation-triangle"></onex-icon>
+  <onex-icon name="archive"></onex-icon>
+  <onex-icon name="battery-charging"></onex-icon>
+  <onex-icon name="bell"></onex-icon>
+  <onex-icon name="clock"></onex-icon>
+  <onex-icon name="cloud"></onex-icon>
+  <onex-icon name="download"></onex-icon>
+  <onex-icon name="file-earmark"></onex-icon>
+  <onex-icon name="flag"></onex-icon>
+  <onex-icon name="heart"></onex-icon>
+  <onex-icon name="image"></onex-icon>
+  <onex-icon name="lightning"></onex-icon>
+  <onex-icon name="mic"></onex-icon>
+  <onex-icon name="search"></onex-icon>
+  <onex-icon name="star"></onex-icon>
+  <onex-icon name="trash"></onex-icon>
 </div>
 ```
 
 ```jsx react
-import { SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <div style={{ fontSize: '32px' }}>
-    <SlIcon name="exclamation-triangle" />
-    <SlIcon name="archive" />
-    <SlIcon name="battery-charging" />
-    <SlIcon name="bell" />
-    <SlIcon name="clock" />
-    <SlIcon name="cloud" />
-    <SlIcon name="download" />
-    <SlIcon name="file-earmark" />
-    <SlIcon name="flag" />
-    <SlIcon name="heart" />
-    <SlIcon name="image" />
-    <SlIcon name="lightning" />
-    <SlIcon name="mic" />
-    <SlIcon name="search" />
-    <SlIcon name="star" />
-    <SlIcon name="trash" />
+    <OnexIcon name="exclamation-triangle" />
+    <OnexIcon name="archive" />
+    <OnexIcon name="battery-charging" />
+    <OnexIcon name="bell" />
+    <OnexIcon name="clock" />
+    <OnexIcon name="cloud" />
+    <OnexIcon name="download" />
+    <OnexIcon name="file-earmark" />
+    <OnexIcon name="flag" />
+    <OnexIcon name="heart" />
+    <OnexIcon name="image" />
+    <OnexIcon name="lightning" />
+    <OnexIcon name="mic" />
+    <OnexIcon name="search" />
+    <OnexIcon name="star" />
+    <OnexIcon name="trash" />
   </div>
 );
 ```
@@ -150,13 +150,13 @@ const App = () => (
 For non-decorative icons, use the `label` attribute to announce it to assistive devices.
 
 ```html preview
-<sl-icon name="star-fill" label="Add to favorites"></sl-icon>
+<onex-icon name="star-fill" label="Add to favorites"></onex-icon>
 ```
 
 ```jsx react
-import { SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlIcon name="star-fill" label="Add to favorites" />;
+const App = () => <OnexIcon name="star-fill" label="Add to favorites" />;
 ```
 
 ### Custom Icons
@@ -164,18 +164,18 @@ const App = () => <SlIcon name="star-fill" label="Add to favorites" />;
 Custom icons can be loaded individually with the `src` attribute. Only SVGs on a local or CORS-enabled endpoint are supported. If you're using more than one custom icon, it might make sense to register a [custom icon library](#icon-libraries).
 
 ```html preview
-<sl-icon src="https://shoelace.style/assets/images/shoe.svg" style="font-size: 8rem;"></sl-icon>
+<onex-icon src="https://shoelace.style/assets/images/shoe.svg" style="font-size: 8rem;"></onex-icon>
 ```
 
 ```jsx react
-import { SlIcon } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlIcon src="https://shoelace.style/assets/images/shoe.svg" style={{ fontSize: '8rem' }}></SlIcon>;
+const App = () => <OnexIcon src="https://shoelace.style/assets/images/shoe.svg" style={{ fontSize: '8rem' }}></OneXIcon>;
 ```
 
 ## Icon Libraries
 
-You can register additional icons to use with the `<sl-icon>` component through icon libraries. Icon files can exist locally or on a CORS-enabled endpoint (e.g. a CDN). There is no limit to how many icon libraries you can register and there is no cost associated with registering them, as individual icons are only requested when they're used.
+You can register additional icons to use with the `<onex-icon>` component through icon libraries. Icon files can exist locally or on a CORS-enabled endpoint (e.g. a CDN). There is no limit to how many icon libraries you can register and there is no cost associated with registering them, as individual icons are only requested when they're used.
 
 Shoelace ships with two built-in icon libraries, `default` and `system`. The [default icon library](#customizing-the-default-library) contains all of the icons in the Bootstrap Icons project. The [system icon library](#customizing-the-system-library) contains only a small subset of icons that are used internally by Shoelace components.
 
@@ -196,11 +196,11 @@ Here's an example that registers an icon library located in the `/assets/icons` 
 </script>
 ```
 
-To display an icon, set the `library` and `name` attributes of an `<sl-icon>` element.
+To display an icon, set the `library` and `name` attributes of an `<onex-icon>` element.
 
 ```html
 <!-- This will show the icon located at /assets/icons/smile.svg -->
-<sl-icon library="my-icons" name="smile"></sl-icon>
+<onex-icon library="my-icons" name="smile"></onex-icon>
 ```
 
 If an icon is used before registration occurs, it will be empty initially but shown when registered.
@@ -229,26 +229,26 @@ Icons in this library are licensed under the [Creative Commons 4.0 License](http
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="boxicons" name="bx-bot"></sl-icon>
-  <sl-icon library="boxicons" name="bx-cookie"></sl-icon>
-  <sl-icon library="boxicons" name="bx-joystick"></sl-icon>
-  <sl-icon library="boxicons" name="bx-save"></sl-icon>
-  <sl-icon library="boxicons" name="bx-server"></sl-icon>
-  <sl-icon library="boxicons" name="bx-wine"></sl-icon>
+  <onex-icon library="boxicons" name="bx-bot"></onex-icon>
+  <onex-icon library="boxicons" name="bx-cookie"></onex-icon>
+  <onex-icon library="boxicons" name="bx-joystick"></onex-icon>
+  <onex-icon library="boxicons" name="bx-save"></onex-icon>
+  <onex-icon library="boxicons" name="bx-server"></onex-icon>
+  <onex-icon library="boxicons" name="bx-wine"></onex-icon>
   <br />
-  <sl-icon library="boxicons" name="bxs-bot"></sl-icon>
-  <sl-icon library="boxicons" name="bxs-cookie"></sl-icon>
-  <sl-icon library="boxicons" name="bxs-joystick"></sl-icon>
-  <sl-icon library="boxicons" name="bxs-save"></sl-icon>
-  <sl-icon library="boxicons" name="bxs-server"></sl-icon>
-  <sl-icon library="boxicons" name="bxs-wine"></sl-icon>
+  <onex-icon library="boxicons" name="bxs-bot"></onex-icon>
+  <onex-icon library="boxicons" name="bxs-cookie"></onex-icon>
+  <onex-icon library="boxicons" name="bxs-joystick"></onex-icon>
+  <onex-icon library="boxicons" name="bxs-save"></onex-icon>
+  <onex-icon library="boxicons" name="bxs-server"></onex-icon>
+  <onex-icon library="boxicons" name="bxs-wine"></onex-icon>
   <br />
-  <sl-icon library="boxicons" name="bxl-apple"></sl-icon>
-  <sl-icon library="boxicons" name="bxl-chrome"></sl-icon>
-  <sl-icon library="boxicons" name="bxl-edge"></sl-icon>
-  <sl-icon library="boxicons" name="bxl-firefox"></sl-icon>
-  <sl-icon library="boxicons" name="bxl-opera"></sl-icon>
-  <sl-icon library="boxicons" name="bxl-microsoft"></sl-icon>
+  <onex-icon library="boxicons" name="bxl-apple"></onex-icon>
+  <onex-icon library="boxicons" name="bxl-chrome"></onex-icon>
+  <onex-icon library="boxicons" name="bxl-edge"></onex-icon>
+  <onex-icon library="boxicons" name="bxl-firefox"></onex-icon>
+  <onex-icon library="boxicons" name="bxl-opera"></onex-icon>
+  <onex-icon library="boxicons" name="bxl-microsoft"></onex-icon>
 </div>
 ```
 
@@ -260,12 +260,12 @@ Icons in this library are licensed under the [MIT License](https://github.com/lu
 
 ```html preview
 <div style="font-size: 24px;">
-  <sl-icon library="lucide" name="feather"></sl-icon>
-  <sl-icon library="lucide" name="pie-chart"></sl-icon>
-  <sl-icon library="lucide" name="settings"></sl-icon>
-  <sl-icon library="lucide" name="map-pin"></sl-icon>
-  <sl-icon library="lucide" name="printer"></sl-icon>
-  <sl-icon library="lucide" name="shopping-cart"></sl-icon>
+  <onex-icon library="lucide" name="feather"></onex-icon>
+  <onex-icon library="lucide" name="pie-chart"></onex-icon>
+  <onex-icon library="lucide" name="settings"></onex-icon>
+  <onex-icon library="lucide" name="map-pin"></onex-icon>
+  <onex-icon library="lucide" name="printer"></onex-icon>
+  <onex-icon library="lucide" name="shopping-cart"></onex-icon>
 </div>
 
 <script type="module">
@@ -300,26 +300,26 @@ Icons in this library are licensed under the [Font Awesome Free License](https:/
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="fa" name="far-bell"></sl-icon>
-  <sl-icon library="fa" name="far-comment"></sl-icon>
-  <sl-icon library="fa" name="far-hand-point-right"></sl-icon>
-  <sl-icon library="fa" name="far-hdd"></sl-icon>
-  <sl-icon library="fa" name="far-heart"></sl-icon>
-  <sl-icon library="fa" name="far-star"></sl-icon>
+  <onex-icon library="fa" name="far-bell"></onex-icon>
+  <onex-icon library="fa" name="far-comment"></onex-icon>
+  <onex-icon library="fa" name="far-hand-point-right"></onex-icon>
+  <onex-icon library="fa" name="far-hdd"></onex-icon>
+  <onex-icon library="fa" name="far-heart"></onex-icon>
+  <onex-icon library="fa" name="far-star"></onex-icon>
   <br />
-  <sl-icon library="fa" name="fas-archive"></sl-icon>
-  <sl-icon library="fa" name="fas-book"></sl-icon>
-  <sl-icon library="fa" name="fas-chess-knight"></sl-icon>
-  <sl-icon library="fa" name="fas-dice"></sl-icon>
-  <sl-icon library="fa" name="fas-pizza-slice"></sl-icon>
-  <sl-icon library="fa" name="fas-scroll"></sl-icon>
+  <onex-icon library="fa" name="fas-archive"></onex-icon>
+  <onex-icon library="fa" name="fas-book"></onex-icon>
+  <onex-icon library="fa" name="fas-chess-knight"></onex-icon>
+  <onex-icon library="fa" name="fas-dice"></onex-icon>
+  <onex-icon library="fa" name="fas-pizza-slice"></onex-icon>
+  <onex-icon library="fa" name="fas-scroll"></onex-icon>
   <br />
-  <sl-icon library="fa" name="fab-apple"></sl-icon>
-  <sl-icon library="fa" name="fab-chrome"></sl-icon>
-  <sl-icon library="fa" name="fab-edge"></sl-icon>
-  <sl-icon library="fa" name="fab-firefox"></sl-icon>
-  <sl-icon library="fa" name="fab-opera"></sl-icon>
-  <sl-icon library="fa" name="fab-microsoft"></sl-icon>
+  <onex-icon library="fa" name="fab-apple"></onex-icon>
+  <onex-icon library="fa" name="fab-chrome"></onex-icon>
+  <onex-icon library="fa" name="fab-edge"></onex-icon>
+  <onex-icon library="fa" name="fab-firefox"></onex-icon>
+  <onex-icon library="fa" name="fab-opera"></onex-icon>
+  <onex-icon library="fa" name="fab-microsoft"></onex-icon>
 </div>
 ```
 
@@ -339,12 +339,12 @@ Icons in this library are licensed under the [MIT License](https://github.com/ta
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="heroicons" name="chat-bubble-left"></sl-icon>
-  <sl-icon library="heroicons" name="cloud"></sl-icon>
-  <sl-icon library="heroicons" name="cog"></sl-icon>
-  <sl-icon library="heroicons" name="document-text"></sl-icon>
-  <sl-icon library="heroicons" name="gift"></sl-icon>
-  <sl-icon library="heroicons" name="speaker-wave"></sl-icon>
+  <onex-icon library="heroicons" name="chat-bubble-left"></onex-icon>
+  <onex-icon library="heroicons" name="cloud"></onex-icon>
+  <onex-icon library="heroicons" name="cog"></onex-icon>
+  <onex-icon library="heroicons" name="document-text"></onex-icon>
+  <onex-icon library="heroicons" name="gift"></onex-icon>
+  <onex-icon library="heroicons" name="speaker-wave"></onex-icon>
 </div>
 ```
 
@@ -364,12 +364,12 @@ Icons in this library are licensed under the [MIT License](https://github.com/lu
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="iconoir" name="check-circled-outline"></sl-icon>
-  <sl-icon library="iconoir" name="drawer"></sl-icon>
-  <sl-icon library="iconoir" name="keyframes"></sl-icon>
-  <sl-icon library="iconoir" name="headset-help"></sl-icon>
-  <sl-icon library="iconoir" name="color-picker"></sl-icon>
-  <sl-icon library="iconoir" name="wifi"></sl-icon>
+  <onex-icon library="iconoir" name="check-circled-outline"></onex-icon>
+  <onex-icon library="iconoir" name="drawer"></onex-icon>
+  <onex-icon library="iconoir" name="keyframes"></onex-icon>
+  <onex-icon library="iconoir" name="headset-help"></onex-icon>
+  <onex-icon library="iconoir" name="color-picker"></onex-icon>
+  <onex-icon library="iconoir" name="wifi"></onex-icon>
 </div>
 ```
 
@@ -395,26 +395,26 @@ Icons in this library are licensed under the [MIT License](https://github.com/io
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="ionicons" name="alarm"></sl-icon>
-  <sl-icon library="ionicons" name="american-football"></sl-icon>
-  <sl-icon library="ionicons" name="bug"></sl-icon>
-  <sl-icon library="ionicons" name="chatbubble"></sl-icon>
-  <sl-icon library="ionicons" name="settings"></sl-icon>
-  <sl-icon library="ionicons" name="warning"></sl-icon>
+  <onex-icon library="ionicons" name="alarm"></onex-icon>
+  <onex-icon library="ionicons" name="american-football"></onex-icon>
+  <onex-icon library="ionicons" name="bug"></onex-icon>
+  <onex-icon library="ionicons" name="chatbubble"></onex-icon>
+  <onex-icon library="ionicons" name="settings"></onex-icon>
+  <onex-icon library="ionicons" name="warning"></onex-icon>
   <br />
-  <sl-icon library="ionicons" name="alarm-outline"></sl-icon>
-  <sl-icon library="ionicons" name="american-football-outline"></sl-icon>
-  <sl-icon library="ionicons" name="bug-outline"></sl-icon>
-  <sl-icon library="ionicons" name="chatbubble-outline"></sl-icon>
-  <sl-icon library="ionicons" name="settings-outline"></sl-icon>
-  <sl-icon library="ionicons" name="warning-outline"></sl-icon>
+  <onex-icon library="ionicons" name="alarm-outline"></onex-icon>
+  <onex-icon library="ionicons" name="american-football-outline"></onex-icon>
+  <onex-icon library="ionicons" name="bug-outline"></onex-icon>
+  <onex-icon library="ionicons" name="chatbubble-outline"></onex-icon>
+  <onex-icon library="ionicons" name="settings-outline"></onex-icon>
+  <onex-icon library="ionicons" name="warning-outline"></onex-icon>
   <br />
-  <sl-icon library="ionicons" name="alarm-sharp"></sl-icon>
-  <sl-icon library="ionicons" name="american-football-sharp"></sl-icon>
-  <sl-icon library="ionicons" name="bug-sharp"></sl-icon>
-  <sl-icon library="ionicons" name="chatbubble-sharp"></sl-icon>
-  <sl-icon library="ionicons" name="settings-sharp"></sl-icon>
-  <sl-icon library="ionicons" name="warning-sharp"></sl-icon>
+  <onex-icon library="ionicons" name="alarm-sharp"></onex-icon>
+  <onex-icon library="ionicons" name="american-football-sharp"></onex-icon>
+  <onex-icon library="ionicons" name="bug-sharp"></onex-icon>
+  <onex-icon library="ionicons" name="chatbubble-sharp"></onex-icon>
+  <onex-icon library="ionicons" name="settings-sharp"></onex-icon>
+  <onex-icon library="ionicons" name="warning-sharp"></onex-icon>
 </div>
 ```
 
@@ -435,19 +435,19 @@ Icons in this library are licensed under the [MIT License](https://github.com/mi
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="jam" name="calendar"></sl-icon>
-  <sl-icon library="jam" name="camera"></sl-icon>
-  <sl-icon library="jam" name="filter"></sl-icon>
-  <sl-icon library="jam" name="leaf"></sl-icon>
-  <sl-icon library="jam" name="picture"></sl-icon>
-  <sl-icon library="jam" name="set-square"></sl-icon>
+  <onex-icon library="jam" name="calendar"></onex-icon>
+  <onex-icon library="jam" name="camera"></onex-icon>
+  <onex-icon library="jam" name="filter"></onex-icon>
+  <onex-icon library="jam" name="leaf"></onex-icon>
+  <onex-icon library="jam" name="picture"></onex-icon>
+  <onex-icon library="jam" name="set-square"></onex-icon>
   <br />
-  <sl-icon library="jam" name="calendar-f"></sl-icon>
-  <sl-icon library="jam" name="camera-f"></sl-icon>
-  <sl-icon library="jam" name="filter-f"></sl-icon>
-  <sl-icon library="jam" name="leaf-f"></sl-icon>
-  <sl-icon library="jam" name="picture-f"></sl-icon>
-  <sl-icon library="jam" name="set-square-f"></sl-icon>
+  <onex-icon library="jam" name="calendar-f"></onex-icon>
+  <onex-icon library="jam" name="camera-f"></onex-icon>
+  <onex-icon library="jam" name="filter-f"></onex-icon>
+  <onex-icon library="jam" name="leaf-f"></onex-icon>
+  <onex-icon library="jam" name="picture-f"></onex-icon>
+  <onex-icon library="jam" name="set-square-f"></onex-icon>
 </div>
 ```
 
@@ -471,26 +471,26 @@ Icons in this library are licensed under the [Apache 2.0 License](https://github
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="material" name="notifications"></sl-icon>
-  <sl-icon library="material" name="email"></sl-icon>
-  <sl-icon library="material" name="delete"></sl-icon>
-  <sl-icon library="material" name="volume_up"></sl-icon>
-  <sl-icon library="material" name="settings"></sl-icon>
-  <sl-icon library="material" name="shopping_basket"></sl-icon>
+  <onex-icon library="material" name="notifications"></onex-icon>
+  <onex-icon library="material" name="email"></onex-icon>
+  <onex-icon library="material" name="delete"></onex-icon>
+  <onex-icon library="material" name="volume_up"></onex-icon>
+  <onex-icon library="material" name="settings"></onex-icon>
+  <onex-icon library="material" name="shopping_basket"></onex-icon>
   <br />
-  <sl-icon library="material" name="notifications_round"></sl-icon>
-  <sl-icon library="material" name="email_round"></sl-icon>
-  <sl-icon library="material" name="delete_round"></sl-icon>
-  <sl-icon library="material" name="volume_up_round"></sl-icon>
-  <sl-icon library="material" name="settings_round"></sl-icon>
-  <sl-icon library="material" name="shopping_basket_round"></sl-icon>
+  <onex-icon library="material" name="notifications_round"></onex-icon>
+  <onex-icon library="material" name="email_round"></onex-icon>
+  <onex-icon library="material" name="delete_round"></onex-icon>
+  <onex-icon library="material" name="volume_up_round"></onex-icon>
+  <onex-icon library="material" name="settings_round"></onex-icon>
+  <onex-icon library="material" name="shopping_basket_round"></onex-icon>
   <br />
-  <sl-icon library="material" name="notifications_sharp"></sl-icon>
-  <sl-icon library="material" name="email_sharp"></sl-icon>
-  <sl-icon library="material" name="delete_sharp"></sl-icon>
-  <sl-icon library="material" name="volume_up_sharp"></sl-icon>
-  <sl-icon library="material" name="settings_sharp"></sl-icon>
-  <sl-icon library="material" name="shopping_basket_sharp"></sl-icon>
+  <onex-icon library="material" name="notifications_sharp"></onex-icon>
+  <onex-icon library="material" name="email_sharp"></onex-icon>
+  <onex-icon library="material" name="delete_sharp"></onex-icon>
+  <onex-icon library="material" name="volume_up_sharp"></onex-icon>
+  <onex-icon library="material" name="settings_sharp"></onex-icon>
+  <onex-icon library="material" name="shopping_basket_sharp"></onex-icon>
 </div>
 ```
 
@@ -515,19 +515,19 @@ Icons in this library are licensed under the [Apache 2.0 License](https://github
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="remixicon" name="business/cloud-line"></sl-icon>
-  <sl-icon library="remixicon" name="design/brush-line"></sl-icon>
-  <sl-icon library="remixicon" name="business/pie-chart-line"></sl-icon>
-  <sl-icon library="remixicon" name="development/bug-line"></sl-icon>
-  <sl-icon library="remixicon" name="media/image-line"></sl-icon>
-  <sl-icon library="remixicon" name="system/alert-line"></sl-icon>
+  <onex-icon library="remixicon" name="business/cloud-line"></onex-icon>
+  <onex-icon library="remixicon" name="design/brush-line"></onex-icon>
+  <onex-icon library="remixicon" name="business/pie-chart-line"></onex-icon>
+  <onex-icon library="remixicon" name="development/bug-line"></onex-icon>
+  <onex-icon library="remixicon" name="media/image-line"></onex-icon>
+  <onex-icon library="remixicon" name="system/alert-line"></onex-icon>
   <br />
-  <sl-icon library="remixicon" name="business/cloud-fill"></sl-icon>
-  <sl-icon library="remixicon" name="design/brush-fill"></sl-icon>
-  <sl-icon library="remixicon" name="business/pie-chart-fill"></sl-icon>
-  <sl-icon library="remixicon" name="development/bug-fill"></sl-icon>
-  <sl-icon library="remixicon" name="media/image-fill"></sl-icon>
-  <sl-icon library="remixicon" name="system/alert-fill"></sl-icon>
+  <onex-icon library="remixicon" name="business/cloud-fill"></onex-icon>
+  <onex-icon library="remixicon" name="design/brush-fill"></onex-icon>
+  <onex-icon library="remixicon" name="business/pie-chart-fill"></onex-icon>
+  <onex-icon library="remixicon" name="development/bug-fill"></onex-icon>
+  <onex-icon library="remixicon" name="media/image-fill"></onex-icon>
+  <onex-icon library="remixicon" name="system/alert-fill"></onex-icon>
 </div>
 ```
 
@@ -547,19 +547,19 @@ Icons in this library are licensed under the [MIT License](https://github.com/ta
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="tabler" name="alert-triangle"></sl-icon>
-  <sl-icon library="tabler" name="arrow-back"></sl-icon>
-  <sl-icon library="tabler" name="at"></sl-icon>
-  <sl-icon library="tabler" name="ball-baseball"></sl-icon>
-  <sl-icon library="tabler" name="cake"></sl-icon>
-  <sl-icon library="tabler" name="files"></sl-icon>
+  <onex-icon library="tabler" name="alert-triangle"></onex-icon>
+  <onex-icon library="tabler" name="arrow-back"></onex-icon>
+  <onex-icon library="tabler" name="at"></onex-icon>
+  <onex-icon library="tabler" name="ball-baseball"></onex-icon>
+  <onex-icon library="tabler" name="cake"></onex-icon>
+  <onex-icon library="tabler" name="files"></onex-icon>
   <br />
-  <sl-icon library="tabler" name="keyboard"></sl-icon>
-  <sl-icon library="tabler" name="moon"></sl-icon>
-  <sl-icon library="tabler" name="pig"></sl-icon>
-  <sl-icon library="tabler" name="printer"></sl-icon>
-  <sl-icon library="tabler" name="ship"></sl-icon>
-  <sl-icon library="tabler" name="toilet-paper"></sl-icon>
+  <onex-icon library="tabler" name="keyboard"></onex-icon>
+  <onex-icon library="tabler" name="moon"></onex-icon>
+  <onex-icon library="tabler" name="pig"></onex-icon>
+  <onex-icon library="tabler" name="printer"></onex-icon>
+  <onex-icon library="tabler" name="ship"></onex-icon>
+  <onex-icon library="tabler" name="toilet-paper"></onex-icon>
 </div>
 ```
 
@@ -585,25 +585,25 @@ Icons in this library are licensed under the [Apache 2.0 License](https://github
 </script>
 
 <div style="font-size: 24px;">
-  <sl-icon library="unicons" name="clock"></sl-icon>
-  <sl-icon library="unicons" name="graph-bar"></sl-icon>
-  <sl-icon library="unicons" name="padlock"></sl-icon>
-  <sl-icon library="unicons" name="polygon"></sl-icon>
-  <sl-icon library="unicons" name="rocket"></sl-icon>
-  <sl-icon library="unicons" name="star"></sl-icon>
+  <onex-icon library="unicons" name="clock"></onex-icon>
+  <onex-icon library="unicons" name="graph-bar"></onex-icon>
+  <onex-icon library="unicons" name="padlock"></onex-icon>
+  <onex-icon library="unicons" name="polygon"></onex-icon>
+  <onex-icon library="unicons" name="rocket"></onex-icon>
+  <onex-icon library="unicons" name="star"></onex-icon>
   <br />
-  <sl-icon library="unicons" name="clock-s"></sl-icon>
-  <sl-icon library="unicons" name="graph-bar-s"></sl-icon>
-  <sl-icon library="unicons" name="padlock-s"></sl-icon>
-  <sl-icon library="unicons" name="polygon-s"></sl-icon>
-  <sl-icon library="unicons" name="rocket-s"></sl-icon>
-  <sl-icon library="unicons" name="star-s"></sl-icon>
+  <onex-icon library="unicons" name="clock-s"></onex-icon>
+  <onex-icon library="unicons" name="graph-bar-s"></onex-icon>
+  <onex-icon library="unicons" name="padlock-s"></onex-icon>
+  <onex-icon library="unicons" name="polygon-s"></onex-icon>
+  <onex-icon library="unicons" name="rocket-s"></onex-icon>
+  <onex-icon library="unicons" name="star-s"></onex-icon>
 </div>
 ```
 
 ### Customizing the Default Library
 
-The default icon library contains over 1,300 icons courtesy of the [Bootstrap Icons](https://icons.getbootstrap.com/) project. These are the icons that display when you use `<sl-icon>` without the `library` attribute. If you prefer to have these icons resolve elsewhere or to a different icon library, register an icon library using the `default` name and a custom resolver.
+The default icon library contains over 1,300 icons courtesy of the [Bootstrap Icons](https://icons.getbootstrap.com/) project. These are the icons that display when you use `<onex-icon>` without the `library` attribute. If you prefer to have these icons resolve elsewhere or to a different icon library, register an icon library using the `default` name and a custom resolver.
 
 This example will load the same set of icons from the jsDelivr CDN instead of your local assets folder.
 
@@ -639,8 +639,8 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     .then(res => res.json())  
     .then(icons => {
       const container = document.querySelector('.icon-search');
-      const input = container.querySelector('sl-input');
-      const select = container.querySelector('sl-select');
+      const input = container.querySelector('onex-input');
+      const select = container.querySelector('onex-select');
       const copyInput = container.querySelector('.icon-copy-input');
       const loader = container.querySelector('.icon-loader');
       const list = container.querySelector('.icon-list');
@@ -659,7 +659,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
           </svg>      
         `;
 
-        const tooltip = document.createElement('sl-tooltip');
+        const tooltip = document.createElement('onex-tooltip');
         tooltip.content = i.name;
         
         tooltip.appendChild(item);
@@ -675,7 +675,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
       });
 
       // Filter as the user types
-      input.addEventListener('sl-input', () => {
+      input.addEventListener('onex-input', () => {
         clearTimeout(inputTimeout);
         inputTimeout = setTimeout(() => {
           [...list.querySelectorAll('.icon-list-item')].map(item => {
@@ -691,21 +691,21 @@ If you want to change the icons Shoelace uses internally, you can register an ic
       });
 
       // Sort by type and remember preference
-      const iconType = localStorage.getItem('sl-icon:type') || 'outline';
+      const iconType = localStorage.getItem('onex-icon:type') || 'outline';
       select.value = iconType;
       list.setAttribute('data-type', select.value);
-      select.addEventListener('sl-change', () => {
+      select.addEventListener('onex-change', () => {
         list.setAttribute('data-type', select.value);
-        localStorage.setItem('sl-icon:type', select.value);
+        localStorage.setItem('onex-icon:type', select.value);
       });
     });
 </script>
 
 <style>
   .icon-search {
-    border: solid 1px var(--sl-panel-border-color);
-    border-radius: var(--sl-border-radius-medium);
-    padding: var(--sl-spacing-medium);
+    border: solid 1px var(--onex-panel-border-color);
+    border-radius: var(--onex-border-radius-medium);
+    padding: var(--onex-spacing-medium);
   }
 
   .icon-search [hidden] {
@@ -716,11 +716,11 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     display: flex;
   }
 
-  .icon-search-controls sl-input {
+  .icon-search-controls onex-input {
     flex: 1 1 auto;
   }
 
-  .icon-search-controls sl-select {
+  .icon-search-controls onex-select {
     width: 10rem;
     flex: 0 0 auto;
     margin-left: 1rem;
@@ -749,18 +749,18 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--sl-border-radius-medium);
+    border-radius: var(--onex-border-radius-medium);
     font-size: 24px;
     width: 2em;
     height: 2em;
     margin: 0 auto;
     cursor: copy;
-    transition: var(--sl-transition-medium) all;
+    transition: var(--onex-transition-medium) all;
   }
 
   .icon-list-item:hover {
-    background-color: var(--sl-color-primary-50);
-    color: var(--sl-color-primary-600);
+    background-color: var(--onex-color-primary-50);
+    color: var(--onex-color-primary-600);
   }
 
   .icon-list[data-type="outline"] .icon-list-item[data-name$="-fill"] {
@@ -790,7 +790,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
       display: block;
     }
 
-    .icon-search-controls sl-select {
+    .icon-search-controls onex-select {
       width: auto;
       margin: 1rem 0 0 0;
     }
@@ -803,4 +803,4 @@ If you want to change the icons Shoelace uses internally, you can register an ic
   }
 </style>
 
-[component-metadata:sl-icon]
+[component-metadata:onex-icon]

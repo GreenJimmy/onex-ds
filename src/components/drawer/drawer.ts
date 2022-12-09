@@ -22,19 +22,19 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon-button
+ * @dependency onex-icon-button
  *
  * @slot - The drawer's main content.
  * @slot label - The drawer's label. Alternatively, you can use the `label` attribute.
  * @slot footer - The drawer's footer, usually one or more buttons representing various options.
  *
- * @event sl-show - Emitted when the drawer opens.
- * @event sl-after-show - Emitted after the drawer opens and all animations are complete.
- * @event sl-hide - Emitted when the drawer closes.
- * @event sl-after-hide - Emitted after the drawer closes and all animations are complete.
- * @event sl-initial-focus - Emitted when the drawer opens and is ready to receive focus. Calling
+ * @event onex-show - Emitted when the drawer opens.
+ * @event onex-after-show - Emitted after the drawer opens and all animations are complete.
+ * @event onex-hide - Emitted when the drawer closes.
+ * @event onex-after-hide - Emitted after the drawer closes and all animations are complete.
+ * @event onex-initial-focus - Emitted when the drawer opens and is ready to receive focus. Calling
  *   `event.preventDefault()` will prevent focusing and allow you to set it on a different element, such as an input.
- * @event {{ source: 'close-button' | 'keyboard' | 'overlay' }} sl-request-close - Emitted when the user attempts to
+ * @event {{ source: 'close-button' | 'keyboard' | 'overlay' }} onex-request-close - Emitted when the user attempts to
  *   close the drawer by clicking the close button, clicking the overlay, or pressing escape. Calling
  *   `event.preventDefault()` will keep the drawer open. Avoid using this unless closing the drawer will result in
  *   destructive behavior such as data loss.
@@ -43,9 +43,9 @@ import type { CSSResultGroup } from 'lit';
  * @csspart overlay - The overlay that covers the screen behind the drawer.
  * @csspart panel - The drawer's panel (where the drawer and its content are rendered).
  * @csspart header - The drawer's header. This element wraps the title and header actions.
- * @csspart header-actions - Optional actions to add to the header. Works best with `<sl-icon-button>`.
+ * @csspart header-actions - Optional actions to add to the header. Works best with `<onex-icon-button>`.
  * @csspart title - The drawer's title.
- * @csspart close-button - The close button, an `<sl-icon-button>`.
+ * @csspart close-button - The close button, an `<onex-icon-button>`.
  * @csspart close-button__base - The close button's exported `base` part.
  * @csspart body - The drawer's body.
  * @csspart footer - The drawer's footer.
@@ -68,8 +68,8 @@ import type { CSSResultGroup } from 'lit';
  * @animation drawer.overlay.show - The animation to use when showing the drawer's overlay.
  * @animation drawer.overlay.hide - The animation to use when hiding the drawer's overlay.
  */
-@customElement('sl-drawer')
-export default class SlDrawer extends ShoelaceElement {
+@customElement('onex-drawer')
+export default class OneXDrawer extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('.drawer') drawer: HTMLElement;
@@ -139,7 +139,7 @@ export default class SlDrawer extends ShoelaceElement {
     }
 
     this.open = true;
-    return waitForEvent(this, 'sl-after-show');
+    return waitForEvent(this, 'onex-after-show');
   }
 
   /** Hides the drawer */
@@ -149,11 +149,11 @@ export default class SlDrawer extends ShoelaceElement {
     }
 
     this.open = false;
-    return waitForEvent(this, 'sl-after-hide');
+    return waitForEvent(this, 'onex-after-hide');
   }
 
   private requestClose(source: 'close-button' | 'keyboard' | 'overlay') {
-    const slRequestClose = this.emit('sl-request-close', {
+    const slRequestClose = this.emit('onex-request-close', {
       cancelable: true,
       detail: { source }
     });
@@ -186,7 +186,7 @@ export default class SlDrawer extends ShoelaceElement {
   async handleOpenChange() {
     if (this.open) {
       // Show
-      this.emit('sl-show');
+      this.emit('onex-show');
       this.addOpenListeners();
       this.originalTrigger = document.activeElement as HTMLElement;
 
@@ -212,7 +212,7 @@ export default class SlDrawer extends ShoelaceElement {
 
       // Set initial focus
       requestAnimationFrame(() => {
-        const slInitialFocus = this.emit('sl-initial-focus', { cancelable: true });
+        const slInitialFocus = this.emit('onex-initial-focus', { cancelable: true });
 
         if (!slInitialFocus.defaultPrevented) {
           // Set focus to the autofocus target and restore the attribute
@@ -238,10 +238,10 @@ export default class SlDrawer extends ShoelaceElement {
         animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)
       ]);
 
-      this.emit('sl-after-show');
+      this.emit('onex-after-show');
     } else {
       // Hide
-      this.emit('sl-hide');
+      this.emit('onex-hide');
       this.removeOpenListeners();
 
       if (!this.contained) {
@@ -279,7 +279,7 @@ export default class SlDrawer extends ShoelaceElement {
         setTimeout(() => trigger.focus());
       }
 
-      this.emit('sl-after-hide');
+      this.emit('onex-after-hide');
     }
   }
 
@@ -334,7 +334,7 @@ export default class SlDrawer extends ShoelaceElement {
                   </h2>
                   <div part="header-actions" class="drawer__header-actions">
                     <slot name="header-actions"></slot>
-                    <sl-icon-button
+                    <onex-icon-button
                       part="close-button"
                       exportparts="base:close-button__base"
                       class="drawer__close"
@@ -342,7 +342,7 @@ export default class SlDrawer extends ShoelaceElement {
                       label=${this.localize.term('close')}
                       library="system"
                       @click=${() => this.requestClose('close-button')}
-                    ></sl-icon-button>
+                    ></onex-icon-button>
                   </div>
                 </header>
               `
@@ -462,6 +462,6 @@ setDefaultAnimation('drawer.overlay.hide', {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-drawer': SlDrawer;
+    'onex-drawer': OneXDrawer;
   }
 }

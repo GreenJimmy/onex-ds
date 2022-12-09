@@ -11,10 +11,10 @@ export default css`
   .checkbox {
     display: inline-flex;
     align-items: top;
-    font-family: var(--sl-input-font-family);
-    font-size: var(--sl-input-font-size-medium);
-    font-weight: var(--sl-input-font-weight);
-    color: var(--sl-input-color);
+    font-family: var(--onex-input-font-family);
+    font-size: var(--onex-input-font-size-medium);
+    font-weight: var(--onex-input-font-weight);
+    color: var(--onex-input-color);
     vertical-align: middle;
     cursor: pointer;
   }
@@ -25,14 +25,14 @@ export default css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--sl-toggle-size);
-    height: var(--sl-toggle-size);
-    border: solid var(--sl-input-border-width) var(--sl-input-border-color);
+    width: var(--onex-toggle-size);
+    height: var(--onex-toggle-size);
+    border: solid var(--onex-input-border-width) var(--onex-input-border-color);
     border-radius: 2px;
-    background-color: var(--sl-input-background-color);
-    color: var(--sl-color-neutral-0);
-    transition: var(--sl-transition-fast) border-color, var(--sl-transition-fast) background-color,
-      var(--sl-transition-fast) color, var(--sl-transition-fast) box-shadow;
+    background-color: var(--onex-input-background-color);
+    color: var(--onex-color-neutral-0);
+    transition: var(--onex-transition-fast) border-color, var(--onex-transition-fast) background-color,
+      var(--onex-transition-fast) color, var(--onex-transition-fast) box-shadow;
   }
 
   .checkbox__input {
@@ -45,41 +45,41 @@ export default css`
 
   .checkbox__control .checkbox__icon {
     display: inline-flex;
-    width: var(--sl-toggle-size);
-    height: var(--sl-toggle-size);
+    width: var(--onex-toggle-size);
+    height: var(--onex-toggle-size);
   }
 
   /* Hover */
   .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__control:hover {
-    border-color: var(--sl-input-border-color-hover);
-    background-color: var(--sl-input-background-color-hover);
+    border-color: var(--onex-input-border-color-hover);
+    background-color: var(--onex-input-background-color-hover);
   }
 
   /* Focus */
   .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   /* Checked/indeterminate */
   .checkbox--checked .checkbox__control,
   .checkbox--indeterminate .checkbox__control {
-    border-color: var(--sl-color-primary-600);
-    background-color: var(--sl-color-primary-600);
+    border-color: var(--onex-color-primary-600);
+    background-color: var(--onex-color-primary-600);
   }
 
   /* Checked/indeterminate + hover */
   .checkbox.checkbox--checked:not(.checkbox--disabled) .checkbox__control:hover,
   .checkbox.checkbox--indeterminate:not(.checkbox--disabled) .checkbox__control:hover {
-    border-color: var(--sl-color-primary-500);
-    background-color: var(--sl-color-primary-500);
+    border-color: var(--onex-color-primary-500);
+    background-color: var(--onex-color-primary-500);
   }
 
   /* Checked/indeterminate + focus */
   .checkbox.checkbox--checked:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control,
   .checkbox.checkbox--indeterminate:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   /* Disabled */
@@ -90,14 +90,14 @@ export default css`
 
   .checkbox__label {
     display: inline-block;
-    color: var(--sl-input-label-color);
-    line-height: var(--sl-toggle-size);
+    color: var(--onex-input-label-color);
+    line-height: var(--onex-toggle-size);
     margin-inline-start: 0.5em;
     user-select: none;
   }
 
   :host([required]) .checkbox__label::after {
-    content: var(--sl-input-required-content);
-    margin-inline-start: var(--sl-input-required-content-offset);
+    content: var(--onex-input-required-content);
+    margin-inline-start: var(--onex-input-required-content-offset);
   }
 `;

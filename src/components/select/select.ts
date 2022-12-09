@@ -14,11 +14,11 @@ import '../menu/menu';
 import '../tag/tag';
 import styles from './select.styles';
 import type { ShoelaceFormControl } from '../../internal/shoelace-element';
-import type SlDropdown from '../dropdown/dropdown';
-import type SlIconButton from '../icon-button/icon-button';
-import type SlMenuItem from '../menu-item/menu-item';
+import type OneXDropdown from '../dropdown/dropdown';
+import type OneXIconButton from '../icon-button/icon-button';
+import type OneXMenuItem from '../menu-item/menu-item';
 import type { MenuSelectEventDetail } from '../menu/menu';
-import type SlMenu from '../menu/menu';
+import type OneXMenu from '../menu/menu';
 import type { TemplateResult, CSSResultGroup } from 'lit';
 
 /**
@@ -27,24 +27,24 @@ import type { TemplateResult, CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-dropdown
- * @dependency sl-icon
- * @dependency sl-icon-button
- * @dependency sl-menu
- * @dependency sl-tag
+ * @dependency onex-dropdown
+ * @dependency onex-icon
+ * @dependency onex-icon-button
+ * @dependency onex-menu
+ * @dependency onex-tag
  *
  * @slot - The select's options in the form of menu items.
  * @slot prefix - A presentational icon or similar element to prepend to the select's label.
  * @slot suffix - A presentational icon or similar element to append to the select's label.
- * @slot clear-icon - An icon to use in lieu of the default clear icon. Works best with `<sl-icon>`.
+ * @slot clear-icon - An icon to use in lieu of the default clear icon. Works best with `<onex-icon>`.
  * @slot label - The select's label. Alternatively, you can use the `label` attribute.
  * @slot help-text - Text that describes how to use the select. Alternatively, you can use the `help-text` attribute.
  *
- * @event sl-clear - Emitted when the clear button is activated.
- * @event sl-change - Emitted when the control's value changes.
- * @event sl-input - Emitted when the control receives input.
- * @event sl-focus - Emitted when the control gains focus.
- * @event sl-blur - Emitted when the control loses focus.
+ * @event onex-clear - Emitted when the clear button is activated.
+ * @event onex-change - Emitted when the control's value changes.
+ * @event onex-input - Emitted when the control receives input.
+ * @event onex-focus - Emitted when the control gains focus.
+ * @event onex-blur - Emitted when the control loses focus.
  *
  * @csspart form-control - The form control that wraps the label, input, and help text.
  * @csspart form-control-label - The label's wrapper.
@@ -57,27 +57,27 @@ import type { TemplateResult, CSSResultGroup } from 'lit';
  * @csspart icon - The select's expand/collapse icon.
  * @csspart prefix - The container that wraps the prefix.
  * @csspart suffix - The container that wraps the suffix.
- * @csspart menu - The select's menu, an `<sl-menu>` element.
+ * @csspart menu - The select's menu, an `<onex-menu>` element.
  * @csspart tags - The container that wraps tags when using `multiple`.
  * @csspart tag - Tags that represent selected options when using `multiple`.
  * @csspart tag__base - The tag's exported `base` part.
  * @csspart tag__content - The tag's exported `content` part.
  * @csspart tag__remove-button - The tag's exported `remove-button` part.
  */
-@customElement('sl-select')
-export default class SlSelect extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-select')
+export default class OneXSelect extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
-  @query('.select') dropdown: SlDropdown;
-  @query('.select__control') control: SlDropdown;
+  @query('.select') dropdown: OneXDropdown;
+  @query('.select__control') control: OneXDropdown;
   @query('.select__hidden-select') input: HTMLInputElement;
-  @query('.select__menu') menu: SlMenu;
+  @query('.select__menu') menu: OneXMenu;
 
   // @ts-expect-error -- Controller is currently unused
   private readonly formSubmitController = new FormSubmitController(this);
   private readonly hasSlotController = new HasSlotController(this, 'help-text', 'label');
   private readonly localize = new LocalizeController(this);
-  private menuItems: SlMenuItem[] = [];
+  private menuItems: OneXMenuItem[] = [];
   private resizeObserver: ResizeObserver;
 
   @state() private hasFocus = false;
@@ -201,7 +201,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     // Don't blur if the control is open. We'll move focus back once it closes.
     if (!this.isOpen) {
       this.hasFocus = false;
-      this.emit('sl-blur');
+      this.emit('onex-blur');
     }
   }
 
@@ -212,9 +212,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     this.value = this.multiple ? [] : '';
 
     if (this.value !== oldValue) {
-      this.emit('sl-clear');
-      this.emit('sl-input');
-      this.emit('sl-change');
+      this.emit('onex-clear');
+      this.emit('onex-input');
+      this.emit('onex-change');
     }
 
     this.syncItemsFromValue();
@@ -234,7 +234,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   handleFocus() {
     if (!this.hasFocus) {
       this.hasFocus = true;
-      this.emit('sl-focus');
+      this.emit('onex-focus');
     }
   }
 
@@ -244,7 +244,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     const lastItem = this.menuItems[this.menuItems.length - 1];
 
     // Ignore key presses on tags
-    if (target.tagName.toLowerCase() === 'sl-tag') {
+    if (target.tagName.toLowerCase() === 'onex-tag') {
       return;
     }
 
@@ -310,8 +310,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
 
     this.syncItemsFromValue();
@@ -347,13 +347,13 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
 
   async handleMenuSlotChange() {
     // Wait for items to render before gathering labels otherwise the slot won't exist
-    this.menuItems = [...this.querySelectorAll<SlMenuItem>('sl-menu-item')];
+    this.menuItems = [...this.querySelectorAll<OneXMenuItem>('onex-menu-item')];
 
     // Check for duplicate values in menu items
     const values: string[] = [];
     this.menuItems.forEach(item => {
       if (values.includes(item.value)) {
-        console.error(`Duplicate value found in <sl-select> menu item: '${item.value}'`, item);
+        console.error(`Duplicate value found in <onex-select> menu item: '${item.value}'`, item);
       }
 
       values.push(item.value);
@@ -366,7 +366,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   handleTagInteraction(event: KeyboardEvent | MouseEvent) {
     // Don't toggle the menu when a tag's clear button is activated
     const path = event.composedPath();
-    const clearButton = path.find((el: SlIconButton) => {
+    const clearButton = path.find((el: OneXIconButton) => {
       if (el instanceof HTMLElement) {
         const element = el as HTMLElement;
         return element.classList.contains('tag__remove');
@@ -403,9 +403,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
       const checkedItems = this.menuItems.filter(item => value.includes(item.value));
 
       this.displayLabel = checkedItems.length > 0 ? checkedItems[0].getTextLabel() : '';
-      this.displayTags = checkedItems.map((item: SlMenuItem) => {
+      this.displayTags = checkedItems.map((item: OneXMenuItem) => {
         return html`
-          <sl-tag
+          <onex-tag
             part="tag"
             exportparts="
               base:tag__base,
@@ -418,7 +418,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
             removable
             @click=${this.handleTagInteraction}
             @keydown=${this.handleTagInteraction}
-            @sl-remove=${(event: CustomEvent) => {
+            @onex-remove=${(event: CustomEvent) => {
               event.stopPropagation();
               if (!this.disabled) {
                 item.checked = false;
@@ -427,7 +427,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
             }}
           >
             ${item.getTextLabel()}
-          </sl-tag>
+          </onex-tag>
         `;
       });
 
@@ -436,7 +436,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
         this.displayLabel = '';
         this.displayTags = this.displayTags.slice(0, this.maxTagsVisible);
         this.displayTags.push(html`
-          <sl-tag
+          <onex-tag
             part="tag"
             exportparts="
               base:tag__base,
@@ -447,7 +447,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
             size=${this.size}
           >
             +${total - this.maxTagsVisible}
-          </sl-tag>
+          </onex-tag>
         `);
       }
     } else {
@@ -470,8 +470,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -506,7 +506,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
         </label>
 
         <div part="form-control-input" class="form-control-input">
-          <sl-dropdown
+          <onex-dropdown
             part="base"
             .hoist=${this.hoist}
             .placement=${this.placement === 'bottom' ? 'bottom-start' : 'top-start'}
@@ -531,8 +531,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
               'select--pill': this.pill,
               'select--invalid': this.invalid
             })}
-            @sl-show=${this.handleMenuShow}
-            @sl-hide=${this.handleMenuHide}
+            @onex-show=${this.handleMenuShow}
+            @onex-hide=${this.handleMenuHide}
           >
             <div
               part="control"
@@ -570,7 +570,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
                       tabindex="-1"
                     >
                       <slot name="clear-icon">
-                        <sl-icon name="x-circle-fill" library="system"></sl-icon>
+                        <onex-icon name="x-circle-fill" library="system"></onex-icon>
                       </slot>
                     </button>
                   `
@@ -579,7 +579,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
               <slot name="suffix" part="suffix" class="select__suffix"></slot>
 
               <span part="icon" class="select__icon" aria-hidden="true">
-                <sl-icon name="chevron-down" library="system"></sl-icon>
+                <onex-icon name="chevron-down" library="system"></onex-icon>
               </span>
 
               <!-- The hidden input tricks the browser's built-in validation so it works as expected. We use an input
@@ -595,10 +595,13 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
               />
             </div>
 
-            <sl-menu part="menu" id="menu" class="select__menu" @sl-select=${this.handleMenuSelect}>
-              <slot @slotchange=${this.handleMenuSlotChange} @sl-label-change=${this.handleMenuItemLabelChange}></slot>
-            </sl-menu>
-          </sl-dropdown>
+            <onex-menu part="menu" id="menu" class="select__menu" @onex-select=${this.handleMenuSelect}>
+              <slot
+                @slotchange=${this.handleMenuSlotChange}
+                @onex-label-change=${this.handleMenuItemLabelChange}
+              ></slot>
+            </onex-menu>
+          </onex-dropdown>
         </div>
 
         <slot
@@ -617,6 +620,6 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-select': SlSelect;
+    'onex-select': OneXSelect;
   }
 }

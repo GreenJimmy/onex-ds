@@ -12,7 +12,7 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @event sl-reposition - Emitted when the popup is repositioned. This event can fire a lot, so avoid putting expensive
+ * @event onex-reposition - Emitted when the popup is repositioned. This event can fire a lot, so avoid putting expensive
  *  operations in your listener or consider debouncing it.
  *
  * @slot - The popup's content.
@@ -26,7 +26,7 @@ import type { CSSResultGroup } from 'lit';
  *
  * @cssproperty [--arrow-size=6px] - The size of the arrow. Note that an arrow won't be shown unless the `arrow`
  *  attribute is used.
- * @cssproperty [--arrow-color=var(--sl-color-neutral-0)] - The color of the arrow.
+ * @cssproperty [--arrow-color=var(--onex-color-neutral-0)] - The color of the arrow.
  * @cssproperty [--auto-size-available-width] - A read-only custom property that determines the amount of width the
  *  popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only
  *  available when using `auto-size`.
@@ -34,8 +34,8 @@ import type { CSSResultGroup } from 'lit';
  *  popup can be before overflowing. Useful for positioning child elements that need to overflow. This property is only
  *  available when using `auto-size`.
  */
-@customElement('sl-popup')
-export default class SlPopup extends ShoelaceElement {
+@customElement('onex-popup')
+export default class OneXPopup extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   /** A reference to the internal popup container. Useful for animating and styling the popup with JavaScript. */
@@ -426,7 +426,7 @@ export default class SlPopup extends ShoelaceElement {
       }
     });
 
-    this.emit('sl-reposition');
+    this.emit('onex-reposition');
   }
 
   render() {
@@ -451,6 +451,6 @@ export default class SlPopup extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-popup': SlPopup;
+    'onex-popup': OneXPopup;
   }
 }

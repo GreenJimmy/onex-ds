@@ -1,15 +1,15 @@
 # Rating
 
-[component-header:sl-rating]
+[component-header:onex-rating]
 
 ```html preview
-<sl-rating label="Rating"></sl-rating>
+<onex-rating label="Rating"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" />;
+const App = () => <OnexRating label="Rating" />;
 ```
 
 ## Examples
@@ -19,13 +19,13 @@ const App = () => <SlRating label="Rating" />;
 Ratings are commonly identified contextually, so labels aren't displayed. However, you should always provide one for assistive devices using the `label` attribute.
 
 ```html preview
-<sl-rating label="Rate this component"></sl-rating>
+<onex-rating label="Rate this component"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rate this component" />;
+const App = () => <OnexRating label="Rate this component" />;
 ```
 
 ### Maximum Value
@@ -33,13 +33,13 @@ const App = () => <SlRating label="Rate this component" />;
 Ratings are 0-5 by default. To change the maximum possible value, use the `max` attribute.
 
 ```html preview
-<sl-rating label="Rating" max="3"></sl-rating>
+<onex-rating label="Rating" max="3"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" max={3} />;
+const App = () => <OnexRating label="Rating" max={3} />;
 ```
 
 ### Precision
@@ -47,13 +47,13 @@ const App = () => <SlRating label="Rating" max={3} />;
 Use the `precision` attribute to let users select fractional ratings.
 
 ```html preview
-<sl-rating label="Rating" precision="0.5" value="2.5"></sl-rating>
+<onex-rating label="Rating" precision="0.5" value="2.5"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" precision={0.5} value={2.5} />;
+const App = () => <OnexRating label="Rating" precision={0.5} value={2.5} />;
 ```
 
 ## Symbol Sizes
@@ -61,13 +61,13 @@ const App = () => <SlRating label="Rating" precision={0.5} value={2.5} />;
 Set the `--symbol-size` custom property to adjust the size.
 
 ```html preview
-<sl-rating label="Rating" style="--symbol-size: 2rem;"></sl-rating>
+<onex-rating label="Rating" style="--symbol-size: 2rem;"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" style={{ '--symbol-size': '2rem' }} />;
+const App = () => <OnexRating label="Rating" style={{ '--symbol-size': '2rem' }} />;
 ```
 
 ### Readonly
@@ -75,13 +75,13 @@ const App = () => <SlRating label="Rating" style={{ '--symbol-size': '2rem' }} /
 Use the `readonly` attribute to display a rating that users can't change.
 
 ```html preview
-<sl-rating label="Rating" readonly value="3"></sl-rating>
+<onex-rating label="Rating" readonly value="3"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" readonly value={3} />;
+const App = () => <OnexRating label="Rating" readonly value={3} />;
 ```
 
 ### Disabled
@@ -89,13 +89,13 @@ const App = () => <SlRating label="Rating" readonly value={3} />;
 Use the `disable` attribute to disable the rating.
 
 ```html preview
-<sl-rating label="Rating" disabled value="3"></sl-rating>
+<onex-rating label="Rating" disabled value="3"></onex-rating>
 ```
 
 ```jsx react
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlRating label="Rating" disabled value={3} />;
+const App = () => <OnexRating label="Rating" disabled value={3} />;
 ```
 
 ### Custom Icons
@@ -103,22 +103,22 @@ const App = () => <SlRating label="Rating" disabled value={3} />;
 You can provide custom icons by passing a function to the `getSymbol` property.
 
 ```html preview
-<sl-rating label="Rating" class="rating-hearts" style="--symbol-color-active: #ff4136;"></sl-rating>
+<onex-rating label="Rating" class="rating-hearts" style="--symbol-color-active: #ff4136;"></onex-rating>
 
 <script>
   const rating = document.querySelector('.rating-hearts');
-  rating.getSymbol = () => '<sl-icon name="heart-fill"></sl-icon>';
+  rating.getSymbol = () => '<onex-icon name="heart-fill"></onex-icon>';
 </script>
 ```
 
 ```jsx react
 import '@shoelace-style/shoelace/dist/components/icon/icon';
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRating
+  <OnexRating
     label="Rating"
-    getSymbol={() => '<sl-icon name="heart-fill"></sl-icon>'}
+    getSymbol={() => '<onex-icon name="heart-fill"></onex-icon>'}
     style={{ '--symbol-color-active': '#ff4136' }}
   />
 );
@@ -129,28 +129,28 @@ const App = () => (
 You can also use the `getSymbol` property to render different icons based on value.
 
 ```html preview
-<sl-rating label="Rating" class="rating-emojis"></sl-rating>
+<onex-rating label="Rating" class="rating-emojis"></onex-rating>
 
 <script>
   const rating = document.querySelector('.rating-emojis');
 
   rating.getSymbol = value => {
     const icons = ['emoji-angry', 'emoji-frown', 'emoji-expressionless', 'emoji-smile', 'emoji-laughing'];
-    return `<sl-icon name="${icons[value - 1]}"></sl-icon>`;
+    return `<onex-icon name="${icons[value - 1]}"></onex-icon>`;
   };
 </script>
 ```
 
 ```jsx react
 import '@shoelace-style/shoelace/dist/components/icon/icon';
-import { SlRating } from '@shoelace-style/shoelace/dist/react';
+import { OneXRating } from '@shoelace-style/shoelace/dist/react';
 
 function getSymbol(value) {
   const icons = ['emoji-angry', 'emoji-frown', 'emoji-expressionless', 'emoji-smile', 'emoji-laughing'];
-  return `<sl-icon name="${icons[value - 1]}"></sl-icon>`;
+  return `<onex-icon name="${icons[value - 1]}"></onex-icon>`;
 }
 
-const App = () => <SlRating label="Rating" getSymbol={getSymbol} />;
+const App = () => <OnexRating label="Rating" getSymbol={getSymbol} />;
 ```
 
-[component-metadata:sl-rating]
+[component-metadata:onex-rating]

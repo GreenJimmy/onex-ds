@@ -2,34 +2,34 @@ import { expect, fixture, waitUntil } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import { html } from 'lit';
 import sinon from 'sinon';
-import type SlMenuItem from '../menu-item/menu-item';
-import type SlMenu from './menu';
+import type OneXMenuItem from '../menu-item/menu-item';
+import type OneXMenu from './menu';
 
 interface Payload {
-  item: SlMenuItem;
+  item: OneXMenuItem;
 }
 
-const createTestMenu = (): Promise<SlMenu> => {
-  return fixture<SlMenu>(html`
-    <sl-menu>
-      <sl-menu-item value="test1">test1</sl-menu-item>
-      <sl-menu-item value="test2">test2</sl-menu-item>
-      <sl-menu-item value="test3">test3</sl-menu-item>
-      <sl-menu-item value="testDisabled" disabled>testDisabled</sl-menu-item>
-    </sl-menu>
+const createTestMenu = (): Promise<OnexMenu> => {
+  return fixture<OnexMenu>(html`
+    <onex-menu>
+      <onex-menu-item value="test1">test1</onex-menu-item>
+      <onex-menu-item value="test2">test2</onex-menu-item>
+      <onex-menu-item value="test3">test3</onex-menu-item>
+      <onex-menu-item value="testDisabled" disabled>testDisabled</onex-menu-item>
+    </onex-menu>
   `);
 };
 
-const clickOnItemWithValue = (menu: SlMenu, value: string) => {
+const clickOnItemWithValue = (menu: OneXMenu, value: string) => {
   const clickedItem = menu.querySelector(`[value=${value}]`);
   if (clickedItem) {
-    (clickedItem as SlMenuItem).click();
+    (clickedItem as OneXMenuItem).click();
   }
 };
 
-const spyOnSelectHandler = (menu: SlMenu): sinon.SinonSpy => {
+const spyOnSelectHandler = (menu: OneXMenu): sinon.SinonSpy => {
   const selectHandler = sinon.spy();
-  menu.addEventListener('sl-select', selectHandler);
+  menu.addEventListener('onex-select', selectHandler);
   return selectHandler;
 };
 
@@ -44,8 +44,8 @@ const expectSelectHandlerToHaveBeenCalledOn = async (
   expect(detail.item.value).to.equal(expectedValue);
 };
 
-describe('<sl-menu>', () => {
-  it('emits sl-select on click of an item returning the selected item as payload', async () => {
+describe('<onex-menu>', () => {
+  it('emits onex-select on click of an item returning the selected item as payload', async () => {
     const menu = await createTestMenu();
     const selectHandler = spyOnSelectHandler(menu);
 

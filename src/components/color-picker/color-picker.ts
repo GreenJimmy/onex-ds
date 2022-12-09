@@ -19,8 +19,8 @@ import '../input/input';
 import '../visually-hidden/visually-hidden';
 import styles from './color-picker.styles';
 import type { ShoelaceFormControl } from '../../internal/shoelace-element';
-import type SlDropdown from '../dropdown/dropdown';
-import type SlInput from '../input/input';
+import type OneXDropdown from '../dropdown/dropdown';
+import type OneXInput from '../input/input';
 import type { CSSResultGroup } from 'lit';
 
 const hasEyeDropper = 'EyeDropper' in window;
@@ -41,16 +41,16 @@ declare const EyeDropper: EyeDropperConstructor;
  * @since 2.0
  * @status stable
  *
- * @dependency sl-button
- * @dependency sl-button-group
- * @dependency sl-dropdown
- * @dependency sl-input
- * @dependency sl-visually-hidden
+ * @dependency onex-button
+ * @dependency onex-button-group
+ * @dependency onex-dropdown
+ * @dependency onex-input
+ * @dependency onex-visually-hidden
  *
  * @slot label - The color picker's form label. Alternatively, you can use the `label` attribute.
  *
- * @event sl-change Emitted when the color picker's value changes.
- * @event sl-input Emitted when the color picker receives input.
+ * @event onex-change Emitted when the color picker's value changes.
+ * @event onex-input Emitted when the color picker receives input.
  *
  * @csspart base - The component's base wrapper.
  * @csspart trigger - The color picker's dropdown trigger.
@@ -80,17 +80,17 @@ declare const EyeDropper: EyeDropperConstructor;
  * @cssproperty --grid-width - The width of the color grid.
  * @cssproperty --grid-height - The height of the color grid.
  * @cssproperty --grid-handle-size - The size of the color grid's handle.
- * @cssproperty --slider-height - The height of the hue and alpha sliders.
- * @cssproperty --slider-handle-size - The diameter of the slider's handle.
+ * @cssproperty --onexider-height - The height of the hue and alpha sliders.
+ * @cssproperty --onexider-handle-size - The diameter of the slider's handle.
  * @cssproperty --swatch-size - The size of each predefined color swatch.
  */
-@customElement('sl-color-picker')
-export default class SlColorPicker extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-color-picker')
+export default class OneXColorPicker extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
-  @query('[part~="input"]') input: SlInput;
+  @query('[part~="input"]') input: OneXInput;
   @query('[part~="preview"]') previewButton: HTMLButtonElement;
-  @query('.color-dropdown') dropdown: SlDropdown;
+  @query('.color-dropdown') dropdown: OneXDropdown;
 
   // @ts-expect-error -- Controller is currently unused
   private readonly formSubmitController = new FormSubmitController(this);
@@ -241,7 +241,7 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     if (!this.inline && this.input.invalid) {
       // If the input is inline and invalid, show the dropdown so the browser can focus on it
       this.dropdown.show();
-      this.addEventListener('sl-after-show', () => this.input.reportValidity(), { once: true });
+      this.addEventListener('onex-after-show', () => this.input.reportValidity(), { once: true });
       return this.checkValidity();
     }
 
@@ -271,8 +271,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     const nextIndex = (formats.indexOf(this.format) + 1) % formats.length;
     this.format = formats[nextIndex] as 'hex' | 'rgb' | 'hsl';
     this.setColor(this.value);
-    this.emit('sl-change');
-    this.emit('sl-input');
+    this.emit('onex-change');
+    this.emit('onex-input');
   }
 
   handleAlphaDrag(event: PointerEvent) {
@@ -291,8 +291,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
 
         if (this.value !== oldValue) {
           oldValue = this.value;
-          this.emit('sl-change');
-          this.emit('sl-input');
+          this.emit('onex-change');
+          this.emit('onex-input');
         }
       },
       initialEvent: event
@@ -315,8 +315,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
 
         if (this.value !== oldValue) {
           oldValue = this.value;
-          this.emit('sl-change');
-          this.emit('sl-input');
+          this.emit('onex-change');
+          this.emit('onex-input');
         }
       },
       initialEvent: event
@@ -343,8 +343,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
 
         if (this.value !== oldValue) {
           oldValue = this.value;
-          this.emit('sl-change');
-          this.emit('sl-input');
+          this.emit('onex-change');
+          this.emit('onex-input');
         }
       },
       onStop: () => (this.isDraggingGridHandle = false),
@@ -381,8 +381,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -415,8 +415,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -453,8 +453,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
@@ -462,7 +462,7 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     const target = event.target as HTMLInputElement;
     const oldValue = this.value;
 
-    // Prevent the <sl-input>'s sl-change event from bubbling up
+    // Prevent the <onex-input>'s onex-change event from bubbling up
     event.stopPropagation();
 
     if (this.input.value) {
@@ -473,13 +473,13 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
     }
 
     if (this.value !== oldValue) {
-      this.emit('sl-change');
-      this.emit('sl-input');
+      this.emit('onex-change');
+      this.emit('onex-input');
     }
   }
 
   handleInputInput(event: CustomEvent) {
-    // Prevent the <sl-input>'s sl-input event from bubbling up
+    // Prevent the <onex-input>'s onex-input event from bubbling up
     event.stopPropagation();
   }
 
@@ -492,8 +492,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
         this.input.value = this.value;
 
         if (this.value !== oldValue) {
-          this.emit('sl-change');
-          this.emit('sl-input');
+          this.emit('onex-change');
+          this.emit('onex-input');
         }
 
         setTimeout(() => this.input.select());
@@ -707,8 +707,8 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
       this.setColor(color);
 
       if (this.value !== oldValue) {
-        this.emit('sl-change');
-        this.emit('sl-input');
+        this.emit('onex-change');
+        this.emit('onex-input');
       }
     }
   }
@@ -772,9 +772,9 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
       >
         ${this.inline
           ? html`
-              <sl-visually-hidden id="label">
+              <onex-visually-hidden id="label">
                 <slot name="label">${this.label}</slot>
-              </sl-visually-hidden>
+              </onex-visually-hidden>
             `
           : null}
 
@@ -879,7 +879,7 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
         </div>
 
         <div class="color-picker__user-input" aria-live="polite">
-          <sl-input
+          <onex-input
             part="input"
             type="text"
             name=${this.name}
@@ -891,14 +891,14 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
             ?disabled=${this.disabled}
             aria-label=${this.localize.term('currentValue')}
             @keydown=${this.handleInputKeyDown}
-            @sl-change=${this.handleInputChange}
-            @sl-input=${this.handleInputInput}
-          ></sl-input>
+            @onex-change=${this.handleInputChange}
+            @onex-input=${this.handleInputInput}
+          ></onex-input>
 
-          <sl-button-group>
+          <onex-button-group>
             ${!this.noFormatToggle
               ? html`
-                  <sl-button
+                  <onex-button
                     part="format-button"
                     aria-label=${this.localize.term('toggleColorFormat')}
                     exportparts="
@@ -911,12 +911,12 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
                     @click=${this.handleFormatToggle}
                   >
                     ${this.setLetterCase(this.format)}
-                  </sl-button>
+                  </onex-button>
                 `
               : ''}
             ${hasEyeDropper
               ? html`
-                  <sl-button
+                  <onex-button
                     part="eye-dropper-button"
                     exportparts="
                       base:eye-dropper-button__base,
@@ -927,15 +927,15 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
                     "
                     @click=${this.handleEyeDropper}
                   >
-                    <sl-icon
+                    <onex-icon
                       library="system"
                       name="eyedropper"
                       label=${this.localize.term('selectAColorFromTheScreen')}
-                    ></sl-icon>
-                  </sl-button>
+                    ></onex-icon>
+                  </onex-button>
                 `
               : ''}
-          </sl-button-group>
+          </onex-button-group>
         </div>
 
         ${this.swatches.length > 0
@@ -970,13 +970,13 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
 
     // Render as a dropdown
     return html`
-      <sl-dropdown
+      <onex-dropdown
         class="color-dropdown"
         aria-disabled=${this.disabled ? 'true' : 'false'}
         .containing-element=${this}
         ?disabled=${this.disabled}
         ?hoist=${this.hoist}
-        @sl-after-hide=${this.handleAfterHide}
+        @onex-after-hide=${this.handleAfterHide}
       >
         <button
           part="trigger"
@@ -995,12 +995,12 @@ export default class SlColorPicker extends ShoelaceElement implements ShoelaceFo
           })}
           type="button"
         >
-          <sl-visually-hidden>
+          <onex-visually-hidden>
             <slot name="label">${this.label}</slot>
-          </sl-visually-hidden>
+          </onex-visually-hidden>
         </button>
         ${colorPicker}
-      </sl-dropdown>
+      </onex-dropdown>
     `;
   }
 }
@@ -1012,6 +1012,6 @@ function toHex(value: number) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-color-picker': SlColorPicker;
+    'onex-color-picker': OneXColorPicker;
   }
 }

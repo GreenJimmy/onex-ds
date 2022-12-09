@@ -1,32 +1,32 @@
 # Select
 
-[component-header:sl-select]
+[component-header:onex-select]
 
 ```html preview
-<sl-select>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-item value="option-4">Option 4</sl-menu-item>
-  <sl-menu-item value="option-5">Option 5</sl-menu-item>
-  <sl-menu-item value="option-6">Option 6</sl-menu-item>
-</sl-select>
+<onex-select>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-item value="option-4">Option 4</onex-menu-item>
+  <onex-menu-item value="option-5">Option 5</onex-menu-item>
+  <onex-menu-item value="option-6">Option 6</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlDivider, SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    <SlDivider />
-    <SlMenuItem value="option-4">Option 4</SlMenuItem>
-    <SlMenuItem value="option-5">Option 5</SlMenuItem>
-    <SlMenuItem value="option-6">Option 6</SlMenuItem>
-  </SlSelect>
+  <OnexSelect>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    <OnexDivider />
+    <OneXMenuItem value="option-4">Option 4</OneXMenuItem>
+    <OneXMenuItem value="option-5">Option 5</OneXMenuItem>
+    <OneXMenuItem value="option-6">Option 6</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -39,22 +39,22 @@ const App = () => (
 Use the `label` attribute to give the select an accessible label. For labels that contain HTML, use the `label` slot instead.
 
 ```html preview
-<sl-select label="Select one">
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select label="Select one">
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect label="Select one">
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect label="Select one">
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -63,22 +63,22 @@ const App = () => (
 Add descriptive help text to a select with the `help-text` attribute. For help texts that contain HTML, use the `help-text` slot instead.
 
 ```html preview
-<sl-select label="Experience" help-text="Please tell us your skill level.">
-  <sl-menu-item value="1">Novice</sl-menu-item>
-  <sl-menu-item value="2">Intermediate</sl-menu-item>
-  <sl-menu-item value="3">Advanced</sl-menu-item>
-</sl-select>
+<onex-select label="Experience" help-text="Please tell us your skill level.">
+  <onex-menu-item value="1">Novice</onex-menu-item>
+  <onex-menu-item value="2">Intermediate</onex-menu-item>
+  <onex-menu-item value="3">Advanced</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect label="Experience" help-text="Please tell us your skill level.">
-    <SlMenuItem value="1">Novice</SlMenuItem>
-    <SlMenuItem value="2">Intermediate</SlMenuItem>
-    <SlMenuItem value="3">Advanced</SlMenuItem>
-  </SlSelect>
+  <OnexSelect label="Experience" help-text="Please tell us your skill level.">
+    <OneXMenuItem value="1">Novice</OneXMenuItem>
+    <OneXMenuItem value="2">Intermediate</OneXMenuItem>
+    <OneXMenuItem value="3">Advanced</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -87,22 +87,22 @@ const App = () => (
 Use the `placeholder` attribute to add a placeholder.
 
 ```html preview
-<sl-select placeholder="Select one">
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Select one">
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placeholder="Select one">
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect placeholder="Select one">
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -111,22 +111,22 @@ const App = () => (
 Use the `clearable` attribute to make the control clearable.
 
 ```html preview
-<sl-select placeholder="Clearable" clearable>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Clearable" clearable>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placeholder="Clearable" clearable>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect placeholder="Clearable" clearable>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -135,22 +135,22 @@ const App = () => (
 Add the `filled` attribute to draw a filled select.
 
 ```html preview
-<sl-select filled>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select filled>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect filled>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect filled>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -159,22 +159,22 @@ const App = () => (
 Use the `pill` attribute to give selects rounded edges.
 
 ```html preview
-<sl-select pill>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select pill>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect pill>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect pill>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -183,22 +183,22 @@ const App = () => (
 Use the `disabled` attribute to disable a select.
 
 ```html preview
-<sl-select placeholder="Disabled" disabled>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Disabled" disabled>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placeholder="Disabled" disabled>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect placeholder="Disabled" disabled>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -207,22 +207,22 @@ const App = () => (
 Use the `value` attribute to set the current selection. When users interact with the control, its `value` will update to reflect the newly selected menu item's value. Note that the value must be an array when using the [`multiple`](#multiple) option.
 
 ```html preview
-<sl-select value="option-2">
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select value="option-2">
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlDivider, SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect value="option-2">
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlSelect>
+  <OnexSelect value="option-2">
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -232,24 +232,24 @@ To programmatically set the selection, update the `value` property as shown belo
 
 ```html preview
 <div class="selecting-example">
-  <sl-select>
-    <sl-menu-item value="option-1">Option 1</sl-menu-item>
-    <sl-menu-item value="option-2">Option 2</sl-menu-item>
-    <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  </sl-select>
+  <onex-select>
+    <onex-menu-item value="option-1">Option 1</onex-menu-item>
+    <onex-menu-item value="option-2">Option 2</onex-menu-item>
+    <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  </onex-select>
 
   <br />
 
-  <sl-button data-option="option-1">Set 1</sl-button>
-  <sl-button data-option="option-2">Set 2</sl-button>
-  <sl-button data-option="option-3">Set 3</sl-button>
+  <onex-button data-option="option-1">Set 1</onex-button>
+  <onex-button data-option="option-2">Set 2</onex-button>
+  <onex-button data-option="option-3">Set 3</onex-button>
 </div>
 
 <script>
   const container = document.querySelector('.selecting-example');
-  const select = container.querySelector('sl-select');
+  const select = container.querySelector('onex-select');
 
-  [...container.querySelectorAll('sl-button')].map(button => {
+  [...container.querySelectorAll('onex-button')].map(button => {
     button.addEventListener('click', () => {
       select.value = button.dataset.option;
     });
@@ -259,24 +259,24 @@ To programmatically set the selection, update the `value` property as shown belo
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [value, setValue] = useState('option-1');
 
   return (
     <>
-      <SlSelect value={value} onSlChange={event => setValue(event.target.value)}>
-        <SlMenuItem value="option-1">Option 1</SlMenuItem>
-        <SlMenuItem value="option-2">Option 2</SlMenuItem>
-        <SlMenuItem value="option-3">Option 3</SlMenuItem>
-      </SlSelect>
+      <OnexSelect value={value} onSlChange={event => setValue(event.target.value)}>
+        <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+        <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+        <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+      </OneXSelect>
 
       <br />
 
-      <SlButton onClick={() => setValue('option-1')}>Set 1</SlButton>
-      <SlButton onClick={() => setValue('option-2')}>Set 2</SlButton>
-      <SlButton onClick={() => setValue('option-3')}>Set 3</SlButton>
+      <OnexButton onClick={() => setValue('option-1')}>Set 1</OneXButton>
+      <OnexButton onClick={() => setValue('option-2')}>Set 2</OneXButton>
+      <OnexButton onClick={() => setValue('option-3')}>Set 3</OneXButton>
     </>
   );
 };
@@ -287,30 +287,30 @@ const App = () => {
 To allow multiple options to be selected, use the `multiple` attribute. With this option, `value` will be an array of strings instead of a string. It's a good practice to use `clearable` when this option is enabled.
 
 ```html preview
-<sl-select placeholder="Select a few" multiple clearable>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-item value="option-4">Option 4</sl-menu-item>
-  <sl-menu-item value="option-5">Option 5</sl-menu-item>
-  <sl-menu-item value="option-6">Option 6</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Select a few" multiple clearable>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-item value="option-4">Option 4</onex-menu-item>
+  <onex-menu-item value="option-5">Option 5</onex-menu-item>
+  <onex-menu-item value="option-6">Option 6</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlDivider, SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placeholder="Select a few" multiple clearable>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    <SlDivider />
-    <SlMenuItem value="option-4">Option 4</SlMenuItem>
-    <SlMenuItem value="option-5">Option 5</SlMenuItem>
-    <SlMenuItem value="option-6">Option 6</SlMenuItem>
-  </SlSelect>
+  <OnexSelect placeholder="Select a few" multiple clearable>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    <OnexDivider />
+    <OneXMenuItem value="option-4">Option 4</OneXMenuItem>
+    <OneXMenuItem value="option-5">Option 5</OneXMenuItem>
+    <OneXMenuItem value="option-6">Option 6</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -321,34 +321,34 @@ const App = () => (
 Options can be grouped visually using menu labels and dividers.
 
 ```html preview
-<sl-select placeholder="Select one">
-  <sl-menu-label>Group 1</sl-menu-label>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-divider></sl-divider>
-  <sl-menu-label>Group 2</sl-menu-label>
-  <sl-menu-item value="option-4">Option 4</sl-menu-item>
-  <sl-menu-item value="option-5">Option 5</sl-menu-item>
-  <sl-menu-item value="option-6">Option 6</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Select one">
+  <onex-menu-label>Group 1</onex-menu-label>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-divider></onex-divider>
+  <onex-menu-label>Group 2</onex-menu-label>
+  <onex-menu-item value="option-4">Option 4</onex-menu-item>
+  <onex-menu-item value="option-5">Option 5</onex-menu-item>
+  <onex-menu-item value="option-6">Option 6</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlDivider, SlMenuItem, SlMenuLabel, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXDivider, OneXMenuItem, OneXMenuLabel, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placeholder="Select one">
-    <SlMenuLabel>Group 1</SlMenuLabel>
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    <SlDivider></SlDivider>
-    <SlMenuLabel>Group 2</SlMenuLabel>
-    <SlMenuItem value="option-4">Option 4</SlMenuItem>
-    <SlMenuItem value="option-5">Option 5</SlMenuItem>
-    <SlMenuItem value="option-6">Option 6</SlMenuItem>
-  </SlSelect>
+  <OnexSelect placeholder="Select one">
+    <OnexMenuLabel>Group 1</OneXMenuLabel>
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    <OnexDivider></OneXDivider>
+    <OnexMenuLabel>Group 2</OneXMenuLabel>
+    <OneXMenuItem value="option-4">Option 4</OneXMenuItem>
+    <OneXMenuItem value="option-5">Option 5</OneXMenuItem>
+    <OneXMenuItem value="option-6">Option 6</OneXMenuItem>
+  </OneXSelect>
 );
 ```
 
@@ -357,55 +357,55 @@ const App = () => (
 Use the `size` attribute to change a select's size.
 
 ```html preview
-<sl-select placeholder="Small" size="small" multiple>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Small" size="small" multiple>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 
 <br />
 
-<sl-select placeholder="Medium" size="medium" multiple>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Medium" size="medium" multiple>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 
 <br />
 
-<sl-select placeholder="Large" size="large" multiple>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placeholder="Large" size="large" multiple>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
-import { SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlSelect placeholder="Small" size="small" multiple>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    </SlSelect>
+    <OnexSelect placeholder="Small" size="small" multiple>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    </OneXSelect>
 
     <br />
 
-    <SlSelect placeholder="Medium" size="medium" multiple>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    </SlSelect>
+    <OnexSelect placeholder="Medium" size="medium" multiple>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    </OneXSelect>
 
     <br />
 
-    <SlSelect placeholder="Large" size="large" multiple>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-    </SlSelect>
+    <OnexSelect placeholder="Large" size="large" multiple>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+    </OneXSelect>
   </>
 );
 ```
@@ -415,25 +415,25 @@ const App = () => (
 The preferred placement of the select's menu can be set with the `placement` attribute. Note that the actual position may vary to ensure the panel remains in the viewport. Valid placements are `top` and `bottom`.
 
 ```html preview
-<sl-select placement="top">
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<onex-select placement="top">
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+</onex-select>
 ```
 
 ```jsx react
 import {
-  SlMenuItem,
-  SlSelect
+  OneXMenuItem,
+  OneXSelect
 } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlSelect placement="top">
-    <SlMenuItem value="option-1">Option 1</SlMenuItem>
-    <SlMenuItem value="option-2">Option 2</SlMenuItem>
-    <SlMenuItem value="option-3">Option 3</SlMenuItem>
-  </SlDropdown>
+  <OnexSelect placement="top">
+    <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+    <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+    <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+  </OneXDropdown>
 );
 ```
 
@@ -442,61 +442,61 @@ const App = () => (
 Use the `prefix` and `suffix` slots to add icons.
 
 ```html preview
-<sl-select placeholder="Small" size="small">
-  <sl-icon name="house" slot="prefix"></sl-icon>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-icon name="chat" slot="suffix"></sl-icon>
-</sl-select>
+<onex-select placeholder="Small" size="small">
+  <onex-icon name="house" slot="prefix"></onex-icon>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-icon name="chat" slot="suffix"></onex-icon>
+</onex-select>
 <br />
-<sl-select placeholder="Medium" size="medium">
-  <sl-icon name="house" slot="prefix"></sl-icon>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-icon name="chat" slot="suffix"></sl-icon>
-</sl-select>
+<onex-select placeholder="Medium" size="medium">
+  <onex-icon name="house" slot="prefix"></onex-icon>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-icon name="chat" slot="suffix"></onex-icon>
+</onex-select>
 <br />
-<sl-select placeholder="Large" size="large">
-  <sl-icon name="house" slot="prefix"></sl-icon>
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-  <sl-icon name="chat" slot="suffix"></sl-icon>
-</sl-select>
+<onex-select placeholder="Large" size="large">
+  <onex-icon name="house" slot="prefix"></onex-icon>
+  <onex-menu-item value="option-1">Option 1</onex-menu-item>
+  <onex-menu-item value="option-2">Option 2</onex-menu-item>
+  <onex-menu-item value="option-3">Option 3</onex-menu-item>
+  <onex-icon name="chat" slot="suffix"></onex-icon>
+</onex-select>
 ```
 
 ```jsx react
-import { SlIcon, SlMenuItem, SlSelect } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon, OneXMenuItem, OneXSelect } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlSelect placeholder="Small" size="small">
-      <SlIcon name="house" slot="prefix"></SlIcon>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-      <SlIcon name="chat" slot="suffix"></SlIcon>
-    </SlSelect>
+    <OnexSelect placeholder="Small" size="small">
+      <OnexIcon name="house" slot="prefix"></OneXIcon>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+      <OnexIcon name="chat" slot="suffix"></OneXIcon>
+    </OneXSelect>
     <br />
-    <SlSelect placeholder="Medium" size="medium">
-      <SlIcon name="house" slot="prefix"></SlIcon>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-      <SlIcon name="chat" slot="suffix"></SlIcon>
-    </SlSelect>
+    <OnexSelect placeholder="Medium" size="medium">
+      <OnexIcon name="house" slot="prefix"></OneXIcon>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+      <OnexIcon name="chat" slot="suffix"></OneXIcon>
+    </OneXSelect>
     <br />
-    <SlSelect placeholder="Large" size="large">
-      <SlIcon name="house" slot="prefix"></SlIcon>
-      <SlMenuItem value="option-1">Option 1</SlMenuItem>
-      <SlMenuItem value="option-2">Option 2</SlMenuItem>
-      <SlMenuItem value="option-3">Option 3</SlMenuItem>
-      <SlIcon name="chat" slot="suffix"></SlIcon>
-    </SlSelect>
+    <OnexSelect placeholder="Large" size="large">
+      <OnexIcon name="house" slot="prefix"></OneXIcon>
+      <OneXMenuItem value="option-1">Option 1</OneXMenuItem>
+      <OneXMenuItem value="option-2">Option 2</OneXMenuItem>
+      <OneXMenuItem value="option-3">Option 3</OneXMenuItem>
+      <OnexIcon name="chat" slot="suffix"></OneXIcon>
+    </OneXSelect>
   </>
 );
 ```
 
-[component-metadata:sl-select]
+[component-metadata:onex-select]

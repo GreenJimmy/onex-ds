@@ -1,15 +1,15 @@
 # Badge
 
-[component-header:sl-badge]
+[component-header:onex-badge]
 
 ```html preview
-<sl-badge>Badge</sl-badge>
+<onex-badge>Badge</onex-badge>
 ```
 
 ```jsx react
-import { SlBadge } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlBadge>Badge</SlBadge>;
+const App = () => <OnexBadge>Badge</OneXBadge>;
 ```
 
 ## Examples
@@ -19,23 +19,23 @@ const App = () => <SlBadge>Badge</SlBadge>;
 Set the `variant` attribute to change the badge's variant.
 
 ```html preview
-<sl-badge variant="primary">Primary</sl-badge>
-<sl-badge variant="success">Success</sl-badge>
-<sl-badge variant="neutral">Neutral</sl-badge>
-<sl-badge variant="warning">Warning</sl-badge>
-<sl-badge variant="danger">Danger</sl-badge>
+<onex-badge variant="primary">Primary</onex-badge>
+<onex-badge variant="success">Success</onex-badge>
+<onex-badge variant="neutral">Neutral</onex-badge>
+<onex-badge variant="warning">Warning</onex-badge>
+<onex-badge variant="danger">Danger</onex-badge>
 ```
 
 ```jsx react
-import { SlBadge } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlBadge variant="primary">Primary</SlBadge>
-    <SlBadge variant="success">Success</SlBadge>
-    <SlBadge variant="neutral">Neutral</SlBadge>
-    <SlBadge variant="warning">Warning</SlBadge>
-    <SlBadge variant="danger">Danger</SlBadge>
+    <OnexBadge variant="primary">Primary</OneXBadge>
+    <OnexBadge variant="success">Success</OneXBadge>
+    <OnexBadge variant="neutral">Neutral</OneXBadge>
+    <OnexBadge variant="warning">Warning</OneXBadge>
+    <OnexBadge variant="danger">Danger</OneXBadge>
   </>
 );
 ```
@@ -45,33 +45,33 @@ const App = () => (
 Use the `pill` attribute to give badges rounded edges.
 
 ```html preview
-<sl-badge variant="primary" pill>Primary</sl-badge>
-<sl-badge variant="success" pill>Success</sl-badge>
-<sl-badge variant="neutral" pill>Neutral</sl-badge>
-<sl-badge variant="warning" pill>Warning</sl-badge>
-<sl-badge variant="danger" pill>Danger</sl-badge>
+<onex-badge variant="primary" pill>Primary</onex-badge>
+<onex-badge variant="success" pill>Success</onex-badge>
+<onex-badge variant="neutral" pill>Neutral</onex-badge>
+<onex-badge variant="warning" pill>Warning</onex-badge>
+<onex-badge variant="danger" pill>Danger</onex-badge>
 ```
 
 ```jsx react
-import { SlBadge } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlBadge variant="primary" pill>
+    <OnexBadge variant="primary" pill>
       Primary
-    </SlBadge>
-    <SlBadge variant="success" pill>
+    </OneXBadge>
+    <OnexBadge variant="success" pill>
       Success
-    </SlBadge>
-    <SlBadge variant="neutral" pill>
+    </OneXBadge>
+    <OnexBadge variant="neutral" pill>
       Neutral
-    </SlBadge>
-    <SlBadge variant="warning" pill>
+    </OneXBadge>
+    <OnexBadge variant="warning" pill>
       Warning
-    </SlBadge>
-    <SlBadge variant="danger" pill>
+    </OneXBadge>
+    <OnexBadge variant="danger" pill>
       Danger
-    </SlBadge>
+    </OneXBadge>
   </>
 );
 ```
@@ -82,25 +82,25 @@ Use the `pulse` attribute to draw attention to the badge with a subtle animation
 
 ```html preview
 <div class="badge-pulse">
-  <sl-badge variant="primary" pill pulse>1</sl-badge>
-  <sl-badge variant="success" pill pulse>1</sl-badge>
-  <sl-badge variant="neutral" pill pulse>1</sl-badge>
-  <sl-badge variant="warning" pill pulse>1</sl-badge>
-  <sl-badge variant="danger" pill pulse>1</sl-badge>
+  <onex-badge variant="primary" pill pulse>1</onex-badge>
+  <onex-badge variant="success" pill pulse>1</onex-badge>
+  <onex-badge variant="neutral" pill pulse>1</onex-badge>
+  <onex-badge variant="warning" pill pulse>1</onex-badge>
+  <onex-badge variant="danger" pill pulse>1</onex-badge>
 </div>
 
 <style>
-  .badge-pulse sl-badge:not(:last-of-type) {
+  .badge-pulse onex-badge:not(:last-of-type) {
     margin-right: 1rem;
   }
 </style>
 ```
 
 ```jsx react
-import { SlBadge } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .badge-pulse sl-badge:not(:last-of-type) {
+  .badge-pulse onex-badge:not(:last-of-type) {
     margin-right: 1rem;
   }
 `;
@@ -108,21 +108,21 @@ const css = `
 const App = () => (
   <>
     <div className="badge-pulse">
-      <SlBadge variant="primary" pill pulse>
+      <OnexBadge variant="primary" pill pulse>
         1
-      </SlBadge>
-      <SlBadge variant="success" pill pulse>
+      </OneXBadge>
+      <OnexBadge variant="success" pill pulse>
         1
-      </SlBadge>
-      <SlBadge variant="neutral" pill pulse>
+      </OneXBadge>
+      <OnexBadge variant="neutral" pill pulse>
         1
-      </SlBadge>
-      <SlBadge variant="warning" pill pulse>
+      </OneXBadge>
+      <OnexBadge variant="warning" pill pulse>
         1
-      </SlBadge>
-      <SlBadge variant="danger" pill pulse>
+      </OneXBadge>
+      <OnexBadge variant="danger" pill pulse>
         1
-      </SlBadge>
+      </OneXBadge>
     </div>
 
     <style>{css}</style>
@@ -135,45 +135,45 @@ const App = () => (
 One of the most common use cases for badges is attaching them to buttons. To make this easier, badges will be automatically positioned at the top-right when they're a child of a button.
 
 ```html preview
-<sl-button>
+<onex-button>
   Requests
-  <sl-badge pill>30</sl-badge>
-</sl-button>
+  <onex-badge pill>30</onex-badge>
+</onex-button>
 
-<sl-button style="margin-inline-start: 1rem;">
+<onex-button style="margin-inline-start: 1rem;">
   Warnings
-  <sl-badge variant="warning" pill>8</sl-badge>
-</sl-button>
+  <onex-badge variant="warning" pill>8</onex-badge>
+</onex-button>
 
-<sl-button style="margin-inline-start: 1rem;">
+<onex-button style="margin-inline-start: 1rem;">
   Errors
-  <sl-badge variant="danger" pill>6</sl-badge>
-</sl-button>
+  <onex-badge variant="danger" pill>6</onex-badge>
+</onex-button>
 ```
 
 ```jsx react
-import { SlBadge, SlButton } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge, OneXButton } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlButton>
+    <OnexButton>
       Requests
-      <SlBadge pill>30</SlBadge>
-    </SlButton>
+      <OnexBadge pill>30</OneXBadge>
+    </OneXButton>
 
-    <SlButton style={{ marginInlineStart: '1rem' }}>
+    <OnexButton style={{ marginInlineStart: '1rem' }}>
       Warnings
-      <SlBadge variant="warning" pill>
+      <OnexBadge variant="warning" pill>
         8
-      </SlBadge>
-    </SlButton>
+      </OneXBadge>
+    </OneXButton>
 
-    <SlButton style={{ marginInlineStart: '1rem' }}>
+    <OnexButton style={{ marginInlineStart: '1rem' }}>
       Errors
-      <SlBadge variant="danger" pill>
+      <OnexBadge variant="danger" pill>
         6
-      </SlBadge>
-    </SlButton>
+      </OneXBadge>
+    </OneXButton>
   </>
 );
 ```
@@ -183,39 +183,39 @@ const App = () => (
 When including badges in menu items, use the `suffix` slot to make sure they're aligned correctly.
 
 ```html preview
-<sl-menu style="max-width: 240px;">
-  <sl-menu-label>Messages</sl-menu-label>
-  <sl-menu-item>Comments <sl-badge slot="suffix" variant="neutral" pill>4</sl-badge></sl-menu-item>
-  <sl-menu-item>Replies <sl-badge slot="suffix" variant="neutral" pill>12</sl-badge></sl-menu-item>
-</sl-menu>
+<onex-menu style="max-width: 240px;">
+  <onex-menu-label>Messages</onex-menu-label>
+  <onex-menu-item>Comments <onex-badge slot="suffix" variant="neutral" pill>4</onex-badge></onex-menu-item>
+  <onex-menu-item>Replies <onex-badge slot="suffix" variant="neutral" pill>12</onex-badge></onex-menu-item>
+</onex-menu>
 ```
 
 ```jsx react
-import { SlBadge, SlButton, SlMenu, SlMenuItem, SlMenuLabel } from '@shoelace-style/shoelace/dist/react';
+import { OneXBadge, OneXButton, OneXMenu, OneXMenuItem, OneXMenuLabel } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlMenu
+  <OnexMenu
     style={{
       maxWidth: '240px',
-      border: 'solid 1px var(--sl-panel-border-color)',
-      borderRadius: 'var(--sl-border-radius-medium)'
+      border: 'solid 1px var(--onex-panel-border-color)',
+      borderRadius: 'var(--onex-border-radius-medium)'
     }}
   >
-    <SlMenuLabel>Messages</SlMenuLabel>
-    <SlMenuItem>
+    <OnexMenuLabel>Messages</OneXMenuLabel>
+    <OneXMenuItem>
       Comments
-      <SlBadge slot="suffix" variant="neutral" pill>
+      <OnexBadge slot="suffix" variant="neutral" pill>
         4
-      </SlBadge>
-    </SlMenuItem>
-    <SlMenuItem>
+      </OneXBadge>
+    </OneXMenuItem>
+    <OneXMenuItem>
       Replies
-      <SlBadge slot="suffix" variant="neutral" pill>
+      <OnexBadge slot="suffix" variant="neutral" pill>
         12
-      </SlBadge>
-    </SlMenuItem>
-  </SlMenu>
+      </OneXBadge>
+    </OneXMenuItem>
+  </OneXMenu>
 );
 ```
 
-[component-metadata:sl-badge]
+[component-metadata:onex-badge]

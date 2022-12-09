@@ -22,10 +22,10 @@ import type { CSSResultGroup } from 'lit';
  * @slot label - The range's label. Alternatively, you can use the `label` attribute.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sl-focus - Emitted when the control gains focus.
- * @event sl-input - Emitted when the control receives input.
+ * @event onex-blur - Emitted when the control loses focus.
+ * @event onex-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event onex-focus - Emitted when the control gains focus.
+ * @event onex-input - Emitted when the control receives input.
  *
  * @csspart form-control - The form control that wraps the label, input, and help text.
  * @csspart form-control-label - The label's wrapper.
@@ -42,8 +42,8 @@ import type { CSSResultGroup } from 'lit';
  * @cssproperty --track-height - The height of the track.
  * @cssproperty --track-active-offset - The point of origin of the active track.
  */
-@customElement('sl-range')
-export default class SlRange extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-range')
+export default class OneXRange extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('.range__control') input: HTMLInputElement;
@@ -161,19 +161,19 @@ export default class SlRange extends ShoelaceElement implements ShoelaceFormCont
   }
 
   handleChange() {
-    this.emit('sl-change');
+    this.emit('onex-change');
   }
 
   handleInput() {
     this.value = parseFloat(this.input.value);
-    this.emit('sl-input');
+    this.emit('onex-input');
     this.syncRange();
   }
 
   handleBlur() {
     this.hasFocus = false;
     this.hasTooltip = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   @watch('value', { waitUntilFirstUpdate: true })
@@ -198,7 +198,7 @@ export default class SlRange extends ShoelaceElement implements ShoelaceFormCont
   handleFocus() {
     this.hasFocus = true;
     this.hasTooltip = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleThumbDragStart() {
@@ -332,6 +332,6 @@ export default class SlRange extends ShoelaceElement implements ShoelaceFormCont
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-range': SlRange;
+    'onex-range': OneXRange;
   }
 }

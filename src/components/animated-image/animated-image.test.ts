@@ -1,8 +1,8 @@
 import { expect, fixture, html } from '@open-wc/testing';
 
-describe('<sl-animated-image>', () => {
+describe('<onex-animated-image>', () => {
   it('should render a component', async () => {
-    const el = await fixture(html` <sl-animated-image></sl-animated-image> `);
+    const el = await fixture(html` <onex-animated-image></onex-animated-image> `);
 
     expect(el).to.exist;
   });

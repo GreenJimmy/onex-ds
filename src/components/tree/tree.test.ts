@@ -1,28 +1,28 @@
 import { expect, fixture, html, triggerBlurFor, triggerFocusFor } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
-import type SlTreeItem from '../tree-item/tree-item';
-import type SlTree from './tree';
+import type OneXTreeItem from '../tree-item/tree-item';
+import type OneXTree from './tree';
 
-describe('<sl-tree>', () => {
-  let el: SlTree;
+describe('<onex-tree>', () => {
+  let el: OneXTree;
 
   beforeEach(async () => {
     el = await fixture(html`
-      <sl-tree>
-        <sl-tree-item>Node 1</sl-tree-item>
-        <sl-tree-item>Node 2</sl-tree-item>
-        <sl-tree-item id="expandable">
+      <onex-tree>
+        <onex-tree-item>Node 1</onex-tree-item>
+        <onex-tree-item>Node 2</onex-tree-item>
+        <onex-tree-item id="expandable">
           Parent Node
-          <sl-tree-item>Child Node 1</sl-tree-item>
-          <sl-tree-item>
+          <onex-tree-item>Child Node 1</onex-tree-item>
+          <onex-tree-item>
             Child Node 2
-            <sl-tree-item>Child Node 2 - 1</sl-tree-item>
-            <sl-tree-item>Child Node 2 - 2</sl-tree-item>
-          </sl-tree-item>
-        </sl-tree-item>
-        <sl-tree-item>Node 3</sl-tree-item>
-      </sl-tree>
+            <onex-tree-item>Child Node 2 - 1</onex-tree-item>
+            <onex-tree-item>Child Node 2 - 2</onex-tree-item>
+          </onex-tree-item>
+        </onex-tree-item>
+        <onex-tree-item>Node 3</onex-tree-item>
+      </onex-tree>
     `);
   });
 
@@ -38,8 +38,8 @@ describe('<sl-tree>', () => {
 
   it('should not focus collapsed nodes', async () => {
     // Arrange
-    const parentNode = el.children[2] as SlTreeItem;
-    const childNode = parentNode.children[1] as SlTreeItem;
+    const parentNode = el.children[2] as OneXTreeItem;
+    const childNode = parentNode.children[1] as OneXTreeItem;
     childNode.expanded = true;
     parentNode.expanded = false;
 
@@ -57,13 +57,13 @@ describe('<sl-tree>', () => {
   describe('when a custom expanded/collapsed icon is provided', () => {
     beforeEach(async () => {
       el = await fixture(html`
-        <sl-tree>
+        <onex-tree>
           <div slot="expand-icon"></div>
           <div slot="collapse-icon"></div>
 
-          <sl-tree-item>Node 1</sl-tree-item>
-          <sl-tree-item>Node 2</sl-tree-item>
-        </sl-tree>
+          <onex-tree-item>Node 1</onex-tree-item>
+          <onex-tree-item>Node 2</onex-tree-item>
+        </onex-tree>
       `);
     });
 
@@ -72,7 +72,7 @@ describe('<sl-tree>', () => {
       await el.updateComplete;
 
       // Act
-      const treeItems = [...el.querySelectorAll('sl-tree-item')];
+      const treeItems = [...el.querySelectorAll('onex-tree-item')];
 
       // Assert
       treeItems.forEach(treeItem => {
@@ -135,7 +135,7 @@ describe('<sl-tree>', () => {
       describe('and node is collapsed', () => {
         it('should expand the tree item', async () => {
           // Arrange
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
           parentNode.focus();
           await el.updateComplete;
 
@@ -152,7 +152,7 @@ describe('<sl-tree>', () => {
       describe('and node is expanded', () => {
         it('should move the focus to the next tree item', async () => {
           // Arrange
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
           parentNode.expanded = true;
           parentNode.focus();
 
@@ -205,7 +205,7 @@ describe('<sl-tree>', () => {
       describe('and node is expanded', () => {
         it('should collapse the tree item', async () => {
           // Arrange
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
           parentNode.expanded = true;
           parentNode.focus();
 
@@ -225,7 +225,7 @@ describe('<sl-tree>', () => {
     describe('when Home is pressed', () => {
       it('should move the focus to the first tree item in the tree', async () => {
         // Arrange
-        const parentNode = el.children[3] as SlTreeItem;
+        const parentNode = el.children[3] as OneXTreeItem;
         parentNode.focus();
         await el.updateComplete;
 
@@ -242,7 +242,7 @@ describe('<sl-tree>', () => {
     describe('when End is pressed', () => {
       it('should move the focus to the last tree item in the tree', async () => {
         // Arrange
-        const parentNode = el.children[0] as SlTreeItem;
+        const parentNode = el.children[0] as OneXTreeItem;
         parentNode.focus();
         await el.updateComplete;
 
@@ -261,7 +261,7 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'single';
-          const node = el.children[1] as SlTreeItem;
+          const node = el.children[1] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -281,7 +281,7 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'leaf';
-          const node = el.children[0] as SlTreeItem;
+          const node = el.children[0] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -297,7 +297,7 @@ describe('<sl-tree>', () => {
         it('should expand/collapse a parent node', async () => {
           // Arrange
           el.selection = 'leaf';
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
           parentNode.focus();
           await el.updateComplete;
 
@@ -315,7 +315,7 @@ describe('<sl-tree>', () => {
         it('should toggle the selection on the tree item', async () => {
           // Arrange
           el.selection = 'multiple';
-          const node = el.children[1] as SlTreeItem;
+          const node = el.children[1] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -335,7 +335,7 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'single';
-          const node = el.children[1] as SlTreeItem;
+          const node = el.children[1] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -353,7 +353,7 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'leaf';
-          const node = el.children[0] as SlTreeItem;
+          const node = el.children[0] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -369,7 +369,7 @@ describe('<sl-tree>', () => {
         it('should expand/collapse a parent node', async () => {
           // Arrange
           el.selection = 'leaf';
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
           parentNode.focus();
           await el.updateComplete;
 
@@ -387,7 +387,7 @@ describe('<sl-tree>', () => {
         it('should toggle the selection on the tree item', async () => {
           // Arrange
           el.selection = 'multiple';
-          const node = el.children[0] as SlTreeItem;
+          const node = el.children[0] as OneXTreeItem;
           node.focus();
           await el.updateComplete;
 
@@ -407,7 +407,7 @@ describe('<sl-tree>', () => {
     describe('when the tree is about to receive the focus', () => {
       it('should set the focus to the last focused item', async () => {
         // Arrange
-        const node = el.children[1] as SlTreeItem;
+        const node = el.children[1] as OneXTreeItem;
         node.focus();
         await el.updateComplete;
 
@@ -427,7 +427,7 @@ describe('<sl-tree>', () => {
         el.selection = 'single';
         await el.updateComplete;
 
-        const node = el.children[2] as SlTreeItem;
+        const node = el.children[2] as OneXTreeItem;
         await node.updateComplete;
 
         const expandButton: HTMLElement = node.shadowRoot!.querySelector('.tree-item__expand-button')!;
@@ -447,8 +447,8 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'single';
-          const node0 = el.children[0] as SlTreeItem;
-          const node1 = el.children[1] as SlTreeItem;
+          const node0 = el.children[0] as OneXTreeItem;
+          const node1 = el.children[1] as OneXTreeItem;
 
           await el.updateComplete;
 
@@ -468,8 +468,8 @@ describe('<sl-tree>', () => {
         it('should select only one tree item', async () => {
           // Arrange
           el.selection = 'leaf';
-          const node0 = el.children[0] as SlTreeItem;
-          const node1 = el.children[1] as SlTreeItem;
+          const node0 = el.children[0] as OneXTreeItem;
+          const node1 = el.children[1] as OneXTreeItem;
 
           await el.updateComplete;
 
@@ -487,7 +487,7 @@ describe('<sl-tree>', () => {
         it('should expand/collapse a parent node', async () => {
           // Arrange
           el.selection = 'leaf';
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
 
           await el.updateComplete;
 
@@ -505,8 +505,8 @@ describe('<sl-tree>', () => {
         it('should toggle the selection on the tree item', async () => {
           // Arrange
           el.selection = 'multiple';
-          const node0 = el.children[0] as SlTreeItem;
-          const node1 = el.children[1] as SlTreeItem;
+          const node0 = el.children[0] as OneXTreeItem;
+          const node1 = el.children[1] as OneXTreeItem;
 
           await el.updateComplete;
 
@@ -526,7 +526,7 @@ describe('<sl-tree>', () => {
           el.selection = 'multiple';
           await el.updateComplete;
 
-          const parentNode = el.children[2] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
 
           // Act
           parentNode.click();
@@ -545,8 +545,8 @@ describe('<sl-tree>', () => {
           el.selection = 'multiple';
           await el.updateComplete;
 
-          const parentNode = el.children[2] as SlTreeItem;
-          const childNode = parentNode.children[0] as SlTreeItem;
+          const parentNode = el.children[2] as OneXTreeItem;
+          const childNode = parentNode.children[0] as OneXTreeItem;
 
           // Act
           childNode.click();
@@ -561,15 +561,15 @@ describe('<sl-tree>', () => {
 
     describe('when selection is "single"', () => {
       describe('and user clicks on same item twice', () => {
-        it('should emit `sl-selection-change` event once', async () => {
+        it('should emit `onex-selection-change` event once', async () => {
           // Arrange
           el.selection = 'single';
           await el.updateComplete;
 
           const selectedChangeSpy = sinon.spy();
-          el.addEventListener('sl-selection-change', selectedChangeSpy);
+          el.addEventListener('onex-selection-change', selectedChangeSpy);
 
-          const node = el.children[0] as SlTreeItem;
+          const node = el.children[0] as OneXTreeItem;
 
           // Act
           node.click();
@@ -587,15 +587,15 @@ describe('<sl-tree>', () => {
 
   describe('when selection is "leaf"', () => {
     describe('and user clicks on same leaf item twice', () => {
-      it('should emit `sl-selection-change` event once', async () => {
+      it('should emit `onex-selection-change` event once', async () => {
         // Arrange
         el.selection = 'leaf';
         await el.updateComplete;
 
         const selectedChangeSpy = sinon.spy();
-        el.addEventListener('sl-selection-change', selectedChangeSpy);
+        el.addEventListener('onex-selection-change', selectedChangeSpy);
 
-        const node = el.children[0] as SlTreeItem;
+        const node = el.children[0] as OneXTreeItem;
 
         // Act
         node.click();
@@ -610,15 +610,15 @@ describe('<sl-tree>', () => {
     });
 
     describe('and user clicks on expandable item', () => {
-      it('should not emit `sl-selection-change` event', async () => {
+      it('should not emit `onex-selection-change` event', async () => {
         // Arrange
         el.selection = 'leaf';
         await el.updateComplete;
 
         const selectedChangeSpy = sinon.spy();
-        el.addEventListener('sl-selection-change', selectedChangeSpy);
+        el.addEventListener('onex-selection-change', selectedChangeSpy);
 
-        const node = el.querySelector<SlTreeItem>('#expandable')!;
+        const node = el.querySelector<OneXTreeItem>('#expandable')!;
 
         // Act
         node.click();
@@ -632,15 +632,15 @@ describe('<sl-tree>', () => {
 
   describe('when selection is "multiple"', () => {
     describe('and user clicks on same item twice', () => {
-      it('should emit `sl-selection-change` event twice', async () => {
+      it('should emit `onex-selection-change` event twice', async () => {
         // Arrange
         el.selection = 'multiple';
         await el.updateComplete;
 
         const selectedChangeSpy = sinon.spy();
-        el.addEventListener('sl-selection-change', selectedChangeSpy);
+        el.addEventListener('onex-selection-change', selectedChangeSpy);
 
-        const node = el.children[0] as SlTreeItem;
+        const node = el.children[0] as OneXTreeItem;
 
         // Act
         node.click();

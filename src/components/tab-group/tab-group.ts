@@ -7,8 +7,8 @@ import { watch } from '../../internal/watch';
 import { LocalizeController } from '../../utilities/localize';
 import '../icon-button/icon-button';
 import styles from './tab-group.styles';
-import type SlTabPanel from '../tab-panel/tab-panel';
-import type SlTab from '../tab/tab';
+import type OneXTabPanel from '../tab-panel/tab-panel';
+import type OneXTab from '../tab/tab';
 import type { CSSResultGroup } from 'lit';
 
 /**
@@ -17,20 +17,20 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon-button
+ * @dependency onex-icon-button
  *
- * @slot - Used for grouping tab panels in the tab group. Must be `<sl-tab-panel>` elements.
- * @slot nav - Used for grouping tabs in the tab group. Must be `<sl-tab>` elements.
+ * @slot - Used for grouping tab panels in the tab group. Must be `<onex-tab-panel>` elements.
+ * @slot nav - Used for grouping tabs in the tab group. Must be `<onex-tab>` elements.
  *
- * @event {{ name: String }} sl-tab-show - Emitted when a tab is shown.
- * @event {{ name: String }} sl-tab-hide - Emitted when a tab is hidden.
+ * @event {{ name: String }} onex-tab-show - Emitted when a tab is shown.
+ * @event {{ name: String }} onex-tab-hide - Emitted when a tab is hidden.
  *
  * @csspart base - The component's base wrapper.
  * @csspart nav - The tab group's navigation container where tabs are slotted in.
  * @csspart tabs - The container that wraps the tabs.
  * @csspart active-tab-indicator - The line that highlights the currently selected tab.
  * @csspart body - The tab group's body where tab panels are slotted in.
- * @csspart scroll-button - The previous/next scroll buttons that show when tabs are scrollable, an `<sl-icon-button>`.
+ * @csspart scroll-button - The previous/next scroll buttons that show when tabs are scrollable, an `<onex-icon-button>`.
  * @csspart scroll-button--start - The starting scroll button.
  * @csspart scroll-button--end - The ending scroll button.
  * @csspart scroll-button__base - The scroll button's exported `base` part.
@@ -39,8 +39,8 @@ import type { CSSResultGroup } from 'lit';
  * @cssproperty --track-color - The color of the indicator's track (the line that separates tabs from panels).
  * @cssproperty --track-width - The width of the indicator's track (the line that separates tabs from panels).
  */
-@customElement('sl-tab-group')
-export default class SlTabGroup extends ShoelaceElement {
+@customElement('onex-tab-group')
+export default class OneXTabGroup extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
   private readonly localize = new LocalizeController(this);
 
@@ -49,11 +49,11 @@ export default class SlTabGroup extends ShoelaceElement {
   @query('.tab-group__nav') nav: HTMLElement;
   @query('.tab-group__indicator') indicator: HTMLElement;
 
-  private activeTab?: SlTab;
+  private activeTab?: OneXTab;
   private mutationObserver: MutationObserver;
   private resizeObserver: ResizeObserver;
-  private tabs: SlTab[] = [];
-  private panels: SlTabPanel[] = [];
+  private tabs: OneXTab[] = [];
+  private panels: OneXTabPanel[] = [];
 
   @state() private hasScrollControls = false;
 
@@ -123,15 +123,17 @@ export default class SlTabGroup extends ShoelaceElement {
   getAllTabs(options: { includeDisabled: boolean } = { includeDisabled: true }) {
     const slot = this.shadowRoot!.querySelector<HTMLSlotElement>('slot[name="nav"]')!;
 
-    return [...(slot.assignedElements() as SlTab[])].filter(el => {
+    return [...(slot.assignedElements() as OneXTab[])].filter(el => {
       return options.includeDisabled
-        ? el.tagName.toLowerCase() === 'sl-tab'
-        : el.tagName.toLowerCase() === 'sl-tab' && !el.disabled;
+        ? el.tagName.toLowerCase() === 'onex-tab'
+        : el.tagName.toLowerCase() === 'onex-tab' && !el.disabled;
     });
   }
 
   getAllPanels() {
-    return [...this.body.assignedElements()].filter(el => el.tagName.toLowerCase() === 'sl-tab-panel') as [SlTabPanel];
+    return [...this.body.assignedElements()].filter(el => el.tagName.toLowerCase() === 'onex-tab-panel') as [
+      OneXTabPanel
+    ];
   }
 
   getActiveTab() {
@@ -140,8 +142,8 @@ export default class SlTabGroup extends ShoelaceElement {
 
   handleClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    const tab = target.closest('sl-tab');
-    const tabGroup = tab?.closest('sl-tab-group');
+    const tab = target.closest('onex-tab');
+    const tabGroup = tab?.closest('onex-tab-group');
 
     // Ensure the target tab is in this tab group
     if (tabGroup !== this) {
@@ -155,8 +157,8 @@ export default class SlTabGroup extends ShoelaceElement {
 
   handleKeyDown(event: KeyboardEvent) {
     const target = event.target as HTMLElement;
-    const tab = target.closest('sl-tab');
-    const tabGroup = tab?.closest('sl-tab-group');
+    const tab = target.closest('onex-tab');
+    const tabGroup = tab?.closest('onex-tab-group');
 
     // Ensure the target tab is in this tab group
     if (tabGroup !== this) {
@@ -176,7 +178,7 @@ export default class SlTabGroup extends ShoelaceElement {
       const activeEl = this.tabs.find(t => t.matches(':focus'));
       const isRtl = this.localize.dir() === 'rtl';
 
-      if (activeEl?.tagName.toLowerCase() === 'sl-tab') {
+      if (activeEl?.tagName.toLowerCase() === 'onex-tab') {
         let index = this.tabs.indexOf(activeEl);
 
         if (event.key === 'Home') {
@@ -248,7 +250,7 @@ export default class SlTabGroup extends ShoelaceElement {
     }
   }
 
-  setActiveTab(tab: SlTab, options?: { emitEvents?: boolean; scrollBehavior?: 'auto' | 'smooth' }) {
+  setActiveTab(tab: OneXTab, options?: { emitEvents?: boolean; scrollBehavior?: 'auto' | 'smooth' }) {
     options = {
       emitEvents: true,
       scrollBehavior: 'auto',
@@ -271,10 +273,10 @@ export default class SlTabGroup extends ShoelaceElement {
       // Emit events
       if (options.emitEvents) {
         if (previousTab) {
-          this.emit('sl-tab-hide', { detail: { name: previousTab.panel } });
+          this.emit('onex-tab-hide', { detail: { name: previousTab.panel } });
         }
 
-        this.emit('sl-tab-show', { detail: { name: this.activeTab.panel } });
+        this.emit('onex-tab-show', { detail: { name: this.activeTab.panel } });
       }
     }
   }
@@ -370,7 +372,7 @@ export default class SlTabGroup extends ShoelaceElement {
         <div class="tab-group__nav-container" part="nav">
           ${this.hasScrollControls
             ? html`
-                <sl-icon-button
+                <onex-icon-button
                   part="scroll-button scroll-button--start"
                   exportparts="base:scroll-button__base"
                   class="tab-group__scroll-button tab-group__scroll-button--start"
@@ -378,7 +380,7 @@ export default class SlTabGroup extends ShoelaceElement {
                   library="system"
                   label=${this.localize.term('scrollToStart')}
                   @click=${this.handleScrollToStart}
-                ></sl-icon-button>
+                ></onex-icon-button>
               `
             : ''}
 
@@ -391,7 +393,7 @@ export default class SlTabGroup extends ShoelaceElement {
 
           ${this.hasScrollControls
             ? html`
-                <sl-icon-button
+                <onex-icon-button
                   part="scroll-button scroll-button--end"
                   exportparts="base:scroll-button__base"
                   class="tab-group__scroll-button tab-group__scroll-button--end"
@@ -399,7 +401,7 @@ export default class SlTabGroup extends ShoelaceElement {
                   library="system"
                   label=${this.localize.term('scrollToEnd')}
                   @click=${this.handleScrollToEnd}
-                ></sl-icon-button>
+                ></onex-icon-button>
               `
             : ''}
         </div>
@@ -412,6 +414,6 @@ export default class SlTabGroup extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tab-group': SlTabGroup;
+    'onex-tab-group': OneXTabGroup;
   }
 }

@@ -1,27 +1,27 @@
 # Tab
 
-[component-header:sl-tab]
+[component-header:onex-tab]
 
 ```html preview
-<sl-tab>Tab</sl-tab>
-<sl-tab active>Active</sl-tab>
-<sl-tab closable>Closable</sl-tab>
-<sl-tab disabled>Disabled</sl-tab>
+<onex-tab>Tab</onex-tab>
+<onex-tab active>Active</onex-tab>
+<onex-tab closable>Closable</onex-tab>
+<onex-tab disabled>Disabled</onex-tab>
 ```
 
 ```jsx react
-import { SlTab } from '@shoelace-style/shoelace/dist/react';
+import { OneXTab } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
   <>
-    <SlTab>Tab</SlTab>
-    <SlTab active>Active</SlTab>
-    <SlTab closable>Closable</SlTab>
-    <SlTab disabled>Disabled</SlTab>
+    <OnexTab>Tab</OneXTab>
+    <OnexTab active>Active</OneXTab>
+    <OnexTab closable>Closable</OneXTab>
+    <OnexTab disabled>Disabled</OneXTab>
   </>
 );
 ```
 
 ?> Additional demonstrations can be found in the [tab group examples](/components/tab-group).
 
-[component-metadata:sl-tab]
+[component-metadata:onex-tab]

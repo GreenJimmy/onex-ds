@@ -13,21 +13,21 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
  * @slot - The radio's label.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-focus - Emitted when the control gains focus.
+ * @event onex-blur - Emitted when the control loses focus.
+ * @event onex-focus - Emitted when the control gains focus.
  *
  * @csspart base - The component's base wrapper.
  * @csspart control - The circular container that wraps the radio's checked state.
  * @csspart control--checked - The radio control when the radio is checked.
- * @csspart checked-icon - The checked icon, an `<sl-icon>` element.
+ * @csspart checked-icon - The checked icon, an `<onex-icon>` element.
  * @csspart label - The container that wraps the radio's label.
  */
-@customElement('sl-radio')
-export default class SlRadio extends ShoelaceElement {
+@customElement('onex-radio')
+export default class OneXRadio extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @state() checked = false;
@@ -58,7 +58,7 @@ export default class SlRadio extends ShoelaceElement {
 
   private handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   private handleClick() {
@@ -69,7 +69,7 @@ export default class SlRadio extends ShoelaceElement {
 
   private handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   private addEventListeners() {
@@ -96,7 +96,7 @@ export default class SlRadio extends ShoelaceElement {
         })}
       >
         <span part="${`control${this.checked ? ' control--checked' : ''}`}" class="radio__control">
-          ${this.checked ? html` <sl-icon part="checked-icon" library="system" name="radio"></sl-icon> ` : ''}
+          ${this.checked ? html` <onex-icon part="checked-icon" library="system" name="radio"></onex-icon> ` : ''}
         </span>
 
         <slot part="label" class="radio__label"></slot>
@@ -107,6 +107,6 @@ export default class SlRadio extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-radio': SlRadio;
+    'onex-radio': OneXRadio;
   }
 }

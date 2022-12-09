@@ -20,16 +20,16 @@ import type { CSSResultGroup, PropertyValueMap } from 'lit';
  * @since 2.0
  * @status experimental
  *
- * @dependency sl-checkbox
- * @dependency sl-icon
- * @dependency sl-spinner
+ * @dependency onex-checkbox
+ * @dependency onex-icon
+ * @dependency onex-spinner
  *
- * @event sl-expand - Emitted when the tree item expands.
- * @event sl-after-expand - Emitted after the tree item expands and all animations are complete.
- * @event sl-collapse - Emitted when the tree item collapses.
- * @event sl-after-collapse - Emitted after the tree item collapses and all animations are complete.
- * @event sl-lazy-change - Emitted when the tree item's lazy state changes.
- * @event sl-lazy-load - Emitted when a lazy item is selected. Use this event to asynchronously load data and append
+ * @event onex-expand - Emitted when the tree item expands.
+ * @event onex-after-expand - Emitted after the tree item expands and all animations are complete.
+ * @event onex-collapse - Emitted when the tree item collapses.
+ * @event onex-after-collapse - Emitted after the tree item collapses and all animations are complete.
+ * @event onex-lazy-change - Emitted when the tree item's lazy state changes.
+ * @event onex-lazy-load - Emitted when a lazy item is selected. Use this event to asynchronously load data and append
  *  items to the tree before expanding. After appending new items, remove the `lazy` attribute to remove the loading
  *  state and update the tree.
  *
@@ -48,8 +48,8 @@ import type { CSSResultGroup, PropertyValueMap } from 'lit';
  * @csspart label - The tree item's label.
  * @csspart children - The container that wraps the tree item's nested children.
  */
-@customElement('sl-tree-item')
-export default class SlTreeItem extends ShoelaceElement {
+@customElement('onex-tree-item')
+export default class OneXTreeItem extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   static isTreeItem(node: Node) {
@@ -134,7 +134,7 @@ export default class SlTreeItem extends ShoelaceElement {
       if (this.lazy) {
         this.loading = true;
 
-        this.emit('sl-lazy-load');
+        this.emit('onex-lazy-load');
       } else {
         this.animateExpand();
       }
@@ -145,11 +145,11 @@ export default class SlTreeItem extends ShoelaceElement {
 
   @watch('lazy', { waitUntilFirstUpdate: true })
   handleLazyChange() {
-    this.emit('sl-lazy-change');
+    this.emit('onex-lazy-change');
   }
 
   private async animateExpand() {
-    this.emit('sl-expand');
+    this.emit('onex-expand');
 
     await stopAnimations(this.childrenContainer);
     this.childrenContainer.hidden = false;
@@ -162,11 +162,11 @@ export default class SlTreeItem extends ShoelaceElement {
     );
     this.childrenContainer.style.height = 'auto';
 
-    this.emit('sl-after-expand');
+    this.emit('onex-after-expand');
   }
 
   private async animateCollapse() {
-    this.emit('sl-collapse');
+    this.emit('onex-collapse');
 
     await stopAnimations(this.childrenContainer);
 
@@ -178,22 +178,22 @@ export default class SlTreeItem extends ShoelaceElement {
     );
     this.childrenContainer.hidden = true;
 
-    this.emit('sl-after-collapse');
+    this.emit('onex-after-collapse');
   }
 
   // Gets all the nested tree items
-  getChildrenItems({ includeDisabled = true }: { includeDisabled?: boolean } = {}): SlTreeItem[] {
+  getChildrenItems({ includeDisabled = true }: { includeDisabled?: boolean } = {}): OneXTreeItem[] {
     return this.childrenSlot
       ? ([...this.childrenSlot.assignedElements({ flatten: true })].filter(
-          (item: SlTreeItem) => SlTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
-        ) as SlTreeItem[])
+          (item: OneXTreeItem) => OneXTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
+        ) as OneXTreeItem[])
       : [];
   }
 
   // Checks whether the item is nested into an item
   private isNestedItem(): boolean {
     const parent = this.parentElement;
-    return !!parent && SlTreeItem.isTreeItem(parent);
+    return !!parent && OneXTreeItem.isTreeItem(parent);
   }
 
   handleChildrenSlotChange() {
@@ -201,7 +201,7 @@ export default class SlTreeItem extends ShoelaceElement {
     this.isLeaf = !this.lazy && this.getChildrenItems().length === 0;
   }
 
-  protected willUpdate(changedProperties: PropertyValueMap<SlTreeItem> | Map<PropertyKey, unknown>): void {
+  protected willUpdate(changedProperties: PropertyValueMap<OneXTreeItem> | Map<PropertyKey, unknown>): void {
     if (changedProperties.has('selected') && !changedProperties.has('indeterminate')) {
       this.indeterminate = false;
     }
@@ -244,12 +244,12 @@ export default class SlTreeItem extends ShoelaceElement {
             })}
             aria-hidden="true"
           >
-            ${when(this.loading, () => html` <sl-spinner></sl-spinner> `)}
+            ${when(this.loading, () => html` <onex-spinner></onex-spinner> `)}
             <slot class="tree-item__expand-icon-slot" name="expand-icon">
-              <sl-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></sl-icon>
+              <onex-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></onex-icon>
             </slot>
             <slot class="tree-item__expand-icon-slot" name="collapse-icon">
-              <sl-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></sl-icon>
+              <onex-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></onex-icon>
             </slot>
           </div>
 
@@ -257,7 +257,7 @@ export default class SlTreeItem extends ShoelaceElement {
             this.selectable,
             () =>
               html`
-                <sl-checkbox
+                <onex-checkbox
                   tabindex="-1"
                   class="tree-item__checkbox"
                   ?disabled="${this.disabled}"
@@ -265,7 +265,7 @@ export default class SlTreeItem extends ShoelaceElement {
                   ?indeterminate="${this.indeterminate}"
                 >
                   <slot class="tree-item__label" part="label"></slot>
-                </sl-checkbox>
+                </onex-checkbox>
               `,
             () => html` <slot class="tree-item__label" part="label"></slot> `
           )}
@@ -301,6 +301,6 @@ setDefaultAnimation('tree-item.collapse', {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tree-item': SlTreeItem;
+    'onex-tree-item': OneXTreeItem;
   }
 }

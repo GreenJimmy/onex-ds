@@ -10,13 +10,13 @@ export default css`
 
   .menu-label {
     display: inline-block;
-    font-family: var(--sl-font-sans);
-    font-size: var(--sl-font-size-small);
-    font-weight: var(--sl-font-weight-semibold);
-    line-height: var(--sl-line-height-normal);
-    letter-spacing: var(--sl-letter-spacing-normal);
-    color: var(--sl-color-neutral-500);
-    padding: var(--sl-spacing-2x-small) var(--sl-spacing-x-large);
+    font-family: var(--onex-font-sans);
+    font-size: var(--onex-font-size-small);
+    font-weight: var(--onex-font-weight-semibold);
+    line-height: var(--onex-line-height-normal);
+    letter-spacing: var(--onex-letter-spacing-normal);
+    color: var(--onex-color-neutral-500);
+    padding: var(--onex-spacing-2x-small) var(--onex-spacing-x-large);
     user-select: none;
   }
 `;

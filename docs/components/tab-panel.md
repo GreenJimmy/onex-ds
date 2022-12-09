@@ -1,47 +1,47 @@
 # Tab Panel
 
-[component-header:sl-tab-panel]
+[component-header:onex-tab-panel]
 
 ```html preview
-<sl-tab-group>
-  <sl-tab slot="nav" panel="general">General</sl-tab>
-  <sl-tab slot="nav" panel="custom">Custom</sl-tab>
-  <sl-tab slot="nav" panel="advanced">Advanced</sl-tab>
-  <sl-tab slot="nav" panel="disabled" disabled>Disabled</sl-tab>
+<onex-tab-group>
+  <onex-tab slot="nav" panel="general">General</onex-tab>
+  <onex-tab slot="nav" panel="custom">Custom</onex-tab>
+  <onex-tab slot="nav" panel="advanced">Advanced</onex-tab>
+  <onex-tab slot="nav" panel="disabled" disabled>Disabled</onex-tab>
 
-  <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
-  <sl-tab-panel name="custom">This is the custom tab panel.</sl-tab-panel>
-  <sl-tab-panel name="advanced">This is the advanced tab panel.</sl-tab-panel>
-  <sl-tab-panel name="disabled">This is a disabled tab panel.</sl-tab-panel>
-</sl-tab-group>
+  <onex-tab-panel name="general">This is the general tab panel.</onex-tab-panel>
+  <onex-tab-panel name="custom">This is the custom tab panel.</onex-tab-panel>
+  <onex-tab-panel name="advanced">This is the advanced tab panel.</onex-tab-panel>
+  <onex-tab-panel name="disabled">This is a disabled tab panel.</onex-tab-panel>
+</onex-tab-group>
 ```
 
 ```jsx react
-import { SlTab, SlTabGroup, SlTabPanel } from '@shoelace-style/shoelace/dist/react';
+import { OneXTab, OneXTabGroup, OneXTabPanel } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlTabGroup>
-    <SlTab slot="nav" panel="general">
+  <OnexTabGroup>
+    <OnexTab slot="nav" panel="general">
       General
-    </SlTab>
-    <SlTab slot="nav" panel="custom">
+    </OneXTab>
+    <OnexTab slot="nav" panel="custom">
       Custom
-    </SlTab>
-    <SlTab slot="nav" panel="advanced">
+    </OneXTab>
+    <OnexTab slot="nav" panel="advanced">
       Advanced
-    </SlTab>
-    <SlTab slot="nav" panel="disabled" disabled>
+    </OneXTab>
+    <OnexTab slot="nav" panel="disabled" disabled>
       Disabled
-    </SlTab>
+    </OneXTab>
 
-    <SlTabPanel name="general">This is the general tab panel.</SlTabPanel>
-    <SlTabPanel name="custom">This is the custom tab panel.</SlTabPanel>
-    <SlTabPanel name="advanced">This is the advanced tab panel.</SlTabPanel>
-    <SlTabPanel name="disabled">This is a disabled tab panel.</SlTabPanel>
-  </SlTabGroup>
+    <OnexTabPanel name="general">This is the general tab panel.</OneXTabPanel>
+    <OnexTabPanel name="custom">This is the custom tab panel.</OneXTabPanel>
+    <OnexTabPanel name="advanced">This is the advanced tab panel.</OneXTabPanel>
+    <OnexTabPanel name="disabled">This is a disabled tab panel.</OneXTabPanel>
+  </OneXTabGroup>
 );
 ```
 
 ?> Additional demonstrations can be found in the [tab group examples](/components/tab-group).
 
-[component-metadata:sl-tab-panel]
+[component-metadata:onex-tab-panel]

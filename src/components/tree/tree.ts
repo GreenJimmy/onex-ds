@@ -4,15 +4,15 @@ import { clamp } from '../../internal/math';
 import ShoelaceElement from '../../internal/shoelace-element';
 import { watch } from '../../internal/watch';
 import { LocalizeController } from '../../utilities/localize';
-import SlTreeItem from '../tree-item/tree-item';
+import OneXTreeItem from '../tree-item/tree-item';
 import styles from './tree.styles';
 import type { CSSResultGroup } from 'lit';
 
-function syncCheckboxes(changedTreeItem: SlTreeItem) {
-  function syncAncestors(treeItem: SlTreeItem) {
-    const parentItem: SlTreeItem | null = treeItem.parentElement as SlTreeItem;
+function syncCheckboxes(changedTreeItem: OneXTreeItem) {
+  function syncAncestors(treeItem: OneXTreeItem) {
+    const parentItem: OneXTreeItem | null = treeItem.parentElement as OneXTreeItem;
 
-    if (SlTreeItem.isTreeItem(parentItem)) {
+    if (OneXTreeItem.isTreeItem(parentItem)) {
       const children = parentItem.getChildrenItems({ includeDisabled: false });
       const allChecked = !!children.length && children.every(item => item.selected);
       const allUnchecked = children.every(item => !item.selected && !item.indeterminate);
@@ -24,7 +24,7 @@ function syncCheckboxes(changedTreeItem: SlTreeItem) {
     }
   }
 
-  function syncDescendants(treeItem: SlTreeItem) {
+  function syncDescendants(treeItem: OneXTreeItem) {
     for (const childItem of treeItem.getChildrenItems()) {
       childItem.selected = !childItem.disabled && treeItem.selected;
       syncDescendants(childItem);
@@ -41,23 +41,23 @@ function syncCheckboxes(changedTreeItem: SlTreeItem) {
  * @since 2.0
  * @status experimental
  *
- * @event {{ selection: TreeItem[] }} sl-selection-change - Emitted when a tree item is selected or deselected.
+ * @event {{ selection: TreeItem[] }} onex-selection-change - Emitted when a tree item is selected or deselected.
  *
  * @slot - The default slot.
- * @slot expand-icon - The icon to show when the tree item is expanded. Works best with `<sl-icon>`.
- * @slot collapse-icon - The icon to show when the tree item is collapsed. Works best with `<sl-icon>`.
+ * @slot expand-icon - The icon to show when the tree item is expanded. Works best with `<onex-icon>`.
+ * @slot collapse-icon - The icon to show when the tree item is collapsed. Works best with `<onex-icon>`.
  *
  * @csspart base - The component's base wrapper.
  *
- * @cssproperty [--indent-size=var(--sl-spacing-medium)] - The size of the indentation for nested items.
- * @cssproperty [--indent-guide-color=var(--sl-color-neutral-200)] - The color of the indentation line.
+ * @cssproperty [--indent-size=var(--onex-spacing-medium)] - The size of the indentation for nested items.
+ * @cssproperty [--indent-guide-color=var(--onex-color-neutral-200)] - The color of the indentation line.
  * @cssproperty [--indent-guide-offset=0] - The amount of vertical spacing to leave between the top and bottom of the
  *  indentation line's starting position.
  * @cssproperty [--indent-guide-style=solid] - The style of the indentation line, e.g. solid, dotted, dashed.
  * @cssproperty [--indent-guide-width=0] - The width of the indentation line.
  */
-@customElement('sl-tree')
-export default class SlTree extends ShoelaceElement {
+@customElement('onex-tree')
+export default class OneXTree extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('slot:not([name])') defaultSlot: HTMLSlotElement;
@@ -74,7 +74,7 @@ export default class SlTree extends ShoelaceElement {
   // A collection of all the items in the tree, in the order they appear. The collection is live, meaning it is
   // automatically updated when the underlying document is changed.
   //
-  private lastFocusedItem: SlTreeItem;
+  private lastFocusedItem: OneXTreeItem;
   private readonly localize = new LocalizeController(this);
   private mutationObserver: MutationObserver;
 
@@ -85,7 +85,7 @@ export default class SlTree extends ShoelaceElement {
 
     this.addEventListener('focusin', this.handleFocusIn);
     this.addEventListener('focusout', this.handleFocusOut);
-    this.addEventListener('sl-lazy-change', this.handleSlotChange);
+    this.addEventListener('onex-lazy-change', this.handleSlotChange);
 
     await this.updateComplete;
     this.mutationObserver = new MutationObserver(this.handleTreeChanged);
@@ -98,7 +98,7 @@ export default class SlTree extends ShoelaceElement {
     this.mutationObserver.disconnect();
     this.removeEventListener('focusin', this.handleFocusIn);
     this.removeEventListener('focusout', this.handleFocusOut);
-    this.removeEventListener('sl-lazy-change', this.handleSlotChange);
+    this.removeEventListener('onex-lazy-change', this.handleSlotChange);
   }
 
   // Generates a clone of the expand icon element to use for each tree item
@@ -120,7 +120,7 @@ export default class SlTree extends ShoelaceElement {
   }
 
   // Initializes new items by setting the `selectable` property and the expanded/collapsed icons if any
-  private initTreeItem = (item: SlTreeItem) => {
+  private initTreeItem = (item: OneXTreeItem) => {
     item.selectable = this.selection === 'multiple';
 
     ['expand', 'collapse']
@@ -142,8 +142,8 @@ export default class SlTree extends ShoelaceElement {
 
   handleTreeChanged = (mutations: MutationRecord[]) => {
     for (const mutation of mutations) {
-      const addedNodes: SlTreeItem[] = [...mutation.addedNodes].filter(SlTreeItem.isTreeItem) as SlTreeItem[];
-      const removedNodes = [...mutation.removedNodes].filter(SlTreeItem.isTreeItem) as SlTreeItem[];
+      const addedNodes: OneXTreeItem[] = [...mutation.addedNodes].filter(OneXTreeItem.isTreeItem) as OneXTreeItem[];
+      const removedNodes = [...mutation.removedNodes].filter(OneXTreeItem.isTreeItem) as OneXTreeItem[];
 
       addedNodes.forEach(this.initTreeItem);
 
@@ -165,7 +165,7 @@ export default class SlTree extends ShoelaceElement {
     }
   }
 
-  syncTreeItems(selectedItem: SlTreeItem) {
+  syncTreeItems(selectedItem: OneXTreeItem) {
     const items = this.getAllTreeItems();
 
     if (this.selection === 'multiple') {
@@ -179,7 +179,7 @@ export default class SlTree extends ShoelaceElement {
     }
   }
 
-  selectItem(selectedItem: SlTreeItem) {
+  selectItem(selectedItem: OneXTreeItem) {
     const previousSelection = [...this.selectedItems];
 
     if (this.selection === 'multiple') {
@@ -203,20 +203,20 @@ export default class SlTree extends ShoelaceElement {
       previousSelection.length !== nextSelection.length ||
       nextSelection.some(item => !previousSelection.includes(item))
     ) {
-      this.emit('sl-selection-change', { detail: { selection: nextSelection } });
+      this.emit('onex-selection-change', { detail: { selection: nextSelection } });
     }
   }
 
   // Returns the list of tree items that are selected in the tree.
-  get selectedItems(): SlTreeItem[] {
+  get selectedItems(): OneXTreeItem[] {
     const items = this.getAllTreeItems();
-    const isSelected = (item: SlTreeItem) => item.selected;
+    const isSelected = (item: OneXTreeItem) => item.selected;
 
     return items.filter(isSelected);
   }
 
   getAllTreeItems() {
-    return [...this.querySelectorAll<SlTreeItem>('sl-tree-item')];
+    return [...this.querySelectorAll<OneXTreeItem>('onex-tree-item')];
   }
 
   getFocusableItems() {
@@ -228,7 +228,7 @@ export default class SlTree extends ShoelaceElement {
       if (item.disabled) return false;
 
       // Exclude those whose parent is collapsed or loading
-      const parent: SlTreeItem | null | undefined = item.parentElement?.closest('[role=treeitem]');
+      const parent: OneXTreeItem | null | undefined = item.parentElement?.closest('[role=treeitem]');
       if (parent && (!parent.expanded || parent.loading || collapsedItems.has(parent))) {
         collapsedItems.add(item);
       }
@@ -237,7 +237,7 @@ export default class SlTree extends ShoelaceElement {
     });
   }
 
-  focusItem(item?: SlTreeItem | null) {
+  focusItem(item?: OneXTreeItem | null) {
     item?.focus();
   }
 
@@ -253,7 +253,7 @@ export default class SlTree extends ShoelaceElement {
     if (items.length > 0) {
       event.preventDefault();
       const activeItemIndex = items.findIndex(item => item.matches(':focus'));
-      const activeItem: SlTreeItem | undefined = items[activeItemIndex];
+      const activeItem: OneXTreeItem | undefined = items[activeItemIndex];
 
       const focusItemAt = (index: number) => {
         const item = items[clamp(index, 0, items.length - 1)];
@@ -308,7 +308,7 @@ export default class SlTree extends ShoelaceElement {
 
   handleClick(event: Event) {
     const target = event.target as HTMLElement;
-    const treeItem = target.closest('sl-tree-item')!;
+    const treeItem = target.closest('onex-tree-item')!;
     const isExpandButton = event
       .composedPath()
       .some((el: HTMLElement) => el?.classList?.contains('tree-item__expand-button'));
@@ -334,7 +334,7 @@ export default class SlTree extends ShoelaceElement {
   };
 
   handleFocusIn = (event: FocusEvent) => {
-    const target = event.target as SlTreeItem;
+    const target = event.target as OneXTreeItem;
 
     // If the tree has been focused, move the focus to the last focused item
     if (event.target === this) {
@@ -342,7 +342,7 @@ export default class SlTree extends ShoelaceElement {
     }
 
     // If the target is a tree item, update the tabindex
-    if (SlTreeItem.isTreeItem(target) && !target.disabled) {
+    if (OneXTreeItem.isTreeItem(target) && !target.disabled) {
       if (this.lastFocusedItem) {
         this.lastFocusedItem.tabIndex = -1;
       }
@@ -371,6 +371,6 @@ export default class SlTree extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tree': SlTree;
+    'onex-tree': OneXTree;
   }
 }

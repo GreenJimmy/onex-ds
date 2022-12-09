@@ -19,11 +19,11 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
- * @dependency sl-spinner
+ * @dependency onex-icon
+ * @dependency onex-spinner
  *
- * @event sl-blur - Emitted when the button loses focus.
- * @event sl-focus - Emitted when the button gains focus.
+ * @event onex-blur - Emitted when the button loses focus.
+ * @event onex-focus - Emitted when the button gains focus.
  *
  * @slot - The button's label.
  * @slot prefix - A presentational prefix icon or similar element.
@@ -33,10 +33,10 @@ import type { CSSResultGroup } from 'lit';
  * @csspart prefix - The container that wraps the prefix.
  * @csspart label - The button's label.
  * @csspart suffix - The container that wraps the suffix.
- * @csspart caret - The button's caret icon, an `<sl-icon>` element.
+ * @csspart caret - The button's caret icon, an `<onex-icon>` element.
  */
-@customElement('sl-button')
-export default class SlButton extends ShoelaceElement implements ShoelaceFormControl {
+@customElement('onex-button')
+export default class OneXButton extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = styles;
 
   @query('.button') button: HTMLButtonElement | HTMLLinkElement;
@@ -85,7 +85,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
   @property({ type: Boolean, reflect: true }) pill = false;
 
   /**
-   * Draws a circular icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
+   * Draws a circular icon button. When this attribute is present, the button expects a single `<onex-icon>` in the
    * default slot.
    */
   @property({ type: Boolean, reflect: true }) circle = false;
@@ -188,12 +188,12 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleClick(event: MouseEvent) {
@@ -283,9 +283,11 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
         <slot part="label" class="button__label"></slot>
         <slot name="suffix" part="suffix" class="button__suffix"></slot>
         ${
-          this.caret ? html` <sl-icon part="caret" class="button__caret" library="system" name="caret"></sl-icon> ` : ''
+          this.caret
+            ? html` <onex-icon part="caret" class="button__caret" library="system" name="caret"></onex-icon> `
+            : ''
         }
-        ${this.loading ? html`<sl-spinner></sl-spinner>` : ''}
+        ${this.loading ? html`<onex-spinner></onex-spinner>` : ''}
       </${tag}>
     `;
     /* eslint-enable lit/no-invalid-html */
@@ -295,6 +297,6 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-button': SlButton;
+    'onex-button': OneXButton;
   }
 }

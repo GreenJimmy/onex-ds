@@ -104,10 +104,10 @@ Alternatively, you can use [Gitpod](https://www.gitpod.io/) to setup a dev envir
 
 ### Creating New Components
 
-To scaffold a new component, run the following command, replacing `sl-tag-name` with the desired tag name.
+To scaffold a new component, run the following command, replacing `onex-tag-name` with the desired tag name.
 
 ```bash
-npm run create sl-tag-name
+npm run create onex-tag-name
 ```
 
 This will generate a source file, a stylesheet, and a docs page for you. When you start the dev server, you'll find the new component in the "Components" section of the sidebar.
@@ -188,11 +188,11 @@ Please do not make any changes to `prettier.config.cjs` without consulting the m
 
 Components should be composable, meaning you can easily reuse them with and within other components. This reduces the overall size of the library, expedites feature development, and maintains a consistent user experience.
 
-The `<sl-select>` component, for example, makes use of the dropdown, input, menu, and menu item components. Because it's offloading most of its functionality and styles to lower-level components, the select component remains lightweight and its appearance is consistent with other form controls and menus.
+The `<onex-select>` component, for example, makes use of the dropdown, input, menu, and menu item components. Because it's offloading most of its functionality and styles to lower-level components, the select component remains lightweight and its appearance is consistent with other form controls and menus.
 
 ### Component Structure
 
-All components have a host element, which is a reference to the `<sl-*>` element itself. Make sure to always set the host element's `display` property to the appropriate value depending on your needs, as the default is `inline` per the custom element spec.
+All components have a host element, which is a reference to the `<onex-*>` element itself. Make sure to always set the host element's `display` property to the appropriate value depending on your needs, as the default is `inline` per the custom element spec.
 
 ```css
 :host {
@@ -226,9 +226,9 @@ See the source of card, dialog, or drawer for examples.
 
 ### Dynamic Slot Names and Expand/Collapse Icons
 
-A pattern has been established in `<sl-details>` and `<sl-tree-item>` for expand/collapse icons that animate on open/close. In short, create two slots called `expand-icon` and `collapse-icon` and render them both in the DOM, using CSS to show/hide only one based on the current open state. Avoid conditionally rendering them. Also avoid using dynamic slot names, such as `<slot name=${open ? 'open' : 'closed'}>`, because Firefox will not animate them.
+A pattern has been established in `<onex-details>` and `<onex-tree-item>` for expand/collapse icons that animate on open/close. In short, create two slots called `expand-icon` and `collapse-icon` and render them both in the DOM, using CSS to show/hide only one based on the current open state. Avoid conditionally rendering them. Also avoid using dynamic slot names, such as `<slot name=${open ? 'open' : 'closed'}>`, because Firefox will not animate them.
 
-There should be a container element immediately surrounding both slots. The container should be animated with CSS by default and it should have a part so the user can override the animation or disable it. Please refer to the source and documentation for `<sl-details>` and/or `<sl-tree-item>` for details.
+There should be a container element immediately surrounding both slots. The container should be animated with CSS by default and it should have a part so the user can override the animation or disable it. Please refer to the source and documentation for `<onex-details>` and/or `<onex-tree-item>` for details.
 
 ### Fallback Content in Slots
 
@@ -236,7 +236,7 @@ When providing fallback content inside of `<slot>` elements, avoid adding parts,
 
 ```html
 <slot name="icon">
-  <sl-icon part="close-icon"></sl-icon>
+  <onex-icon part="close-icon"></onex-icon>
 </slot>
 ```
 
@@ -244,13 +244,13 @@ This creates confusion because the part will be documented, but it won't work wh
 
 ### Custom Events
 
-Components must only emit custom events, and all custom events must start with `sl-` as a namespace. For compatibility with frameworks that utilize DOM templates, custom events must have lowercase, kebab-style names. For example, use `sl-change` instead of `slChange`.
+Components must only emit custom events, and all custom events must start with `onex-` as a namespace. For compatibility with frameworks that utilize DOM templates, custom events must have lowercase, kebab-style names. For example, use `onex-change` instead of `slChange`.
 
 This convention avoids the problem of browsers lowercasing attributes, causing some frameworks to be unable to listen to them. This problem isn't specific to one framework, but [Vue's documentation](https://vuejs.org/v2/guide/components-custom-events.html#Event-Names) provides a good explanation of the problem.
 
 ### Change Events
 
-When change events are emitted by Shoelace components, they should be named `sl-change` and they should only be emitted as a result of user input. Programmatic changes, such as setting `el.value = '…'` _should not_ result in a change event being emitted. This is consistent with how native form controls work.
+When change events are emitted by Shoelace components, they should be named `onex-change` and they should only be emitted as a result of user input. Programmatic changes, such as setting `el.value = '…'` _should not_ result in a change event being emitted. This is consistent with how native form controls work.
 
 ### CSS Custom Properties
 
@@ -258,19 +258,19 @@ To expose custom properties as part of a component's API, scope them to the `:ho
 
 ```css
 :host {
-  --color: var(--sl-color-primary-500);
-  --background-color: var(--sl-color-neutral-100);
+  --color: var(--onex-color-primary-500);
+  --background-color: var(--onex-color-neutral-100);
 }
 ```
 
-Then use the following syntax for comments so they appear in the generated docs. Do not use the `--sl-` prefix, as that is reserved for design tokens that live in the global scope.
+Then use the following syntax for comments so they appear in the generated docs. Do not use the `--onex-` prefix, as that is reserved for design tokens that live in the global scope.
 
 ```js
 /**
  * @cssproperty --color: The component's text color.
  * @cssproperty --background-color: The component's background color.
  */
-@customElement('sl-example')
+@customElement('onex-example')
 export default class SlExample {
   // ...
 }
@@ -306,7 +306,7 @@ When composing elements, use `part` to export the host element and `exportparts`
 render() {
   return html`
     <div part="base">
-      <sl-icon part="icon" exportparts="base:icon__base" ...></sl-icon>
+      <onex-icon part="icon" exportparts="base:icon__base" ...></onex-icon>
     </div>
   `;
 }
@@ -327,10 +327,10 @@ Form controls should support submission and validation through the following con
 
 ### System Icons
 
-Avoid inlining SVG icons inside of templates. If a component requires an icon, make sure `<sl-icon>` is a dependency of the component and use the [system library](/components/icon#customizing-the-system-library):
+Avoid inlining SVG icons inside of templates. If a component requires an icon, make sure `<onex-icon>` is a dependency of the component and use the [system library](/components/icon#customizing-the-system-library):
 
 ```html
-<sl-icon library="system" name="..."></sl-icon>
+<onex-icon library="system" name="..."></onex-icon>
 ```
 
 This will render the icons instantly whereas the default library will fetch them from a remote source. If an icon isn't available in the system library, you will need to add it to `library.system.ts`. Using the system library ensures that all icons load instantly and are customizable by users who wish to provide a custom resolver for the system library.

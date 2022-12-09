@@ -12,11 +12,11 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @event sl-load - Emitted when the included file is loaded.
- * @event {{ status: number }} sl-error - Emitted when the included file fails to load due to an error.
+ * @event onex-load - Emitted when the included file is loaded.
+ * @event {{ status: number }} onex-error - Emitted when the included file fails to load due to an error.
  */
-@customElement('sl-include')
-export default class SlInclude extends ShoelaceElement {
+@customElement('onex-include')
+export default class OneXInclude extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   /**
@@ -54,7 +54,7 @@ export default class SlInclude extends ShoelaceElement {
       }
 
       if (!file.ok) {
-        this.emit('sl-error', { detail: { status: file.status } });
+        this.emit('onex-error', { detail: { status: file.status } });
         return;
       }
 
@@ -64,9 +64,9 @@ export default class SlInclude extends ShoelaceElement {
         [...this.querySelectorAll('script')].forEach(script => this.executeScript(script));
       }
 
-      this.emit('sl-load');
+      this.emit('onex-load');
     } catch {
-      this.emit('sl-error', { detail: { status: -1 } });
+      this.emit('onex-error', { detail: { status: -1 } });
     }
   }
 
@@ -77,6 +77,6 @@ export default class SlInclude extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-include': SlInclude;
+    'onex-include': OneXInclude;
   }
 }

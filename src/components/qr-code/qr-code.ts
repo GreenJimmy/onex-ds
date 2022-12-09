@@ -13,8 +13,8 @@ import type { CSSResultGroup } from 'lit';
  *
  * @csspart base - The component's base wrapper.
  */
-@customElement('sl-qr-code')
-export default class SlQrCode extends ShoelaceElement {
+@customElement('onex-qr-code')
+export default class OneXQrCode extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('canvas') canvas: HTMLElement;
@@ -87,6 +87,6 @@ export default class SlQrCode extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-qr-code': SlQrCode;
+    'onex-qr-code': OneXQrCode;
   }
 }

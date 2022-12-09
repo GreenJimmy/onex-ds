@@ -4,7 +4,7 @@ import ShoelaceElement from '../../internal/shoelace-element';
 import { LocalizeController } from '../../utilities/localize';
 import '../icon/icon';
 import styles from './breadcrumb.styles';
-import type SlBreadcrumbItem from '../breadcrumb-item/breadcrumb-item';
+import type OneXBreadcrumbItem from '../breadcrumb-item/breadcrumb-item';
 import type { CSSResultGroup } from 'lit';
 
 /**
@@ -14,14 +14,14 @@ import type { CSSResultGroup } from 'lit';
  * @status stable
  *
  * @slot - One or more breadcrumb items to display.
- * @slot separator - The separator to use between breadcrumb items. Works best with `<sl-icon>`.
+ * @slot separator - The separator to use between breadcrumb items. Works best with `<onex-icon>`.
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
  * @csspart base - The component's base wrapper.
  */
-@customElement('sl-breadcrumb')
-export default class SlBreadcrumb extends ShoelaceElement {
+@customElement('onex-breadcrumb')
+export default class OneXBreadcrumb extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('slot') defaultSlot: HTMLSlotElement;
@@ -51,8 +51,8 @@ export default class SlBreadcrumb extends ShoelaceElement {
 
   handleSlotChange() {
     const items = [...this.defaultSlot.assignedElements({ flatten: true })].filter(
-      item => item.tagName.toLowerCase() === 'sl-breadcrumb-item'
-    ) as SlBreadcrumbItem[];
+      item => item.tagName.toLowerCase() === 'onex-breadcrumb-item'
+    ) as OneXBreadcrumbItem[];
 
     items.forEach((item, index) => {
       // Append separators to each item if they don't already have one
@@ -91,7 +91,10 @@ export default class SlBreadcrumb extends ShoelaceElement {
       </nav>
 
       <slot name="separator" hidden aria-hidden="true">
-        <sl-icon name=${this.localize.dir() === 'rtl' ? 'chevron-left' : 'chevron-right'} library="system"></sl-icon>
+        <onex-icon
+          name=${this.localize.dir() === 'rtl' ? 'chevron-left' : 'chevron-right'}
+          library="system"
+        ></onex-icon>
       </slot>
     `;
   }
@@ -99,6 +102,6 @@ export default class SlBreadcrumb extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-breadcrumb': SlBreadcrumb;
+    'onex-breadcrumb': OneXBreadcrumb;
   }
 }

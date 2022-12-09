@@ -1,15 +1,15 @@
 # Progress Bar
 
-[component-header:sl-progress-bar]
+[component-header:onex-progress-bar]
 
 ```html preview
-<sl-progress-bar value="50"></sl-progress-bar>
+<onex-progress-bar value="50"></onex-progress-bar>
 ```
 
 ```jsx react
-import { SlProgressBar } from '@shoelace-style/shoelace/dist/react';
+import { OneXProgressBar } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlProgressBar value={50} />;
+const App = () => <OnexProgressBar value={50} />;
 ```
 
 ## Examples
@@ -19,13 +19,13 @@ const App = () => <SlProgressBar value={50} />;
 Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.
 
 ```html preview
-<sl-progress-bar value="50" label="Upload progress"></sl-progress-bar>
+<onex-progress-bar value="50" label="Upload progress"></onex-progress-bar>
 ```
 
 ```jsx react
-import { SlProgressBar } from '@shoelace-style/shoelace/dist/react';
+import { OneXProgressBar } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlProgressBar value="50" label="Upload progress" />;
+const App = () => <OnexProgressBar value="50" label="Upload progress" />;
 ```
 
 ### Custom Height
@@ -33,13 +33,13 @@ const App = () => <SlProgressBar value="50" label="Upload progress" />;
 Use the `--height` custom property to set the progress bar's height.
 
 ```html preview
-<sl-progress-bar value="50" style="--height: 6px;"></sl-progress-bar>
+<onex-progress-bar value="50" style="--height: 6px;"></onex-progress-bar>
 ```
 
 ```jsx react
-import { SlProgressBar } from '@shoelace-style/shoelace/dist/react';
+import { OneXProgressBar } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlProgressBar value={50} style={{ '--height': '6px' }} />;
+const App = () => <OnexProgressBar value={50} style={{ '--height': '6px' }} />;
 ```
 
 ### Showing Values
@@ -47,12 +47,12 @@ const App = () => <SlProgressBar value={50} style={{ '--height': '6px' }} />;
 Use the default slot to show a value.
 
 ```html preview
-<sl-progress-bar value="50" class="progress-bar-values">50%</sl-progress-bar>
+<onex-progress-bar value="50" class="progress-bar-values">50%</onex-progress-bar>
 
 <br />
 
-<sl-button circle><sl-icon name="dash" label="Decrease"></sl-icon></sl-button>
-<sl-button circle><sl-icon name="plus" label="Increase"></sl-icon></sl-button>
+<onex-button circle><onex-icon name="dash" label="Decrease"></onex-icon></onex-button>
+<onex-button circle><onex-icon name="plus" label="Increase"></onex-icon></onex-button>
 
 <script>
   const progressBar = document.querySelector('.progress-bar-values');
@@ -75,7 +75,7 @@ Use the default slot to show a value.
 
 ```jsx react
 import { useState } from 'react';
-import { SlButton, SlIcon, SlProgressBar } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXIcon, OneXProgressBar } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const [value, setValue] = useState(50);
@@ -89,17 +89,17 @@ const App = () => {
 
   return (
     <>
-      <SlProgressBar value={value}>{value}%</SlProgressBar>
+      <OnexProgressBar value={value}>{value}%</OneXProgressBar>
 
       <br />
 
-      <SlButton circle onClick={() => adjustValue(-10)}>
-        <SlIcon name="dash" label="Decrease" />
-      </SlButton>
+      <OnexButton circle onClick={() => adjustValue(-10)}>
+        <OnexIcon name="dash" label="Decrease" />
+      </OneXButton>
 
-      <SlButton circle onClick={() => adjustValue(10)}>
-        <SlIcon name="plus" label="Increase" />
-      </SlButton>
+      <OnexButton circle onClick={() => adjustValue(10)}>
+        <OnexIcon name="plus" label="Increase" />
+      </OneXButton>
     </>
   );
 };
@@ -110,13 +110,13 @@ const App = () => {
 The `indeterminate` attribute can be used to inform the user that the operation is pending, but its status cannot currently be determined. In this state, `value` is ignored and the label, if present, will not be shown.
 
 ```html preview
-<sl-progress-bar indeterminate></sl-progress-bar>
+<onex-progress-bar indeterminate></onex-progress-bar>
 ```
 
 ```jsx react
-import { SlProgressBar } from '@shoelace-style/shoelace/dist/react';
+import { OneXProgressBar } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlProgressBar indeterminate />;
+const App = () => <OnexProgressBar indeterminate />;
 ```
 
-[component-metadata:sl-progress-bar]
+[component-metadata:onex-progress-bar]

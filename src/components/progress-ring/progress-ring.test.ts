@@ -1,12 +1,12 @@
 import { expect, fixture, html } from '@open-wc/testing';
-import type SlProgressRing from './progress-ring';
+import type OneXProgressRing from './progress-ring';
 
-describe('<sl-progress-ring>', () => {
-  let el: SlProgressRing;
+describe('<onex-progress-ring>', () => {
+  let el: OneXProgressRing;
 
   describe('when provided just a value parameter', () => {
     before(async () => {
-      el = await fixture<SlProgressRing>(html`<sl-progress-ring value="25"></sl-progress-ring>`);
+      el = await fixture<OnexProgressRing>(html`<onex-progress-ring value="25"></onex-progress-ring>`);
     });
 
     it('should pass accessibility tests', async () => {
@@ -18,8 +18,8 @@ describe('<sl-progress-ring>', () => {
     let base: HTMLDivElement;
 
     before(async () => {
-      el = await fixture<SlProgressRing>(
-        html`<sl-progress-ring title="Titled Progress Ring" value="25"></sl-progress-ring>`
+      el = await fixture<OnexProgressRing>(
+        html`<onex-progress-ring title="Titled Progress Ring" value="25"></onex-progress-ring>`
       );
       base = el.shadowRoot!.querySelector('[part~="base"]')!;
     });
@@ -39,8 +39,8 @@ describe('<sl-progress-ring>', () => {
 
   describe('when provided a ariaLabel, and value parameter', () => {
     before(async () => {
-      el = await fixture<SlProgressRing>(
-        html`<sl-progress-ring ariaLabel="Labelled Progress Ring" value="25"></sl-progress-ring>`
+      el = await fixture<OnexProgressRing>(
+        html`<onex-progress-ring ariaLabel="Labelled Progress Ring" value="25"></onex-progress-ring>`
       );
     });
 
@@ -51,10 +51,10 @@ describe('<sl-progress-ring>', () => {
 
   describe('when provided a ariaLabelledBy, and value parameter', () => {
     before(async () => {
-      el = await fixture<SlProgressRing>(
+      el = await fixture<OnexProgressRing>(
         html`
           <label id="labelledby">Progress Ring Label</label>
-          <sl-progress-ring ariaLabelledBy="labelledby" value="25"></sl-progress-ring>
+          <onex-progress-ring ariaLabelledBy="labelledby" value="25"></onex-progress-ring>
         `
       );
     });

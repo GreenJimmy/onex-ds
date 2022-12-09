@@ -1,10 +1,10 @@
 import { expect, fixture, html, elementUpdated } from '@open-wc/testing';
-import type SlFormatBytes from './format-bytes';
+import type OneXFormatBytes from './format-bytes';
 
-describe('<sl-format-bytes>', () => {
+describe('<onex-format-bytes>', () => {
   describe('defaults ', () => {
     it('default properties', async () => {
-      const el = await fixture<SlFormatBytes>(html` <sl-format-bytes></sl-format-bytes> `);
+      const el = await fixture<OnexFormatBytes>(html` <onex-format-bytes></onex-format-bytes> `);
 
       expect(el.value).to.equal(0);
       expect(el.unit).to.equal('byte');
@@ -43,7 +43,7 @@ describe('<sl-format-bytes>', () => {
 
     results.forEach(expected => {
       it('bytes : display formats', async () => {
-        const el = await fixture<SlFormatBytes>(html` <sl-format-bytes></sl-format-bytes> `);
+        const el = await fixture<OnexFormatBytes>(html` <onex-format-bytes></onex-format-bytes> `);
         // short
         el.value = expected.value;
         await elementUpdated(el);
@@ -94,7 +94,7 @@ describe('<sl-format-bytes>', () => {
 
     results.forEach(expected => {
       it('bits : display formats', async () => {
-        const el = await fixture<SlFormatBytes>(html` <sl-format-bytes unit="bit"></sl-format-bytes> `);
+        const el = await fixture<OnexFormatBytes>(html` <onex-format-bytes unit="bit"></onex-format-bytes> `);
         // short
         el.value = expected.value;
         await elementUpdated(el);

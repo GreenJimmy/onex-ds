@@ -17,7 +17,7 @@ The easiest way to install Shoelace is with the CDN. Just add the following tags
 
 ### Dark Theme
 
-If you prefer to use the [dark theme](/getting-started/themes#dark-theme) instead, use this code and add `<html class="sl-theme-dark">` to the page.
+If you prefer to use the [dark theme](/getting-started/themes#dark-theme) instead, use this code and add `<html class="onex-theme-dark">` to the page.
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@%VERSION%/dist/themes/dark.css" />
@@ -38,7 +38,7 @@ If you want to load the light or dark theme based on the user's `prefers-color-s
   rel="stylesheet"
   media="(prefers-color-scheme:dark)"
   href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@%VERSION%/dist/themes/dark.css"
-  onload="document.documentElement.classList.add('sl-theme-dark');"
+  onload="document.documentElement.classList.add('onex-theme-dark');"
 />
 <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@%VERSION%/dist/shoelace.js"></script>
 ```
@@ -100,7 +100,7 @@ Here's an example that loads only the button component. Again, if you're not usi
 <script type="module" data-shoelace="/path/to/shoelace/dist">
   import '@shoelace-style/shoelace/dist/components/button/button.js';
 
-  // <sl-button> is ready to use!
+  // <onex-button> is ready to use!
 </script>
 ```
 
@@ -138,7 +138,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 // Set the base path to the folder you copied Shoelace's assets to
 setBasePath('/path/to/shoelace/dist');
 
-// <sl-button>, <sl-icon>, <sl-input>, and <sl-rating> are ready to use!
+// <onex-button>, <onex-icon>, <onex-input>, and <onex-rating> are ready to use!
 ```
 
 !> Component modules include side effects for registration purposes. Because of this, importing directly from `@shoelace-style/shoelace` may result in a larger bundle size than necessary. For optimal tree shaking, always cherry pick, i.e. import components and utilities from their respective files, as shown above.

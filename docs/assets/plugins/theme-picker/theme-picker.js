@@ -25,13 +25,13 @@
         localStorage.setItem('theme', theme);
 
         // Update the UI
-        [...menu.querySelectorAll('sl-menu-item')].map(item => (item.checked = item.getAttribute('value') === theme));
+        [...menu.querySelectorAll('onex-menu-item')].map(item => (item.checked = item.getAttribute('value') === theme));
         menuIcon.name = isDark() ? 'moon' : 'sun';
 
         // Toggle the dark mode class without transitions
         document.body.appendChild(noTransitions);
         requestAnimationFrame(() => {
-          document.documentElement.classList.toggle('sl-theme-dark', isDark());
+          document.documentElement.classList.toggle('onex-theme-dark', isDark());
           requestAnimationFrame(() => document.body.removeChild(noTransitions));
         });
       }
@@ -39,26 +39,26 @@
       let theme = getTheme();
 
       // Generate the theme picker dropdown
-      const dropdown = document.createElement('sl-dropdown');
+      const dropdown = document.createElement('onex-dropdown');
       dropdown.classList.add('theme-picker');
       dropdown.innerHTML = `
-        <sl-button size="small" pill slot="trigger" caret>
-          <sl-icon name="sun" label="Select Theme"></sl-icon>
-        </sl-button>
-        <sl-menu>
-          <sl-menu-label>Toggle <kbd>\\</kbd></sl-menu-label>
-          <sl-menu-item value="light">Light</sl-menu-item>
-          <sl-menu-item value="dark">Dark</sl-menu-item>
-          <sl-divider></sl-divider>
-          <sl-menu-item value="auto">Auto</sl-menu-item>
-        </sl-menu>
+        <onex-button size="small" pill slot="trigger" caret>
+          <onex-icon name="sun" label="Select Theme"></onex-icon>
+        </onex-button>
+        <onex-menu>
+          <onex-menu-label>Toggle <kbd>\\</kbd></onex-menu-label>
+          <onex-menu-item value="light">Light</onex-menu-item>
+          <onex-menu-item value="dark">Dark</onex-menu-item>
+          <onex-divider></onex-divider>
+          <onex-menu-item value="auto">Auto</onex-menu-item>
+        </onex-menu>
       `;
       document.querySelector('.sidebar-toggle').insertAdjacentElement('afterend', dropdown);
 
       // Listen for selections
-      const menu = dropdown.querySelector('sl-menu');
-      const menuIcon = dropdown.querySelector('sl-icon');
-      menu.addEventListener('sl-select', event => setTheme(event.detail.item.value));
+      const menu = dropdown.querySelector('onex-menu');
+      const menuIcon = dropdown.querySelector('onex-icon');
+      menu.addEventListener('onex-select', event => setTheme(event.detail.item.value));
 
       // Update the theme when the preference changes
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => setTheme(theme));

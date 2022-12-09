@@ -10,12 +10,12 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @slot - One or more `<sl-button>` elements to display in the button group.
+ * @slot - One or more `<onex-button>` elements to display in the button group.
  *
  * @csspart base - The component's base wrapper.
  */
-@customElement('sl-button-group')
-export default class SlButtonGroup extends ShoelaceElement {
+@customElement('onex-button-group')
+export default class OneXButtonGroup extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('slot') defaultSlot: HTMLSlotElement;
@@ -30,22 +30,22 @@ export default class SlButtonGroup extends ShoelaceElement {
 
   handleFocus(event: CustomEvent) {
     const button = findButton(event.target as HTMLElement);
-    button?.classList.add('sl-button-group__button--focus');
+    button?.classList.add('onex-button-group__button--focus');
   }
 
   handleBlur(event: CustomEvent) {
     const button = findButton(event.target as HTMLElement);
-    button?.classList.remove('sl-button-group__button--focus');
+    button?.classList.remove('onex-button-group__button--focus');
   }
 
   handleMouseOver(event: CustomEvent) {
     const button = findButton(event.target as HTMLElement);
-    button?.classList.add('sl-button-group__button--hover');
+    button?.classList.add('onex-button-group__button--hover');
   }
 
   handleMouseOut(event: CustomEvent) {
     const button = findButton(event.target as HTMLElement);
-    button?.classList.remove('sl-button-group__button--hover');
+    button?.classList.remove('onex-button-group__button--hover');
   }
 
   handleSlotChange() {
@@ -56,11 +56,14 @@ export default class SlButtonGroup extends ShoelaceElement {
       const button = findButton(el);
 
       if (button !== null) {
-        button.classList.add('sl-button-group__button');
-        button.classList.toggle('sl-button-group__button--first', index === 0);
-        button.classList.toggle('sl-button-group__button--inner', index > 0 && index < slottedElements.length - 1);
-        button.classList.toggle('sl-button-group__button--last', index === slottedElements.length - 1);
-        button.classList.toggle('sl-button-group__button--radio', button.tagName.toLowerCase() === 'sl-radio-button');
+        button.classList.add('onex-button-group__button');
+        button.classList.toggle('onex-button-group__button--first', index === 0);
+        button.classList.toggle('onex-button-group__button--inner', index > 0 && index < slottedElements.length - 1);
+        button.classList.toggle('onex-button-group__button--last', index === slottedElements.length - 1);
+        button.classList.toggle(
+          'onex-button-group__button--radio',
+          button.tagName.toLowerCase() === 'onex-radio-button'
+        );
       }
     });
   }
@@ -84,7 +87,7 @@ export default class SlButtonGroup extends ShoelaceElement {
 }
 
 function findButton(el: HTMLElement) {
-  const selector = 'sl-button, sl-radio-button';
+  const selector = 'onex-button, onex-radio-button';
 
   // The button could be the target element or a child of it (e.g. a dropdown or tooltip anchor)
   return el.closest(selector) ?? el.querySelector(selector);
@@ -92,6 +95,6 @@ function findButton(el: HTMLElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-button-group': SlButtonGroup;
+    'onex-button-group': OneXButtonGroup;
   }
 }

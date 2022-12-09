@@ -28,33 +28,33 @@ export default css`
    */
 
   .tag--primary {
-    background-color: var(--sl-color-primary-50);
-    border-color: var(--sl-color-primary-200);
-    color: var(--sl-color-primary-800);
+    background-color: var(--onex-color-primary-50);
+    border-color: var(--onex-color-primary-200);
+    color: var(--onex-color-primary-800);
   }
 
   .tag--success {
-    background-color: var(--sl-color-success-50);
-    border-color: var(--sl-color-success-200);
-    color: var(--sl-color-success-800);
+    background-color: var(--onex-color-success-50);
+    border-color: var(--onex-color-success-200);
+    color: var(--onex-color-success-800);
   }
 
   .tag--neutral {
-    background-color: var(--sl-color-neutral-50);
-    border-color: var(--sl-color-neutral-200);
-    color: var(--sl-color-neutral-800);
+    background-color: var(--onex-color-neutral-50);
+    border-color: var(--onex-color-neutral-200);
+    color: var(--onex-color-neutral-800);
   }
 
   .tag--warning {
-    background-color: var(--sl-color-warning-50);
-    border-color: var(--sl-color-warning-200);
-    color: var(--sl-color-warning-800);
+    background-color: var(--onex-color-warning-50);
+    border-color: var(--onex-color-warning-200);
+    color: var(--onex-color-warning-800);
   }
 
   .tag--danger {
-    background-color: var(--sl-color-danger-50);
-    border-color: var(--sl-color-danger-200);
-    color: var(--sl-color-danger-800);
+    background-color: var(--onex-color-danger-50);
+    border-color: var(--onex-color-danger-200);
+    color: var(--onex-color-danger-800);
   }
 
   /*
@@ -62,31 +62,31 @@ export default css`
    */
 
   .tag--small {
-    font-size: var(--sl-button-font-size-small);
-    height: calc(var(--sl-input-height-small) * 0.8);
-    line-height: calc(var(--sl-input-height-small) - var(--sl-input-border-width) * 2);
-    border-radius: var(--sl-input-border-radius-small);
-    padding: 0 var(--sl-spacing-x-small);
+    font-size: var(--onex-button-font-size-small);
+    height: calc(var(--onex-input-height-small) * 0.8);
+    line-height: calc(var(--onex-input-height-small) - var(--onex-input-border-width) * 2);
+    border-radius: var(--onex-input-border-radius-small);
+    padding: 0 var(--onex-spacing-x-small);
   }
 
   .tag--medium {
-    font-size: var(--sl-button-font-size-medium);
-    height: calc(var(--sl-input-height-medium) * 0.8);
-    line-height: calc(var(--sl-input-height-medium) - var(--sl-input-border-width) * 2);
-    border-radius: var(--sl-input-border-radius-medium);
-    padding: 0 var(--sl-spacing-small);
+    font-size: var(--onex-button-font-size-medium);
+    height: calc(var(--onex-input-height-medium) * 0.8);
+    line-height: calc(var(--onex-input-height-medium) - var(--onex-input-border-width) * 2);
+    border-radius: var(--onex-input-border-radius-medium);
+    padding: 0 var(--onex-spacing-small);
   }
 
   .tag--large {
-    font-size: var(--sl-button-font-size-large);
-    height: calc(var(--sl-input-height-large) * 0.8);
-    line-height: calc(var(--sl-input-height-large) - var(--sl-input-border-width) * 2);
-    border-radius: var(--sl-input-border-radius-large);
-    padding: 0 var(--sl-spacing-medium);
+    font-size: var(--onex-button-font-size-large);
+    height: calc(var(--onex-input-height-large) * 0.8);
+    line-height: calc(var(--onex-input-height-large) - var(--onex-input-border-width) * 2);
+    border-radius: var(--onex-input-border-radius-large);
+    padding: 0 var(--onex-spacing-medium);
   }
 
   .tag__remove {
-    margin-inline-start: var(--sl-spacing-x-small);
+    margin-inline-start: var(--onex-spacing-x-small);
   }
 
   /*
@@ -94,6 +94,6 @@ export default css`
    */
 
   .tag--pill {
-    border-radius: var(--sl-border-radius-pill);
+    border-radius: var(--onex-border-radius-pill);
   }
 `;

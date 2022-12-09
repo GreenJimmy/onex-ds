@@ -1,11 +1,11 @@
 import { expect, fixture, html } from '@open-wc/testing';
 
-describe('<sl-visually-hidden>', () => {
+describe('<onex-visually-hidden>', () => {
   it('should render but not display visually hidden content', async () => {
     const el = await fixture(html`
-      <sl-visually-hidden>
+      <onex-visually-hidden>
         <a href="#">Skip to main content</a>
-      </sl-visually-hidden>
+      </onex-visually-hidden>
     `);
 
     const { width, height, overflow, clipPath } = getComputedStyle(el);
@@ -19,9 +19,9 @@ describe('<sl-visually-hidden>', () => {
   // should show visually hidden content when focused
   it('should show visually hidden content when focused', async () => {
     const el = await fixture(html`
-      <sl-visually-hidden>
+      <onex-visually-hidden>
         <a href="#">Skip to main content</a>
-      </sl-visually-hidden>
+      </onex-visually-hidden>
     `);
 
     const a = el.querySelector('a')!;

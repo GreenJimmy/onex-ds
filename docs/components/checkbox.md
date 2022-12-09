@@ -1,15 +1,15 @@
 # Checkbox
 
-[component-header:sl-checkbox]
+[component-header:onex-checkbox]
 
 ```html preview
-<sl-checkbox>Checkbox</sl-checkbox>
+<onex-checkbox>Checkbox</onex-checkbox>
 ```
 
 ```jsx react
-import { SlCheckbox } from '@shoelace-style/shoelace/dist/react';
+import { OneXCheckbox } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlCheckbox>Checkbox</SlCheckbox>;
+const App = () => <OnexCheckbox>Checkbox</OneXCheckbox>;
 ```
 
 ?> This component works with standard `<form>` elements. Please refer to the section on [form controls](/getting-started/form-controls) to learn more about form submission and client-side validation.
@@ -21,13 +21,13 @@ const App = () => <SlCheckbox>Checkbox</SlCheckbox>;
 Use the `checked` attribute to activate the checkbox.
 
 ```html preview
-<sl-checkbox checked>Checked</sl-checkbox>
+<onex-checkbox checked>Checked</onex-checkbox>
 ```
 
 ```jsx react
-import { SlCheckbox } from '@shoelace-style/shoelace/dist/react';
+import { OneXCheckbox } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlCheckbox checked>Checked</SlCheckbox>;
+const App = () => <OnexCheckbox checked>Checked</OneXCheckbox>;
 ```
 
 ### Indeterminate
@@ -35,13 +35,13 @@ const App = () => <SlCheckbox checked>Checked</SlCheckbox>;
 Use the `indeterminate` attribute to make the checkbox indeterminate.
 
 ```html preview
-<sl-checkbox indeterminate>Indeterminate</sl-checkbox>
+<onex-checkbox indeterminate>Indeterminate</onex-checkbox>
 ```
 
 ```jsx react
-import { SlCheckbox } from '@shoelace-style/shoelace/dist/react';
+import { OneXCheckbox } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlCheckbox indeterminate>Indeterminate</SlCheckbox>;
+const App = () => <OnexCheckbox indeterminate>Indeterminate</OneXCheckbox>;
 ```
 
 ### Disabled
@@ -49,13 +49,13 @@ const App = () => <SlCheckbox indeterminate>Indeterminate</SlCheckbox>;
 Use the `disabled` attribute to disable the checkbox.
 
 ```html preview
-<sl-checkbox disabled>Disabled</sl-checkbox>
+<onex-checkbox disabled>Disabled</onex-checkbox>
 ```
 
 ```jsx react
-import { SlCheckbox } from '@shoelace-style/shoelace/dist/react';
+import { OneXCheckbox } from '@shoelace-style/shoelace/dist/react';
 
-const App = () => <SlCheckbox disabled>Disabled</SlCheckbox>;
+const App = () => <OnexCheckbox disabled>Disabled</OneXCheckbox>;
 ```
 
 ### Custom Validity
@@ -64,22 +64,22 @@ Use the `setCustomValidity()` method to set a custom validation message. This wi
 
 ```html preview
 <form class="custom-validity">
-  <sl-checkbox>Check me</sl-checkbox>
+  <onex-checkbox>Check me</onex-checkbox>
   <br />
-  <sl-button type="submit" variant="primary" style="margin-top: 1rem;">Submit</sl-button>
+  <onex-button type="submit" variant="primary" style="margin-top: 1rem;">Submit</onex-button>
 </form>
 <script>
   const form = document.querySelector('.custom-validity');
-  const checkbox = form.querySelector('sl-checkbox');
+  const checkbox = form.querySelector('onex-checkbox');
   const errorMessage = `Don't forget to check me!`;
 
   // Set initial validity as soon as the element is defined
-  customElements.whenDefined('sl-checkbox').then(() => {
+  customElements.whenDefined('onex-checkbox').then(() => {
     checkbox.setCustomValidity(errorMessage);
   });
 
   // Update validity on change
-  checkbox.addEventListener('sl-change', () => {
+  checkbox.addEventListener('onex-change', () => {
     checkbox.setCustomValidity(checkbox.checked ? '' : errorMessage);
   });
 
@@ -93,7 +93,7 @@ Use the `setCustomValidity()` method to set a custom validation message. This wi
 
 ```jsx react
 import { useEffect, useRef } from 'react';
-import { SlButton, SlCheckbox } from '@shoelace-style/shoelace/dist/react';
+import { OneXButton, OneXCheckbox } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => {
   const checkbox = useRef(null);
@@ -114,16 +114,16 @@ const App = () => {
 
   return (
     <form class="custom-validity" onSubmit={handleSubmit}>
-      <SlCheckbox ref={checkbox} onSlChange={handleChange}>
+      <OnexCheckbox ref={checkbox} onSlChange={handleChange}>
         Check me
-      </SlCheckbox>
+      </OneXCheckbox>
       <br />
-      <SlButton type="submit" variant="primary" style={{ marginTop: '1rem' }}>
+      <OnexButton type="submit" variant="primary" style={{ marginTop: '1rem' }}>
         Submit
-      </SlButton>
+      </OneXButton>
     </form>
   );
 };
 ```
 
-[component-metadata:sl-checkbox]
+[component-metadata:onex-checkbox]

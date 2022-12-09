@@ -1,26 +1,26 @@
 # Radio Button
 
-[component-header:sl-radio-button]
+[component-header:onex-radio-button]
 
 Radio buttons are designed to be used with [radio groups](/components/radio-group). When a radio button has focus, the arrow keys can be used to change the selected option just like standard radio controls.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button value="1">Option 1</sl-radio-button>
-  <sl-radio-button value="2">Option 2</sl-radio-button>
-  <sl-radio-button value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button value="1">Option 1</onex-radio-button>
+  <onex-radio-button value="2">Option 2</onex-radio-button>
+  <onex-radio-button value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton value="1">Option 1</SlRadioButton>
-    <SlRadioButton value="2">Option 2</SlRadioButton>
-    <SlRadioButton value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -31,22 +31,22 @@ const App = () => (
 To set the initial value and checked state, use the `value` attribute on the containing radio group.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button value="1">Option 1</sl-radio-button>
-  <sl-radio-button value="2">Option 2</sl-radio-button>
-  <sl-radio-button value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button value="1">Option 1</onex-radio-button>
+  <onex-radio-button value="2">Option 2</onex-radio-button>
+  <onex-radio-button value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton value="1">Option 1</SlRadioButton>
-    <SlRadioButton value="2">Option 2</SlRadioButton>
-    <SlRadioButton value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -55,24 +55,24 @@ const App = () => (
 Use the `disabled` attribute to disable a radio button.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button value="1">Option 1</sl-radio-button>
-  <sl-radio-button value="2" disabled>Option 2</sl-radio-button>
-  <sl-radio-button value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button value="1">Option 1</onex-radio-button>
+  <onex-radio-button value="2" disabled>Option 2</onex-radio-button>
+  <onex-radio-button value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton value="1">Option 1</SlRadioButton>
-    <SlRadioButton value="2" disabled>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton value="2" disabled>
       Option 2
-    </SlRadioButton>
-    <SlRadioButton value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+    </OneXRadioButton>
+    <OneXRadioButton value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -81,54 +81,54 @@ const App = () => (
 Use the `size` attribute to change a radio button's size.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button size="small" value="1">Option 1</sl-radio-button>
-  <sl-radio-button size="small" value="2">Option 2</sl-radio-button>
-  <sl-radio-button size="small" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button size="small" value="1">Option 1</onex-radio-button>
+  <onex-radio-button size="small" value="2">Option 2</onex-radio-button>
+  <onex-radio-button size="small" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 
 <br />
 
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button size="medium" value="1">Option 1</sl-radio-button>
-  <sl-radio-button size="medium" value="2">Option 2</sl-radio-button>
-  <sl-radio-button size="medium" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button size="medium" value="1">Option 1</onex-radio-button>
+  <onex-radio-button size="medium" value="2">Option 2</onex-radio-button>
+  <onex-radio-button size="medium" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 
 <br />
 
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button size="large" value="1">Option 1</sl-radio-button>
-  <sl-radio-button size="large" value="2">Option 2</sl-radio-button>
-  <sl-radio-button size="large" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button size="large" value="1">Option 1</onex-radio-button>
+  <onex-radio-button size="large" value="2">Option 2</onex-radio-button>
+  <onex-radio-button size="large" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton size="small" value="1">Option 1</SlRadioButton>
-    <SlRadioButton size="small" value="2">Option 2</SlRadioButton>
-    <SlRadioButton size="small" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton size="small" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton size="small" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton size="small" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 
   <br />
 
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton size="medium" value="1">Option 1</SlRadioButton>
-    <SlRadioButton size="medium" value="2">Option 2</SlRadioButton>
-    <SlRadioButton size="medium" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton size="medium" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton size="medium" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton size="medium" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 
   <br />
 
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton size="large" value="1">Option 1</SlRadioButton>
-    <SlRadioButton size="large" value="2">Option 2</SlRadioButton>
-    <SlRadioButton size="large" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton size="large" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton size="large" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton size="large" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -137,54 +137,54 @@ const App = () => (
 Use the `pill` attribute to give radio buttons rounded edges.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button pill size="small" value="1">Option 1</sl-radio-button>
-  <sl-radio-button pill size="small" value="2">Option 2</sl-radio-button>
-  <sl-radio-button pill size="small" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button pill size="small" value="1">Option 1</onex-radio-button>
+  <onex-radio-button pill size="small" value="2">Option 2</onex-radio-button>
+  <onex-radio-button pill size="small" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 
 <br />
 
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button pill size="medium" value="1">Option 1</sl-radio-button>
-  <sl-radio-button pill size="medium" value="2">Option 2</sl-radio-button>
-  <sl-radio-button pill size="medium" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button pill size="medium" value="1">Option 1</onex-radio-button>
+  <onex-radio-button pill size="medium" value="2">Option 2</onex-radio-button>
+  <onex-radio-button pill size="medium" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 
 <br />
 
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button pill size="large" value="1">Option 1</sl-radio-button>
-  <sl-radio-button pill size="large" value="2">Option 2</sl-radio-button>
-  <sl-radio-button pill size="large" value="3">Option 3</sl-radio-button>
-</sl-radio-group>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button pill size="large" value="1">Option 1</onex-radio-button>
+  <onex-radio-button pill size="large" value="2">Option 2</onex-radio-button>
+  <onex-radio-button pill size="large" value="3">Option 3</onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton pill size="small" value="1">Option 1</SlRadioButton>
-    <SlRadioButton pill size="small" value="2">Option 2</SlRadioButton>
-    <SlRadioButton pill size="small" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton pill size="small" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton pill size="small" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton pill size="small" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 
   <br />
 
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton pill size="medium" value="1">Option 1</SlRadioButton>
-    <SlRadioButton pill size="medium" value="2">Option 2</SlRadioButton>
-    <SlRadioButton pill size="medium" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton pill size="medium" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton pill size="medium" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton pill size="medium" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 
   <br />
 
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton pill size="large" value="1">Option 1</SlRadioButton>
-    <SlRadioButton pill size="large" value="2">Option 2</SlRadioButton>
-    <SlRadioButton pill size="large" value="3">Option 3</SlRadioButton>
-  </SlRadioGroup>
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton pill size="large" value="1">Option 1</OneXRadioButton>
+    <OneXRadioButton pill size="large" value="2">Option 2</OneXRadioButton>
+    <OneXRadioButton pill size="large" value="3">Option 3</OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -193,46 +193,46 @@ const App = () => (
 Use the `prefix` and `suffix` slots to add icons.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="1">
-  <sl-radio-button value="1">
-    <sl-icon slot="prefix" name="archive"></sl-icon>
+<onex-radio-group label="Select an option" name="a" value="1">
+  <onex-radio-button value="1">
+    <onex-icon slot="prefix" name="archive"></onex-icon>
     Option 1
-  </sl-radio-button>
+  </onex-radio-button>
 
-  <sl-radio-button value="2">
-    <sl-icon slot="suffix" name="bag"></sl-icon>
+  <onex-radio-button value="2">
+    <onex-icon slot="suffix" name="bag"></onex-icon>
     Option 2
-  </sl-radio-button>
+  </onex-radio-button>
 
-  <sl-radio-button value="3">
-    <sl-icon slot="prefix" name="gift"></sl-icon>
-    <sl-icon slot="suffix" name="cart"></sl-icon>
+  <onex-radio-button value="3">
+    <onex-icon slot="prefix" name="gift"></onex-icon>
+    <onex-icon slot="suffix" name="cart"></onex-icon>
     Option 3
-  </sl-radio-button>
-</sl-radio-group>
+  </onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlIcon, SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon, OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="1">
-    <SlRadioButton value="1">
-      <SlIcon slot="prefix" name="archive" />
+  <OneXRadioGroup label="Select an option" name="a" value="1">
+    <OneXRadioButton value="1">
+      <OnexIcon slot="prefix" name="archive" />
       Option 1
-    </SlRadioButton>
+    </OneXRadioButton>
 
-    <SlRadioButton value="2">
-      <SlIcon slot="suffix" name="bag" />
+    <OneXRadioButton value="2">
+      <OnexIcon slot="suffix" name="bag" />
       Option 2
-    </SlRadioButton>
+    </OneXRadioButton>
 
-    <SlRadioButton value="3">
-      <SlIcon slot="prefix" name="gift" />
-      <SlIcon slot="suffix" name="cart" />
+    <OneXRadioButton value="3">
+      <OnexIcon slot="prefix" name="gift" />
+      <OnexIcon slot="suffix" name="cart" />
       Option 3
-    </SlRadioButton>
-  </SlRadioGroup>
+    </OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
@@ -241,55 +241,55 @@ const App = () => (
 You can omit button labels and use icons instead. Make sure to set a `label` attribute on each icon so screen readers will announce each option correctly.
 
 ```html preview
-<sl-radio-group label="Select an option" name="a" value="neutral">
-  <sl-radio-button value="angry">
-    <sl-icon name="emoji-angry" label="Angry"></sl-icon>
-  </sl-radio-button>
+<onex-radio-group label="Select an option" name="a" value="neutral">
+  <onex-radio-button value="angry">
+    <onex-icon name="emoji-angry" label="Angry"></onex-icon>
+  </onex-radio-button>
 
-  <sl-radio-button value="sad">
-    <sl-icon name="emoji-frown" label="Sad"></sl-icon>
-  </sl-radio-button>
+  <onex-radio-button value="sad">
+    <onex-icon name="emoji-frown" label="Sad"></onex-icon>
+  </onex-radio-button>
 
-  <sl-radio-button value="neutral">
-    <sl-icon name="emoji-neutral" label="Neutral"></sl-icon>
-  </sl-radio-button>
+  <onex-radio-button value="neutral">
+    <onex-icon name="emoji-neutral" label="Neutral"></onex-icon>
+  </onex-radio-button>
 
-  <sl-radio-button value="happy">
-    <sl-icon name="emoji-smile" label="Happy"></sl-icon>
-  </sl-radio-button>
+  <onex-radio-button value="happy">
+    <onex-icon name="emoji-smile" label="Happy"></onex-icon>
+  </onex-radio-button>
 
-  <sl-radio-button value="laughing">
-    <sl-icon name="emoji-laughing" label="Laughing"></sl-icon>
-  </sl-radio-button>
-</sl-radio-group>
+  <onex-radio-button value="laughing">
+    <onex-icon name="emoji-laughing" label="Laughing"></onex-icon>
+  </onex-radio-button>
+</onex-radio-group>
 ```
 
 ```jsx react
-import { SlIcon, SlRadioButton, SlRadioGroup } from '@shoelace-style/shoelace/dist/react';
+import { OneXIcon, OneXRadioButton, OneXRadioGroup } from '@shoelace-style/shoelace/dist/react';
 
 const App = () => (
-  <SlRadioGroup label="Select an option" name="a" value="neutral">
-    <SlRadioButton value="angry">
-      <SlIcon name="emoji-angry" label="Angry" />
-    </SlRadioButton>
+  <OneXRadioGroup label="Select an option" name="a" value="neutral">
+    <OneXRadioButton value="angry">
+      <OnexIcon name="emoji-angry" label="Angry" />
+    </OneXRadioButton>
 
-    <SlRadioButton value="sad">
-      <SlIcon name="emoji-frown" label="Sad" />
-    </SlRadioButton>
+    <OneXRadioButton value="sad">
+      <OnexIcon name="emoji-frown" label="Sad" />
+    </OneXRadioButton>
 
-    <SlRadioButton value="neutral">
-      <SlIcon name="emoji-neutral" label="Neutral" />
-    </SlRadioButton>
+    <OneXRadioButton value="neutral">
+      <OnexIcon name="emoji-neutral" label="Neutral" />
+    </OneXRadioButton>
 
-    <SlRadioButton value="happy">
-      <SlIcon name="emoji-smile" label="Happy" />
-    </SlRadioButton>
+    <OneXRadioButton value="happy">
+      <OnexIcon name="emoji-smile" label="Happy" />
+    </OneXRadioButton>
 
-    <SlRadioButton value="laughing">
-      <SlIcon name="emoji-laughing" label="Laughing" />
-    </SlRadioButton>
-  </SlRadioGroup>
+    <OneXRadioButton value="laughing">
+      <OnexIcon name="emoji-laughing" label="Laughing" />
+    </OneXRadioButton>
+  </OneXRadioGroup>
 );
 ```
 
-[component-metadata:sl-radio-button]
+[component-metadata:onex-radio-button]

@@ -2,29 +2,29 @@ import { aTimeout, expect, fixture, html, oneEvent } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
 import { clickOnElement } from '../../internal/test';
-import type SlColorPicker from './color-picker';
+import type OneXColorPicker from './color-picker';
 
-describe('<sl-color-picker>', () => {
+describe('<onex-color-picker>', () => {
   describe('when the value changes', () => {
-    it('should not emit sl-change or sl-input when the value is changed programmatically', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should not emit onex-change or onex-input when the value is changed programmatically', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const color = 'rgb(255, 204, 0)';
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-change should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-change should not be emitted'));
       el.value = color;
       await el.updateComplete;
     });
 
-    it('should emit sl-change and sl-input when the color grid selector is moved', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when the color grid selector is moved', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const grid = el.shadowRoot!.querySelector<HTMLElement>('[part~="grid"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -35,15 +35,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when the hue slider is moved', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when the hue slider is moved', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const slider = el.shadowRoot!.querySelector<HTMLElement>('[part~="hue-slider"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -54,15 +54,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when the opacity slider is moved', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity></sl-color-picker> `);
+    it('should emit onex-change and onex-input when the opacity slider is moved', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker opacity></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const slider = el.shadowRoot!.querySelector<HTMLElement>('[part~="opacity-slider"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -73,15 +73,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when toggling the format', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker value="#fff"></sl-color-picker> `);
+    it('should emit onex-change and onex-input when toggling the format', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker value="#fff"></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const formatButton = el.shadowRoot!.querySelector<HTMLElement>('[part~="format-button"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -93,15 +93,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when clicking on a swatch', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when clicking on a swatch', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const swatch = el.shadowRoot!.querySelector<HTMLElement>('[part~="swatch"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -112,15 +112,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when selecting a color with the keyboard', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when selecting a color with the keyboard', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const gridHandle = el.shadowRoot!.querySelector<HTMLElement>('[part~="grid-handle"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -132,15 +132,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when selecting a color with the keyboard', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when selecting a color with the keyboard', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const handle = el.shadowRoot!.querySelector<HTMLElement>('[part~="grid-handle"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -152,15 +152,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when selecting hue with the keyboard', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
+    it('should emit onex-change and onex-input when selecting hue with the keyboard', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const handle = el.shadowRoot!.querySelector<HTMLElement>('[part~="hue-slider"] > span')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -172,15 +172,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when selecting opacity with the keyboard', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity></sl-color-picker> `);
+    it('should emit onex-change and onex-input when selecting opacity with the keyboard', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker opacity></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const handle = el.shadowRoot!.querySelector<HTMLElement>('[part~="opacity-slider"] > span')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -192,15 +192,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when entering a value in the color input and pressing enter', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity></sl-color-picker> `);
+    it('should emit onex-change and onex-input when entering a value in the color input and pressing enter', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker opacity></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const input = el.shadowRoot!.querySelector<HTMLElement>('[part~="input"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -214,15 +214,15 @@ describe('<sl-color-picker>', () => {
       expect(inputHandler).to.have.been.calledOnce;
     });
 
-    it('should emit sl-change and sl-input when entering a value in the color input and blurring the field', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity></sl-color-picker> `);
+    it('should emit onex-change and onex-input when entering a value in the color input and blurring the field', async () => {
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker opacity></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const input = el.shadowRoot!.querySelector<HTMLElement>('[part~="input"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       await clickOnElement(trigger); // open the dropdown
       await aTimeout(200); // wait for the dropdown to open
@@ -237,13 +237,13 @@ describe('<sl-color-picker>', () => {
     });
 
     it('should render the correct format when selecting a swatch of a different format', async () => {
-      const el = await fixture<SlColorPicker>(html` <sl-color-picker format="rgb"></sl-color-picker> `);
+      const el = await fixture<OnexColorPicker>(html` <onex-color-picker format="rgb"></onex-color-picker> `);
       const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]')!;
       const changeHandler = sinon.spy();
       const inputHandler = sinon.spy();
 
-      el.addEventListener('sl-change', changeHandler);
-      el.addEventListener('sl-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
 
       el.swatches = ['#fff'];
       await el.updateComplete;
@@ -261,40 +261,42 @@ describe('<sl-color-picker>', () => {
   });
 
   it('should render in a dropdown', async () => {
-    const el = await fixture<SlColorPicker>(html` <sl-color-picker></sl-color-picker> `);
-    const dropdown = el.shadowRoot!.querySelector('sl-dropdown');
+    const el = await fixture<OnexColorPicker>(html` <onex-color-picker></onex-color-picker> `);
+    const dropdown = el.shadowRoot!.querySelector('onex-dropdown');
 
     expect(dropdown).to.exist;
   });
 
   it('should not render in a dropdown when inline is enabled', async () => {
-    const el = await fixture<SlColorPicker>(html` <sl-color-picker inline></sl-color-picker> `);
-    const dropdown = el.shadowRoot!.querySelector('sl-dropdown');
+    const el = await fixture<OnexColorPicker>(html` <onex-color-picker inline></onex-color-picker> `);
+    const dropdown = el.shadowRoot!.querySelector('onex-dropdown');
 
     expect(dropdown).to.not.exist;
   });
 
   it('should show opacity slider when opacity is enabled', async () => {
-    const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity></sl-color-picker> `);
+    const el = await fixture<OnexColorPicker>(html` <onex-color-picker opacity></onex-color-picker> `);
     const opacitySlider = el.shadowRoot!.querySelector('[part*="opacity-slider"]')!;
 
     expect(opacitySlider).to.exist;
   });
 
   it('should display a color when an initial value is provided', async () => {
-    const el = await fixture<SlColorPicker>(html` <sl-color-picker value="#000"></sl-color-picker> `);
+    const el = await fixture<OnexColorPicker>(html` <onex-color-picker value="#000"></onex-color-picker> `);
     const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]');
 
     expect(trigger?.style.color).to.equal('rgb(0, 0, 0)');
   });
 
   it('should display a color with opacity when an initial value with opacity is provided', async () => {
-    const el = await fixture<SlColorPicker>(html` <sl-color-picker opacity value="#ff000050"></sl-color-picker> `);
+    const el = await fixture<OnexColorPicker>(
+      html` <onex-color-picker opacity value="#ff000050"></onex-color-picker> `
+    );
     const trigger = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="trigger"]');
     const previewButton = el.shadowRoot!.querySelector<HTMLButtonElement>('[part~="preview"]');
-    const previewColor = getComputedStyle(previewButton!).getPropertyValue('--preview-color');
+    const previewColor = getComputedStyle(previewButton).getPropertyValue('--preview-color');
 
-    expect(trigger!.style.color).to.equal('rgba(255, 0, 0, 0.314)');
+    expect(trigger.style.color).to.equal('rgba(255, 0, 0, 0.314)');
     expect(previewColor.startsWith('hsla(0deg, 100%, 50%, 0.31')).to.be.true;
   });
 
@@ -302,12 +304,12 @@ describe('<sl-color-picker>', () => {
     it('should reset the element to its initial value', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-color-picker name="a" value="#FFFFFF"></sl-color-picker>
-          <sl-button type="reset">Reset</sl-button>
+          <onex-color-picker name="a" value="#FFFFFF"></onex-color-picker>
+          <onex-button type="reset">Reset</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
-      const colorPicker = form.querySelector('sl-color-picker')!;
+      const button = form.querySelector('onex-button')!;
+      const colorPicker = form.querySelector('onex-color-picker')!;
       colorPicker.value = '#000000';
 
       await colorPicker.updateComplete;

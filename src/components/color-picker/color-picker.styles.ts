@@ -8,8 +8,8 @@ export default css`
     --grid-width: 280px;
     --grid-height: 200px;
     --grid-handle-size: 16px;
-    --slider-height: 15px;
-    --slider-handle-size: 17px;
+    --onexider-height: 15px;
+    --onexider-handle-size: 17px;
     --swatch-size: 25px;
 
     display: inline-block;
@@ -17,22 +17,22 @@ export default css`
 
   .color-picker {
     width: var(--grid-width);
-    font-family: var(--sl-font-sans);
-    font-size: var(--sl-font-size-medium);
-    font-weight: var(--sl-font-weight-normal);
+    font-family: var(--onex-font-sans);
+    font-size: var(--onex-font-size-medium);
+    font-weight: var(--onex-font-weight-normal);
     color: var(--color);
-    background-color: var(--sl-panel-background-color);
-    border-radius: var(--sl-border-radius-medium);
+    background-color: var(--onex-panel-background-color);
+    border-radius: var(--onex-border-radius-medium);
     user-select: none;
   }
 
   .color-picker--inline {
-    border: solid var(--sl-panel-border-width) var(--sl-panel-border-color);
+    border: solid var(--onex-panel-border-width) var(--onex-panel-border-color);
   }
 
   .color-picker--inline:focus-visible {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   .color-picker__grid {
@@ -40,8 +40,8 @@ export default css`
     height: var(--grid-height);
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),
       linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
-    border-top-left-radius: var(--sl-border-radius-medium);
-    border-top-right-radius: var(--sl-border-radius-medium);
+    border-top-left-radius: var(--onex-border-radius-medium);
+    border-top-right-radius: var(--onex-border-radius-medium);
     cursor: crosshair;
     forced-color-adjust: none;
   }
@@ -55,7 +55,7 @@ export default css`
     border: solid 2px white;
     margin-top: calc(var(--grid-handle-size) / -2);
     margin-left: calc(var(--grid-handle-size) / -2);
-    transition: var(--sl-transition-fast) scale;
+    transition: var(--onex-transition-fast) scale;
   }
 
   .color-picker__grid-handle--dragging {
@@ -64,11 +64,11 @@ export default css`
   }
 
   .color-picker__grid-handle:focus-visible {
-    outline: var(--sl-focus-ring);
+    outline: var(--onex-focus-ring);
   }
 
   .color-picker__controls {
-    padding: var(--sl-spacing-small);
+    padding: var(--onex-spacing-small);
     display: flex;
     align-items: center;
   }
@@ -79,29 +79,29 @@ export default css`
 
   .color-picker__slider {
     position: relative;
-    height: var(--slider-height);
-    border-radius: var(--sl-border-radius-pill);
+    height: var(--onexider-height);
+    border-radius: var(--onex-border-radius-pill);
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
     forced-color-adjust: none;
   }
 
   .color-picker__slider:not(:last-of-type) {
-    margin-bottom: var(--sl-spacing-small);
+    margin-bottom: var(--onex-spacing-small);
   }
 
   .color-picker__slider-handle {
     position: absolute;
-    top: calc(50% - var(--slider-handle-size) / 2);
-    width: var(--slider-handle-size);
-    height: var(--slider-handle-size);
+    top: calc(50% - var(--onexider-handle-size) / 2);
+    width: var(--onexider-handle-size);
+    height: var(--onexider-handle-size);
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-    margin-left: calc(var(--slider-handle-size) / -2);
+    margin-left: calc(var(--onexider-handle-size) / -2);
   }
 
   .color-picker__slider-handle:focus-visible {
-    outline: var(--sl-focus-ring);
+    outline: var(--onex-focus-ring);
   }
 
   .color-picker__hue {
@@ -135,9 +135,9 @@ export default css`
     width: 2.25rem;
     height: 2.25rem;
     border: none;
-    border-radius: var(--sl-border-radius-circle);
+    border-radius: var(--onex-border-radius-circle);
     background: none;
-    margin-left: var(--sl-spacing-small);
+    margin-left: var(--onex-spacing-small);
     cursor: copy;
     forced-color-adjust: none;
   }
@@ -157,8 +157,8 @@ export default css`
   }
 
   .color-picker__preview:focus-visible {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   .color-picker__preview-color {
@@ -176,7 +176,7 @@ export default css`
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 var(--sl-color-primary-500);
+      box-shadow: 0 0 0 0 var(--onex-color-primary-500);
     }
     70% {
       box-shadow: 0 0 0 0.5rem transparent;
@@ -188,19 +188,19 @@ export default css`
 
   .color-picker__user-input {
     display: flex;
-    padding: 0 var(--sl-spacing-small) var(--sl-spacing-small) var(--sl-spacing-small);
+    padding: 0 var(--onex-spacing-small) var(--onex-spacing-small) var(--onex-spacing-small);
   }
 
-  .color-picker__user-input sl-input {
+  .color-picker__user-input onex-input {
     min-width: 0; /* fix input width in Safari */
     flex: 1 1 auto;
   }
 
-  .color-picker__user-input sl-button-group {
-    margin-left: var(--sl-spacing-small);
+  .color-picker__user-input onex-button-group {
+    margin-left: var(--onex-spacing-small);
   }
 
-  .color-picker__user-input sl-button {
+  .color-picker__user-input onex-button {
     min-width: 3.25rem;
     max-width: 3.25rem;
     font-size: 1rem;
@@ -211,8 +211,8 @@ export default css`
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 0.5rem;
     justify-items: center;
-    border-top: solid 1px var(--sl-color-neutral-200);
-    padding: var(--sl-spacing-small);
+    border-top: solid 1px var(--onex-color-neutral-200);
+    padding: var(--onex-spacing-small);
     forced-color-adjust: none;
   }
 
@@ -220,7 +220,7 @@ export default css`
     position: relative;
     width: var(--swatch-size);
     height: var(--swatch-size);
-    border-radius: var(--sl-border-radius-small);
+    border-radius: var(--onex-border-radius-small);
   }
 
   .color-picker__swatch .color-picker__swatch-color {
@@ -235,15 +235,15 @@ export default css`
   }
 
   .color-picker__swatch:focus-visible {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   .color-picker__transparent-bg {
-    background-image: linear-gradient(45deg, var(--sl-color-neutral-300) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--sl-color-neutral-300) 75%),
-      linear-gradient(45deg, transparent 75%, var(--sl-color-neutral-300) 75%),
-      linear-gradient(45deg, var(--sl-color-neutral-300) 25%, transparent 25%);
+    background-image: linear-gradient(45deg, var(--onex-color-neutral-300) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--onex-color-neutral-300) 75%),
+      linear-gradient(45deg, transparent 75%, var(--onex-color-neutral-300) 75%),
+      linear-gradient(45deg, var(--onex-color-neutral-300) 25%, transparent 25%);
     background-size: 10px 10px;
     background-position: 0 0, 0 0, -5px -5px, 5px 5px;
   }
@@ -269,9 +269,9 @@ export default css`
 
   .color-dropdown::part(panel) {
     max-height: none;
-    background-color: var(--sl-panel-background-color);
-    border: solid var(--sl-panel-border-width) var(--sl-panel-border-color);
-    border-radius: var(--sl-border-radius-medium);
+    background-color: var(--onex-panel-background-color);
+    border: solid var(--onex-panel-border-width) var(--onex-panel-border-color);
+    border-radius: var(--onex-border-radius-medium);
     overflow: visible;
   }
 
@@ -285,21 +285,21 @@ export default css`
   }
 
   .color-dropdown__trigger.color-dropdown__trigger--small {
-    width: var(--sl-input-height-small);
-    height: var(--sl-input-height-small);
-    border-radius: var(--sl-border-radius-circle);
+    width: var(--onex-input-height-small);
+    height: var(--onex-input-height-small);
+    border-radius: var(--onex-border-radius-circle);
   }
 
   .color-dropdown__trigger.color-dropdown__trigger--medium {
-    width: var(--sl-input-height-medium);
-    height: var(--sl-input-height-medium);
-    border-radius: var(--sl-border-radius-circle);
+    width: var(--onex-input-height-medium);
+    height: var(--onex-input-height-medium);
+    border-radius: var(--onex-border-radius-circle);
   }
 
   .color-dropdown__trigger.color-dropdown__trigger--large {
-    width: var(--sl-input-height-large);
-    height: var(--sl-input-height-large);
-    border-radius: var(--sl-border-radius-circle);
+    width: var(--onex-input-height-large);
+    height: var(--onex-input-height-large);
+    border-radius: var(--onex-border-radius-circle);
   }
 
   .color-dropdown__trigger:before {
@@ -311,7 +311,7 @@ export default css`
     height: 100%;
     border-radius: inherit;
     background-color: currentColor;
-    box-shadow: inset 0 0 0 2px var(--sl-input-border-color), inset 0 0 0 4px var(--sl-color-neutral-0);
+    box-shadow: inset 0 0 0 2px var(--onex-input-border-color), inset 0 0 0 4px var(--onex-color-neutral-0);
   }
 
   .color-dropdown__trigger--empty:before {
@@ -323,8 +323,8 @@ export default css`
   }
 
   .color-dropdown__trigger:focus-visible:not(.color-dropdown__trigger--disabled) {
-    outline: var(--sl-focus-ring);
-    outline-offset: var(--sl-focus-ring-offset);
+    outline: var(--onex-focus-ring);
+    outline-offset: var(--onex-focus-ring-offset);
   }
 
   .color-dropdown__trigger.color-dropdown__trigger--disabled {

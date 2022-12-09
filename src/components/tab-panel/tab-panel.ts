@@ -20,12 +20,12 @@ let id = 0;
  *
  * @cssproperty --padding - The tab panel's padding.
  */
-@customElement('sl-tab-panel')
-export default class SlTabPanel extends ShoelaceElement {
+@customElement('onex-tab-panel')
+export default class OneXTabPanel extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private readonly attrId = ++id;
-  private readonly componentId = `sl-tab-panel-${this.attrId}`;
+  private readonly componentId = `onex-tab-panel-${this.attrId}`;
 
   /** The tab panel's name. */
   @property({ reflect: true }) name = '';
@@ -59,6 +59,6 @@ export default class SlTabPanel extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tab-panel': SlTabPanel;
+    'onex-tab-panel': OneXTabPanel;
   }
 }

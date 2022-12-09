@@ -2,16 +2,16 @@ import { expect, fixture, html, oneEvent, waitUntil } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
 import { serialize } from '../../utilities/form';
-import type SlInput from './input';
+import type OneXInput from './input';
 
-describe('<sl-input>', () => {
+describe('<onex-input>', () => {
   it('should pass accessibility tests', async () => {
-    const el = await fixture<SlInput>(html` <sl-input label="Name"></sl-input> `);
+    const el = await fixture<OnexInput>(html` <onex-input label="Name"></onex-input> `);
     await expect(el).to.be.accessible();
   });
 
   it('default properties', async () => {
-    const el = await fixture<SlInput>(html` <sl-input></sl-input> `);
+    const el = await fixture<OnexInput>(html` <onex-input></onex-input> `);
 
     expect(el.type).to.equal('text');
     expect(el.size).to.equal('medium');
@@ -49,14 +49,14 @@ describe('<sl-input>', () => {
   });
 
   it('should have title if title attribute is set', async () => {
-    const el = await fixture<SlInput>(html` <sl-input title="Test"></sl-input> `);
+    const el = await fixture<OnexInput>(html` <onex-input title="Test"></onex-input> `);
     const input = el.shadowRoot!.querySelector<HTMLInputElement>('[part~="input"]')!;
 
     expect(input.title).to.equal('Test');
   });
 
   it('should be disabled with the disabled attribute', async () => {
-    const el = await fixture<SlInput>(html` <sl-input disabled></sl-input> `);
+    const el = await fixture<OnexInput>(html` <onex-input disabled></onex-input> `);
     const input = el.shadowRoot!.querySelector<HTMLInputElement>('[part~="input"]')!;
 
     expect(input.disabled).to.be.true;
@@ -64,7 +64,7 @@ describe('<sl-input>', () => {
 
   describe('value methods', () => {
     it('should set the value as a date when using valueAsDate', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="date"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="date"></onex-input> `);
       const today = new Date();
 
       el.valueAsDate = today;
@@ -73,7 +73,7 @@ describe('<sl-input>', () => {
     });
 
     it('should set the value as a number when using valueAsNumber', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number"></onex-input> `);
       const num = 12345;
 
       el.valueAsNumber = num;
@@ -83,11 +83,11 @@ describe('<sl-input>', () => {
   });
 
   it('should focus the input when clicking on the label', async () => {
-    const el = await fixture<SlInput>(html` <sl-input label="Name"></sl-input> `);
+    const el = await fixture<OnexInput>(html` <onex-input label="Name"></onex-input> `);
     const label = el.shadowRoot!.querySelector('[part~="form-control-label"]')!;
     const submitHandler = sinon.spy();
 
-    el.addEventListener('sl-focus', submitHandler);
+    el.addEventListener('onex-focus', submitHandler);
     (label as HTMLLabelElement).click();
     await waitUntil(() => submitHandler.calledOnce);
 
@@ -96,24 +96,24 @@ describe('<sl-input>', () => {
 
   describe('when using constraint validation', () => {
     it('should be valid by default', async () => {
-      const el = await fixture<SlInput>(html` <sl-input></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input></onex-input> `);
       expect(el.invalid).to.be.false;
     });
 
     it('should be invalid when required and empty', async () => {
-      const el = await fixture<SlInput>(html` <sl-input required></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input required></onex-input> `);
       expect(el.reportValidity()).to.be.false;
       expect(el.invalid).to.be.true;
     });
 
     it('should be invalid when the pattern does not match', async () => {
-      const el = await fixture<SlInput>(html` <sl-input pattern="^test" value="fail"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input pattern="^test" value="fail"></onex-input> `);
       expect(el.invalid).to.be.true;
       expect(el.reportValidity()).to.be.false;
     });
 
     it('should be invalid when required and disabled is removed', async () => {
-      const el = await fixture<SlInput>(html` <sl-input disabled required></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input disabled required></onex-input> `);
       el.disabled = false;
       await el.updateComplete;
       expect(el.invalid).to.be.true;
@@ -122,13 +122,13 @@ describe('<sl-input>', () => {
 
   describe('when serializing', () => {
     it('should serialize its name and value with FormData', async () => {
-      const form = await fixture<HTMLFormElement>(html` <form><sl-input name="a" value="1"></sl-input></form> `);
+      const form = await fixture<HTMLFormElement>(html` <form><onex-input name="a" value="1"></onex-input></form> `);
       const formData = new FormData(form);
       expect(formData.get('a')).to.equal('1');
     });
 
     it('should serialize its name and value with JSON', async () => {
-      const form = await fixture<HTMLFormElement>(html` <form><sl-input name="a" value="1"></sl-input></form> `);
+      const form = await fixture<HTMLFormElement>(html` <form><onex-input name="a" value="1"></onex-input></form> `);
       const json = serialize(form);
       expect(json.a).to.equal('1');
     });
@@ -136,8 +136,8 @@ describe('<sl-input>', () => {
 
   describe('when submitting a form', () => {
     it('should submit the form when pressing enter in a form without a submit button', async () => {
-      const form = await fixture<HTMLFormElement>(html` <form><sl-input></sl-input></form> `);
-      const input = form.querySelector('sl-input')!;
+      const form = await fixture<HTMLFormElement>(html` <form><onex-input></onex-input></form> `);
+      const input = form.querySelector('onex-input')!;
       const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
       form.addEventListener('submit', submitHandler);
@@ -149,8 +149,8 @@ describe('<sl-input>', () => {
     });
 
     it('should prevent submission when pressing enter in an input and canceling the keydown event', async () => {
-      const form = await fixture<HTMLFormElement>(html` <form><sl-input></sl-input></form> `);
-      const input = form.querySelector('sl-input')!;
+      const form = await fixture<HTMLFormElement>(html` <form><onex-input></onex-input></form> `);
+      const input = form.querySelector('onex-input')!;
       const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
       const keydownHandler = sinon.spy((event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -173,12 +173,12 @@ describe('<sl-input>', () => {
     it('should reset the element to its initial value', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-input name="a" value="test"></sl-input>
-          <sl-button type="reset">Reset</sl-button>
+          <onex-input name="a" value="test"></onex-input>
+          <onex-button type="reset">Reset</onex-button>
         </form>
       `);
-      const button = form.querySelector('sl-button')!;
-      const input = form.querySelector('sl-input')!;
+      const button = form.querySelector('onex-button')!;
+      const input = form.querySelector('onex-input')!;
       input.value = '1234';
 
       await input.updateComplete;
@@ -203,8 +203,8 @@ describe('<sl-input>', () => {
     it('should be invalid when the input is empty and form.reportValidity() is called', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
-          <sl-input required value=""></sl-input>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-input required value=""></onex-input>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
 
@@ -214,8 +214,8 @@ describe('<sl-input>', () => {
     it('should be valid when the input is empty, reportValidity() is called, and the form has novalidate', async () => {
       const form = await fixture<HTMLFormElement>(html`
         <form novalidate>
-          <sl-input required value=""></sl-input>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-input required value=""></onex-input>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
 
@@ -226,7 +226,7 @@ describe('<sl-input>', () => {
       const form = await fixture<HTMLFormElement>(html`
         <form>
           <input required value=""></input>
-          <sl-button type="submit">Submit</sl-button>
+          <onex-button type="submit">Submit</onex-button>
         </form>
       `);
 
@@ -235,13 +235,13 @@ describe('<sl-input>', () => {
   });
 
   describe('when the value changes', () => {
-    it('should emit sl-change and sl-input when the user types in the input', async () => {
-      const el = await fixture<SlInput>(html` <sl-input></sl-input> `);
+    it('should emit onex-change and onex-input when the user types in the input', async () => {
+      const el = await fixture<OnexInput>(html` <onex-input></onex-input> `);
       const inputHandler = sinon.spy();
       const changeHandler = sinon.spy();
 
-      el.addEventListener('sl-input', inputHandler);
-      el.addEventListener('sl-change', changeHandler);
+      el.addEventListener('onex-input', inputHandler);
+      el.addEventListener('onex-change', changeHandler);
       el.focus();
       await sendKeys({ type: 'abc' });
       el.blur();
@@ -251,21 +251,21 @@ describe('<sl-input>', () => {
       expect(inputHandler).to.have.been.calledThrice;
     });
 
-    it('should not emit sl-change or sl-input when the value is set programmatically', async () => {
-      const el = await fixture<SlInput>(html` <sl-input></sl-input> `);
+    it('should not emit onex-change or onex-input when the value is set programmatically', async () => {
+      const el = await fixture<OnexInput>(html` <onex-input></onex-input> `);
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
       el.value = 'abc';
 
       await el.updateComplete;
     });
 
-    it('should not emit sl-change or sl-input when calling setRangeText()', async () => {
-      const el = await fixture<SlInput>(html` <sl-input value="hi there"></sl-input> `);
+    it('should not emit onex-change or onex-input when calling setRangeText()', async () => {
+      const el = await fixture<OnexInput>(html` <onex-input value="hi there"></onex-input> `);
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
       el.focus();
       el.setSelectionRange(0, 2);
       el.setRangeText('hello');
@@ -276,17 +276,17 @@ describe('<sl-input>', () => {
 
   describe('when type="number"', () => {
     it('should be valid when the value is within the boundary of a step', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step=".5" value="1.5"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step=".5" value="1.5"></onex-input> `);
       expect(el.invalid).to.be.false;
     });
 
     it('should be invalid when the value is not within the boundary of a step', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step=".5" value="1.25"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step=".5" value="1.25"></onex-input> `);
       expect(el.invalid).to.be.true;
     });
 
     it('should update validity when step changes', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step=".5" value="1.5"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step=".5" value="1.5"></onex-input> `);
       expect(el.invalid).to.be.false;
 
       el.step = 1;
@@ -295,7 +295,7 @@ describe('<sl-input>', () => {
     });
 
     it('should increment by step when stepUp() is called', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step="2" value="2"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step="2" value="2"></onex-input> `);
 
       el.stepUp();
       await el.updateComplete;
@@ -303,28 +303,28 @@ describe('<sl-input>', () => {
     });
 
     it('should decrement by step when stepDown() is called', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step="2" value="2"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step="2" value="2"></onex-input> `);
 
       el.stepDown();
       await el.updateComplete;
       expect(el.value).to.equal('0');
     });
 
-    it('should not emit sl-input or sl-change when stepUp() is called programmatically', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step="2" value="2"></sl-input> `);
+    it('should not emit onex-input or onex-change when stepUp() is called programmatically', async () => {
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step="2" value="2"></onex-input> `);
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
       el.stepUp();
 
       await el.updateComplete;
     });
 
-    it('should not emit sl-input and sl-change when stepDown() is called programmatically', async () => {
-      const el = await fixture<SlInput>(html` <sl-input type="number" step="2" value="2"></sl-input> `);
+    it('should not emit onex-input and onex-change when stepDown() is called programmatically', async () => {
+      const el = await fixture<OnexInput>(html` <onex-input type="number" step="2" value="2"></onex-input> `);
 
-      el.addEventListener('sl-change', () => expect.fail('sl-change should not be emitted'));
-      el.addEventListener('sl-input', () => expect.fail('sl-input should not be emitted'));
+      el.addEventListener('onex-change', () => expect.fail('onex-change should not be emitted'));
+      el.addEventListener('onex-input', () => expect.fail('onex-input should not be emitted'));
       el.stepDown();
 
       await el.updateComplete;
@@ -333,21 +333,21 @@ describe('<sl-input>', () => {
 
   describe('when using spellcheck', () => {
     it('should enable spellcheck when no attribute is present', async () => {
-      const el = await fixture<SlInput>(html` <sl-input></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input></onex-input> `);
       const input = el.shadowRoot!.querySelector<HTMLInputElement>('input')!;
       expect(input.getAttribute('spellcheck')).to.equal('true');
       expect(input.spellcheck).to.be.true;
     });
 
     it('should enable spellcheck when set to "true"', async () => {
-      const el = await fixture<SlInput>(html` <sl-input spellcheck="true"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input spellcheck="true"></onex-input> `);
       const input = el.shadowRoot!.querySelector<HTMLInputElement>('input')!;
       expect(input.getAttribute('spellcheck')).to.equal('true');
       expect(input.spellcheck).to.be.true;
     });
 
     it('should disable spellcheck when set to "false"', async () => {
-      const el = await fixture<SlInput>(html` <sl-input spellcheck="false"></sl-input> `);
+      const el = await fixture<OnexInput>(html` <onex-input spellcheck="false"></onex-input> `);
       const input = el.shadowRoot!.querySelector<HTMLInputElement>('input')!;
       expect(input.getAttribute('spellcheck')).to.equal('false');
       expect(input.spellcheck).to.be.false;

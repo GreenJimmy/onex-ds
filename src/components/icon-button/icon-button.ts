@@ -13,15 +13,15 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-icon
+ * @dependency onex-icon
  *
- * @event sl-blur - Emitted when the icon button loses focus.
- * @event sl-focus - Emitted when the icon button gains focus.
+ * @event onex-blur - Emitted when the icon button loses focus.
+ * @event onex-focus - Emitted when the icon button gains focus.
  *
  * @csspart base - The component's base wrapper.
  */
-@customElement('sl-icon-button')
-export default class SlIconButton extends ShoelaceElement {
+@customElement('onex-icon-button')
+export default class OneXIconButton extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @state() private hasFocus = false;
@@ -75,12 +75,12 @@ export default class SlIconButton extends ShoelaceElement {
 
   handleBlur() {
     this.hasFocus = false;
-    this.emit('sl-blur');
+    this.emit('onex-blur');
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.emit('sl-focus');
+    this.emit('onex-focus');
   }
 
   handleClick(event: MouseEvent) {
@@ -117,13 +117,13 @@ export default class SlIconButton extends ShoelaceElement {
         @focus=${this.handleFocus}
         @click=${this.handleClick}
       >
-        <sl-icon
+        <onex-icon
           class="icon-button__icon"
           name=${ifDefined(this.name)}
           library=${ifDefined(this.library)}
           src=${ifDefined(this.src)}
           aria-hidden="true"
-        ></sl-icon>
+        ></onex-icon>
       </${tag}>
     `;
   }
@@ -131,6 +131,6 @@ export default class SlIconButton extends ShoelaceElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-icon-button': SlIconButton;
+    'onex-icon-button': OneXIconButton;
   }
 }

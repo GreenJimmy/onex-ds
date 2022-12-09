@@ -9,7 +9,7 @@ import { getAnimation, setDefaultAnimation } from '../../utilities/animation-reg
 import { LocalizeController } from '../../utilities/localize';
 import '../popup/popup';
 import styles from './tooltip.styles';
-import type SlPopup from '../popup/popup';
+import type OneXPopup from '../popup/popup';
 import type { CSSResultGroup } from 'lit';
 
 /**
@@ -18,17 +18,17 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-popup
+ * @dependency onex-popup
  *
  * @slot - The tooltip's target element. Avoid slotting in more than one element, as subsequent ones will be ignored.
  * @slot content - The content to render in the tooltip. Alternatively, you can use the `content` attribute.
  *
- * @event sl-show - Emitted when the tooltip begins to show.
- * @event sl-after-show - Emitted after the tooltip has shown and all animations are complete.
- * @event sl-hide - Emitted when the tooltip begins to hide.
- * @event sl-after-hide - Emitted after the tooltip has hidden and all animations are complete.
+ * @event onex-show - Emitted when the tooltip begins to show.
+ * @event onex-after-show - Emitted after the tooltip has shown and all animations are complete.
+ * @event onex-hide - Emitted when the tooltip begins to hide.
+ * @event onex-after-hide - Emitted after the tooltip has hidden and all animations are complete.
  *
- * @csspart base - The component's base wrapper, an `<sl-popup>` element.
+ * @csspart base - The component's base wrapper, an `<onex-popup>` element.
  * @csspart base__popup - The popup's exported `popup` part. Use this to target the tooltip's popup container.
  * @csspart base__arrow - The popup's exported `arrow` part. Use this to target the tooltip's arrow.
  * @csspart body - The tooltip's body where its content is rendered.
@@ -40,13 +40,13 @@ import type { CSSResultGroup } from 'lit';
  * @animation tooltip.show - The animation to use when showing the tooltip.
  * @animation tooltip.hide - The animation to use when hiding the tooltip.
  */
-@customElement('sl-tooltip')
-export default class SlTooltip extends ShoelaceElement {
+@customElement('onex-tooltip')
+export default class OneXTooltip extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   @query('slot:not([name])') defaultSlot: HTMLSlotElement;
   @query('.tooltip__body') body: HTMLElement;
-  @query('sl-popup') popup: SlPopup;
+  @query('onex-popup') popup: OneXPopup;
 
   private hoverTimeout: number;
   private readonly localize = new LocalizeController(this);
@@ -144,7 +144,7 @@ export default class SlTooltip extends ShoelaceElement {
     }
 
     this.open = true;
-    return waitForEvent(this, 'sl-after-show');
+    return waitForEvent(this, 'onex-after-show');
   }
 
   /** Hides the tooltip */
@@ -154,7 +154,7 @@ export default class SlTooltip extends ShoelaceElement {
     }
 
     this.open = false;
-    return waitForEvent(this, 'sl-after-hide');
+    return waitForEvent(this, 'onex-after-hide');
   }
 
   getTarget() {
@@ -224,7 +224,7 @@ export default class SlTooltip extends ShoelaceElement {
       }
 
       // Show
-      this.emit('sl-show');
+      this.emit('onex-show');
 
       await stopAnimations(this.body);
       this.body.hidden = false;
@@ -232,10 +232,10 @@ export default class SlTooltip extends ShoelaceElement {
       const { keyframes, options } = getAnimation(this, 'tooltip.show', { dir: this.localize.dir() });
       await animateTo(this.popup.popup, keyframes, options);
 
-      this.emit('sl-after-show');
+      this.emit('onex-after-show');
     } else {
       // Hide
-      this.emit('sl-hide');
+      this.emit('onex-hide');
 
       await stopAnimations(this.body);
       const { keyframes, options } = getAnimation(this, 'tooltip.hide', { dir: this.localize.dir() });
@@ -243,7 +243,7 @@ export default class SlTooltip extends ShoelaceElement {
       this.popup.active = false;
       this.body.hidden = true;
 
-      this.emit('sl-after-hide');
+      this.emit('onex-after-hide');
     }
   }
 
@@ -273,7 +273,7 @@ export default class SlTooltip extends ShoelaceElement {
 
   render() {
     return html`
-      <sl-popup
+      <onex-popup
         part="base"
         exportparts="
           popup:base__popup,
@@ -303,7 +303,7 @@ export default class SlTooltip extends ShoelaceElement {
         >
           ${this.content}
         </slot>
-      </sl-popup>
+      </onex-popup>
     `;
   }
 }
@@ -326,6 +326,6 @@ setDefaultAnimation('tooltip.hide', {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-tooltip': SlTooltip;
+    'onex-tooltip': OneXTooltip;
   }
 }

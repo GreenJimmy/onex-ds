@@ -11,11 +11,11 @@ import { getAnimation, setDefaultAnimation } from '../../utilities/animation-reg
 import { LocalizeController } from '../../utilities/localize';
 import '../popup/popup';
 import styles from './dropdown.styles';
-import type SlButton from '../button/button';
-import type SlIconButton from '../icon-button/icon-button';
-import type SlMenuItem from '../menu-item/menu-item';
-import type SlMenu from '../menu/menu';
-import type SlPopup from '../popup/popup';
+import type OneXButton from '../button/button';
+import type OneXIconButton from '../icon-button/icon-button';
+import type OneXMenuItem from '../menu-item/menu-item';
+import type OneXMenu from '../menu/menu';
+import type OneXPopup from '../popup/popup';
 import type { CSSResultGroup } from 'lit';
 
 /**
@@ -24,15 +24,15 @@ import type { CSSResultGroup } from 'lit';
  * @since 2.0
  * @status stable
  *
- * @dependency sl-popup
+ * @dependency onex-popup
  *
  * @slot - The dropdown's main content.
- * @slot trigger - The dropdown's trigger, usually a `<sl-button>` element.
+ * @slot trigger - The dropdown's trigger, usually a `<onex-button>` element.
  *
- * @event sl-show - Emitted when the dropdown opens.
- * @event sl-after-show - Emitted after the dropdown opens and all animations are complete.
- * @event sl-hide - Emitted when the dropdown closes.
- * @event sl-after-hide - Emitted after the dropdown closes and all animations are complete.
+ * @event onex-show - Emitted when the dropdown opens.
+ * @event onex-after-show - Emitted after the dropdown opens and all animations are complete.
+ * @event onex-hide - Emitted when the dropdown closes.
+ * @event onex-after-hide - Emitted after the dropdown closes and all animations are complete.
  *
  * @csspart base - The component's base wrapper.
  * @csspart trigger - The container that wraps the trigger.
@@ -41,11 +41,11 @@ import type { CSSResultGroup } from 'lit';
  * @animation dropdown.show - The animation to use when showing the dropdown.
  * @animation dropdown.hide - The animation to use when hiding the dropdown.
  */
-@customElement('sl-dropdown')
-export default class SlDropdown extends ShoelaceElement {
+@customElement('onex-dropdown')
+export default class OneXDropdown extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
-  @query('.dropdown') popup: SlPopup;
+  @query('.dropdown') popup: OneXPopup;
   @query('.dropdown__trigger') trigger: HTMLSlotElement;
   @query('.dropdown__panel') panel: HTMLSlotElement;
 
@@ -139,8 +139,8 @@ export default class SlDropdown extends ShoelaceElement {
   }
 
   getMenu() {
-    return this.panel.assignedElements({ flatten: true }).find(el => el.tagName.toLowerCase() === 'sl-menu') as
-      | SlMenu
+    return this.panel.assignedElements({ flatten: true }).find(el => el.tagName.toLowerCase() === 'onex-menu') as
+      | OneXMenu
       | undefined;
   }
 
@@ -158,7 +158,7 @@ export default class SlDropdown extends ShoelaceElement {
     // Handle tabbing
     if (event.key === 'Tab') {
       // Tabbing within an open menu should close the dropdown and refocus the trigger
-      if (this.open && document.activeElement?.tagName.toLowerCase() === 'sl-menu-item') {
+      if (this.open && document.activeElement?.tagName.toLowerCase() === 'onex-menu-item') {
         event.preventDefault();
         this.hide();
         this.focusOnTrigger();
@@ -194,7 +194,7 @@ export default class SlDropdown extends ShoelaceElement {
   }
 
   handleMenuItemActivate(event: CustomEvent) {
-    const item = event.target as SlMenuItem;
+    const item = event.target as OneXMenuItem;
     scrollIntoView(item, this.panel);
   }
 
@@ -202,7 +202,7 @@ export default class SlDropdown extends ShoelaceElement {
     const target = event.target as HTMLElement;
 
     // Hide the dropdown when a menu item is selected
-    if (!this.stayOpenOnSelect && target.tagName.toLowerCase() === 'sl-menu') {
+    if (!this.stayOpenOnSelect && target.tagName.toLowerCase() === 'onex-menu') {
       this.hide();
       this.focusOnTrigger();
     }
@@ -236,7 +236,7 @@ export default class SlDropdown extends ShoelaceElement {
     const menu = this.getMenu();
 
     if (menu) {
-      const menuItems = menu.defaultSlot.assignedElements({ flatten: true }) as SlMenuItem[];
+      const menuItems = menu.defaultSlot.assignedElements({ flatten: true }) as OneXMenuItem[];
       const firstMenuItem = menuItems[0];
       const lastMenuItem = menuItems[menuItems.length - 1];
 
@@ -292,7 +292,7 @@ export default class SlDropdown extends ShoelaceElement {
   // that gets slotted in) so screen readers will understand them. The accessible trigger could be the slotted element,
   // a child of the slotted element, or an element in the slotted element's shadow root.
   //
-  // For example, the accessible trigger of an <sl-button> is a <button> located inside its shadow root.
+  // For example, the accessible trigger of an <onex-button> is a <button> located inside its shadow root.
   //
   // To determine this, we assume the first tabbable element in the trigger slot is the "accessible trigger."
   //
@@ -304,9 +304,9 @@ export default class SlDropdown extends ShoelaceElement {
     if (accessibleTrigger) {
       switch (accessibleTrigger.tagName.toLowerCase()) {
         // Shoelace buttons have to update the internal button so it's announced correctly by screen readers
-        case 'sl-button':
-        case 'sl-icon-button':
-          target = (accessibleTrigger as SlButton | SlIconButton).button;
+        case 'onex-button':
+        case 'onex-icon-button':
+          target = (accessibleTrigger as OneXButton | OneXIconButton).button;
           break;
 
         default:
@@ -325,7 +325,7 @@ export default class SlDropdown extends ShoelaceElement {
     }
 
     this.open = true;
-    return waitForEvent(this, 'sl-after-show');
+    return waitForEvent(this, 'onex-after-show');
   }
 
   /** Hides the dropdown panel */
@@ -335,7 +335,7 @@ export default class SlDropdown extends ShoelaceElement {
     }
 
     this.open = false;
-    return waitForEvent(this, 'sl-after-hide');
+    return waitForEvent(this, 'onex-after-hide');
   }
 
   /**
@@ -347,8 +347,8 @@ export default class SlDropdown extends ShoelaceElement {
   }
 
   addOpenListeners() {
-    this.panel.addEventListener('sl-activate', this.handleMenuItemActivate);
-    this.panel.addEventListener('sl-select', this.handlePanelSelect);
+    this.panel.addEventListener('onex-activate', this.handleMenuItemActivate);
+    this.panel.addEventListener('onex-select', this.handlePanelSelect);
     this.panel.addEventListener('keydown', this.handleKeyDown);
     document.addEventListener('keydown', this.handleDocumentKeyDown);
     document.addEventListener('mousedown', this.handleDocumentMouseDown);
@@ -356,8 +356,8 @@ export default class SlDropdown extends ShoelaceElement {
 
   removeOpenListeners() {
     if (this.panel) {
-      this.panel.removeEventListener('sl-activate', this.handleMenuItemActivate);
-      this.panel.removeEventListener('sl-select', this.handlePanelSelect);
+      this.panel.removeEventListener('onex-activate', this.handleMenuItemActivate);
+      this.panel.removeEventListener('onex-select', this.handlePanelSelect);
       this.panel.removeEventListener('keydown', this.handleKeyDown);
     }
     document.removeEventListener('keydown', this.handleDocumentKeyDown);
@@ -375,7 +375,7 @@ export default class SlDropdown extends ShoelaceElement {
 
     if (this.open) {
       // Show
-      this.emit('sl-show');
+      this.emit('onex-show');
       this.addOpenListeners();
 
       await stopAnimations(this);
@@ -384,10 +384,10 @@ export default class SlDropdown extends ShoelaceElement {
       const { keyframes, options } = getAnimation(this, 'dropdown.show', { dir: this.localize.dir() });
       await animateTo(this.popup.popup, keyframes, options);
 
-      this.emit('sl-after-show');
+      this.emit('onex-after-show');
     } else {
       // Hide
-      this.emit('sl-hide');
+      this.emit('onex-hide');
       this.removeOpenListeners();
 
       await stopAnimations(this);
@@ -396,13 +396,13 @@ export default class SlDropdown extends ShoelaceElement {
       this.panel.hidden = true;
       this.popup.active = false;
 
-      this.emit('sl-after-hide');
+      this.emit('onex-after-hide');
     }
   }
 
   render() {
     return html`
-      <sl-popup
+      <onex-popup
         part="base"
         id="dropdown"
         placement=${this.placement}
@@ -435,7 +435,7 @@ export default class SlDropdown extends ShoelaceElement {
           aria-hidden=${this.open ? 'false' : 'true'}
           aria-labelledby="dropdown"
         ></slot>
-      </sl-popup>
+      </onex-popup>
     `;
   }
 }
@@ -458,6 +458,6 @@ setDefaultAnimation('dropdown.hide', {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-dropdown': SlDropdown;
+    'onex-dropdown': OneXDropdown;
   }
 }

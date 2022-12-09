@@ -1,13 +1,13 @@
 import { expect, fixture, html, waitUntil } from '@open-wc/testing';
 import sinon from 'sinon';
-import type SlAvatar from './avatar';
+import type OneXAvatar from './avatar';
 
-describe('<sl-avatar>', () => {
-  let el: SlAvatar;
+describe('<onex-avatar>', () => {
+  let el: OneXAvatar;
 
   describe('when provided no parameters', () => {
     before(async () => {
-      el = await fixture<SlAvatar>(html` <sl-avatar label="Avatar"></sl-avatar> `);
+      el = await fixture<OnexAvatar>(html` <onex-avatar label="Avatar"></onex-avatar> `);
     });
 
     it('should pass accessibility tests', async () => {
@@ -25,13 +25,13 @@ describe('<sl-avatar>', () => {
     const image = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
     const label = 'Small transparent square';
     before(async () => {
-      el = await fixture<SlAvatar>(html`<sl-avatar image="${image}" label="${label}"></sl-avatar>`);
+      el = await fixture<OnexAvatar>(html`<onex-avatar image="${image}" label="${label}"></onex-avatar>`);
     });
 
     it('should pass accessibility tests', async () => {
       /**
        * The image element itself is ancillary, because it's parent container contains the
-       * aria-label which dictates what "sl-avatar" is. This also implies that label text will
+       * aria-label which dictates what "onex-avatar" is. This also implies that label text will
        * resolve to "" when not provided and ignored by readers. This is why we use alt="" on
        * the image element to pass accessibility.
        * https://html.spec.whatwg.org/multipage/images.html#ancillary-images
@@ -55,7 +55,7 @@ describe('<sl-avatar>', () => {
   describe('when provided initials parameter', () => {
     const initials = 'SL';
     before(async () => {
-      el = await fixture<SlAvatar>(html`<sl-avatar initials="${initials}" label="Avatar"></sl-avatar>`);
+      el = await fixture<OnexAvatar>(html`<onex-avatar initials="${initials}" label="Avatar"></onex-avatar>`);
     });
 
     it('should pass accessibility tests', async () => {
@@ -72,7 +72,7 @@ describe('<sl-avatar>', () => {
   ['square', 'rounded', 'circle'].forEach(shape => {
     describe(`when passed a shape attribute ${shape}`, () => {
       before(async () => {
-        el = await fixture<SlAvatar>(html`<sl-avatar shape="${shape}" label="Shaped avatar"></sl-avatar>`);
+        el = await fixture<OnexAvatar>(html`<onex-avatar shape="${shape}" label="Shaped avatar"></onex-avatar>`);
       });
 
       it('should pass accessibility tests', async () => {
@@ -90,7 +90,9 @@ describe('<sl-avatar>', () => {
 
   describe('when passed a <span>, on slot "icon"', () => {
     before(async () => {
-      el = await fixture<SlAvatar>(html`<sl-avatar label="Avatar"><span slot="icon">random content</span></sl-avatar>`);
+      el = await fixture<OnexAvatar>(
+        html`<onex-avatar label="Avatar"><span slot="icon">random content</span></onex-avatar>`
+      );
     });
 
     it('should pass accessibility tests', async () => {
@@ -111,7 +113,7 @@ describe('<sl-avatar>', () => {
   it('should not render the image when the image fails to load', async () => {
     const errorHandler = sinon.spy();
 
-    el = await fixture<SlAvatar>(html`<sl-avatar></sl-avatar>`);
+    el = await fixture<OnexAvatar>(html`<onex-avatar></onex-avatar>`);
     el.addEventListener('error', errorHandler);
     el.image = 'bad_image';
     waitUntil(() => errorHandler.calledOnce);
@@ -122,7 +124,7 @@ describe('<sl-avatar>', () => {
   it('should show a valid image after being passed an invalid image initially', async () => {
     const errorHandler = sinon.spy();
 
-    el = await fixture<SlAvatar>(html`<sl-avatar></sl-avatar>`);
+    el = await fixture<OnexAvatar>(html`<onex-avatar></onex-avatar>`);
     el.addEventListener('error', errorHandler);
     el.image = 'bad_image';
     waitUntil(() => errorHandler.calledOnce);

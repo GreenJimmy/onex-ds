@@ -1,12 +1,12 @@
 import { expect, fixture, html } from '@open-wc/testing';
-import type SlBadge from './badge';
+import type OneXBadge from './badge';
 
-describe('<sl-badge>', () => {
-  let el: SlBadge;
+describe('<onex-badge>', () => {
+  let el: OneXBadge;
 
   describe('when provided no parameters', () => {
     before(async () => {
-      el = await fixture<SlBadge>(html` <sl-badge>Badge</sl-badge> `);
+      el = await fixture<OnexBadge>(html` <onex-badge>Badge</onex-badge> `);
     });
 
     it('should pass accessibility tests with a role of status on the base part.', async () => {
@@ -28,7 +28,7 @@ describe('<sl-badge>', () => {
 
   describe('when provided a pill parameter', () => {
     before(async () => {
-      el = await fixture<SlBadge>(html` <sl-badge pill>Badge</sl-badge> `);
+      el = await fixture<OnexBadge>(html` <onex-badge pill>Badge</onex-badge> `);
     });
 
     it('should pass accessibility tests', async () => {
@@ -43,7 +43,7 @@ describe('<sl-badge>', () => {
 
   describe('when provided a pulse parameter', () => {
     before(async () => {
-      el = await fixture<SlBadge>(html` <sl-badge pulse>Badge</sl-badge> `);
+      el = await fixture<OnexBadge>(html` <onex-badge pulse>Badge</onex-badge> `);
     });
 
     it('should pass accessibility tests', async () => {
@@ -59,7 +59,7 @@ describe('<sl-badge>', () => {
   ['primary', 'success', 'neutral', 'warning', 'danger'].forEach(variant => {
     describe(`when passed a variant attribute ${variant}`, () => {
       before(async () => {
-        el = await fixture<SlBadge>(html`<sl-badge variant="${variant}">Badge</sl-badge>`);
+        el = await fixture<OnexBadge>(html`<onex-badge variant="${variant}">Badge</onex-badge>`);
       });
 
       it('should pass accessibility tests', async () => {

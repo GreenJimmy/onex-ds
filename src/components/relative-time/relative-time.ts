@@ -24,8 +24,8 @@ const availableUnits: UnitConfig[] = [
  * @since 2.0
  * @status stable
  */
-@customElement('sl-relative-time')
-export default class SlRelativeTime extends ShoelaceElement {
+@customElement('onex-relative-time')
+export default class OneXRelativeTime extends ShoelaceElement {
   private readonly localize = new LocalizeController(this);
   private updateTimeout: number;
 
@@ -123,6 +123,6 @@ function getTimeUntilNextUnit(unit: 'second' | 'minute' | 'hour' | 'day') {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-relative-time': SlRelativeTime;
+    'onex-relative-time': OneXRelativeTime;
   }
 }

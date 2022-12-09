@@ -1,6 +1,6 @@
 # Skeleton
 
-[component-header:sl-skeleton]
+[component-header:onex-skeleton]
 
 These are simple containers for scaffolding layouts that mimic what users will see when content has finished loading. This prevents large areas of empty space during asynchronous operations.
 
@@ -9,13 +9,13 @@ Skeletons try not to be opinionated, as there are endless possibilities for desi
 ```html preview
 <div class="skeleton-overview">
   <header>
-    <sl-skeleton></sl-skeleton>
-    <sl-skeleton></sl-skeleton>
+    <onex-skeleton></onex-skeleton>
+    <onex-skeleton></onex-skeleton>
   </header>
 
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
 </div>
 
 <style>
@@ -25,16 +25,16 @@ Skeletons try not to be opinionated, as there are endless possibilities for desi
     margin-bottom: 1rem;
   }
 
-  .skeleton-overview header sl-skeleton:last-child {
+  .skeleton-overview header onex-skeleton:last-child {
     flex: 0 0 auto;
     width: 30%;
   }
 
-  .skeleton-overview sl-skeleton {
+  .skeleton-overview onex-skeleton {
     margin-bottom: 1rem;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(1) {
+  .skeleton-overview onex-skeleton:nth-child(1) {
     float: left;
     width: 3rem;
     height: 3rem;
@@ -42,18 +42,18 @@ Skeletons try not to be opinionated, as there are endless possibilities for desi
     vertical-align: middle;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(3) {
+  .skeleton-overview onex-skeleton:nth-child(3) {
     width: 95%;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(4) {
+  .skeleton-overview onex-skeleton:nth-child(4) {
     width: 80%;
   }
 </style>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .skeleton-overview header {
@@ -62,16 +62,16 @@ const css = `
     margin-bottom: 1rem;
   }
 
-  .skeleton-overview header sl-skeleton:last-child {
+  .skeleton-overview header onex-skeleton:last-child {
     flex: 0 0 auto;
     width: 30%;
   }
 
-  .skeleton-overview sl-skeleton {
+  .skeleton-overview onex-skeleton {
     margin-bottom: 1rem;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(1) {
+  .skeleton-overview onex-skeleton:nth-child(1) {
     float: left;
     width: 3rem;
     height: 3rem;
@@ -79,11 +79,11 @@ const css = `
     vertical-align: middle;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(3) {
+  .skeleton-overview onex-skeleton:nth-child(3) {
     width: 95%;
   }
 
-  .skeleton-overview sl-skeleton:nth-child(4) {
+  .skeleton-overview onex-skeleton:nth-child(4) {
     width: 80%;
   }
 `;
@@ -92,13 +92,13 @@ const App = () => (
   <>
     <div className="skeleton-overview">
       <header>
-        <SlSkeleton />
-        <SlSkeleton />
+        <OnexSkeleton />
+        <OnexSkeleton />
       </header>
 
-      <SlSkeleton />
-      <SlSkeleton />
-      <SlSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
     </div>
 
     <style>{css}</style>
@@ -114,36 +114,36 @@ There are two built-in effects, `sheen` and `pulse`. Effects are intentionally s
 
 ```html preview
 <div class="skeleton-effects">
-  <sl-skeleton effect="none"></sl-skeleton>
+  <onex-skeleton effect="none"></onex-skeleton>
   None
 
-  <sl-skeleton effect="sheen"></sl-skeleton>
+  <onex-skeleton effect="sheen"></onex-skeleton>
   Sheen
 
-  <sl-skeleton effect="pulse"></sl-skeleton>
+  <onex-skeleton effect="pulse"></onex-skeleton>
   Pulse
 </div>
 
 <style>
   .skeleton-effects {
-    font-size: var(--sl-font-size-small);
+    font-size: var(--onex-font-size-small);
   }
 
-  .skeleton-effects sl-skeleton:not(:first-child) {
+  .skeleton-effects onex-skeleton:not(:first-child) {
     margin-top: 1rem;
   }
 </style>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
   .skeleton-effects {
-    font-size: var(--sl-font-size-small);
+    font-size: var(--onex-font-size-small);
   }
 
-  .skeleton-effects sl-skeleton:not(:first-child) {
+  .skeleton-effects onex-skeleton:not(:first-child) {
     margin-top: 1rem;
   }
 `;
@@ -151,11 +151,11 @@ const css = `
 const App = () => (
   <>
     <div className="skeleton-effects">
-      <SlSkeleton effect="none" />
+      <OnexSkeleton effect="none" />
       None
-      <SlSkeleton effect="sheen" />
+      <OnexSkeleton effect="sheen" />
       Sheen
-      <SlSkeleton effect="pulse" />
+      <OnexSkeleton effect="pulse" />
       Pulse
     </div>
 
@@ -170,49 +170,49 @@ Use multiple skeletons and some clever styles to simulate paragraphs.
 
 ```html preview
 <div class="skeleton-paragraphs">
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
 </div>
 
 <style>
-  .skeleton-paragraphs sl-skeleton {
+  .skeleton-paragraphs onex-skeleton {
     margin-bottom: 1rem;
   }
 
-  .skeleton-paragraphs sl-skeleton:nth-child(2) {
+  .skeleton-paragraphs onex-skeleton:nth-child(2) {
     width: 95%;
   }
 
-  .skeleton-paragraphs sl-skeleton:nth-child(4) {
+  .skeleton-paragraphs onex-skeleton:nth-child(4) {
     width: 90%;
   }
 
-  .skeleton-paragraphs sl-skeleton:last-child {
+  .skeleton-paragraphs onex-skeleton:last-child {
     width: 50%;
   }
 </style>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .skeleton-paragraphs sl-skeleton {
+  .skeleton-paragraphs onex-skeleton {
     margin-bottom: 1rem;
   }
 
-  .skeleton-paragraphs sl-skeleton:nth-child(2) {
+  .skeleton-paragraphs onex-skeleton:nth-child(2) {
     width: 95%;
   }
 
-  .skeleton-paragraphs sl-skeleton:nth-child(4) {
+  .skeleton-paragraphs onex-skeleton:nth-child(4) {
     width: 90%;
   }
 
-  .skeleton-paragraphs sl-skeleton:last-child {
+  .skeleton-paragraphs onex-skeleton:last-child {
     width: 50%;
   }
 `;
@@ -220,11 +220,11 @@ const css = `
 const App = () => (
   <>
     <div className="skeleton-paragraphs">
-      <SlSkeleton />
-      <SlSkeleton />
-      <SlSkeleton />
-      <SlSkeleton />
-      <SlSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
     </div>
 
     <style>{css}</style>
@@ -238,55 +238,55 @@ Set a matching width and height to make a circle, square, or rounded avatar skel
 
 ```html preview
 <div class="skeleton-avatars">
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
-  <sl-skeleton></sl-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
+  <onex-skeleton></onex-skeleton>
 </div>
 
 <style>
-  .skeleton-avatars sl-skeleton {
+  .skeleton-avatars onex-skeleton {
     display: inline-block;
     width: 3rem;
     height: 3rem;
     margin-right: 0.5rem;
   }
 
-  .skeleton-avatars sl-skeleton:nth-child(1) {
+  .skeleton-avatars onex-skeleton:nth-child(1) {
     --border-radius: 0;
   }
 
-  .skeleton-avatars sl-skeleton:nth-child(2) {
-    --border-radius: var(--sl-border-radius-medium);
+  .skeleton-avatars onex-skeleton:nth-child(2) {
+    --border-radius: var(--onex-border-radius-medium);
   }
 </style>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .skeleton-avatars sl-skeleton {
+  .skeleton-avatars onex-skeleton {
     display: inline-block;
     width: 3rem;
     height: 3rem;
     margin-right: .5rem;
   }
 
-  .skeleton-avatars sl-skeleton:nth-child(1) {
+  .skeleton-avatars onex-skeleton:nth-child(1) {
     --border-radius: 0;
   }
   
-  .skeleton-avatars sl-skeleton:nth-child(2) {
-    --border-radius: var(--sl-border-radius-medium);
+  .skeleton-avatars onex-skeleton:nth-child(2) {
+    --border-radius: var(--onex-border-radius-medium);
   }
 `;
 
 const App = () => (
   <>
     <div className="skeleton-avatars">
-      <SlSkeleton />
-      <SlSkeleton />
-      <SlSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
+      <OnexSkeleton />
     </div>
 
     <style>{css}</style>
@@ -300,26 +300,26 @@ Use the `--border-radius` custom property to make circles, squares, and rectangl
 
 ```html preview
 <div class="skeleton-shapes">
-  <sl-skeleton class="square"></sl-skeleton>
-  <sl-skeleton class="circle"></sl-skeleton>
-  <sl-skeleton class="triangle"></sl-skeleton>
-  <sl-skeleton class="cross"></sl-skeleton>
-  <sl-skeleton class="comment"></sl-skeleton>
+  <onex-skeleton class="square"></onex-skeleton>
+  <onex-skeleton class="circle"></onex-skeleton>
+  <onex-skeleton class="triangle"></onex-skeleton>
+  <onex-skeleton class="cross"></onex-skeleton>
+  <onex-skeleton class="comment"></onex-skeleton>
 </div>
 
 <style>
-  .skeleton-shapes sl-skeleton {
+  .skeleton-shapes onex-skeleton {
     display: inline-flex;
     width: 50px;
     height: 50px;
   }
 
   .skeleton-shapes .square::part(indicator) {
-    --border-radius: var(--sl-border-radius-medium);
+    --border-radius: var(--onex-border-radius-medium);
   }
 
   .skeleton-shapes .circle::part(indicator) {
-    --border-radius: var(--sl-border-radius-circle);
+    --border-radius: var(--onex-border-radius-circle);
   }
 
   .skeleton-shapes .triangle::part(indicator) {
@@ -350,28 +350,28 @@ Use the `--border-radius` custom property to make circles, squares, and rectangl
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   }
 
-  .skeleton-shapes sl-skeleton:not(:last-child) {
+  .skeleton-shapes onex-skeleton:not(:last-child) {
     margin-right: 0.5rem;
   }
 </style>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .skeleton-shapes sl-skeleton {
+  .skeleton-shapes onex-skeleton {
     display: inline-flex;
     width: 50px;
     height: 50px;
   }
 
   .skeleton-shapes .square::part(indicator) {
-    --border-radius: var(--sl-border-radius-medium);
+    --border-radius: var(--onex-border-radius-medium);
   }
 
   .skeleton-shapes .circle::part(indicator) {
-    --border-radius: var(--sl-border-radius-circle);
+    --border-radius: var(--onex-border-radius-circle);
   }
 
   .skeleton-shapes .triangle::part(indicator) {
@@ -389,7 +389,7 @@ const css = `
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   }
 
-  .skeleton-shapes sl-skeleton:not(:last-child) {
+  .skeleton-shapes onex-skeleton:not(:last-child) {
     margin-right: .5rem;
   }
 `;
@@ -397,11 +397,11 @@ const css = `
 const App = () => (
   <>
     <div className="skeleton-shapes">
-      <SlSkeleton className="square" />
-      <SlSkeleton className="circle" />
-      <SlSkeleton className="triangle" />
-      <SlSkeleton className="cross" />
-      <SlSkeleton className="comment" />
+      <OnexSkeleton className="square" />
+      <OnexSkeleton className="circle" />
+      <OnexSkeleton className="triangle" />
+      <OnexSkeleton className="cross" />
+      <OnexSkeleton className="comment" />
     </div>
 
     <style>{css}</style>
@@ -414,30 +414,30 @@ const App = () => (
 Set the `--color` and `--sheen-color` custom properties to adjust the skeleton's color.
 
 ```html preview
-<sl-skeleton effect="sheen" style="--color: tomato; --sheen-color: #ffb094;"></sl-skeleton>
+<onex-skeleton effect="sheen" style="--color: tomato; --sheen-color: #ffb094;"></onex-skeleton>
 ```
 
 ```jsx react
-import { SlSkeleton } from '@shoelace-style/shoelace/dist/react';
+import { OneXSkeleton } from '@shoelace-style/shoelace/dist/react';
 
 const css = `
-  .skeleton-avatars sl-skeleton {
+  .skeleton-avatars onex-skeleton {
     display: inline-block;
     width: 3rem;
     height: 3rem;
     margin-right: .5rem;
   }
 
-  .skeleton-avatars sl-skeleton:nth-child(1) {
+  .skeleton-avatars onex-skeleton:nth-child(1) {
     --border-radius: 0;
   }
   
-  .skeleton-avatars sl-skeleton:nth-child(2) {
-    --border-radius: var(--sl-border-radius-medium);
+  .skeleton-avatars onex-skeleton:nth-child(2) {
+    --border-radius: var(--onex-border-radius-medium);
   }
 `;
 
-const App = () => <SlSkeleton effect="sheen" style={{ '--color': 'tomato', '--sheen-color': '#ffb094' }} />;
+const App = () => <OnexSkeleton effect="sheen" style={{ '--color': 'tomato', '--sheen-color': '#ffb094' }} />;
 ```
 
-[component-metadata:sl-skeleton]
+[component-metadata:onex-skeleton]
